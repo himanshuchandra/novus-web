@@ -1,0 +1,48 @@
+<div ng-hide="UsernameForm">
+    <form name="usernameForm" ng-submit="submitUsernameForm(usernameForm)" novalidate>
+
+<h5>New Username</h5>
+    <input type="text" name="newusername" ng-model="profile.newUsername" ng-keyup="checkUsername(usernameForm)" pattern="[a-zA-Z0-9_.]{5,20}" required/>
+    
+    <span  ng-show="usernameForm.newusername.$touched &&
+     usernameForm.newusername.$error.pattern &&
+      !usernameForm.newusername.$error.required">
+      Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
+      
+    <span  ng-show="usernameForm.newusername.$touched &&
+     usernameForm.newusername.$error.required">Cannot be left empty </span>
+     
+    <span  ng-show="submitted && !usernameForm.newusername.$touched &&
+     usernameForm.newusername.$error.required">
+        Cannot be left empty </span>
+        
+    <span  ng-show="submitted && !usernameForm.newusername.$touched &&
+     usernameForm.newusername.$error.pattern">
+     Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
+     
+     <h5>pass</h5>
+    <input type="text" name="pass" ng-model="profile.pass" ng-keyup="checkUsername(usernameForm)" pattern="[a-zA-Z0-9_.]{5,20}" required/>
+    
+    <span  ng-show="usernameForm.pass.$touched &&
+     usernameForm.pass.$error.pattern &&
+      !usernameForm.pass.$error.required">
+      Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
+      
+    <span  ng-show="usernameForm.pass.$touched &&
+     usernameForm.pass.$error.required">Cannot be left empty </span>
+     
+    <span  ng-show="submitted && !usernameForm.pass.$touched &&
+     usernameForm.pass.$error.required">
+        Cannot be left empty </span>
+        
+    <span  ng-show="submitted && !usernameForm.pass.$touched &&
+     usernameForm.pass.$error.pattern">
+     Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
+
+<input type="submit" ng-click="UsernameSubmitted=true;" value="Save">
+</form>
+{{UsernameMessage}}
+{{UsernameResult}}
+
+</div>
+<input type="button" ng-hide="toggleButton" ng-click="toggleUsernameForm()" value={{EditUsername}} />

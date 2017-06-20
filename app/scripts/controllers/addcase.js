@@ -8,9 +8,18 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('AddcaseCtrl', function ($scope) {
+  .controller('AddcaseCtrl', function ($scope,addcase) {
     
+    $scope.addcase={
+        hcstate:""
+    }
+
+$scope.loadOptions= function(){
+    var obj  = {
+        option: $scope.addcase.hcState , 
+        
+    };
+};
 
 
-
-  });
+});

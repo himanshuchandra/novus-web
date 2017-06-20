@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('DashboardCtrl', function ($scope) {
+  .controller('DashboardCtrl', function ($scope,dashboard) {
     
 
 
