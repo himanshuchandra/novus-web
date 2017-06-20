@@ -8,7 +8,7 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('addcase', function ($http,$q) {
+  .factory('addcase', function () {
 
     var object={
 //        loadOptions:function(obj){

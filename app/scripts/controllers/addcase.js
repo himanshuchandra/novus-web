@@ -10,16 +10,19 @@
 angular.module('novusApp')
   .controller('AddcaseCtrl', function ($scope,addcase) {
     
-    $scope.addcase={
-        hcstate:""
-    }
-
-$scope.loadOptions= function(){
-    var obj  = {
-        option: $scope.addcase.hcState , 
-        
+    $scope.showField(){
+        $scope.SupremeCourtForm=false;
     };
-};
+//    $scope.addcase={
+//        hcstate:""
+//    }
+//
+//$scope.loadOptions= function(){
+//    var obj  = {
+//        option: $scope.addcase.hcState , 
+//        
+//    };
+//};
 
 
 });
