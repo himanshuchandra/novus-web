@@ -1,9 +1,30 @@
 
    <h1>Register</h1>
-   
-   <form name="regForm"  ng-submit="submitForm(regForm)" novalidate>
+
+
+   <div ng-hide="MobileForm">
+    <div ng-hide="HideMobileForm" >
+        <form name="mobileForm" ng-submit="submitMobileForm(mobileForm)" novalidate>
+           
+            <input type="tel" ng-model="profile.newMobile" name="validMobile" placeholder="Mobile number" pattern="[0-9]{10}" required/>
+            <span  ng-show="mobileForm.validMobile.$touched &&
+            mobileForm.validMobile.$error.pattern &&
+            !mobileForm.validMobile.$error.required">
+            Invalid Mobile number(Should be 10 digits only 0-9 allowed)</span>
+            <span  ng-show="mobileForm.validMobile.$touched &&
+            mobileForm.validMobile.$error.required">Cannot be left empty </span>
+            <span  ng-show="MobileSubmitted && !mobileForm.validMobile.$touched &&
+            mobileForm.validMobile.$error.required">
+                Cannot be left empty </span>
+            <span  ng-show="MobileSubmitted && !mobileForm.validMobile.$touched &&
+            mobileForm.validMobile.$error.pattern">
+            Invalid Mobile number(Should be 10 digits only 0-9 allowed) </span>
+            <br>
+                {{MobileMessage}}
+
+                 <form name="regForm"  ng-submit="submitForm(regForm)" novalidate>
     
-    <input type="email" name="validemail" ng-model="signup.useremail" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
+    <!--<input type="email" name="validemail" ng-model="signup.useremail" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
     <span  ng-show="regForm.validemail.$touched && regForm.validemail.$invalid &&
      !regForm.validemail.$error.required">Invalid email </span>
     <span  ng-show="regForm.validemail.$touched && regForm.validemail.$error.required">
@@ -29,7 +50,7 @@
     <span  ng-show="submitted && !regForm.validusername.$touched &&
      regForm.validusername.$error.pattern">
      Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
-    {{UsernameMessage}}
+    {{UsernameMessage}}-->
 
 
     <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password1" name="validpass1" 
@@ -51,8 +72,45 @@
     
     <input type="submit" ng-click="submitted=true;"
      value="Register" ng-disabled="isNotValid">
-       
+
+    </form>
+
+
+
+
+
+            <input type="submit" ng-click="MobileSubmitted=true;" value="Register">
         </form>
+
+    </div>
+   
+    <div ng-hide=HideCodeForm>
+        <form name="codeForm" ng-submit="submitCode(codeForm)" novalidate>
+            <h5>Enter 6 digit verification code from your mobile that we just sent you</h5>
+            <input type="text" ng-model="profile.VCode" name="vCode" pattern="[a-z0-9A-Z]{6}" required/>
+            <span  ng-show="codeForm.vCode.$touched &&
+            codeForm.vCode.$error.pattern &&
+            !codeForm.vCode.$error.required">
+            Invalid Code Format</span>
+            <!--<span  ng-show="codeForm.vCode.$touched &&
+            codeForm.vCode.$error.required">Cannot be left empty </span>-->
+            <!--<span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
+            codeForm.vCode.$error.required">
+                Cannot be left empty </span>-->
+            <span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
+            codeForm.vCode.$error.pattern">
+            Invalid code Format</span>
+            <br>
+                {{CodeMessage}}
+
+            <input type="submit" ng-click="CodeSubmitted=true;" value="Verify">
+            <input type="button" ng-click="SendAgain()" value="Send Again">
+        </form>         
+        
+    </div>
+</div>
+   
+  
     {{result}}
     
 

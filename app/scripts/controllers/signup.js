@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('SignupCtrl',function ($scope,signup,webindex,$window,md5,requrl) {
+  .controller('SignupCtrl',function ($scope,signup,webindex,$window,md5,requrl,profile) {
 
     if(webindex.userData.useremail!=undefined){
         $window.location.assign(requrl);
@@ -19,7 +19,9 @@ angular.module('novusApp')
         useremail:"",
         username:"",
         password1:"",
-        password2:""
+        password2:"",
+        newMobile:"",
+        VCode:"",
     };
    
 ////////////Checking if username exists//////////////
@@ -139,5 +141,97 @@ angular.module('novusApp')
         },function(error){
             $scope.result = "Error occured! Try again later";
         });
-    }
+    };
+
+    $scope.MobileForm=false;
+    $scope.HideMobileForm=false;
+    $scope.HideCodeForm=true;
+
+    $scope.submitMobileForm=function(mobileForm){
+        if(mobileForm.$valid){
+            $scope.MobileMessage="Sending..";
+            $scope.ChangeMobile();
+        }
+        else{
+          $scope.MobileMessage="Enter valid details";
+        }
+    };
+
+    $scope.ChangeMobile=function(){
+  
+        var MobileObject={
+          "MobileNumber":$scope.signup.newMobile,
+        };
+
+        var promise=profile.updateMobile(MobileObject);
+        promise.then(function(data) {
+          if(data.data.message==="unknown"){
+            // $window.location.reload();
+            $scope.HideMobileForm=true;
+            $scope.HideCodeForm=false;
+          }
+          else if(data.data.message==="success"){
+            $scope.HideMobileForm=true;
+            $scope.HideCodeForm=false;
+          }
+          else{
+            $scope.MobileMessage="Error! Try again later";
+          }
+        },function(error) {
+            $scope.MobileMessage="Error! Try again later";
+        });    
+    };
+
+    $scope.submitCode=function(codeForm){
+      if(codeForm.$valid){
+        $scope.CodeMessage="Checking Code..";
+        $scope.VerifyCode();          
+      }
+      else{
+        $scope.CodeMessage="Enter valid code";
+      }
+    };
+
+    $scope.VerifyCode=function(){
+        var CodeObject={
+          "VCode":$scope.signup.VCode,
+        };
+
+        var promise=profile.verifyCode(CodeObject);
+        promise.then(function(data) {
+          if(data.data.message==="pass"){
+            $scope.CodeMessage="Verified";
+            
+          }
+          else if(data.data.message==="fail"){
+            $scope.CodeMessage="Wrong Code entered";
+          }
+          else if(data.data.message==="unknown"){
+            $scope.CodeMessage="Not LoggedIn";
+            $window.location.reload();
+          }
+          else if(data.data.message==="exists"){
+            $scope.CodeMessage=undefined;
+            $scope.HideMobileForm=false;
+            $scope.HideCodeForm=true;
+            $scope.signup.VCode=undefined;
+            $scope.MobileMessage="Mobile no. is already registered! Try another one";
+          }
+          else{
+            $scope.CodeMessage="Error! Try again later";
+          }
+        },function(error) {
+            $scope.CodeMessage="Error! Try again later";
+        });    
+    };
+
+    $scope.SendAgain=function(){
+        $scope.signup.VCode=null;
+        $scope.CodeMessage=undefined;
+        $scope.MobileMessage=undefined;
+        $scope.HideMobileForm=false;
+        $scope.HideCodeForm=true;
+    };
+
+
   });

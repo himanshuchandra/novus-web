@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name novusApp.controller:MainCtrl
+ * @name novusApp.controller:DashboardCtrl
  * @description
- * # MainCtrl
+ * # DashboardCtrl
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('MainCtrl', function ($scope) {
-
+  .controller('DashboardCtrl', function ($scope) {
     
+
+
   });

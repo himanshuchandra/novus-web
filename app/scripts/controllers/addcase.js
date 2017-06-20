@@ -2,13 +2,15 @@
 
 /**
  * @ngdoc function
- * @name novusApp.controller:MainCtrl
+ * @name novusApp.controller:AddcaseCtrl
  * @description
- * # MainCtrl
+ * # AddcaseCtrl
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('MainCtrl', function ($scope) {
-
+  .controller('AddcaseCtrl', function ($scope) {
     
+
+
+
   });
