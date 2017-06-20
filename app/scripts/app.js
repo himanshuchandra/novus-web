@@ -57,6 +57,16 @@ angular
         controller: 'ForgotpasswordCtrl',
         controllerAs: 'forgotpassword'
       })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl',
+        controllerAs: 'dashboard'
+      })
+      .when('/addcase', {
+        templateUrl: 'views/addcase.html',
+        controller: 'AddcaseCtrl',
+        controllerAs: 'addcase'
+      })
       .otherwise({
         redirectTo: '/'
       });
