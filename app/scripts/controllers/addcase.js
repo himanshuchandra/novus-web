@@ -10,9 +10,9 @@
 angular.module('novusApp')
   .controller('AddcaseCtrl', function ($scope,addcase) {
     
-    $scope.showField(){
-        $scope.SupremeCourtForm=false;
-    };
+  $scope.showField(){
+      $scope.UsernameForm=true;
+  }
 //    $scope.addcase={
 //        hcstate:""
 //    }
