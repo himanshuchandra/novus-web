@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:MainCtrl
+ * @name novusApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('MainCtrl', function ($scope) {
   });

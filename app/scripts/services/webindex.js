@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name webskeletonApp.webindex
+ * @name novusApp.webindex
  * @description
  * # webindex
- * Factory in the webskeletonApp.
+ * Factory in the novusApp.
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .factory('webindex', function ($http,$q,requrl) {
       
       var object = {

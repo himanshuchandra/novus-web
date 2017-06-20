@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:WebindexCtrl
+ * @name novusApp.controller:WebindexCtrl
  * @description
  * # WebindexCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('WebindexCtrl', function ($scope,webindex,requrl,$window,$timeout) {
 
     $scope.loading_screen = pleaseWait({

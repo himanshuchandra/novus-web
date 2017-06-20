@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name webskeletonApp.login
+ * @name novusApp.login
  * @description
  * # login
- * Factory in the webskeletonApp.
+ * Factory in the novusApp.
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .factory('login', function ($http,$q,requrl) {
 
     var object = {

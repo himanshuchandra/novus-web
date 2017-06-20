@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:LoginCtrl
+ * @name novusApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('LoginCtrl', function ($scope,login,webindex,$window,requrl,md5) {
 
     if(webindex.userData.useremail!=undefined){

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:EmailactivateCtrl
+ * @name novusApp.controller:EmailactivateCtrl
  * @description
  * # EmailactivateCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('EmailactivateCtrl', function ($scope,$location,emailactivate,$window,requrl) {
     
     $scope.result="Activating your Email";

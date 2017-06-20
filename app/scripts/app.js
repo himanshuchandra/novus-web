@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name webskeletonApp
+ * @name novusApp
  * @description
- * # webskeletonApp
+ * # novusApp
  *
  * Main module of the application.
  */
 angular
-  .module('webskeletonApp', [
+  .module('novusApp', [
     'ngAnimate',
     'ngCookies',
     'ngRoute',

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:AboutCtrl
+ * @name novusApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

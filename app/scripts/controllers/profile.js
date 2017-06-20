@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:ProfileCtrl
+ * @name novusApp.controller:ProfileCtrl
  * @description
  * # ProfileCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('ProfileCtrl', function ($scope,$window,webindex,profile,md5,requrl,$route,Upload) {
 
     //all ng-models declared

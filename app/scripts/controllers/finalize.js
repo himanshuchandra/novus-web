@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:FinalizeCtrl
+ * @name novusApp.controller:FinalizeCtrl
  * @description
  * # FinalizeCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('FinalizeCtrl', function ($timeout,$scope) {
   $scope.loading_screen.finish();
 });

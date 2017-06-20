@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name webskeletonApp.forgotpassword
+ * @name novusApp.forgotpassword
  * @description
  * # forgotpassword
- * Factory in the webskeletonApp.
+ * Factory in the novusApp.
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .factory('forgotpassword', function ($http,$q,requrl) {
       
       var object= {

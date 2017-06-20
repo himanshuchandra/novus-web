@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name webskeletonApp.emailactivate
+ * @name novusApp.emailactivate
  * @description
  * # emailactivate
- * Factory in the webskeletonApp.
+ * Factory in the novusApp.
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .factory('emailactivate', function ($http,$q,requrl) {
 
     var object = {

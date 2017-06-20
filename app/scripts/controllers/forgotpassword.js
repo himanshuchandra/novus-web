@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webskeletonApp.controller:ForgotpasswordCtrl
+ * @name novusApp.controller:ForgotpasswordCtrl
  * @description
  * # ForgotpasswordCtrl
- * Controller of the webskeletonApp
+ * Controller of the novusApp
  */
-angular.module('webskeletonApp')
+angular.module('novusApp')
   .controller('ForgotpasswordCtrl', function ($scope,forgotpassword,$location,requrl,md5) {
 
     //all ng-models declared
