@@ -11,28 +11,27 @@
 
 
 
-<div ng-hide="UsernameForm">
-    <form name="usernameForm" ng-submit="submitUsernameForm(usernameForm)" novalidate>
+<div ng-hide="supremeFormHide">
+    <form name="supremeForm" ng-submit="submitSupremeForm(supremeForm)" novalidate>
 
-<h5>New Username</h5>
-    <input type="text" name="newusername" ng-model="profile.newUsername" ng-keyup="checkUsername(usernameForm)" pattern="[a-zA-Z0-9_.]{5,20}" required/>
-    <span  ng-show="usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.pattern &&
-      !usernameForm.newusername.$error.required">
-      Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
-    <span  ng-show="usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.required">Cannot be left empty </span>
-    <span  ng-show="submitted && !usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.required">
+<h5>Supreme Court Form</h5>
+    <input type="number" name="year" ng-model="addCase.year" pattern="[0-9]{4}" required/>
+    <span  ng-show="supremeForm.year.$touched &&
+     supremeForm.year.$error.pattern &&
+      !supremeForm.year.$error.required">
+      Invalid year(Only 0-9 and 4 chars allowed,without any spaces) </span>
+    <span  ng-show="supremeForm.year.$touched &&
+     supremeForm.year.$error.required">Cannot be left empty </span>
+    <span  ng-show="submitted && !supremeForm.year.$touched &&
+     supremeForm.year.$error.required">
         Cannot be left empty </span>
-    <span  ng-show="submitted && !usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.pattern">
-     Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
+    <span  ng-show="submitted && !supremeForm.year.$touched &&
+     supremeForm.year.$error.pattern">
+     Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
 
-<input type="submit" ng-disabled="disableButton" ng-click="UsernameSubmitted=true;" value="Save">
+<input type="submit" ng-click="supremeSubmitted=true;" value="Search">
 </form>
-{{UsernameMessage}}
-{{UsernameResult}}
+{{supremeMessage}}
 
 </div>
-<input type="button" ng-hide="toggleButton" ng-click="toggleUsernameForm()" value={{EditUsername}} />
+<!--<input type="button" ng-hide="toggleButton" ng-click="togglesupremeForm()" value={{Editsupreme}} />-->

@@ -10,9 +10,32 @@
 angular.module('novusApp')
   .controller('AddcaseCtrl', function ($scope,addcase) {
     
-  $scope.showField(){
-      $scope.UsernameForm=true;
-  }
+    $scope.addCase={
+        year:"",
+    };
+
+    $scope.supremeFormHide=true;
+
+    $scope.showField=function(){
+        $scope.supremeFormHide=false;
+    };
+
+    $scope.submitSupremeForm=function(supremeForm){
+        if(supremeForm.$valid){
+            $scope.supremeMessage="Searching...";
+            $scope.sendSupremeData();
+        }
+        else{
+            $scope.supremeMessage="Invalid info entered";
+        }
+    };
+
+    $scope.sendSupremeData=function(){
+        var supremeObject={
+            year:$scope.addCase.year,
+        };
+    };
+
 //    $scope.addcase={
 //        hcstate:""
 //    }
