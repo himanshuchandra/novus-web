@@ -9,9 +9,7 @@
  */
 angular.module('novusApp')
   .controller('AddcaseCtrl', function ($scope,addcase) {
-    var Sobj;
-    var Hobj;
-    var Dobj;
+   var obj;
     $scope.addCase={
         year:"",
         Dnumber:"",
@@ -32,9 +30,14 @@ angular.module('novusApp')
     $scope.supremeFormHide=true;
     $scope.highFormHide=true;
     $scope.districtFormHide=true;
-
+        
+    $scope.showFields = function(){
+        var formfield = this.getAttribute("data-form");
+        console.log(formfield);
+    }
+    
     $scope.showSCField=function(){
-       
+        
         $scope.supremeFormHide=false;
            $scope.highFormHide=true;
         $scope.districtFormHide=true;
@@ -54,10 +57,11 @@ angular.module('novusApp')
     
     
     $scope.submitSupremeForm=function(supremeForm){
+       
         if(supremeForm.$valid){
             $scope.supremeMessage="Searching...";
 //            $scope.sendSupremeData();
-            Sobj={
+            obj={
                 diarynumber:$scope.addCase.Dnumber,
                 year:$scope.addCase.year
             };
@@ -71,7 +75,7 @@ angular.module('novusApp')
         if(districtForm.$valid){
             $scope.districtMessage="Searching...";
 //            $scope.sendSupremeData();
-            Dobj={
+            obj={
                 state:$scope.addCase.Dstate,
                 court:$scope.addCase.court,
                 type:$scope.addCase.dctype,
@@ -87,7 +91,7 @@ angular.module('novusApp')
         if(highForm.$valid){
             $scope.highMessage="Searching...";
 //            $scope.sendHighData();
-            Hobj={
+            obj={
                 state:$scope.addCase.state,
                 type:$scope.addCase.ctype,
                 number:$scope.addCase.HCnumber,
