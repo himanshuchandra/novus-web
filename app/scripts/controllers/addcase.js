@@ -16,22 +16,87 @@ angular.module('novusApp')
         HCcaseyear:"",
         HCnumber:"",
         state:"",
-        Dstate:"delhi",
+        Dstate:"",
         DCnumber:"",
         DCcaseyear:"",
        
     };
-    $scope.ctype = ["Emil", "Tobias", "Linus"];
-    $scope.court = ["abc","xyz","xyz(east)"];
-    $scope.dctype = ["legal","martial","criminal"];
+    $scope.ctype = [];
+    $scope.court = [];
+    $scope.dctype = [];
     $scope.supremeFormHide=true;
     $scope.highFormHide=true;
     $scope.districtFormHide=true;
-        
+
+    $scope.loadHCoptions=function(){
+
+        var promise=addcase.loadHCoptions(obj);
+        promise.then(function(data) {
+            $scope.ctype=data.data[0].caseType;
+        //   if(data.data.message==="unknown"){
+        //     // $window.location.reload();
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else if(data.data.message==="success"){
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else{
+        //     $scope.MobileMessage="Error! Try again later";
+        //   }
+        },function(error) {
+            $scope.highMessage="Error loading options!";
+        }); 
+    };
+
+    $scope.loadDCoptions1=function(){
+        var promise=addcase.loadDCoptions1();
+        promise.then(function(data) {
+            console.log(data);
+            $scope.court=data.data[1].caseType;
+        //   if(data.data.message==="unknown"){
+        //     // $window.location.reload();
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else if(data.data.message==="success"){
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else{
+        //     $scope.MobileMessage="Error! Try again later";
+        //   }
+        },function(error) {
+            $scope.highMessage="Error loading options!";
+        }); 
+    };
+
+    $scope.loadDCoptions2=function(){
+        var promise=addcase.loadDCoptions2();
+        promise.then(function(data) {
+            $scope.dctype=data.data[2].caseType;
+        //   if(data.data.message==="unknown"){
+        //     // $window.location.reload();
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else if(data.data.message==="success"){
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else{
+        //     $scope.MobileMessage="Error! Try again later";
+        //   }
+        },function(error) {
+            $scope.highMessage="Error loading options!";
+        }); 
+    };
+
     $scope.showFields = function(){
         var formfield = this.getAttribute("data-form");
         console.log(formfield);
-    }
+    };
     
     $scope.showSCField=function(){
         
@@ -50,28 +115,49 @@ angular.module('novusApp')
         $scope.supremeFormHide=true;
            $scope.highFormHide=true;
            $scope.districtFormHide=false;
-    }
+    };
     
     
     $scope.submitSupremeForm=function(supremeForm){
        
         if(supremeForm.$valid){
             $scope.supremeMessage="Searching...";
-//            $scope.sendSupremeData();
+
             obj={
                 diarynumber:$scope.addCase.Dnumber,
                 year:$scope.addCase.year
             };
+            $scope.sendSupremeData(obj);
         }
         else{
-            $scope.supremeMessage="Invalid info entered";
+            $scope.supremeMessage="Invalid/Incomplete info entered";
         }
+    };
+
+    $scope.sendSupremeData=function(obj){
+        var promise=addcase.sendSupremeData(obj);
+        promise.then(function(data) {
+        //   if(data.data.message==="unknown"){
+        //     // $window.location.reload();
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else if(data.data.message==="success"){
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else{
+        //     $scope.MobileMessage="Error! Try again later";
+        //   }
+        },function(error) {
+            // $scope.MobileMessage="Error! Try again later";
+        }); 
     };
     
      $scope.submitDistrictForm=function(districtForm){
-        if(districtForm.$valid){
+        if(districtForm.$valid && districtForm.state!=undefined && districtForm.ctype!=undefined && districtForm.dctype!=undefined){
             $scope.districtMessage="Searching...";
-//            $scope.sendSupremeData();
+
             obj={
                 state:$scope.addCase.Dstate,
                 court:$scope.addCase.court,
@@ -79,25 +165,70 @@ angular.module('novusApp')
                 number:$scope.addCase.DCnumber,
                 year:$scope.addCase.DCcaseyear
             };
+            $scope.sendDistrictData(obj);
         }
         else{
-            $scope.districtMessage="Invalid info entered";
+            $scope.districtMessage="Invalid/Incomplete info entered";
         }
     };
+
+    $scope.sendDistrictData=function(obj){
+        var promise=addcase.sendDistrictData(obj);
+        promise.then(function(data) {
+        //   if(data.data.message==="unknown"){
+        //     // $window.location.reload();
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else if(data.data.message==="success"){
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else{
+        //     $scope.MobileMessage="Error! Try again later";
+        //   }
+        },function(error) {
+            // $scope.MobileMessage="Error! Try again later";
+        }); 
+    };
+
+
     $scope.submitHighForm=function(highForm){
-        if(highForm.$valid){
+        if(highForm.$valid && highForm.state!=undefined && highForm.ctype!=undefined ){
             $scope.highMessage="Searching...";
-//            $scope.sendHighData();
+
             obj={
                 state:$scope.addCase.state,
                 type:$scope.addCase.ctype,
                 number:$scope.addCase.HCnumber,
                 year:$scope.addCase.HCcaseyear
             };
+
+            $scope.sendHighData(obj);
         }
         else{
-            $scope.highMessage="Invalid info entered";
+            $scope.highMessage="Invalid/Incomplete info entered";
         }
+    };
+
+    $scope.sendHighData=function(obj){
+        var promise=addcase.sendHighData(obj);
+        promise.then(function(data) {
+        //   if(data.data.message==="unknown"){
+        //     // $window.location.reload();
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else if(data.data.message==="success"){
+        //     $scope.HideMobileForm=true;
+        //     $scope.HideCodeForm=false;
+        //   }
+        //   else{
+        //     $scope.MobileMessage="Error! Try again later";
+        //   }
+        },function(error) {
+            // $scope.MobileMessage="Error! Try again later";
+        });    
     };
     
 //    $scope.yes = ()=>{

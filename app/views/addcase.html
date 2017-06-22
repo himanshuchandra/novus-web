@@ -30,7 +30,7 @@
     <span  ng-show="submitted && !supremeForm.Dnumber.$touched &&
      supremeForm.Dnumber.$error.pattern">
      Invalid diary number(Only 0-9 and 5 chars allowed,without any spaces)  </span>
-<!--    validation for Diary number to be included-->
+
    <br>
     <label for="year">Year:</label>
     <input type="number" name="year" ng-model="addCase.year" pattern="[0-9]{4}" required/>
@@ -60,12 +60,12 @@
     <form name="highForm" id="highcourtform" ng-submit="submitHighForm(highForm)" novalidate>
 
 <h5>High Court Form</h5>
-   <select name="state" id="state" ng-model="addCase.state" >
+   <select name="state" id="state" ng-model="addCase.state" ng-change="loadHCoptions();" required>
         <option value="delhi">Delhi</option>
         <option value="punjab">Punjab</option>
     </select>
     <br>
-    <select ng-model="addCase.ctype" ng-options="x for x in ctype">
+    <select name="ctype" ng-model="addCase.ctype" ng-options="x for x in ctype" required>
     </select>
     
     <br>
@@ -83,7 +83,7 @@
     <span  ng-show="submitted && !highForm.Cnumber.$touched &&
      highForm.Cnumber.$error.pattern">
      Invalid case number(Only 0-9 and 4 chars allowed,without any spaces)  </span>
-<!--    validation for Case number to be included-->
+
    <br>
     <label for="year">Year:</label>
     <input type="number" name="year" ng-model="addCase.HCcaseyear" pattern="[0-9]{4}" required/>
@@ -116,14 +116,14 @@
     <form name="districtForm" id="districtcourtform" ng-submit="submitDistrictForm(districtForm)" novalidate>
 
 <h5>District Court Form</h5>
-   <select name="state" id="state" ng-model="addCase.Dstate" >
+   <select name="state" id="state" ng-model="addCase.Dstate" ng-change="loadDCoptions1();" required>
         <option value="delhi">Delhi</option>
     </select>
     <br>
-    <select ng-model="addCase.court" ng-options="x for x in court" required>
+    <select name="ctype" ng-model="addCase.court" ng-options="x for x in court" ng-change="loadDCoptions2();" required>
     </select>
     <br>
-    <select ng-model="addCase.dctype" ng-options="x for x in dctype" required>
+    <select name="dctype" ng-model="addCase.dctype" ng-options="x for x in dctype" required>
     </select>
     
     <br>
@@ -142,7 +142,6 @@
      districtForm.Cnumber.$error.pattern">
      Invalid case number(Only 0-9 and 4 chars allowed,without any spaces)  </span>
     
-<!--    validation for Case number to be included-->
    <br>
     <label for="year">Year:</label>
     <input type="number" name="year" ng-model="addCase.DCcaseyear" pattern="[0-9]{4}" required/>

@@ -1,0 +1,11 @@
+[
+    {
+        "caseType":[ "Ford", "BMW", "Fiat" ]   
+    },
+    {
+        "caseType":["abc","xyz","xyz(east)"]
+    },
+    {
+        "caseType":["legal","martial","criminal"]
+    }
+]
