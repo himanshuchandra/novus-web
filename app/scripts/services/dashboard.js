@@ -8,9 +8,21 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('dashboard', function () {
+  .factory('dashboard', function ($http,$q) {
     
     var object={
+
+      loadData:function(){
+          var defer = $q.defer(); 
+          // $http.post(requrl+'/login/login',loginObject)
+          $http.get("server/dash.json")
+          .then(function(data){
+               defer.resolve(data);
+           },function(error){
+               defer.reject(error);
+           }) 
+            return defer.promise;
+        },
 
     };
 

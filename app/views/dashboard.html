@@ -1,1 +1,20 @@
-<p>This is the dashboard view.</p>
+    <ul ng-repeat="case in cases|filter:search|orderBy:sortby:order|limitTo:pagelimit">
+          
+        <li>
+            <div>
+                    
+                <p>{{case.name}}  </p>
+                <p>{{case.phone}}  </p>
+                
+                <button>Delete Job</button>
+                    <div ng-show="case.caseId==hideId"}>
+                        <p>{{case.email}} </p>
+                        <p>{{case.address}} </p>
+                    </div>
+                <button ng-click="showCasesButton(case.caseId)">Show/Hide Details</button>
+            </div>
+        </li>
+             
+    </ul>
+
+    {{dashboardMessage}}

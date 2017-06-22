@@ -15,11 +15,8 @@ angular.module('novusApp')
         Dnumber:"",
         HCcaseyear:"",
         HCnumber:"",
-        HCcaseyear:"",
         state:"",
         Dstate:"delhi",
-        DCnumber:"",
-        DCcaseyear:"",
         DCnumber:"",
         DCcaseyear:"",
        
