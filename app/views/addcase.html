@@ -17,11 +17,11 @@
 <h5>Supreme Court Form</h5>
     
     <label for="Dnumber">Diary Number:</label>
-    <input type="text" name="Dnumber" ng-model="addCase.Dnumber" pattern="[0-9]{4}[a-z]{3}" required>
+    <input type="text" name="Dnumber" ng-model="addCase.Dnumber" pattern="[0-9]{1,6}" required>
     <span  ng-show="supremeForm.Dnumber.$touched &&
      supremeForm.Dnumber.$error.pattern &&
       !supremeForm.Dnumber.$error.required">
-      Invalid diary number(Only 0-9 and 5 chars allowed,without any spaces) </span>
+      Invalid diary number(Only 0-9 and 1-6 chars allowed,without any spaces) </span>
     <span  ng-show="supremeForm.Dnumber.$touched &&
      supremeForm.Dnumber.$error.required">Cannot be left empty </span>
     <span  ng-show="submitted && !supremeForm.Dnumber.$touched &&
@@ -70,11 +70,11 @@
     
     <br>
     <label for="Cnumber">Case Number:</label>
-    <input type="text" name="Cnumber" ng-model="addCase.HCnumber" pattern="[0-9]{4}[a-z]{3}" required>
+    <input type="text" name="Cnumber" ng-model="addCase.HCnumber" pattern="[0-9]{1,6}" required>
     <span  ng-show="highForm.Cnumber.$touched &&
      highForm.Cnumber.$error.pattern &&
       !highForm.Cnumber.$error.required">
-      Invalid case number(Only 0-9 and 4 chars allowed,without any spaces) </span>
+      Invalid case number(Only 0-9 and 1-6 chars allowed,without any spaces) </span>
     <span  ng-show="highForm.Cnumber.$touched &&
      highForm.Cnumber.$error.required">Cannot be left empty </span>
     <span  ng-show="submitted && !highForm.Cnumber.$touched &&
@@ -128,11 +128,11 @@
     
     <br>
     <label for="Cnumber">Case Number:</label>
-    <input type="text" name="Cnumber" ng-model="addCase.DCnumber" pattern="[0-9]{4}[a-z]{3}" required/>
+    <input type="text" name="Cnumber" ng-model="addCase.DCnumber" pattern="[0-9]{1,6}" required/>
     <span  ng-show="districtForm.Cnumber.$touched &&
      districtForm.Cnumber.$error.pattern &&
       !districtForm.Cnumber.$error.required">
-      Invalid case number(Only 0-9 and 4 chars allowed,without any spaces) </span>
+      Invalid case number(Only 0-9 and 1-6 chars allowed,without any spaces) </span>
     <span  ng-show="districtForm.Cnumber.$touched &&
      districtForm.Cnumber.$error.required">Cannot be left empty </span>
     <span  ng-show="submitted && !districtForm.Cnumber.$touched &&
