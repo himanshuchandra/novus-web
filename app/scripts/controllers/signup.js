@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('SignupCtrl',function ($scope,signup,webindex,$window,md5,requrl,profile) {
+  .controller('SignupCtrl',function ($scope,signup,webindex,$window,md5,requrl,profile,$timeout) {
 
     if(webindex.userData.useremail!=undefined){
         $window.location.assign(requrl);
@@ -16,56 +16,20 @@ angular.module('novusApp')
 
     //all ng-models declared
       $scope.signup={
-        useremail:"",
-        username:"",
+        email:"",
+        fname:"",
+        lname:"",
         password1:"",
         password2:"",
-        newMobile:"",
+        mobile:"",
         VCode:"",
     };
    
-////////////Checking if username exists//////////////
-    $scope.UsernameMessage=null;
-    var isUsernameNew=false;
-
-    $scope.checkUsername=function(regForm){
-        $scope.isNotValid=true;
-        isUsernameNew=false;
-        if(regForm.validusername.$valid){
-            $scope.UsernameMessage="Checking...";
-            $scope.checkInDb(regForm);
-        }
-        else{
-            $scope.UsernameMessage=null;
-        }
-    };
-
-    $scope.checkInDb=function(regForm){
-
-        var usernameObj = {
-            "username":$scope.signup.username,
-        };
-        
-      var promise = signup.checkUsername(usernameObj);
-        promise.then(function(data){
-           if(data.data.message==="found"){
-               $scope.UsernameMessage = "Username Taken";
-               isUsernameNew=false;
-           }
-           else{
-               $scope.UsernameMessage = "Nice Choice!";
-               isUsernameNew=true;
-               $scope.enableRegister(regForm);
-           }            
-        },function(error){
-            $scope.UsernameMessage = "Error occured! Try again later";
-        });
-    };
 
 //////////////Enable Register code/////////
     $scope.isNotValid=true;
     $scope.enableRegister=function(regForm){
-        if(regForm.$valid && passverified==true && isUsernameNew==true){
+        if(regForm.$valid && passverified==true){
             $scope.isNotValid=false;
         }
         else{
@@ -99,7 +63,7 @@ angular.module('novusApp')
     
 ////////////////////Registering The user////////////////////////////////////    
     $scope.submitForm=function(regForm){
-        if(regForm.$valid && passverified==true && isUsernameNew==true){
+        if(regForm.$valid && passverified==true){
             $scope.result = "Checking..";
             $scope.doRegister();
         }
@@ -107,80 +71,51 @@ angular.module('novusApp')
             $scope.result="Enter correct and full info";
         }
     };
-       
+    
+    $scope.hashPassword=undefined;
    
     $scope.doRegister=function(){
         
-        var hashPassword=md5.createHash($scope.signup.password1);
+        $scope.hashPassword=md5.createHash($scope.signup.password1);
 
         var userObject = {
-            "useremail":$scope.signup.useremail,
-            "username":$scope.signup.username,
-            "password1":hashPassword,
-            "role":"customer"
+            "email":$scope.signup.email,
+            "fname":$scope.signup.fname,
+            "lname":$scope.signup.lname,
+            "mobile":$scope.signup.mobile,
+            "password1":$scope.hashPassword,
         };
         
-      var promise = signup.registerUser(userObject);
-        promise.then(function(data){
-           if(data.data.message==="pass"){
-               $scope.result = "Registered Successfully";
-               $window.location.reload();
-               $window.location.assign(requrl);
-           }
-           else if(data.data.message==="usernameTaken"){
-               $scope.UsernameMessage = "Username Taken";
-               isUsernameNew=false;
-               $scope.result ="Sorry!The username is already taken";
-           }  
-           else if(data.data.message==="emailTaken"){
-               $scope.result ="Email already registered!";
-           }  
-           else{
-               $scope.result = "Error occured! Try again later";
-           }       
-        },function(error){
-            $scope.result = "Error occured! Try again later";
-        });
+    //   var promise = signup.registerUser(userObject);
+    //     promise.then(function(data){
+    //        if(data.data.message==="success"){
+               $timeout($scope.expire,60000);
+               $scope.result=undefined;
+               $scope.MobileForm=true;
+               $scope.CodeForm=false;
+        //        $scope.result = "Registered Successfully";
+        //        $window.location.reload();
+        //        $window.location.assign(requrl);
+        //    }
+        //    else if(data.data.message==="emailTaken"){
+        //        $scope.result ="Email already registered!";
+          // }  
+        //    else{
+        //        $scope.result = "Error occured! Try again later";
+        //    }       
+        // },function(error){
+        //     $scope.result = "Error occured! Try again later";
+        // });
+    };
+
+    $scope.expire=function(){
+        $scope.MobileForm=false;
+        $scope.CodeForm=true;  
+        $scope.result="OTP expired!"
     };
 
     $scope.MobileForm=false;
-    $scope.HideMobileForm=false;
-    $scope.HideCodeForm=true;
-
-    $scope.submitMobileForm=function(mobileForm){
-        if(mobileForm.$valid){
-            $scope.MobileMessage="Sending..";
-            $scope.ChangeMobile();
-        }
-        else{
-          $scope.MobileMessage="Enter valid details";
-        }
-    };
-
-    $scope.ChangeMobile=function(){
-  
-        var MobileObject={
-          "MobileNumber":$scope.signup.newMobile,
-        };
-
-        var promise=profile.updateMobile(MobileObject);
-        promise.then(function(data) {
-          if(data.data.message==="unknown"){
-            // $window.location.reload();
-            $scope.HideMobileForm=true;
-            $scope.HideCodeForm=false;
-          }
-          else if(data.data.message==="success"){
-            $scope.HideMobileForm=true;
-            $scope.HideCodeForm=false;
-          }
-          else{
-            $scope.MobileMessage="Error! Try again later";
-          }
-        },function(error) {
-            $scope.MobileMessage="Error! Try again later";
-        });    
-    };
+    $scope.CodeForm=true;
 
     $scope.submitCode=function(codeForm){
       if(codeForm.$valid){
@@ -194,43 +129,50 @@ angular.module('novusApp')
 
     $scope.VerifyCode=function(){
         var CodeObject={
-          "VCode":$scope.signup.VCode,
+            "email":$scope.signup.email,
+            "fname":$scope.signup.fname,
+            "lname":$scope.signup.lname,
+            "mobile":$scope.signup.mobile,
+            "password1":hashPassword,
+            "VCode":$scope.signup.VCode,
         };
 
-        var promise=profile.verifyCode(CodeObject);
-        promise.then(function(data) {
-          if(data.data.message==="pass"){
-            $scope.CodeMessage="Verified";
+        // var promise=signup.verifyCode(CodeObject);
+        // promise.then(function(data) {
+        //   if(data.data.message==="success"){
+              $scope.result="Registered successfully!";
+        //     $scope.CodeMessage="Verified";
             
-          }
-          else if(data.data.message==="fail"){
-            $scope.CodeMessage="Wrong Code entered";
-          }
-          else if(data.data.message==="unknown"){
-            $scope.CodeMessage="Not LoggedIn";
-            $window.location.reload();
-          }
-          else if(data.data.message==="exists"){
-            $scope.CodeMessage=undefined;
-            $scope.HideMobileForm=false;
-            $scope.HideCodeForm=true;
-            $scope.signup.VCode=undefined;
-            $scope.MobileMessage="Mobile no. is already registered! Try another one";
-          }
-          else{
-            $scope.CodeMessage="Error! Try again later";
-          }
-        },function(error) {
-            $scope.CodeMessage="Error! Try again later";
-        });    
+        //   }
+        //   else if(data.data.message==="fail"){
+        //     $scope.CodeMessage="Wrong Code entered";
+        //   }
+        //   else if(data.data.message==="unknown"){
+        //     $scope.CodeMessage="Not LoggedIn";
+        //     $window.location.reload();
+        //   }
+        //   else if(data.data.message==="exists"){
+        //     $scope.CodeMessage=undefined;
+        //     $scope.HideMobileForm=false;
+        //     $scope.HideCodeForm=true;
+        //     $scope.signup.VCode=undefined;
+        //     $scope.MobileMessage="Mobile no. is already registered! Try another one";
+         // }
+        //   else{
+        //     $scope.CodeMessage="Error! Try again later";
+        //   }
+        // },function(error) {
+        //     $scope.CodeMessage="Error! Try again later";
+        // });    
     };
 
     $scope.SendAgain=function(){
         $scope.signup.VCode=null;
         $scope.CodeMessage=undefined;
-        $scope.MobileMessage=undefined;
-        $scope.HideMobileForm=false;
-        $scope.HideCodeForm=true;
+        $scope.result=undefined;
+        $scope.MobileForm=false;
+        $scope.CodeForm=true;
+        $scope.signup.mobile=undefined;
     };
 
 

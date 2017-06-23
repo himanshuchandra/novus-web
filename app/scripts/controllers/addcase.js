@@ -128,8 +128,8 @@ angular.module('novusApp')
                 // name:"himanshu",
                 // mobile:"9878787654",
                 // password:"jjhjhjhjhjkhkjhkjhjkhk"
-                "diarynumber":$scope.addCase.Dnumber,
-                "year":$scope.addCase.year
+                "diarynumber":1,
+                "year":2017
             };
             $scope.sendSupremeData(obj);
         }
@@ -142,6 +142,8 @@ angular.module('novusApp')
         var promise=addcase.sendSupremeData(obj);
         promise.then(function(data) {
             console.log(obj);
+            // JSON.parse(data);
+            // console.log(JSON.parse(data));
             console.log(data);
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();

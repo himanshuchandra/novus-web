@@ -12,9 +12,9 @@ angular.module('novusApp')
 
     var object = {
         
-        checkUsername:function(usernameObj){
-           var defer = $q.defer();
-           $http.post(requrl+'/commonroutes/checkUsername',usernameObj)
+        sendCode:function(mobileObject){
+          var defer = $q.defer();
+           $http.post(requrl+'/signup/registerUser',mobileObject)
            .then(function(data){
                defer.resolve(data);
            },function(error){
@@ -32,7 +32,7 @@ angular.module('novusApp')
                defer.reject(error);
            }) 
             return defer.promise;
-        }
+        },
         
     };
     return object;

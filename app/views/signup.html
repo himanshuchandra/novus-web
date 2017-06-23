@@ -1,107 +1,102 @@
 
-   <h1>Register</h1>
+<h1>Register</h1>
 
-
-   <div ng-hide="MobileForm">
-    <div ng-hide="HideMobileForm" >
-        <form name="mobileForm" ng-submit="submitMobileForm(mobileForm)" novalidate>
-           
-            <input type="tel" ng-model="profile.newMobile" name="validMobile" placeholder="Mobile number" pattern="[0-9]{10}" required/>
-            <span  ng-show="mobileForm.validMobile.$touched &&
-            mobileForm.validMobile.$error.pattern &&
-            !mobileForm.validMobile.$error.required">
-            Invalid Mobile number(Should be 10 digits only 0-9 allowed)</span>
-            <span  ng-show="mobileForm.validMobile.$touched &&
-            mobileForm.validMobile.$error.required">Cannot be left empty </span>
-            <span  ng-show="MobileSubmitted && !mobileForm.validMobile.$touched &&
-            mobileForm.validMobile.$error.required">
-                Cannot be left empty </span>
-            <span  ng-show="MobileSubmitted && !mobileForm.validMobile.$touched &&
-            mobileForm.validMobile.$error.pattern">
-            Invalid Mobile number(Should be 10 digits only 0-9 allowed) </span>
-            <br>
-                {{MobileMessage}}
-
-                 <form name="regForm"  ng-submit="submitForm(regForm)" novalidate>
+<div ng-hide="MobileForm">
     
-    <input type="email" name="validemail" ng-model="signup.useremail" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
-    <span  ng-show="regForm.validemail.$touched && regForm.validemail.$invalid &&
-     !regForm.validemail.$error.required">Invalid email </span>
-    <span  ng-show="regForm.validemail.$touched && regForm.validemail.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validemail.$touched &&
-     regForm.validemail.$error.required">Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validemail.$touched &&
-     regForm.validemail.$invalid && !regForm.validemail.$error.required">
-        Invalid email </span>
-        
-        
-    <input type="text" name="validfname" ng-model="signup.fname" ng-keyup="enableRegister(regForm);"
-    placeholder="First Name" pattern="[a-zA-Z]{3,20}" required/>
-    <span  ng-show="regForm.validfname.$touched &&
-     regForm.validfname.$error.pattern &&
-      !regForm.validfname.$error.required">
-      Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
-    <span  ng-show="regForm.validfname.$touched &&
-     regForm.validfname.$error.required">Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validfname.$touched &&
-     regForm.validfname.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validfname.$touched &&
-     regForm.validfname.$error.pattern">
-     Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
+    <form name="regForm"  ng-submit="submitForm(regForm)" novalidate>
+             
 
-     <input type="text" name="validlname" ng-model="signup.lname" ng-keyup="enableRegister(regForm);"
-    placeholder="Last Name" pattern="[a-zA-Z]{3,20}" required/>
-    <span  ng-show="regForm.validlname.$touched &&
-     regForm.validlname.$error.pattern &&
-      !regForm.validlname.$error.required">
-      Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
-    <span  ng-show="regForm.validlname.$touched &&
-     regForm.validlname.$error.required">Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validlname.$touched &&
-     regForm.validlname.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validlname.$touched &&
-     regForm.validlname.$error.pattern">
-     Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
+        <input type="email" name="validemail" ng-model="signup.email" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
+        <span  ng-show="regForm.validemail.$touched && regForm.validemail.$invalid &&
+        !regForm.validemail.$error.required">Invalid email </span>
+        <span  ng-show="regForm.validemail.$touched && regForm.validemail.$error.required">
+            Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validemail.$touched &&
+        regForm.validemail.$error.required">Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validemail.$touched &&
+        regForm.validemail.$invalid && !regForm.validemail.$error.required">
+            Invalid email </span>
+            
+        <br>        
+            
+        <input type="text" name="validfname" ng-model="signup.fname" ng-keyup="enableRegister(regForm);"
+        placeholder="First Name" pattern="[a-zA-Z]{3,20}" required/>
+        <span  ng-show="regForm.validfname.$touched &&
+        regForm.validfname.$error.pattern &&
+        !regForm.validfname.$error.required">
+        Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
+        <span  ng-show="regForm.validfname.$touched &&
+        regForm.validfname.$error.required">Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validfname.$touched &&
+        regForm.validfname.$error.required">
+            Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validfname.$touched &&
+        regForm.validfname.$error.pattern">
+        Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
 
+        <input type="text" name="validlname" ng-model="signup.lname" ng-keyup="enableRegister(regForm);"
+        placeholder="Last Name" pattern="[a-zA-Z]{3,20}" required/>
+        <span  ng-show="regForm.validlname.$touched &&
+        regForm.validlname.$error.pattern &&
+        !regForm.validlname.$error.required">
+        Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
+        <span  ng-show="regForm.validlname.$touched &&
+        regForm.validlname.$error.required">Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validlname.$touched &&
+        regForm.validlname.$error.required">
+            Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validlname.$touched &&
+        regForm.validlname.$error.pattern">
+        Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
 
-    <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password1" name="validpass1" 
-     placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}" required/>
-       <span  ng-show="regForm.validpass1.$touched && regForm.validpass1.$error.pattern &&
-        !regForm.validpass1.$error.required">
+        <br>
+
+        <input type="tel" ng-model="signup.mobile" name="validMobile" ng-keyup="enableRegister(regForm);"
+        placeholder="Mobile number" pattern="[0-9]{10}" required/>
+        <span  ng-show="regForm.validMobile.$touched &&
+        regForm.validMobile.$error.pattern &&
+        !regForm.validMobile.$error.required">
+        Invalid Mobile number(Should be 10 digits only 0-9 allowed)</span>
+        <span  ng-show="regForm.validMobile.$touched &&
+        regForm.validMobile.$error.required">Cannot be left empty </span>
+        <span  ng-show="MobileSubmitted && !regForm.validMobile.$touched &&
+        regForm.validMobile.$error.required">
+            Cannot be left empty </span>
+        <span  ng-show="MobileSubmitted && !regForm.validMobile.$touched &&
+        regForm.validMobile.$error.pattern">
+        Invalid Mobile number(Should be 10 digits only 0-9 allowed) </span>
+
+        <br>
+
+        <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password1" name="validpass1" 
+        placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}" required/>
+        <span  ng-show="regForm.validpass1.$touched && regForm.validpass1.$error.pattern &&
+            !regForm.validpass1.$error.required">
+            password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
+        <span  ng-show="regForm.validpass1.$touched && regForm.validpass1.$error.required">
+            Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validpass1.$touched &&
+        regForm.validpass1.$error.required">
+            Cannot be left empty </span>
+        <span  ng-show="submitted && !regForm.validpass1.$touched &&
+        regForm.validpass1.$error.pattern">
         password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
-    <span  ng-show="regForm.validpass1.$touched && regForm.validpass1.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validpass1.$touched &&
-     regForm.validpass1.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validpass1.$touched &&
-     regForm.validpass1.$error.pattern">
-     password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
-    
-    <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password2" placeholder="Password" />
-    {{passtext}}
-    
-    <input type="submit" ng-click="submitted=true;"
-     value="Register" ng-disabled="isNotValid">
+        
+        <br>
+        <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password2" placeholder="Password" />
+        {{passtext}}
+        
+        <br>
+        <input type="submit" ng-click="submitted=true;" value="Register" ng-disabled="isNotValid">
 
     </form>
 
-
-
-
-
-            <input type="submit" ng-click="MobileSubmitted=true;" value="Register">
-        </form>
-
-    </div>
+</div>
    
-    <div ng-hide=HideCodeForm>
+<div ng-hide=CodeForm>
         <form name="codeForm" ng-submit="submitCode(codeForm)" novalidate>
             <h5>Enter 6 digit verification code from your mobile that we just sent you</h5>
-            <input type="text" ng-model="profile.VCode" name="vCode" pattern="[a-z0-9A-Z]{6}" required/>
+            <input type="text" ng-model="signup.VCode" name="vCode" pattern="[a-z0-9A-Z]{6}" required/>
             <span  ng-show="codeForm.vCode.$touched &&
             codeForm.vCode.$error.pattern &&
             !codeForm.vCode.$error.required">
@@ -130,3 +125,4 @@
 
 <H1><a ng-href="#login">LOGIN</a></H1>
 
+<button>Google SignIn</button>
