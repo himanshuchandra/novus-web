@@ -124,8 +124,12 @@ angular.module('novusApp')
             $scope.supremeMessage="Searching...";
 
             obj={
-                diarynumber:$scope.addCase.Dnumber,
-                year:$scope.addCase.year
+                // email:"himanshu@gmail.com",
+                // name:"himanshu",
+                // mobile:"9878787654",
+                // password:"jjhjhjhjhjkhkjhkjhjkhk"
+                "diarynumber":$scope.addCase.Dnumber,
+                "year":$scope.addCase.year
             };
             $scope.sendSupremeData(obj);
         }
@@ -137,6 +141,8 @@ angular.module('novusApp')
     $scope.sendSupremeData=function(obj){
         var promise=addcase.sendSupremeData(obj);
         promise.then(function(data) {
+            console.log(obj);
+            console.log(data);
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;

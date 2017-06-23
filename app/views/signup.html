@@ -24,7 +24,7 @@
 
                  <form name="regForm"  ng-submit="submitForm(regForm)" novalidate>
     
-    <!--<input type="email" name="validemail" ng-model="signup.useremail" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
+    <input type="email" name="validemail" ng-model="signup.useremail" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
     <span  ng-show="regForm.validemail.$touched && regForm.validemail.$invalid &&
      !regForm.validemail.$error.required">Invalid email </span>
     <span  ng-show="regForm.validemail.$touched && regForm.validemail.$error.required">
@@ -36,21 +36,35 @@
         Invalid email </span>
         
         
-    <input type="text" name="validusername" ng-model="signup.username" ng-keyup="checkUsername(regForm);"
-    placeholder="Username" pattern="[a-zA-Z0-9_.]{5,20}" required/>
-    <span  ng-show="regForm.validusername.$touched &&
-     regForm.validusername.$error.pattern &&
-      !regForm.validusername.$error.required">
-      Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
-    <span  ng-show="regForm.validusername.$touched &&
-     regForm.validusername.$error.required">Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validusername.$touched &&
-     regForm.validusername.$error.required">
+    <input type="text" name="validfname" ng-model="signup.fname" ng-keyup="enableRegister(regForm);"
+    placeholder="First Name" pattern="[a-zA-Z]{3,20}" required/>
+    <span  ng-show="regForm.validfname.$touched &&
+     regForm.validfname.$error.pattern &&
+      !regForm.validfname.$error.required">
+      Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
+    <span  ng-show="regForm.validfname.$touched &&
+     regForm.validfname.$error.required">Cannot be left empty </span>
+    <span  ng-show="submitted && !regForm.validfname.$touched &&
+     regForm.validfname.$error.required">
         Cannot be left empty </span>
-    <span  ng-show="submitted && !regForm.validusername.$touched &&
-     regForm.validusername.$error.pattern">
-     Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
-    {{UsernameMessage}}-->
+    <span  ng-show="submitted && !regForm.validfname.$touched &&
+     regForm.validfname.$error.pattern">
+     Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
+
+     <input type="text" name="validlname" ng-model="signup.lname" ng-keyup="enableRegister(regForm);"
+    placeholder="Last Name" pattern="[a-zA-Z]{3,20}" required/>
+    <span  ng-show="regForm.validlname.$touched &&
+     regForm.validlname.$error.pattern &&
+      !regForm.validlname.$error.required">
+      Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
+    <span  ng-show="regForm.validlname.$touched &&
+     regForm.validlname.$error.required">Cannot be left empty </span>
+    <span  ng-show="submitted && !regForm.validlname.$touched &&
+     regForm.validlname.$error.required">
+        Cannot be left empty </span>
+    <span  ng-show="submitted && !regForm.validlname.$touched &&
+     regForm.validlname.$error.pattern">
+     Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
 
 
     <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password1" name="validpass1" 
