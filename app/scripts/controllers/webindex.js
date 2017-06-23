@@ -56,11 +56,11 @@ angular.module('novusApp')
         });
       };
       
-      $scope.$watch(function(){return webindex.needReload},function(newValue,oldValue){
-        if(webindex.needReload===true){
-          $scope.loadData(); 
-        }
-      },true);
+    //   $scope.$watch(function(){return webindex.needReload},function(newValue,oldValue){
+    //     if(webindex.needReload===true){
+    //       $scope.loadData(); 
+    //     }
+    //   },true);
 
       ////////////////////////////
       $scope.sendLinkButton=false;
