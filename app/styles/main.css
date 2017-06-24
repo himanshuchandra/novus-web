@@ -81,3 +81,59 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.panel.disabled .panel-body {
+    position: relative;
+    
+}
+
+.panel-body{
+    display: flex;
+    flex: 3;
+}
+.contents{
+    flex: 2
+}
+.panel.disabled .panel-body :after,
+.panel.disabled .panel-disabled {
+    display:block;
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.6);
+    border-radius: 5px;
+}
+.panel-footer .checkbox {
+    margin: 0;
+}
+
+.pull-left{
+    width: 25%;
+}
+
+.date-body{
+  background-color: red;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    width: 75px !important;
+    height: 80px;
+}
+.date-body .date-title{
+  color: white;
+}
+
+.date-body .date-content{
+  background-color: white;margin: -6px 9px;
+/*    width: 20px;*/
+}
+.date-body .date-content p.dia{
+  margin: 0; font-size: 25px; font-weight: bold;
+}
+.nomargin{
+       
+  margin: -5px;
+}

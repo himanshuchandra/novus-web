@@ -32,28 +32,28 @@ angular.module('novusApp')
 /////////////Control ng-repeat 
     $scope.hideId=0;
 
-    $scope.showCasesButton=function(caseId){
-        if($scope.hideId===caseId){
+    $scope.showCasesButton=function(sNo){
+        if($scope.hideId===sNo){
             $scope.hideId=0;
         }
         else{
-            $scope.hideId=caseId;
+            $scope.hideId=sNo;
         }
     }
 
     $scope.hideApplicants=0;
     $scope.approvedText=0;
 
-    $scope.showApplicants=function(caseId){
-        if($scope.hideApplicants!=caseId && approvedUsers.length<1){
+    $scope.showApplicants=function(sNo){
+        if($scope.hideApplicants!=sNo && approvedUsers.length<1){
             $scope.hideApplicants=0;
-            $scope.approvedText=caseId;
+            $scope.approvedText=sNo;
         }
-        else if($scope.hideApplicants===caseId){
+        else if($scope.hideApplicants===sNo){
             $scope.hideApplicants=0;
         }
         else{
-            $scope.hideApplicants=caseId;
+            $scope.hideApplicants=sNo;
         }
     };
 

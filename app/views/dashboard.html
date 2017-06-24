@@ -1,20 +1,36 @@
-    <ul ng-repeat="case in cases|filter:search|orderBy:sortby:order|limitTo:pagelimit">
-          
-        <li>
-            <div>
-                    
-                <p>{{case.name}}  </p>
-                <p>{{case.phone}}  </p>
-                
-                <button>Delete Case</button>
-                    <div ng-show="case.caseId==hideId"}>
-                        <p>{{case.email}} </p>
-                        <p>{{case.address}} </p>
+<div class="row">
+  	
+  	<div ng-repeat="case in cases|filter:search|orderBy:sortby:order|limitTo:pagelimit">
+		
+	            
+    		
+                <div class="panel panel-default">
+<!--                   <h3 style="text-align: center">{{case.courtname}}</h3>-->
+                    <div class="panel-body"> 
+                    <div class="pull-left">{{case.act}}</div> <br>
+                        <div class="contents">{{case.diary_number}} </div>
+                        <div class="text-center date-body" style="width:150px">
+          <label for="" class="date-title">July</label>
+          <div class="date-content">
+            <p class="dia">24</p>
+            <hr class="nomargin"/>
+            <p class="nomargin"><strong>day</strong></p>
+            
+          </div>
+        </div>
                     </div>
-                <button ng-click="showCasesButton(case.caseId)">Show/Hide Details</button>
-            </div>
-        </li>
-             
-    </ul>
-
-    {{dashboardMessage}}
+                    <div class="panel-footer clearfix">
+                        <div ng-show="case.sNo==hideId"}>
+                      
+                        <p>{{case.respondents}} </p> <br>
+                        <p>{{case.pet_advocates}} </p>
+                    </div>
+                <button ng-click="showCasesButton(case.sNo)">Show/Hide Details</button>
+                        <div class="pull-right">
+                            
+                        </div>
+                    </div>
+                </div>
+        </div>
+        {{dashboardMessage}}
+	</div>
