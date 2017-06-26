@@ -124,10 +124,6 @@ angular.module('novusApp')
             $scope.supremeMessage="Searching...";
 
             obj={
-                // email:"himanshu@gmail.com",
-                // name:"himanshu",
-                // mobile:"9878787654",
-                // password:"jjhjhjhjhjkhkjhkjhjkhk"
                 "diarynumber":1,
                 "year":2017
             };
