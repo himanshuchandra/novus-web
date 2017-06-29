@@ -137,3 +137,16 @@ body {
        
   margin: -5px;
 }
+
+.nav-menu a{
+    border: 0px !important;
+/*    filter: grayscale(100%) !important;*/
+}
+
+.nav-menu a:hover{
+/*   filter: none !important;*/
+    color: black !important;
+    font-weight: 500;
+    -webkit-color: aqua !important;
+    -webkit-border-color: aqua !important;
+}
