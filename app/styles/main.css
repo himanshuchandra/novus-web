@@ -152,10 +152,10 @@ body {
 }
 
 .nav-menu{
-    margin-left: 15px;
+/*    margin-left: 15px;*/
 }
 
-#login-page{
+#login-page {
         background-image: url(../images/login-bg.jpg);
         height: 100vh;
         margin: 0 -14px;
@@ -167,5 +167,22 @@ body {
 }
 
 .cursor{
-    cursor: grab;
+    cursor: context-menu;
+}
+
+
+.case-form{
+/*    align-self: center;*/
+    margin-left: 5%;
+}
+
+.case-form:nth-child(1){
+/*    margin-left: 15%;*/
+}
+
+@media (max-width: 850px) {
+		.nav-menu {
+		margin: 0px !important;
+            padding: 0px !important;
+	}
 }
