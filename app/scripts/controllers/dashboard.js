@@ -26,7 +26,6 @@ angular.module('novusApp')
       promise.then(function(data){
         if(data.data!=undefined){
           $scope.cases=data.data;
-          console.log(data.data);
         }
         else{
           $scope.dashboardMessage="No cases yet";
@@ -43,7 +42,7 @@ angular.module('novusApp')
     $scope.hideId=0;
 
     $scope.showCasesButton=function(caseObj){
-        $scope.cdetails=caseObj;
+       $scope.cdetails=caseObj;
        $scope.hideDashboard=true;
        $scope.caseDetails=false;
     };
