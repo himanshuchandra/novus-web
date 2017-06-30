@@ -135,7 +135,7 @@ body {
 }
 .nomargin{
        
-  margin: -5px;
+  margin: -2px;
 }
 
 .nav-menu a{
@@ -149,4 +149,23 @@ body {
     font-weight: 500;
     -webkit-color: aqua !important;
     -webkit-border-color: aqua !important;
+}
+
+.nav-menu{
+    margin-left: 15px;
+}
+
+#login-page{
+        background-image: url(../images/login-bg.jpg);
+        height: 100vh;
+        margin: 0 -14px;
+    }
+#login-result{
+    text-align: center;
+    color: aqua;
+    font-weight: 400;
+}
+
+.cursor{
+    cursor: grab;
 }

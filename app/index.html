@@ -19,6 +19,8 @@
 
     
     <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/style-responsive.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -157,69 +159,7 @@
                     </li>
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
-                    <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="badge bg-theme">5</span>
-                        </a>
-                        <ul class="dropdown-menu extended inbox">
-                            <div class="notify-arrow notify-arrow-green"></div>
-                            <li>
-                                <p class="green">You have 5 new messages</p>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-zac.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Zac Snider</span>
-                                    <span class="time">Just now</span>
-                                    </span>
-                                    <span class="message">
-                                        Hi mate, how is everything?
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-divya.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Divya Manian</span>
-                                    <span class="time">40 mins.</span>
-                                    </span>
-                                    <span class="message">
-                                     Hi, I need your help with this.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-danro.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dan Rogers</span>
-                                    <span class="time">2 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Love your new Dashboard.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-sherman.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dj Sherman</span>
-                                    <span class="time">4 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Please, answer asap.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">See all messages</a>
-                            </li>
-                        </ul>
-                    </li>
+                   
                     <!-- inbox dropdown end -->
 <!--                    <ul class="nav navbar-nav">-->
              
@@ -270,7 +210,7 @@
                   </li>
 
                   <li class="mt">
-                      <a href="/#addcase" class="active">
+                      <a href="/#addcase" class="">
                           <i class="fa fa-dashboard"></i>
                           <span>Add New Case</span>
                       </a>
@@ -353,13 +293,13 @@
       <section id="main-content">
           <section class="wrapper">
           	
-				 <div class="container">
-    <div ng-view=""></div>
-    </div>
+<!--				 <div class="container">-->
+    <div ng-view="" ></div>
+<!--    </div>-->
 
           
 
-		</section><! --/wrapper -->
+		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
   </section>
@@ -392,6 +332,9 @@
         
       </script>-->
      <script>
+        
+        
+    
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
@@ -403,6 +346,7 @@
      
      
     </script>
+    
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -419,6 +363,7 @@
     <!-- endbuild -->
 
     <!--custom js-->
+    
     <script class="include" src="scripts/libs/jquery.dcjqaccordion.2.7.js"></script>
     <script src="scripts/libs/jquery.scrollTo.min.js"></script>
     <script src="scripts/libs/jquery.nicescroll.js"></script>
@@ -428,6 +373,7 @@
     <!--custom js-->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/webindex.js"></script>
         <script src="scripts/services/webindex.js"></script>

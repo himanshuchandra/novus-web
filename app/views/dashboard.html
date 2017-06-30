@@ -1,12 +1,13 @@
-<div class="row" ng-hide="hideDashboard">
+<div class="container">
+    <div class="row" ng-hide="hideDashboard">
 
     <h3>Cases</h3>
 
     <div ng-repeat="case in cases|filter:search|orderBy:sortby:order|limitTo:pagelimit">
 
-        <div class="panel panel-default">
+        <div class="panel panel-default cursor">
         
-            <div class="panel-body">
+            <div class="panel-body" ng-click="showCasesButton(case)">
                 <div class="pull-left">{{case.sNo}}</div> <br>
                 <div class="contents">{{case.diary_number}} </div>
                 <div class="contents">{{case.year}} </div>
@@ -16,12 +17,12 @@
                     <div class="date-content">
                         <p class="dia">24</p>
                         <hr class="nomargin" />
-                        <p class="nomargin"><strong>day</strong></p>
+                        <p class="nomargin"><strong>{{case.year}}</strong></p>
 
                     </div>
                 </div>
             </div>
-             <button ng-click="showCasesButton(case)">Show Details</button>
+<!--             <button ng-click="showCasesButton(case)">Show Details</button>-->
             <!--<div class="panel-footer clearfix">
                 <div ng-show="case.sNo==hideId" }>
 
@@ -41,14 +42,34 @@
 <div ng-hide="caseDetails">
     <h1>Case Details</h1>
      
-     <button ng-click="showDetailsButton()">Hide Case Details</button>
+     
 
     <p>SNo. :{{cdetails.sNo}}</p><br>
     <p>Diary Number :{{cdetails.diary_number}}</p><br>
     <p>Year :{{cdetails.year}}</p><br>
     <p>Case Number :{{cdetails.case_no}}</p><br>
-    <p>Case Stage :{{cdetails.case_stage}}</p><br>
     <p>D.A. Name :{{cdetails.da_name}}</p><br>
+    <p>Last Updated By :{{cdetails.last_update_by}}</p><br>
+    <p>Last Listed On :{{cdetails.last_listed_on}}</p><br>
+    <p>Last Order :{{cdetails.last_order}}</p><br>
     <p>Status :{{cdetails.status}}</p><br>
+    <p>Case Stage :{{cdetails.case_stage}}</p><br>
+    <p>Case Stage Info :{{cdetails.statuary_info}}</p><br>
+    <p>Case Bench :{{cdetails.bench}}</p><br>
+    <p>Category :{{cdetails.category}}</p><br>
+    <p>Act :{{cdetails.act}}</p><br>
+    <p>Petitioners :{{cdetails.petitioners}}</p><br>
+    <p>Respondents :{{cdetails.respondents}}</p><br>
+    <p>Petitioners Advocate :{{cdetails.pet_advocates}}</p><br>
+    <p>Respondents Advocate :{{cdetails.resp_advocates}}</p><br>
+    <p>U_section :{{cdetails.u_section}}</p><br>
+    <p>Admitted :{{cdetails.admitted}}</p><br>
+    <p>Judgements :{{cdetails.judgements}}</p><br>
+    <p>Updated On :{{cdetails.updated_on}}</p><br>
+    <p>Display Type :{{cdetails.disp_type}}</p><br>
+    
+    <br><br>
+    <button ng-click="showDetailsButton()">Hide Case Details</button>
 
+</div>
 </div>
