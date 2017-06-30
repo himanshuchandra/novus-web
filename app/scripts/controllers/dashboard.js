@@ -10,6 +10,15 @@
 angular.module('novusApp')
   .controller('DashboardCtrl', function ($scope,dashboard) {
     
+
+    $scope.dashboard={
+    
+    };
+  
+    $scope.hideDashboard=false;
+    $scope.caseDetails=true;
+
+
 ////////////Loadi cases
     $scope.loadData=function(){
 
@@ -17,6 +26,7 @@ angular.module('novusApp')
       promise.then(function(data){
         if(data.data!=undefined){
           $scope.cases=data.data;
+          console.log(data.data);
         }
         else{
           $scope.dashboardMessage="No cases yet";
@@ -32,30 +42,33 @@ angular.module('novusApp')
 /////////////Control ng-repeat 
     $scope.hideId=0;
 
-    $scope.showCasesButton=function(sNo){
-        if($scope.hideId===sNo){
-            $scope.hideId=0;
-        }
-        else{
-            $scope.hideId=sNo;
-        }
-    }
-
-    $scope.hideApplicants=0;
-    $scope.approvedText=0;
-
-    $scope.showApplicants=function(sNo){
-        if($scope.hideApplicants!=sNo && approvedUsers.length<1){
-            $scope.hideApplicants=0;
-            $scope.approvedText=sNo;
-        }
-        else if($scope.hideApplicants===sNo){
-            $scope.hideApplicants=0;
-        }
-        else{
-            $scope.hideApplicants=sNo;
-        }
+    $scope.showCasesButton=function(caseObj){
+        $scope.cdetails=caseObj;
+       $scope.hideDashboard=true;
+       $scope.caseDetails=false;
     };
+
+    
+    $scope.showDetailsButton=function(){
+       $scope.hideDashboard=false;
+       $scope.caseDetails=true;
+    };
+
+    // $scope.hideApplicants=0;
+    // $scope.approvedText=0;
+
+    // $scope.showApplicants=function(sNo){
+    //     if($scope.hideApplicants!=sNo && approvedUsers.length<1){
+    //         $scope.hideApplicants=0;
+    //         $scope.approvedText=sNo;
+    //     }
+    //     else if($scope.hideApplicants===sNo){
+    //         $scope.hideApplicants=0;
+    //     }
+    //     else{
+    //         $scope.hideApplicants=sNo;
+    //     }
+    // };
 
 
   });
