@@ -10,6 +10,9 @@
 angular.module('novusApp')
   .controller('DashboardCtrl', function ($scope,dashboard) {
     
+    $scope.deleteImg=()=>{
+      alert("hey");
+    }
 
     $scope.dashboard={
     
