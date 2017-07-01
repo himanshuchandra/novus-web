@@ -124,8 +124,8 @@ angular.module('novusApp')
             $scope.supremeMessage="Searching...";
 
             obj={
-                "diarynumber":1,
-                "year":2017
+                "diarynumber":$scope.addCase.Dnumber,
+                "year":$scope.addCase.year
             };
             $scope.sendSupremeData(obj);
         }
@@ -137,6 +137,7 @@ angular.module('novusApp')
     $scope.sendSupremeData=function(obj){
         var promise=addcase.sendSupremeData(obj);
         promise.then(function(data) {
+            $scope.supremeMessage="Added successfully";
             console.log(obj);
             // JSON.parse(data);
             // console.log(JSON.parse(data));
