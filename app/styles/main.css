@@ -90,7 +90,8 @@ body {
 
 .panel-body{
     display: flex;
-    flex: 3;
+    flex: 5;
+    
 }
 .contents{
     flex: 2
@@ -152,10 +153,10 @@ body {
 }
 
 .nav-menu{
-    margin-left: 15px;
+/*    margin-left: 15px;*/
 }
 
-#login-page{
+#login-page {
         background-image: url(../images/login-bg.jpg);
         height: 100vh;
         margin: 0 -14px;
@@ -167,5 +168,65 @@ body {
 }
 
 .cursor{
-    cursor: grab;
+    cursor: context-menu;
 }
+
+
+.case-form{
+/*    align-self: center;*/
+    margin-left: 5%;
+}
+
+.img_hold{
+    position: relative;
+    flex: 2;
+}
+
+#del_img{
+    
+    font-size: 20px;
+    position: absolute;
+    right: 30%;
+    bottom: 2%;
+   
+    
+}
+
+.case_title{
+    font-weight: 700;
+    color: black;
+    
+}
+
+.table_heading{
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.bgInfo{
+    background-color: rgb(255,215,119);
+    border: 2px solid black !important;
+}
+
+.dividing_line{
+    background-color: rgb(66,74,93);
+    border: 2px black solid;
+    height: 4px !important;
+}
+
+.btn_custom{
+    width: 50%;
+    margin-left: 25%;
+}
+
+
+
+@media (max-width: 850px) {
+		.nav-menu {
+		margin: 0px !important;
+            padding: 0px !important;
+	}
+}
+

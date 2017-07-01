@@ -1,24 +1,27 @@
+<br>
 <div class="container">
+<!--   <div class="container">-->
     <div id="button_section">
 
     
-    <button id="SC" data-form="supremeFormHide" ng-click="showSCField()">Supreme Court</button>
-    <button id="HC" data-form="highFormHide" ng-click="showHCField()">High Court</button>
-    <button id="DC" data-form="districtFormHide" ng-click="showDCField()">District Court</button>
-    <button id="TC" ng-click="">Tribunals</button>
+    <button id="SC" data-form="supremeFormHide" ng-click="showSCField()" class="btn btn-default case-form">Supreme Court</button>
+    <button id="HC" data-form="highFormHide" ng-click="showHCField()" class="btn btn-default case-form">High Court</button>
+    <button id="DC" data-form="districtFormHide" ng-click="showDCField()" class="btn btn-default case-form">District Court</button>
+    <button id="TC" ng-click="" class="case-form btn btn-default">Tribunals</button>
     
 
 </div>
 
+<div id="forms">
 
-
-<div ng-hide="supremeFormHide">
+<div ng-hide="supremeFormHide" >
     <form name="supremeForm" id="supremecourtform" ng-submit="submitSupremeForm(supremeForm)" novalidate>
-
+ 
 <h5>Supreme Court Form</h5>
-    
+    <br>
+     <div class="form-group">
     <label for="Dnumber">Diary Number:</label>
-    <input type="text" name="Dnumber" ng-model="addCase.Dnumber" pattern="[0-9]{1,6}" required>
+    <input type="text" class="form-control" name="Dnumber" ng-model="addCase.Dnumber" pattern="[0-9]{1,6}" required>
     <span  ng-show="supremeForm.Dnumber.$touched &&
      supremeForm.Dnumber.$error.pattern &&
       !supremeForm.Dnumber.$error.required">
@@ -31,10 +34,11 @@
     <span  ng-show="supremeSubmitted && !supremeForm.Dnumber.$touched &&
      supremeForm.Dnumber.$error.pattern">
      Invalid diary number(Only 0-9 and 5 chars allowed,without any spaces)  </span>
-
+        </div>
    <br>
+   <div class="form-group">
     <label for="year">Year:</label>
-    <input type="number" name="year" ng-model="addCase.year" pattern="[0-9]{4}" required/>
+    <input class="form-control" type="number" min="1950" max="2050" name="year" ng-model="addCase.year" pattern="[0-9]{4}" required/>
     <span  ng-show="supremeForm.year.$touched &&
      supremeForm.year.$error.pattern &&
       !supremeForm.year.$error.required">
@@ -47,8 +51,10 @@
     <span  ng-show="supremeSubmitted && !supremeForm.year.$touched &&
      supremeForm.year.$error.pattern">
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
+        </div>
 <br>
-<input type="submit" ng-click="supremeSubmitted=true;" value="Search">
+<input type="submit" class="btn btn-default" ng-click="supremeSubmitted=true;" value="Search">
+     
 </form>
 {{supremeMessage}}
 
@@ -61,19 +67,21 @@
     <form name="highForm" id="highcourtform" ng-submit="submitHighForm(highForm)" novalidate>
 
 <h5>High Court Form</h5>
+   <br>
+     
    <label for="state">State</label>
-   <select name="state" id="state" ng-model="addCase.state" ng-change="loadHCoptions();" required>
+   <select class="form-control" name="state" id="state" ng-model="addCase.state" ng-change="loadHCoptions();" required>
         <option value="delhi">Delhi</option>
         <option value="punjab">Punjab</option>
     </select>
     <br>
     <label for="ctype">Case type</label>
-    <select name="ctype" ng-model="addCase.ctype" ng-options="x for x in ctype" required>
+    <select class="form-control"  name="ctype" ng-model="addCase.ctype" ng-options="x for x in ctype" required>
     </select>
     
     <br>
     <label for="Cnumber">Case Number:</label>
-    <input type="text" name="Cnumber" ng-model="addCase.HCnumber" pattern="[0-9]{1,6}" required>
+    <input class="form-control" type="text" name="Cnumber" ng-model="addCase.HCnumber" pattern="[0-9]{1,6}" required>
     <span  ng-show="highForm.Cnumber.$touched &&
      highForm.Cnumber.$error.pattern &&
       !highForm.Cnumber.$error.required">
@@ -89,7 +97,7 @@
 
    <br>
     <label for="year">Year:</label>
-    <input type="number" name="year" ng-model="addCase.HCcaseyear" pattern="[0-9]{4}" required/>
+    <input class="form-control" type="number" name="year" ng-model="addCase.HCcaseyear" pattern="[0-9]{4}" required/>
     <span  ng-show="highForm.year.$touched &&
      highForm.year.$error.pattern &&
       !highForm.year.$error.required">
@@ -103,7 +111,7 @@
      highForm.year.$error.pattern">
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
 <br>
-<input type="submit" ng-click="highSubmitted=true;" value="Search">
+<input type="submit" class="btn btn-default" ng-click="highSubmitted=true;" value="Search">
 </form>
 {{highMessage}}
 
@@ -119,22 +127,23 @@
     <form name="districtForm" id="districtcourtform" ng-submit="submitDistrictForm(districtForm)" novalidate>
 
 <h5>District Court Form</h5>
+<br>
 <label for="state">state</label>
-   <select name="state" id="state" ng-model="addCase.Dstate" ng-change="loadDCoptions1();" required>
+   <select name="state" class="form-control" id="state" ng-model="addCase.Dstate" ng-change="loadDCoptions1();" required>
         <option value="delhi">Delhi</option>
     </select>
     <br>
     <label for="court">court name</label>
-    <select name="court" ng-model="addCase.court" ng-options="x for x in court" ng-change="loadDCoptions2();" required>
+    <select name="court" class="form-control" ng-model="addCase.court" ng-options="x for x in court" ng-change="loadDCoptions2();" required>
     </select>
     <br>
     <label for="dctype">case type</label>
-    <select name="dctype" ng-model="addCase.dctype" ng-options="x for x in dctype" required>
+    <select name="dctype" class="form-control" ng-model="addCase.dctype" ng-options="x for x in dctype" required>
     </select>
     
     <br>
     <label for="Cnumber">Case Number:</label>
-    <input type="text" name="Cnumber" ng-model="addCase.DCnumber" pattern="[0-9]{1,6}" required/>
+    <input class="form-control" type="text" name="Cnumber" ng-model="addCase.DCnumber" pattern="[0-9]{1,6}" required/>
     <span  ng-show="districtForm.Cnumber.$touched &&
      districtForm.Cnumber.$error.pattern &&
       !districtForm.Cnumber.$error.required">
@@ -150,7 +159,7 @@
     
    <br>
     <label for="year">Year:</label>
-    <input type="number" name="year" ng-model="addCase.DCcaseyear" pattern="[0-9]{4}" required/>
+    <input class="form-control" type="number" name="year" ng-model="addCase.DCcaseyear" pattern="[0-9]{4}" required/>
     <span  ng-show="districtForm.year.$touched &&
      districtForm.year.$error.pattern &&
       !districtForm.year.$error.required">
@@ -164,11 +173,12 @@
      districtForm.year.$error.pattern">
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
 <br>
-<input type="submit" ng-click="districtSubmitted=true;" value="Search">
+<input type="submit" class="btn btn-default" ng-click="districtSubmitted=true;" value="Search">
 </form>
 {{districtMessage}}
 
 </div>
+    </div>
 </div>
 
 

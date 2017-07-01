@@ -7,12 +7,18 @@
 
         <div class="panel panel-default cursor">
         
-            <div class="panel-body" ng-click="showCasesButton(case)">
-                <div class="pull-left">{{case.sNo}}</div> <br>
-                <div class="contents">{{case.diary_number}} </div>
-                <div class="contents">{{case.year}} </div>
-                <div class="contents">{{case.case_no}} </div>
-                <div class="text-center date-body" style="width:150px">
+            <div class="panel-body" >
+                <div class="pull-left" ng-click="showCasesButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>
+                <div class="contents" ng-click="showCasesButton(case)"><span class="case_title">Dairy No:</span>{{case.diary_number}} </div>
+<!--                <div class="contents" ng-click="showCasesButton(case)">{{case.year}}</div>-->
+                
+                <div class="contents" ng-click="showCasesButton(case)"><span class="case_title">Case No:</span><br>{{case.case_no}} </div>
+               <div class="img_hold">
+<!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
+               <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteImg()"></i>
+                </div>
+                <div class="text-center date-body" ng-click="showCasesButton(case)">
+                   
                     <label for="" class="date-title">July</label>
                     <div class="date-content">
                         <p class="dia">24</p>
@@ -41,35 +47,83 @@
 
 <div ng-hide="caseDetails">
     <h1>Case Details</h1>
-     
-     <button ng-click="showDetailsButton()">Go Back</button>
-
-    <p>SNo. :{{cdetails.sNo}}</p><br>
-    <p>Diary Number :{{cdetails.diary_number}}</p><br>
-    <p>Year :{{cdetails.year}}</p><br>
-    <p>Case Number :{{cdetails.case_no}}</p><br>
-    <p>D.A. Name :{{cdetails.da_name}}</p><br>
-    <p>Last Updated By :{{cdetails.last_update_by}}</p><br>
-    <p>Last Listed On :{{cdetails.last_listed_on}}</p><br>
-    <p>Last Order :{{cdetails.last_order}}</p><br>
-    <p>Status :{{cdetails.status}}</p><br>
-    <p>Case Stage :{{cdetails.case_stage}}</p><br>
-    <p>Case Stage Info :{{cdetails.statuary_info}}</p><br>
-    <p>Case Bench :{{cdetails.bench}}</p><br>
-    <p>Category :{{cdetails.category}}</p><br>
-    <p>Act :{{cdetails.act}}</p><br>
-    <p>Petitioners :{{cdetails.petitioners}}</p><br>
-    <p>Respondents :{{cdetails.respondents}}</p><br>
-    <p>Petitioners Advocate :{{cdetails.pet_advocates}}</p><br>
-    <p>Respondents Advocate :{{cdetails.resp_advocates}}</p><br>
-    <p>U_section :{{cdetails.u_section}}</p><br>
-    <p>Admitted :{{cdetails.admitted}}</p><br>
-    <p>Judgements :{{cdetails.judgements}}</p><br>
-    <p>Updated On :{{cdetails.updated_on}}</p><br>
-    <p>Display Type :{{cdetails.disp_type}}</p><br>
-    
-    <br><br>
-    <button ng-click="showDetailsButton()">Hide Case Details</button>
-
-</div>
+     <div id="btn_holder">
+     <button ng-click="showDetailsButton()" class="btn btn-primary btn-lg btn_custom">Go Back</button>
+     </div>
+     <br>
+    <table border="1" class="table table-striped table-inverse">
+        <thead>
+            <tr class="bgInfo">
+                <td style="width:25%"><span class="case_title">SNo. :</span>{{cdetails.sNo}}</td>
+                <td colspan="2"><span class="case_title">Diary Number :</span>{{cdetails.diary_number}}</td>
+                <td colspan="2"><span class="case_title">Year :</span>{{cdetails.year}}</td>
+                <td colspan="2"><span class="case_title">Case Number :</span>{{cdetails.case_no}}</td>
+            </tr>
+            <tr class="dividing_line">
+                <td colspan="6"></td>
+            </tr>
+            <tr class="bgInfo">
+                <td colspan="6" class="table_heading"><span class="case_title">CASE STATUS</span></td>
+            </tr>
+            <tr class="bgInfo">
+                <td style="width:35%"><span class="case_title">Last Updated By :</span>{{cdetails.last_update_by}}</td>
+                <td colspan="3"><span class="case_title">Last Listed On :</span>{{cdetails.last_listed_on}}</td>
+                <td colspan="1"><span class="case_title">Last Order :</span>{{cdetails.last_order}}</td>
+                <td colspan="2"><span class="case_title">Updated On :</span>{{cdetails.updated_on}}</td>
+            </tr>
+            <tr class="bgInfo">
+                <td><span class="case_title">Status :</span>{{cdetails.status}}</td>
+                <td colspan="2"><span class="case_title">Case Stage Info :</span>{{cdetails.statuary_info}}</td>
+                <td><span class="case_title">Case Stage :</span>{{cdetails.case_stage}}</td>
+                <td colspan="2"><span class="case_title">Case Bench :</span>{{cdetails.bench}}</td>
+                
+            </tr>
+             <tr class="dividing_line">
+                <td colspan="6"></td>
+            </tr>
+            <tr class="bgInfo">
+                <td colspan="6" class="table_heading"><span class="case_title">PARTY's DETAILS</span></td>
+            </tr>
+           
+            <tr class="bgInfo">
+                <td colspan="3"><span class="case_title">Petitioners :</span>{{cdetails.petitioners}}</td>
+                <td colspan="3"><span class="case_title">Respondents :</span>{{cdetails.respondents}}</td>
+            </tr>
+            <tr class="bgInfo">
+                <td colspan="3"><span class="case_title">Petitioners Advocate :</span>{{cdetails.pet_advocates}}</td>
+                <td colspan="3"><span class="case_title">Respondents Advocate :</span>{{cdetails.resp_advocates}}</td>
+            </tr>
+             <tr class="dividing_line">
+                <td colspan="6"></td>
+            </tr>
+            <tr class="bgInfo">
+                <td colspan="6" class="table_heading"><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
+            </tr>
+            <tr class="bgInfo"> 
+                <td colspan=""><span class="case_title">Act :</span>{{cdetails.act}}</td>
+                <td colspan="4"><span class="case_title">U_section :</span>{{cdetails.u_section}}</td>
+                <td colspan="3"><span class="case_title">Category :</span>{{cdetails.category}}</td>
+               
+            </tr>
+            <tr class="dividing_line">
+                <td colspan="6"></td>
+            </tr>
+            <tr class="bgInfo">
+                <td colspan="2"><span class="case_title">D.A. Name :</span>{{cdetails.da_name}}</td>
+                <td colspan="2"><span class="case_title">Admitted :</span>{{cdetails.admitted}}</td>
+                <td colspan="2"><span class="case_title">Updated On :</span>{{cdetails.updated_on}}</td>
+            </tr>
+            <tr class="dividing_line">
+                <td colspan="6"></td>
+            </tr>
+            <tr class="bgInfo">
+                <td colspan="6"><span class="case_title">Judgements :</span>{{cdetails.judgements}}</td>
+            </tr>
+            <tr class="bgInfo">
+                <td colspan="6"><span class="case_title">Display Type :</span>{{cdetails.disp_type}}</td>
+            </tr>
+            
+        </thead>
+    </table>
+   </div>
 </div>
