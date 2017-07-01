@@ -221,7 +221,10 @@ body {
     margin-left: 25%;
 }
 
-
+.table_custom > thead>tr>td{
+    color: rgb(66,74,93);
+    font-weight: bold;
+}
 
 @media (max-width: 850px) {
 		.nav-menu {
