@@ -86,26 +86,28 @@ angular.module('novusApp')
             "password1":$scope.hashPassword,
         };
         
-    //   var promise = signup.registerUser(userObject);
-    //     promise.then(function(data){
-    //        if(data.data.message==="success"){
-               $timeout($scope.expire,60000);
-               $scope.result=undefined;
-               $scope.MobileForm=true;
-               $scope.CodeForm=false;
+      var promise = signup.registerUser(userObject);
+        promise.then(function(data){
+            console.log(data.data);
+           if(data.data.message==="success"){
+               $window.location.path(requrl+'/#/dashboard');
+            //    $timeout($scope.expire,60000);
+            //    $scope.result=undefined;
+            //    $scope.MobileForm=true;
+            //    $scope.CodeForm=false;
         //        $scope.result = "Registered Successfully";
         //        $window.location.reload();
         //        $window.location.assign(requrl);
         //    }
         //    else if(data.data.message==="emailTaken"){
         //        $scope.result ="Email already registered!";
-          // }  
-        //    else{
-        //        $scope.result = "Error occured! Try again later";
-        //    }       
-        // },function(error){
-        //     $scope.result = "Error occured! Try again later";
-        // });
+          }  
+           else{
+               $scope.result = "Error occured! Try again later";
+           }       
+        },function(error){
+            $scope.result = "Error occured! Try again later";
+        });
     };
 
     $scope.expire=function(){

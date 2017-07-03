@@ -40,7 +40,7 @@ angular.module('novusApp')
         
         logout:function(){
           var defer = $q.defer(); 
-          $http.post(requrl+'/logout')
+          $http.post(requrl+'/mynovus.xyz/php/signup/logout.php')
           .then(function(data){
                defer.resolve(data);
            },function(error){
