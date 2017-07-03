@@ -3,7 +3,7 @@
 
     <h3>Cases</h3>
 
-    <div ng-repeat="case in cases|filter:search|orderBy:sortby:order|limitTo:pagelimit">
+    <div ng-repeat="case in cases track by $index">
 
         <div class="panel panel-default cursor">
         
@@ -117,7 +117,11 @@
                 <td colspan="6"></td>
             </tr>
             <tr class="bgInfo">
-                <td colspan="6"><span class="case_title">Judgements :</span>{{cdetails.judgements}}</td>
+                <td colspan="6"><span class="case_title">Judgements :</span>
+                <ul ng-repeat="judgements in cdetails.jArray">
+                    <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index}}</a></li>
+                </ul>
+                </td>
             </tr>
             <tr class="bgInfo">
                 <td colspan="6"><span class="case_title">Display Type :</span>{{cdetails.disp_type}}</td>
