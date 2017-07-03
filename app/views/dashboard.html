@@ -1,18 +1,18 @@
-<div class="container">
+<!--<div class="container dashboard">-->
     <div class="row" ng-hide="hideDashboard">
 
-    <h3>Cases</h3>
+    <h3 style="text-align:center"></h3>
 
-    <div ng-repeat="case in cases track by $index">
+    <div ng-repeat="case in cases track by $index" class="cases">
 
         <div class="panel panel-default cursor">
         
             <div class="panel-body" >
-                <div class="pull-left" ng-click="showCasesButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>
-                <div class="contents" ng-click="showCasesButton(case)"><span class="case_title">Dairy No:</span>{{case.diary_number}} </div>
+<!--                <div class="pull-left" ng-click="showCasesButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
+                <div class="contents" ng-click="showCasesButton(case)"><span class="case_title">Dairy No: &nbsp;</span>{{case.diary_number}} </div>
 <!--                <div class="contents" ng-click="showCasesButton(case)">{{case.year}}</div>-->
                 
-                <div class="contents" ng-click="showCasesButton(case)"><span class="case_title">Case No:</span><br>{{case.case_no}} </div>
+                <div class="contents caseNo" ng-click="showCasesButton(case)"><span class="case_title">Case No: </span> {{case.case_no}}</div>
                <div class="img_hold">
 <!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
                <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteImg()"></i>
@@ -46,6 +46,7 @@
 </div>
 
 <div ng-hide="caseDetails">
+   <br><br>
     <h1>Case Details</h1>
      <div id="btn_holder">
      <button ng-click="showDetailsButton()" class="btn btn-primary btn-lg btn_custom">Go Back</button>
@@ -54,20 +55,22 @@
     <table border="1" class="table table-striped table-inverse table_custom">
         <thead>
             <tr class="bgInfo">
-                <td style="width:25%"><span class="case_title">SNo. :</span>{{cdetails.sNo}}</td>
+<!--                <td style="width:25%"><span class="case_title">SNo. :</span>{{cdetails.sNo}}</td>-->
                 <td colspan="2"><span class="case_title">Diary Number :</span>{{cdetails.diary_number}}</td>
                 <td colspan="2"><span class="case_title">Year :</span>{{cdetails.year}}</td>
                 <td colspan="2"><span class="case_title">Case Number :</span>{{cdetails.case_no}}</td>
             </tr>
+<!--
             <tr class="dividing_line">
                 <td colspan="6"></td>
             </tr>
+-->
             <tr class="bgInfo">
                 <td colspan="6" class="table_heading"><span class="case_title">CASE STATUS</span></td>
             </tr>
             <tr class="bgInfo">
                 <td style="width:35%"><span class="case_title">Last Updated By :</span>{{cdetails.last_update_by}}</td>
-                <td colspan="3"><span class="case_title">Last Listed On :</span>{{cdetails.last_listed_on}}</td>
+                <td colspan="3"><span class="case_title">Last Listed On :</span><span class="blink">{{cdetails.last_listed_on}}</span></td>
                 <td colspan="1"><span class="case_title">Last Order :</span>{{cdetails.last_order}}</td>
                 <td colspan="2"><span class="case_title">Updated On :</span>{{cdetails.updated_on}}</td>
             </tr>
@@ -78,9 +81,11 @@
                 <td colspan="2"><span class="case_title">Case Bench :</span>{{cdetails.bench}}</td>
                 
             </tr>
+<!--
              <tr class="dividing_line">
                 <td colspan="6"></td>
             </tr>
+-->
             <tr class="bgInfo">
                 <td colspan="6" class="table_heading"><span class="case_title">PARTY's DETAILS</span></td>
             </tr>
@@ -93,9 +98,11 @@
                 <td colspan="3"><span class="case_title">Petitioners Advocate :</span>{{cdetails.pet_advocates}}</td>
                 <td colspan="3"><span class="case_title">Respondents Advocate :</span>{{cdetails.resp_advocates}}</td>
             </tr>
+<!--
              <tr class="dividing_line">
                 <td colspan="6"></td>
             </tr>
+-->
             <tr class="bgInfo">
                 <td colspan="6" class="table_heading"><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
             </tr>
@@ -105,23 +112,33 @@
                 <td colspan="3"><span class="case_title">Category :</span>{{cdetails.category}}</td>
                
             </tr>
+<!--
             <tr class="dividing_line">
                 <td colspan="6"></td>
             </tr>
+-->
             <tr class="bgInfo">
                 <td colspan="2"><span class="case_title">D.A. Name :</span>{{cdetails.da_name}}</td>
                 <td colspan="2"><span class="case_title">Admitted :</span>{{cdetails.admitted}}</td>
                 <td colspan="2"><span class="case_title">Updated On :</span>{{cdetails.updated_on}}</td>
             </tr>
+<!--
             <tr class="dividing_line">
                 <td colspan="6"></td>
             </tr>
-            <tr class="bgInfo">
-                <td colspan="6"><span class="case_title">Judgements :</span>
+-->
+           <tr class="bgInfo">
+                <td colspan="6" class="table_heading"><span class="case_title">Judgements</span></td>
+            </tr>
+            <tr class="bgInfo" ng-repeat="judgements in cdetails.jArray">
+<!--                <td colspan="">-->
+<!--
                 <ul ng-repeat="judgements in cdetails.jArray">
-                    <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index}}</a></li>
+                    <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></li>
                 </ul>
-                </td>
+-->
+                <td colspan="6"><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>
+<!--                </td>-->
             </tr>
             <tr class="bgInfo">
                 <td colspan="6"><span class="case_title">Display Type :</span>{{cdetails.disp_type}}</td>
@@ -129,5 +146,12 @@
             
         </thead>
     </table>
-   </div>
+<!--   </div>-->
 </div>
+<script>
+$(document).ready(function(){
+  setInterval(function(){
+    $('.flash').toggleClass('active');
+  }, 500);
+});
+    </script>
