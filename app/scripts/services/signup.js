@@ -25,7 +25,7 @@ angular.module('novusApp')
 
         registerUser:function(userObject){
           var defer = $q.defer();
-           $http.post(requrl+'/mynovus.xyz/php/signup/signup.php',userObject)
+           $http.post('http://mynovus.xyz/php/signup/signup.php',userObject)
            .then(function(data){
                defer.resolve(data);
            },function(error){

@@ -88,9 +88,15 @@ angular.module('novusApp')
         
       var promise = signup.registerUser(userObject);
         promise.then(function(data){
-            console.log(data.data);
-           if(data.data.message==="success"){
-               $window.location.path(requrl+'/#/dashboard');
+            console.log("signup",data);
+           if(data.data==="success"){
+               $window.location.assign(requrl+'/#/dashboard');
+           }
+           else if(data.data.message==="exist"){
+               $scope.result = "Email already exists!";
+           }
+           else if(data.data.message==="fail"){
+               $scope.result = "Invalid id/password!Try again";
             //    $timeout($scope.expire,60000);
             //    $scope.result=undefined;
             //    $scope.MobileForm=true;

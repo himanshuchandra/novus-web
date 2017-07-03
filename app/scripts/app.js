@@ -18,7 +18,7 @@ angular
     'ngFileUpload'
   ])
 
-  .constant("requrl","http://localhost:1234")
+  .constant("requrl","http://localhost:9000")
   
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider

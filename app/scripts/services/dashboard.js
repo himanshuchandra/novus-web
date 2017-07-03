@@ -14,9 +14,7 @@ angular.module('novusApp')
 
       loadData:function(){
           var defer = $q.defer(); 
-          // $http.post(requrl+'/login/login',loginObject)
-//          $http.post("http://mynovus.xyz/php/view_data.php")
-          $http.get('server/dashboard.json')
+         $http.post("http://mynovus.xyz/php/view_data.php")
           .then(function(data){
                defer.resolve(data);
            },function(error){
