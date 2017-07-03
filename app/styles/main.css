@@ -205,15 +205,34 @@ body {
   text-decoration: underline;
 }
 
+.flash {display: block}
+.active {display: none}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    color: red;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
 .bgInfo{
-    background-color: rgb(255,215,119);
+/*    background-color: rgb(255,215,119);*/
     border: 2px solid black !important;
 }
 
 .dividing_line{
     background-color: rgb(66,74,93);
     border: 2px black solid;
-    height: 4px !important;
+    height: 1px !important;
 }
 
 .btn_custom{
@@ -221,11 +240,33 @@ body {
     margin-left: 25%;
 }
 
+.dash,.sub-menu>a>span{
+    font-size: 16px !important;
+/*    font-family: 'Open Sans', sans-serif !important;*/
+    font-family: 'Prociono', serif;
+}
+
+.sub-menu>a>span{
+    margin-top: 15px;
+}
 .table_custom > thead>tr>td{
     color: rgb(66,74,93);
     font-weight: bold;
 }
-
+.spacing{
+    margin-left: 5px !important;
+}
+.caseInfo{
+    margin-top: 5%;
+}
+.cases{
+    margin-left: 10%;
+    width: 80%;
+}
+.caseNo{
+    width: 30%;
+    flex: 3 !important;
+}
 @media (max-width: 850px) {
 		.nav-menu {
 		margin: 0px !important;
