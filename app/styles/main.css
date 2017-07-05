@@ -284,6 +284,15 @@ body {
 	}
 }
 
+.logout_button{
+    background: #ffd777;
+    border: solid #ffd777;
+    color: #666666;
+    font-size: 16px;
+    margin-top: -3.5px;
+    margin-left: -5px;
+}
+
 .td_border{
   border: 1px solid black !important;
 }
