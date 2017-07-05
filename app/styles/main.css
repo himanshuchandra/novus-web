@@ -283,7 +283,10 @@ body {
             padding: 0px !important;
 	}
 }
-
+.btn_otp{
+    align-items: center;
+    padding-left: 24%;
+}
 .logout_button{
     background: #ffd777;
     border: solid #ffd777;

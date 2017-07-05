@@ -219,13 +219,45 @@
         {{passtext}}
 		            <br>
                       <input type="submit" style="font-weight:700" ng-click="submitted=true;" class="btn btn-theme btn-block" value="Register" ng-disabled="isNotValid">
+		      <hr>
 		            
+		            <div class="login-social-link centered">
+		            <p>or you can sign in via your social network</p>
+		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
+		                <button class="btn btn-twitter" type="submit"><i class="fa fa-google-plus"></i> Gmail</button>
+		            </div>       
 	           
                 </div>
 		
 		      </form>	  	
-	  	      <h5 id="login-result">{{result}} </h5>   
+	  	      
 	  	      
 	  	</div>
+          <div ng-hide="CodeForm" >
+        <form name="codeForm" ng-submit="submitCode(codeForm)" novalidate class="form-login">
+            <h2 class="form-login-heading" style="font-weight:600">Verify your mobile</h2>
+            <h5 style="color:black;text-align:center">Enter 6 digit verification code from your mobile that we just sent you</h5>
+            <input type="text" class="form-control" style="padding:0px 2px" ng-model="signup.VCode" name="vCode" pattern="[a-z0-9A-Z]{6}" required placeholder="Enter OTP"/>
+            <span  ng-show="codeForm.vCode.$touched &&
+            codeForm.vCode.$error.pattern &&
+            !codeForm.vCode.$error.required">
+            Invalid Code Format</span>
+           <span  ng-show="codeForm.vCode.$touched &&
+            codeForm.vCode.$error.required">Cannot be left empty </span>
+            <span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
+            codeForm.vCode.$error.required">
+                Cannot be left empty </span>
+         <span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
+            codeForm.vCode.$error.pattern">
+            Invalid code Format</span>
+            <br>
+             <h5 id="login-result" style="color:black !important">   {{CodeMessage}} </h5>
+             <div class="btn_otp">
+            <input type="submit" style="margin-left:10px" class="btn btn-default" ng-click="CodeSubmitted=true;" value="Verify">
+            <input type="button" class="btn btn-primary" ng-click="SendAgain()" value="Send Again">
+            </div>
+        </form>         
+        
+    </div>
 	  </div>
-
+<h5 id="login-result">{{result}} </h5>   
