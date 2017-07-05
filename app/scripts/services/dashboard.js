@@ -8,13 +8,13 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('dashboard', function ($http,$q) {
+  .factory('dashboard', function ($http,$q,requrl) {
     
     var object={
 
       loadData:function(){
           var defer = $q.defer(); 
-         $http.post("http://mynovus.xyz/php/view_data.php")
+         $http.post(requrl+"/php/view_data.php")
           .then(function(data){
                defer.resolve(data);
            },function(error){

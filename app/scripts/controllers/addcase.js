@@ -137,7 +137,13 @@ angular.module('novusApp')
     $scope.sendSupremeData=function(obj){
         var promise=addcase.sendSupremeData(obj);
         promise.then(function(data) {
-            $scope.supremeMessage="Added successfully";
+            if(data.data=""){
+                $scope.supremeMessage="Added successfully to dashboard";
+            }
+            else{
+                $scope.supremeMessage="Error adding!Try again later.";
+            }
+            
             console.log(obj);
             // JSON.parse(data);
             // console.log(JSON.parse(data));
@@ -155,7 +161,7 @@ angular.module('novusApp')
         //     $scope.MobileMessage="Error! Try again later";
         //   }
         },function(error) {
-            // $scope.MobileMessage="Error! Try again later";
+            $scope.supremeMessage="Error adding!Try again later.";
         }); 
     };
     

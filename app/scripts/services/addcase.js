@@ -8,7 +8,7 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('addcase', function ($http,$q) {
+  .factory('addcase', function ($http,$q,requrl) {
 
     var object={
       loadHCoptions:function(obj){
@@ -47,7 +47,7 @@ angular.module('novusApp')
       sendSupremeData:function(obj){
         var defer = $q.defer(); 
         // $http.post("http://ec2-13-126-94-166.ap-south-1.compute.amazonaws.com/php/signin.php",obj)
-        $http.post("http://mynovus.xyz/php/add_sup.php",obj)
+        $http.post(requrl+ "/php/add_sup.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){

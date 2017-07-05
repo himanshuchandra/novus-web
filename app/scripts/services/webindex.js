@@ -18,7 +18,7 @@ angular.module('novusApp')
 
         checkStatus:function(){
           var defer = $q.defer(); 
-          $http.post(requrl+'/webindex')
+          $http.post(requrl+'/php/signup/check.php')
           .then(function(data){
                defer.resolve(data);
            },function(error){
@@ -40,7 +40,7 @@ angular.module('novusApp')
         
         logout:function(){
           var defer = $q.defer(); 
-          $http.post(requrl+'/mynovus.xyz/php/signup/logout.php')
+          $http.post(requrl+'/php/signup/logout.php')
           .then(function(data){
                defer.resolve(data);
            },function(error){

@@ -43,15 +43,13 @@ angular.module('novusApp')
         };
         var promise = login.loginUser(loginObject);
         promise.then(function(data){
-            if(data.data.message==="success"){
+            console.log(loginObject,data);
+            if(data.data==="success"){
                 $scope.result="Logged in successfully";
                 $window.location.reload();
-                $window.location.assign(requrl);
+                $window.location.assign(requrl+"/#/dashboard");
             }
-            else if(data.data.message==="conflict"){
-                $scope.result="Please specify country code if using Mobile number";
-            }
-            else if(data.data.message==="fail"){
+            else if(data.data==="incorrectpassword"){
                 $scope.result="Wrong Email/Username/Mobile or password";
             }
             else{

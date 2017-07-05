@@ -24,43 +24,44 @@ angular.module('novusApp')
      $scope.LoginButton=false;
      $scope.SignupButton=false;
      $scope.ProfileButton=true;
-     $scope.LogoutButton=true;
+    //  $scope.LogoutButton=true;
 
      $scope.ActivationMessage=undefined;
      
      $scope.loadData=function(){
         var promise = webindex.checkStatus();
         promise.then(function(data){
-            if(data.data.message==="fail"){
-                $scope.loginStatus="Login/SignUp";
-            }
-            else if(data.data.Message!=undefined){
-                $scope.loginStatus=data.data.Message;
-                webindex.userData=data.data.userData;
+            console.log(data);
+            // if(data.data.message==="fail"){
+            //     $scope.loginStatus="Login/SignUp";
+            // }
+            // else if(data.data.Message!=undefined){
+            //     $scope.loginStatus=data.data.Message;
+            //     webindex.userData=data.data.userData;
 
-                if(data.data.Email!=undefined && data.data.ActivationStatus===false){
-                    $scope.Status="Your Email address "+data.data.Email+" is not Verified";
-                    $scope.ActivationStatus=false;
+            //     if(data.data.Email!=undefined && data.data.ActivationStatus===false){
+            //         $scope.Status="Your Email address "+data.data.Email+" is not Verified";
+            //         $scope.ActivationStatus=false;
                     
-                }
-                $scope.LoginButton=true;
-                $scope.SignupButton=true;
-                $scope.ProfileButton=false;
-                $scope.LogoutButton=false;
-            }
-            else{
-                $scope.loginStatus="Login/SignUp";
-            }
+            //     }
+            //     $scope.LoginButton=true;
+            //     $scope.SignupButton=true;
+            //     $scope.ProfileButton=false;
+            //     $scope.LogoutButton=false;
+            // }
+            // else{
+            //     $scope.loginStatus="Login/SignUp";
+            // }
             webindex.needReload=false;
-            webindex.loaded=true;
+            // webindex.loaded=true;
         });
       };
       
-    //   $scope.$watch(function(){return webindex.needReload},function(newValue,oldValue){
-    //     if(webindex.needReload===true){
-    //       $scope.loadData(); 
-    //     }
-    //   },true);
+      $scope.$watch(function(){return webindex.needReload},function(newValue,oldValue){
+        if(webindex.needReload===true){
+          $scope.loadData(); 
+        }
+      },true);
 
       ////////////////////////////
       $scope.sendLinkButton=false;
@@ -91,8 +92,13 @@ angular.module('novusApp')
       $scope.Logout=function(){
           var promise = webindex.logout();
             promise.then(function(data){
-                $window.location.reload();
-                $window.location.assign(requrl+"/#/login");
+                if(data.data==="logout"){
+                    $window.location.reload();
+                    $window.location.assign(requrl+"/#/login");
+                }
+                else{
+                    $scope.LogoutMessage="Error,Try again Later";
+                }
             },function(error){
                 $scope.LogoutMessage="Error,Try again Later";
         });
