@@ -1,3 +1,4 @@
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -85,7 +86,14 @@ body {
 
 .panel.disabled .panel-body {
     position: relative;
+/*    font-size: 12px;*/
+   
     
+}
+
+.panel-body>div{
+/*     font-weight: 600 !important;*/
+    font-size: 13px;
 }
 
 .panel-body{
@@ -120,15 +128,16 @@ body {
   background-color: red;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
-    width: 75px !important;
-    height: 80px;
+    width: 85px !important;
+    height: 100px;
 }
 .date-body .date-title{
   color: white;
 }
 
 .date-body .date-content{
-  background-color: white;margin: -6px 9px;
+  background-color: white;
+    margin: -7px 9px;
 /*    width: 20px;*/
 }
 .date-body .date-content p.dia{
@@ -243,7 +252,8 @@ body {
 .dash,.sub-menu>a>span{
     font-size: 16px !important;
 /*    font-family: 'Open Sans', sans-serif !important;*/
-    font-family: 'Prociono', serif;
+    font-weight: 800;
+    font-family: 'Prociono', serif !important;
 }
 
 .sub-menu>a>span{
@@ -276,4 +286,12 @@ body {
 
 .td_border{
   border: 1px solid black !important;
+}
+
+.judgementA{
+    color: blue;
+}
+
+.caseDetails{
+    font-weight: 500;
 }

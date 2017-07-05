@@ -139,7 +139,7 @@
                     <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></li>
                 </ul>
 -->
-                <td class="td_border" colspan="6"><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>
+                <td class="td_border" colspan="6"><a class="judgementA" ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>
 <!--                </td>-->
             </tr>
             <tr class="bgInfo">
@@ -151,10 +151,3 @@
     </div>
 <!--   </div>-->
 </div>
-<script>
-$(document).ready(function(){
-  setInterval(function(){
-    $('.flash').toggleClass('active');
-  }, 500);
-});
-</script>
