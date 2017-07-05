@@ -81,6 +81,12 @@ angular.module('novusApp')
     //         $scope.hideApplicants=sNo;
     //     }
     // };
-
+    $scope.printDiv=function() {
+      var divToPrint = document.getElementById('printDiv');
+      var newWin = window.open("");
+      newWin.document.write(divToPrint.outerHTML);
+      newWin.print();
+      newWin.close();
+   }
 
   });
