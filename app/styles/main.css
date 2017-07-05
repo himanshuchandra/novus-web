@@ -284,15 +284,6 @@ body {
 	}
 }
 
-.printer{
-    position: absolute; 
-    bottom: 15% ;
-    color: black ;
-    right:0px ; 
-    font-size:40px !important;
-/*    cursor: move;*/
-}
-
 .logout_button{
     background: #ffd777;
     border: solid #ffd777;

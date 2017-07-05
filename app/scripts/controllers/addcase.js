@@ -137,7 +137,7 @@ angular.module('novusApp')
     $scope.sendSupremeData=function(obj){
         var promise=addcase.sendSupremeData(obj);
         promise.then(function(data) {
-            if(data.data=""){
+            if(data.data!=""){
                 $scope.supremeMessage="Added successfully to dashboard";
             }
             else{
