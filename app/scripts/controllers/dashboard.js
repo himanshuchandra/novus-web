@@ -27,7 +27,6 @@ angular.module('novusApp')
 
       var promise=dashboard.loadData();
       promise.then(function(data){
-        // console.log(data);
         if(data.data!=undefined){
           $scope.cases=data.data;
           for(var i=0;i<data.data.length;i++){
@@ -35,8 +34,7 @@ angular.module('novusApp')
             var jArray=judgements.split(',');
             data.data[i].jArray=jArray;
           }
-          
-          // var zz=judgements.split(',');
+        
           console.log(data.data);
 
         }

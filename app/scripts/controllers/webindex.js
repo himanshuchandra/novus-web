@@ -92,6 +92,7 @@ angular.module('novusApp')
       $scope.Logout=function(){
           var promise = webindex.logout();
             promise.then(function(data){
+                console.log(data);
                 if(data.data==="logout"){
                     $window.location.reload();
                     $window.location.assign(requrl+"/#/login");

@@ -43,7 +43,7 @@ angular.module('novusApp')
         };
         var promise = login.loginUser(loginObject);
         promise.then(function(data){
-            console.log(loginObject,data);
+            console.log(data);
             if(data.data==="success"){
                 $scope.result="Logged in successfully";
                 $window.location.reload();
