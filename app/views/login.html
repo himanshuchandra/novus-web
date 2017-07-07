@@ -5,7 +5,7 @@
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
 		            <input type="text" class="form-control" placeholder="User ID" autofocus ng-model="login.loginid" name="validloginid"
-                    pattern="[a-zA-Z0-9_.@!#$%^&*-+=><?/~`'|]{5,50}" placeholder="Email/Mobile" required>
+                    pattern="[a-zA-Z0-9_.@!#$%^&*-+=><?/~`'|]{5,50}" required>
                     <span  ng-show="loginForm.validloginid.$touched &&
                      loginForm.validloginid.$error.pattern && !loginForm.validloginid.$error.required">
                      Invalid email/Mobile </span>

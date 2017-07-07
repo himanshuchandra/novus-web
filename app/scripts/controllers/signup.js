@@ -93,7 +93,6 @@ angular.module('novusApp')
 
             var promise = signup.registerUser(userObject);
             promise.then(function (data) {
-                console.log("signup", data);
                 if (data.data === "success") {
                     $window.location.reload();
                     $window.location.assign(requrl + '/#/dashboard');
