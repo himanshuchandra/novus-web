@@ -24,6 +24,13 @@
         position: absolute;
     }
 
+    .nav-menu{
+        display: none !important;
+    }
+
+    .resp_disp{
+        display: block !important;
+    }
     /*sidebar*/
 
     #sidebar {

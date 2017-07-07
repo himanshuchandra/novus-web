@@ -315,3 +315,7 @@ body {
 .caseDetails{
     font-weight: 500;
 }
+
+.resp_disp{
+    display: none;
+}
