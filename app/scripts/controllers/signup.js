@@ -10,10 +10,6 @@
 angular.module('novusApp')
     .controller('SignupCtrl', function ($scope, signup, webindex, $window, md5, requrl, profile, $timeout) {
 
-        if (webindex.userData.useremail != undefined) {
-            $window.location.assign(requrl);
-        }
-
         //all ng-models declared
         $scope.signup = {
             email: "",
@@ -24,6 +20,22 @@ angular.module('novusApp')
             mobile: "",
             VCode: "",
         };
+
+
+        $scope.loadData = function () {
+            if (webindex.loggedIn === true) {
+                $window.location.reload();
+                $window.location.assign(requrl + "/#/dashboard");
+            }
+        };
+
+        var unregister = $scope.$watch(webindex.loaded, function (newValue, oldValue) {
+            if (!angular.equals(webindex.loaded, false)) {
+                $scope.loadData();
+                unregister();
+            }
+        }, true);
+
 
 
         //////////////Enable Register code/////////
@@ -61,14 +73,14 @@ angular.module('novusApp')
 
         ////////////////////Registering The user////////////////////////////////////    
         $scope.submitForm = function (regForm) {
-            
-            var comValid=true;
+
+            var comValid = true;
             var atpos = $scope.signup.email.indexOf("@");
             var dotpos = $scope.signup.email.lastIndexOf(".");
             if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= $scope.signup.email.length) {
-                comValid=false;
+                comValid = false;
             }
-            if (regForm.$valid && passverified == true && comValid!=false) {
+            if (regForm.$valid && passverified == true && comValid != false) {
                 $scope.result = "Checking..";
                 $scope.doRegister();
             }

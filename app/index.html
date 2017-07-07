@@ -93,8 +93,8 @@
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
-       <header class="header black-bg">
-              <div class="sidebar-toggle-box">
+       <header class="header black-bg" ng-hide="headerHide">
+              <div class="sidebar-toggle-box" ng-hide="sideBar">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
@@ -183,7 +183,7 @@
               <li ng-hide="SignupButton" class="nav-menu"><a class="nav-a" ng-href="/#signup">Signup</a></li>
               <li ng-hide="LoginButton" class="nav-menu"><a class="nav-a" ng-href="/#login">Login</a></li>
               <!--<li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>-->
-              <li class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>
+              <li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>
               <li class="nav-menu"><div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div></li>
 <!--            </ul>-->
                 </ul>
@@ -209,7 +209,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <aside>
+      <aside ng-hide="sideBar">
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">

@@ -14,6 +14,7 @@ angular.module('novusApp')
 
         needReload:true,
         loaded:false,
+        loggedIn:false,
         userData:{},
 
         checkStatus:function(){
