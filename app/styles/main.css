@@ -161,13 +161,21 @@ body {
     -webkit-border-color: aqua !important;
 }
 
+#comp_logo{
+    display:inline-block;
+    margin-left: 45%;
+}
+
+#comp_logo img{
+    max-width:60%;
+}
 .nav-menu{
 /*    margin-left: 15px;*/
 }
 
 #login-page {
         background-image: url(../images/login-bg.jpg);
-        height: 100vh;
+        height: 150vh;
         margin: 0 -14px;
     }
 #login-result{

@@ -14,17 +14,14 @@
     }
 
     /*chat room*/
-    
+
+
 }
 
 @media (max-width: 768px) {
 
     .header {
         position: absolute;
-    }
-
-    .hiden{
-        display: none !important;
     }
 
     /*sidebar*/
@@ -42,16 +39,7 @@
     #main-content {
         margin: 0px!important;
         position: none !important;
-        
     }
-/*
-    #button_section{
-        position: absolute;
-        top: 20% !important; 
-        display: flex;
-        flex: 2;
-    }
-*/
 
     #sidebar > ul > li > a > span {
         line-height: 35px;
