@@ -10,20 +10,19 @@
 angular.module('novusApp')
     .controller('LoginCtrl', function ($scope, login, webindex, $window, requrl, md5) {
 
-        $scope.loadData = function () {
+        $scope.checkLogin= function () {
             if (webindex.loggedIn === true) {
                 $window.location.reload();
                 $window.location.assign(requrl + "/#/dashboard");
             }
         };
 
-        var unregister = $scope.$watch(webindex.loaded, function (newValue, oldValue) {
+        var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
             if (!angular.equals(webindex.loaded, false)) {
-                $scope.loadData();
+                $scope.checkLogin();
                 unregister();
             }
         }, true);
-
 
         //all ng-models declared 
         $scope.login = {

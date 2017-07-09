@@ -29,16 +29,16 @@ angular.module('novusApp')
 
         //////Loading data from index service 
 
-        $scope.loadData = function () {
-            if (webindex.loggedIn === false) {
+        $scope.checkLogin= function () {
+            if (webindex.loggedIn != true) {
                 $window.location.reload();
-                $window.location.assign(requrl + "/#/dashboard");
+                $window.location.assign(requrl + "/#/login");
             }
         };
 
-        var unregister = $scope.$watch(webindex.loaded, function (newValue, oldValue) {
+        var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
             if (!angular.equals(webindex.loaded, false)) {
-                $scope.loadData();
+                $scope.checkLogin();
                 unregister();
             }
         }, true);

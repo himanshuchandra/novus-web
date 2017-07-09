@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('AddcaseCtrl', function ($scope,addcase) {
+  .controller('AddcaseCtrl', function ($scope,addcase,webindex,$window,requrl) {
    var obj;
     $scope.addCase={
         year:"",
@@ -27,6 +27,22 @@ angular.module('novusApp')
     $scope.supremeFormHide=true;
     $scope.highFormHide=true;
     $scope.districtFormHide=true;
+
+    $scope.loadFirst = function () {
+      if (webindex.loggedIn != true) {
+        $window.location.reload();
+        $window.location.assign(requrl + "/#/login");
+      }
+    };
+    
+    var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
+      if (!angular.equals(webindex.loaded, false)) {
+        $scope.loadFirst();
+        unregister();
+      }
+    }, true);
+
+
 
     $scope.loadHCoptions=function(){
 

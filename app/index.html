@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -16,20 +17,20 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-<!--    fonts link-->
+    <!--    fonts link-->
     <link href="https://fonts.googleapis.com/css?family=Prociono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- endbuild -->
-    
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/style-responsive.css">
-    <link rel="stylesheet" href="styles/main.css">  
-    
-    
+    <link rel="stylesheet" href="styles/main.css">
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--css for main.html-->
-<!--
+    <!--
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
@@ -39,15 +40,16 @@
     <link id="color-scheme" href="styles/css/colors/default.css" rel="stylesheet">
     <!--css ends for main.html-->
 
-  </head>
-  <body ng-app="novusApp">
+</head>
+
+<body ng-app="novusApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-<div ng-controller="WebindexCtrl">
-  <div ng-cloak>
-   
-<!--
+    <div ng-controller="WebindexCtrl">
+        <div ng-cloak>
+
+            <!--
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -87,282 +89,290 @@
       </div>
     </div>
 -->
-   
-  <section id="container" >
-      <!-- **********************************************************************************************************************************************************
+
+            <section id="container">
+                <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <!--header start-->
-       <header class="header black-bg" ng-hide="headerHide">
-              <div class="sidebar-toggle-box" ng-hide="sideBar">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-            <a href="" class="logo"><b>NOVUS SOFTWARES</b></a>
-            <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
-                <!--  notification start -->
-                <ul class="nav top-menu ">
-                    <!-- settings start -->
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="">
+                <!--header start-->
+                <header class="header black-bg" ng-hide="headerHide">
+                    <div class="sidebar-toggle-box" ng-hide="sideBar">
+                        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                    </div>
+                    <!--logo start-->
+                    <a href="" class="logo"><b>NOVUS SOFTWARES</b></a>
+                    <!--logo end-->
+                    <div class="nav notify-row" id="top_menu">
+                        <!--  notification start -->
+                        <ul class="nav top-menu ">
+                            <!-- settings start -->
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="">
                             <i class="fa fa-tasks"></i>
                             <span class="badge bg-theme">4</span>
                         </a>
-                        <ul class="dropdown-menu extended tasks-bar">
-                            <div class="notify-arrow notify-arrow-green"></div>
-                            <li>
-                                <p class="green">You have 4 pending tasks</p>
+                                <ul class="dropdown-menu extended tasks-bar">
+                                    <div class="notify-arrow notify-arrow-green"></div>
+                                    <li>
+                                        <p class="green">You have 4 pending tasks</p>
+                                    </li>
+                                    <li>
+                                        <a href="index.html#">
+                                            <div class="task-info">
+                                                <div class="desc">Admin Panel</div>
+                                                <div class="percent">40%</div>
+                                            </div>
+                                            <div class="progress progress-striped">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                                                    style="width: 40%">
+                                                    <span class="sr-only">40% Complete (success)</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html#">
+                                            <div class="task-info">
+                                                <div class="desc">Database Update</div>
+                                                <div class="percent">60%</div>
+                                            </div>
+                                            <div class="progress progress-striped">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                    style="width: 60%">
+                                                    <span class="sr-only">60% Complete (warning)</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html#">
+                                            <div class="task-info">
+                                                <div class="desc">Product Development</div>
+                                                <div class="percent">80%</div>
+                                            </div>
+                                            <div class="progress progress-striped">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                    <span class="sr-only">80% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html#">
+                                            <div class="task-info">
+                                                <div class="desc">Payments Sent</div>
+                                                <div class="percent">70%</div>
+                                            </div>
+                                            <div class="progress progress-striped">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                                                    style="width: 70%">
+                                                    <span class="sr-only">70% Complete (Important)</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="external">
+                                        <a href="#">See All Tasks</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href="index.html#">
-                                    <div class="task-info">
-                                        <div class="desc">Admin Panel</div>
-                                        <div class="percent">40%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </a>
+                            <!-- settings end -->
+                            <!-- inbox dropdown start-->
+
+                            <!-- inbox dropdown end -->
+                            <!--                    <ul class="nav navbar-nav">-->
+
+                            <li class="active nav-menu"><a href="#/" class="nav-a">Home</a></li>
+                            <li class="nav-menu hiden"><a class="nav-a" ng-href="/#about">About</a></li>
+                            <li class="nav-menu hiden"><a ng-href="/#" class="nav-a">Contact</a></li>
+                            <li ng-hide="SignupButton" class="nav-menu"><a class="nav-a" ng-href="/#signup">Signup</a></li>
+                            <li ng-hide="LoginButton" class="nav-menu"><a class="nav-a" ng-href="/#login">Login</a></li>
+                            <!--<li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>-->
+                            <li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>
+                            <li class="nav-menu">
+                                <div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div>
                             </li>
-                            <li>
-                                <a href="index.html#">
-                                    <div class="task-info">
-                                        <div class="desc">Database Update</div>
-                                        <div class="percent">60%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <div class="task-info">
-                                        <div class="desc">Product Development</div>
-                                        <div class="percent">80%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <div class="task-info">
-                                        <div class="desc">Payments Sent</div>
-                                        <div class="percent">70%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                            <span class="sr-only">70% Complete (Important)</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="external">
-                                <a href="#">See All Tasks</a>
-                            </li>
+                            <!--            </ul>-->
+                            <!--<div ng-cloak ng-hide="ActivationStatus">
+                                <p>{{Status}}</p>
+                                <p ng-cloak><a ng-hide="sendLinkButton" ng-click="SendActivationLink()">Send Link Again</a>{{ActivationMessage}}</p>
+                            </div>-->
+
                         </ul>
-                    </li>
-                    <!-- settings end -->
-                    <!-- inbox dropdown start-->
-                   
-                    <!-- inbox dropdown end -->
-<!--                    <ul class="nav navbar-nav">-->
-            
-              <li class="active nav-menu"><a href="#/" class="nav-a">Home</a></li>
-              <li class="nav-menu hiden"><a class="nav-a" ng-href="/#about">About</a></li>
-              <li class="nav-menu hiden"><a ng-href="/#" class="nav-a">Contact</a></li>
-              <li ng-hide="SignupButton" class="nav-menu"><a class="nav-a" ng-href="/#signup">Signup</a></li>
-              <li ng-hide="LoginButton" class="nav-menu"><a class="nav-a" ng-href="/#login">Login</a></li>
-              <!--<li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>-->
-              <li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>
-              <li class="nav-menu"><div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div></li>
-<!--            </ul>-->
-                </ul>
-                <!--  notification end -->
-<!--
+                        <!--  notification end -->
+                        <!--
                 <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             
           </div>
 -->
-            </div>
-<!--
+                    </div>
+                    <!--
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="login.html">Logout</a></li>
             	</ul>
             </div>
 -->
-        </header>
-      <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
+                </header>
+                <!--header end-->
+
+                <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      <aside ng-hide="sideBar">
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="profile.html"><img src="http://www.novussoftwares.com/images/logo.png" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Novus Softwares</h5>
-              	  	
-                  <li class="mt">
-                      <a href="/#dashboard" class="active">
+                <!--sidebar start-->
+                <aside ng-hide="sideBar">
+                    <div id="sidebar" class="nav-collapse ">
+                        <!-- sidebar menu start-->
+                        <ul class="sidebar-menu" id="nav-accordion">
+
+                            <p class="centered"><a href="profile.html"><img src="http://www.novussoftwares.com/images/logo.png" class="img-circle" width="60"></a></p>
+                            <h5 class="centered">Novus Softwares</h5>
+
+                            <li class="mt">
+                                <a href="/#dashboard" class="active">
                           <i class="fa fa-dashboard"></i>
                           <span class="dash">Dashboard</span>
                       </a>
-                  </li>
+                            </li>
 
-                  <li class="sub-menu">
-                      <a href="/#addcase">
+                            <li class="sub-menu">
+                                <a href="/#addcase">
                           <i class="fa fa-book"></i>
                           <span>Add New Case</span>
                       </a>
-                  </li>
-                   <li class="sub-menu">
-                      <a href="/#">
+                            </li>
+                            <li class="sub-menu">
+                                <a href="/#">
                           <i class="fa fa-calendar"></i>
                           <span>Calender View</span>
                       </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="/#">
+                            </li>
+                            <li class="sub-menu">
+                                <a href="/#">
                           <i class="fa fa-list"></i>
                           <span>Cause List</span>
                       </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="/#">
+                            </li>
+                            <li class="sub-menu">
+                                <a href="/#">
                           <i class="fa fa-tasks"></i>
                           <span>Task Manager</span>
                       </a>
-                  </li> 
-                  <li class="sub-menu">
-                      <a href="/#">
+                            </li>
+                            <li class="sub-menu">
+                                <a href="/#">
                           <i class="fa fa-handshake-o"></i>
                           <span>Appointments</span>
                       </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="/#">
+                            </li>
+                            <li class="sub-menu">
+                                <a href="/#">
                           <i class="fa fa-credit-card-alt"></i>
                           <span>Expense Manager</span>
                       </a>
-                  </li>
-                   <li class="sub-menu">
-                      <a href="/#">
+                            </li>
+                            <li class="sub-menu">
+                                <a href="/#">
                           <i class="fa fa-money"></i>
                           <span>Revenue/Income</span>
                       </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="/#">
+                            </li>
+                            <li class="sub-menu">
+                                <a href="/#">
                           <i class="fa fa-comments"></i>
                           <span>Help/Live Chat</span>
                       </a>
-                  </li>
-                  <li class="active nav-menu"><a href="#/" class="nav-a">Home</a></li>
-              <li class="sub-menu resp_disp">
-                  <a class="nav-a" ng-href="/#about">
+                            </li>
+                            <li class="active nav-menu"><a href="#/" class="nav-a">Home</a></li>
+                            <li class="sub-menu resp_disp">
+                                <a class="nav-a" ng-href="/#about">
                   <i class="fa fa-info-circle"></i>
                   <span>About</span>
                   </a>
-                  </li>
-              <li class="sub-menu resp_disp">
-                  <a ng-href="/#" class="nav-a">
+                            </li>
+                            <li class="sub-menu resp_disp">
+                                <a ng-href="/#" class="nav-a">
                   <i class="fa fa-phone"></i>
                   <span>Contact</span>
                   </a>
-                  </li>
-              <li ng-hide="SignupButton" class="sub-menu resp_disp">
-                  <a class="nav-a" ng-href="/#signup">
+                            </li>
+                            <li ng-hide="SignupButton" class="sub-menu resp_disp">
+                                <a class="nav-a" ng-href="/#signup">
                   <i class="fa fa-user-plus"></i>
                   <span>Signup</span>
                   </a>
-                  </li>
-              <li ng-hide="LoginButton" class="sub-menu resp_disp">
-                  <a class="nav-a" ng-href="/#login">
+                            </li>
+                            <li ng-hide="LoginButton" class="sub-menu resp_disp">
+                                <a class="nav-a" ng-href="/#login">
                   <i class="fa fa-sign-in"></i>
                   <span>Login</span>
                   </a>
-                  </li>
-             
-              <li ng-hide="ProfileButton" class="sub-menu resp_disp">
-                  <a class="nav-a" ng-href="/#profile">
+                            </li>
+
+                            <li ng-hide="ProfileButton" class="sub-menu resp_disp">
+                                <a class="nav-a" ng-href="/#profile">
                   <i class="fa fa-user"></i>
                   <span>My account</span></a></li>
 
 
--->
+                            -->
 
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
-      
-      <!-- **********************************************************************************************************************************************************
+                        </ul>
+                        <!-- sidebar menu end-->
+                    </div>
+                </aside>
+                <!--sidebar end-->
+
+                <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-          	
-<!--				 <div class="container">-->
-    <div ng-view="" ></div>
-<!--    </div>-->
+                <!--main content start-->
+                <section id="main-content">
+                    <section class="wrapper">
 
-          
-
-		</section><!--/wrapper -->
-      </section><!-- /MAIN CONTENT -->
-
-  </section>
-
-  
-</div>
+                        <!--				 <div class="container">-->
+                        <div ng-view=""></div>
+                        <!--    </div>-->
 
 
 
+                    </section>
+                    <!--/wrapper -->
+                </section>
+                <!-- /MAIN CONTENT -->
 
-<!--
+            </section>
+
+
+        </div>
+
+
+
+
+        <!--
     <div class="footer">
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
     </div>
 -->
-    <div ng-controller="FinalizeCtrl">
+        <div ng-controller="FinalizeCtrl">
+        </div>
     </div>
-  </div>   
-  
-     <script>
-        
-        
-    
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-         
-     
-     
+    <script>
+        !function (A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+            (A[l].q = A[l].q || []).push(arguments)        
+}, A[l].l = +new Date, a = n.createElement(g),
+            r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+        }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
     </script>
-    
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -379,7 +389,7 @@
     <!-- endbuild -->
 
     <!--custom js-->
-    
+
     <script class="include" src="scripts/libs/jquery.dcjqaccordion.2.7.js"></script>
     <script src="scripts/libs/jquery.scrollTo.min.js"></script>
     <script src="scripts/libs/jquery.nicescroll.js"></script>
@@ -390,28 +400,29 @@
     <!--script for this page-->
     <!--custom js-->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/webindex.js"></script>
-        <script src="scripts/services/webindex.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/services/signup.js"></script>
-        <script src="scripts/controllers/signup.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/services/login.js"></script>
-        <script src="scripts/controllers/profile.js"></script>
-        <script src="scripts/services/profile.js"></script>
-        <script src="scripts/controllers/emailactivate.js"></script>
-        <script src="scripts/services/emailactivate.js"></script>
-        <script src="scripts/controllers/forgotpassword.js"></script>
-        <script src="scripts/services/forgotpassword.js"></script>     
-        <script src="scripts/controllers/finalize.js"></script>
-        <script src="scripts/controllers/addcase.js"></script>
-        <script src="scripts/services/addcase.js"></script>
-        <script src="scripts/controllers/dashboard.js"></script>
-        <script src="scripts/services/dashboard.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/webindex.js"></script>
+    <script src="scripts/services/webindex.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/services/signup.js"></script>
+    <script src="scripts/controllers/signup.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/services/login.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <script src="scripts/services/profile.js"></script>
+    <script src="scripts/controllers/emailactivate.js"></script>
+    <script src="scripts/services/emailactivate.js"></script>
+    <script src="scripts/controllers/forgotpassword.js"></script>
+    <script src="scripts/services/forgotpassword.js"></script>
+    <script src="scripts/controllers/finalize.js"></script>
+    <script src="scripts/controllers/addcase.js"></script>
+    <script src="scripts/services/addcase.js"></script>
+    <script src="scripts/controllers/dashboard.js"></script>
+    <script src="scripts/services/dashboard.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>

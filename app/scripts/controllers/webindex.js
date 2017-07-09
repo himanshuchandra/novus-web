@@ -38,7 +38,7 @@ angular.module('novusApp')
         $scope.SignupButton = false;
         $scope.ProfileButton = true;
         $scope.LogoutButton = true;
-        $scope.sideBar = false;
+        $scope.sideBar = true;
         $scope.headerHide = false;
 
         $scope.ActivationMessage = undefined;
@@ -48,20 +48,18 @@ angular.module('novusApp')
             promise.then(function (data) {
                 console.log(data);
                 if (data.data === "") {
-                    $scope.loginStatus = "Login/SignUp";
+                    // $scope.loginStatus = "";
                     webindex.loggedIn = false;
                 }
                 else {
                     webindex.loggedIn = true;
-                    // else if(data.data.Message!=undefined){
-                    //     $scope.loginStatus=data.data.Message;
-                    //     webindex.userData=data.data.userData;
+                    // $scope.loginStatus=data.data[0].fname+""+data.data[0].lname;
+                    webindex.userData=data.data[0];
 
-                    //     if(data.data.Email!=undefined && data.data.ActivationStatus===false){
-                    //         $scope.Status="Your Email address "+data.data.Email+" is not Verified";
-                    //         $scope.ActivationStatus=false;
-
-                    //     }
+                    if(data.data[0].userStatus!='Y'){
+                        $scope.Status="Your Email address "+data.data[0].email+" is not Verified";
+                        $scope.ActivationStatus=false;
+                    }
                     $scope.LoginButton = true;
                     $scope.SignupButton = true;
                     $scope.ProfileButton = false;
@@ -72,7 +70,7 @@ angular.module('novusApp')
                 //     $scope.loginStatus="Login/SignUp";
                 // }
                 webindex.needReload = false;
-                // webindex.loaded=true;
+                webindex.loaded=true;
             });
         };
 
@@ -112,13 +110,13 @@ angular.module('novusApp')
             var promise = webindex.logout();
             promise.then(function (data) {
                 console.log(data);
-                if (data.data === "logout") {
+                // if (data.data === "logout") {
                     $window.location.reload();
                     $window.location.assign(requrl + "/#/login");
-                }
-                else {
-                    $scope.LogoutMessage = "Error,Try again Later";
-                }
+                // }
+                // else {
+                //     $scope.LogoutMessage = "Error,Try again Later";
+                // }
             }, function (error) {
                 $scope.LogoutMessage = "Error,Try again Later";
             });

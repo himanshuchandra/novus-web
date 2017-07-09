@@ -8,60 +8,76 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('DashboardCtrl', function ($scope,dashboard) {
-    
-    $scope.deleteImg=()=>{
+  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl) {
+
+    $scope.deleteImg = () => {
       alert("hey");
     }
 
-    $scope.dashboard={
-    
+    $scope.dashboard = {
+
     };
-  
-    $scope.hideDashboard=false;
-    $scope.caseDetails=true;
 
+    $scope.hideDashboard = false;
+    $scope.caseDetails = true;
 
-////////////Loadi cases
-    $scope.loadData=function(){
+    $scope.loadFirst = function () {
+      if (webindex.loggedIn != true) {
+        $window.location.reload();
+        $window.location.assign(requrl + "/#/login");
+      }
+      else{
+        $scope.loadData();
+      }
+    };
 
-      var promise=dashboard.loadData();
-      promise.then(function(data){
-        if(data.data!=undefined){
-          $scope.cases=data.data;
-          for(var i=0;i<data.data.length;i++){
-            var judgements=data.data[i].judgements;
-            var jArray=judgements.split(',');
-            data.data[i].jArray=jArray;
+    var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
+      if (!angular.equals(webindex.loaded, false)) {
+        $scope.loadFirst();
+        unregister();
+      }
+    }, true);
+
+    //////////Load cases
+    $scope.loadData = function () {
+
+      var promise = dashboard.loadData();
+      promise.then(function (data) {
+        if (data.data != undefined) {
+          $scope.cases = data.data;
+          for (var i = 0; i < data.data.length; i++) {
+            var judgements = data.data[i].judgements;
+            var jArray = judgements.split(',');
+            data.data[i].jArray = jArray;
           }
-        
+
           console.log(data.data);
 
         }
-        else{
-          $scope.dashboardMessage="No cases yet";
+        else {
+          $scope.dashboardMessage = "No cases yet";
         }
-      },function(error){
-          $scope.dashboardMessage="Error loading data";
-      });      
+      }, function (error) {
+        $scope.dashboardMessage = "Error loading data";
+      });
 
-    };
-
-    $scope.loadData();
-
-/////////////Control ng-repeat 
-    $scope.hideId=0;
-
-    $scope.showCasesButton=function(caseObj){
-       $scope.cdetails=caseObj;
-       $scope.hideDashboard=true;
-       $scope.caseDetails=false;
     };
 
     
-    $scope.showDetailsButton=function(){
-       $scope.hideDashboard=false;
-       $scope.caseDetails=true;
+
+    /////////////Control ng-repeat 
+    $scope.hideId = 0;
+
+    $scope.showCasesButton = function (caseObj) {
+      $scope.cdetails = caseObj;
+      $scope.hideDashboard = true;
+      $scope.caseDetails = false;
+    };
+
+
+    $scope.showDetailsButton = function () {
+      $scope.hideDashboard = false;
+      $scope.caseDetails = true;
     };
 
     // $scope.hideApplicants=0;
@@ -79,12 +95,12 @@ angular.module('novusApp')
     //         $scope.hideApplicants=sNo;
     //     }
     // };
-    $scope.printDiv=function() {
+    $scope.printDiv = function () {
       var divToPrint = document.getElementById('printDiv');
       var newWin = window.open("");
       newWin.document.write(divToPrint.outerHTML);
       newWin.print();
       newWin.close();
-   }
+    }
 
   });
