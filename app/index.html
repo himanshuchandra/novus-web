@@ -183,12 +183,12 @@
                             <!--                    <ul class="nav navbar-nav">-->
 
                             <li class="active nav-menu"><a href="#/" class="nav-a">Home</a></li>
-                            <li class="nav-menu hiden"><a class="nav-a" ng-href="/#about">About</a></li>
-                            <li class="nav-menu hiden"><a ng-href="/#" class="nav-a">Contact</a></li>
-                            <li ng-hide="SignupButton" class="nav-menu"><a class="nav-a" ng-href="/#signup">Signup</a></li>
+                            <li class="nav-menu hiden nav-menu-hide"><a class="nav-a" ng-href="/#about">About</a></li>
+                            <li class="nav-menu hiden nav-menu-hide"><a ng-href="/#" class="nav-a">Contact</a></li>
+                            <li ng-hide="SignupButton" class="nav-menu nav-menu-hide"><a class="nav-a" ng-href="/#signup">Signup</a></li>
                             <li ng-hide="LoginButton" class="nav-menu"><a class="nav-a" ng-href="/#login">Login</a></li>
                             <!--<li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>-->
-                            <li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>
+                            <li ng-hide="ProfileButton" class="nav-menu nav-menu-hide"><a class="nav-a" ng-href="/#profile">My account</a></li>
                             <li class="nav-menu">
                                 <div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div>
                             </li>
@@ -302,13 +302,13 @@
                   <i class="fa fa-user-plus"></i>
                   <span>Signup</span>
                   </a>
-                            </li>
+                            <!--</li>
                             <li ng-hide="LoginButton" class="sub-menu resp_disp">
                                 <a class="nav-a" ng-href="/#login">
                   <i class="fa fa-sign-in"></i>
                   <span>Login</span>
                   </a>
-                            </li>
+                            </li>-->
 
                             <li ng-hide="ProfileButton" class="sub-menu resp_disp">
                                 <a class="nav-a" ng-href="/#profile">

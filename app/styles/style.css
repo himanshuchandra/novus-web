@@ -2252,3 +2252,8 @@ label {
 .nicescroll-rails>div{
     width: 10px !important;
 }
+
+.Login_clr>a{
+    color: white !important;
+    font-weight: 900 !important;
+}
