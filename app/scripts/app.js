@@ -27,6 +27,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/calender', {
+        templateUrl: 'views/calender.html',
+        controller: 'calender',
+        controllerAs: 'calender'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
