@@ -50,7 +50,7 @@ angular.module('novusApp')
                 if (data.data === "") {
                     // $scope.loginStatus = "";
                     webindex.loggedIn = false;
-                    $scope.headerHide = true;
+                    $scope.headerHide = false;
                 }
                 else {
                     webindex.loggedIn = true;
