@@ -229,11 +229,13 @@ ul.top-menu > li > .logout {
 /*sidebar navigation*/
 
 #sidebar {
-    width: 210px;
+    /*width: 210px;*/
+    width: 277px;
     height: 100%;
     position: fixed;
-    background: #424a5d;
-    margin-left: -210px;
+    /*background: #424a5d;*/
+    background: rgb(79,82,186);
+    /*margin-left: -210px;*/
 }
 
 #sidebar h5 {
@@ -351,11 +353,14 @@ ul.sidebar-menu li a span{
 }
 
 ul.sidebar-menu li a{
-    color: #aeb2b7;
+    /*color: #aeb2b7;*/
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
-    font-size: 12px;
+    /*font-size: 12px;*/
+    color: #FFFFFF;
+    font-size: 1em;
+
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -365,10 +370,11 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #68dff0;
-    color: #fff;
+    /*background: #68dff0;*/
+    color:cyan;
     display: block;
-
+    /*padding-top: 30px;*/
+    /*margin-top: 10px;*/
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -399,7 +405,7 @@ ul.sidebar-menu li a.active i {
 /* MAIN CONTENT CONFIGURATION */
 #main-content {
     /*margin-left: 210px;*/
-    margin-left: 0px;
+    margin-left: 234px !important;
 }
 
 .header, .footer {
@@ -415,8 +421,10 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #ffd777;
-    border-bottom: 1px solid #c9aa5f;
+    background: white;
+    border: white;
+    /*background: #ffd777;*/
+    /*border-bottom: 1px solid #c9aa5f;*/
 }
 
 .wrapper {
@@ -428,11 +436,29 @@ ul.sidebar-menu li a.active i {
     padding-top: 0px;
     width: 100%;
 }
+.leftnav a{
+    margin-left: 20px;   
+}
 
+.logo{
+    margin-right: 40px;
+}
+.leftnav{
+    /*width: 234px;*/
+    background: rgb(79,82,186);
+    display: inline-block;
+    float: left;
+}
+/*.notify-row{
+    float: right;
+}*/
 a.logo {
     font-size: 20px;
-    color: #ffffff;
+    /*color: #ffffff;*/
+    color: black;
+    background: rgb(79,82,186);
     float: left;
+    line-height: 3;
     margin-top: 15px;
     text-transform: uppercase;
 }
@@ -457,9 +483,11 @@ a.logo span {
 }
 
 .notify-row {
-    float: left;
+    /*float: left;*/
+    margin-right: 45px;
+    float: right;
     margin-top: 15px;
-    margin-left: 92px;
+    /*margin-left: 92px;*/
 }
 
 .notify-row .notification span.label {
@@ -497,10 +525,10 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended {
-    max-width: 300px !important;
+    max-width: 250px !important;
     min-width: 160px !important;
     top: 42px;
-    width: 235px !important;
+    width: 220px !important;
     padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.176) !important;
     border: none !important;
@@ -739,18 +767,22 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 /*--sidebar toggle---*/
 
 .sidebar-toggle-box {
+    /*display: none;*/
     float: left;
     padding-right: 15px;
     margin-left: 15px;
     margin-top: 20px;
+    display: inline-block;
 }
 
 .sidebar-toggle-box .fa-bars {
     cursor: pointer;
-    display: inline-block;
     font-size: 20px;
 }
+.fa-bars{
 
+    display: none !important;
+}
 
 .sidebar-closed > #sidebar > ul {
     display: none;
