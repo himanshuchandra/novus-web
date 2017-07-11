@@ -55,7 +55,6 @@ angular.module('novusApp')
                 else {
                     webindex.loggedIn = true;
                     $scope.headerHide = false;
-                    // $scope.loginStatus=data.data[0].fname+""+data.data[0].lname;
                     webindex.userData=data.data[0];
 
                     if(data.data[0].userStatus!='Y'){
