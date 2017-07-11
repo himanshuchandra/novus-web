@@ -44,14 +44,15 @@ angular.module('novusApp')
       var promise = dashboard.loadData();
       promise.then(function (data) {
         if (data.data != undefined) {
-          $scope.cases = data.data;
+          
           for (var i = 0; i < data.data.length; i++) {
             var judgements = data.data[i].judgements;
             var jArray = judgements.split(',');
             data.data[i].jArray = jArray;
           }
-
+          $scope.cases = data.data;
           console.log(data.data);
+          webindex.userData.cases=data.data.length;
 
         }
         else {

@@ -34,6 +34,13 @@ angular.module('novusApp')
                 $window.location.reload();
                 $window.location.assign(requrl + "/#/login");
             }
+            else{
+                $scope.Email=webindex.userData.email;
+                $scope.Fname=webindex.userData.fname;
+                $scope.Lname=webindex.userData.lname;
+                $scope.Mobile=webindex.userData.mobile;
+                $scope.TotalCases=webindex.userData.cases;
+            }
         };
 
         var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
@@ -65,11 +72,11 @@ angular.module('novusApp')
         // },true);
 
 
-        // $scope.$watch(function(){return webindex.userData},function(newValue,oldValue){
-        //     if(!angular.equals(webindex.userData, {})){
-        //         $scope.loadData(); 
-        //     }
-        // },true);
+        $scope.$watch(function(){return webindex.userData},function(newValue,oldValue){
+            if(!angular.equals(webindex.userData, {})){
+                $scope.loadData(); 
+            }
+        },true);
 
 
 

@@ -15,7 +15,9 @@ angular.module('novusApp')
         needReload:true,
         loaded:false,
         loggedIn:false,
-        userData:{},
+        userData:{
+            cases:0,
+        },
 
         checkStatus:function(){
           var defer = $q.defer(); 
