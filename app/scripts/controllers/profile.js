@@ -35,6 +35,7 @@ angular.module('novusApp')
                 $window.location.assign(requrl + "/#/login");
             }
             else{
+                console.log("Profile data",webindex.userData);
                 $scope.Email=webindex.userData.email;
                 $scope.Fname=webindex.userData.fname;
                 $scope.Lname=webindex.userData.lname;
@@ -74,6 +75,7 @@ angular.module('novusApp')
 
         $scope.$watch(function(){return webindex.userData},function(newValue,oldValue){
             if(!angular.equals(webindex.userData, {})){
+                console.log("Profile data changed",webindex.userData);
                 $scope.loadData(); 
             }
         },true);

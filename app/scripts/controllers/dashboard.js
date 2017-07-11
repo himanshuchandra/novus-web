@@ -51,9 +51,9 @@ angular.module('novusApp')
             data.data[i].jArray = jArray;
           }
           $scope.cases = data.data;
-          console.log(data.data);
+          
           webindex.userData.cases=data.data.length;
-
+          console.log(webindex.userData);
         }
         else {
           $scope.dashboardMessage = "No cases yet";
