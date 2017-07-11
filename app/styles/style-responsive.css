@@ -23,6 +23,15 @@
         display: block !important;
 
     }
+    .leftnav{
+        margin-left: -15px !important;
+    }
+    .fa-bars{
+        display: inline-block !important;
+        margin-top: 14px;
+        color: white;
+        /*margin-left: -20px;*/
+    }
     .show_mobile{
         display: none !important;
         /*margin-top: 2% !important;*/
