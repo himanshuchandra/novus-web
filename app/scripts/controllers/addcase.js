@@ -104,11 +104,12 @@ angular.module('novusApp')
         var promise=addcase.loadDCoptions2(dcObj2);
         promise.then(function(data) {
              console.log(dcObj2,data);
-             var caseTypes=[];
+             $scope.caseTypes=[];
             for(var i=0;i<data.data.length;i++){
-                caseTypes.push(data.data[i].Case_Type);
+                $caseTypes.push(data.data[i].Case_Type);
             }
-            $scope.dctype=caseTypes;
+            $scope.dctype=$scope.caseTypes;
+            $scope.allCaseTypes=data.data;
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;
@@ -206,10 +207,13 @@ angular.module('novusApp')
             var courtId=$scope.allCourts[cindex].Court_ID;
             var district=$scope.allCourts[cindex].District_ID;
 
+            var dindex=$scope.caseTypes.indexOf($scope.addCase.dctype);
+            var caseTypeId=$scope.allCaseTypes[dindex].Case_ID;
+
             obj={
                 state:$scope.addCase.Dstate,
                 court:courtId,
-                type:$scope.addCase.dctype,
+                type:caseTypeId,
                 number:$scope.addCase.DCnumber,
                 year:$scope.addCase.DCcaseyear,
                 district:district
