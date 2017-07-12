@@ -204,13 +204,15 @@ angular.module('novusApp')
 
             var cindex=$scope.courtNames.indexOf($scope.addCase.court);
             var courtId=$scope.allCourts[cindex].Court_ID;
+            var district=$scope.allCourts[cindex].District_ID;
 
             obj={
                 state:$scope.addCase.Dstate,
                 court:courtId,
                 type:$scope.addCase.dctype,
                 number:$scope.addCase.DCnumber,
-                year:$scope.addCase.DCcaseyear
+                year:$scope.addCase.DCcaseyear,
+                district:district
             };
             $scope.sendDistrictData(obj);
         }
