@@ -46,7 +46,6 @@ angular.module('novusApp')
 
       sendSupremeData:function(obj){
         var defer = $q.defer(); 
-        // $http.post("http://ec2-13-126-94-166.ap-south-1.compute.amazonaws.com/php/signin.php",obj)
         $http.post(requrl+ "/php/add_sup.php",obj)
         .then(function(data){
           defer.resolve(data); 
@@ -58,8 +57,7 @@ angular.module('novusApp')
 
       sendDistrictData:function(obj){
         var defer = $q.defer(); 
-          var url="Macintosh HD\Users\mukuljuneja\Desktop\novus softwares\novus-web/app/views";
-        $http.get(url)
+        $http.post(requrl+ "/php/add_dist.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){

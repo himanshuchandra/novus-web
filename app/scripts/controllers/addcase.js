@@ -74,7 +74,12 @@ angular.module('novusApp')
         var promise=addcase.loadDCoptions1(dcObj1);
         promise.then(function(data) {
             console.log(dcObj1,data);
-            $scope.court=data.data;
+            $scope.courtNames=[];
+            for(var i=0;i<data.data.length;i++){
+                $scope.courtNames.push(data.data[i].Court_Name);
+            }
+            $scope.court=$scope.courtNames;
+            $scope.allCourts=data.data;
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;
@@ -94,12 +99,16 @@ angular.module('novusApp')
 
     $scope.loadDCoptions2=function(){
         var dcObj2={
-            "cname":$scope.addCase.court
+            "court":$scope.addCase.court
         }
-        var promise=addcase.loadDCoptions2(dcObj);
+        var promise=addcase.loadDCoptions2(dcObj2);
         promise.then(function(data) {
              console.log(dcObj2,data);
-            $scope.dctype=data.data;
+             var caseTypes=[];
+            for(var i=0;i<data.data.length;i++){
+                caseTypes.push(data.data[i].Case_Type);
+            }
+            $scope.dctype=caseTypes;
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;
@@ -190,12 +199,15 @@ angular.module('novusApp')
     };
     
      $scope.submitDistrictForm=function(districtForm){
-        if(districtForm.$valid && districtForm.state!=undefined && districtForm.ctype!=undefined && districtForm.dctype!=undefined){
+        if(districtForm.$valid && $scope.addCase.Dstate!=undefined && $scope.addCase.dctype!=undefined && $scope.addCase.court!=undefined){
             $scope.districtMessage="Searching...";
+
+            var cindex=$scope.courtNames.indexOf($scope.addCase.court);
+            var courtId=$scope.allCourts[cindex].Court_ID;
 
             obj={
                 state:$scope.addCase.Dstate,
-                court:$scope.addCase.court,
+                court:courtId,
                 type:$scope.addCase.dctype,
                 number:$scope.addCase.DCnumber,
                 year:$scope.addCase.DCcaseyear
@@ -210,6 +222,15 @@ angular.module('novusApp')
     $scope.sendDistrictData=function(obj){
         var promise=addcase.sendDistrictData(obj);
         promise.then(function(data) {
+            console.log("sent data",obj);
+            console.log("received data",data.data);
+            if(data.data!=""){
+                $scope.districtMessage="Added successfully to dashboard";
+            }
+            else{
+                $scope.districtMessage="Error adding!Try again later.";
+            }
+            
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;
@@ -223,7 +244,7 @@ angular.module('novusApp')
         //     $scope.MobileMessage="Error! Try again later";
         //   }
         },function(error) {
-            // $scope.MobileMessage="Error! Try again later";
+            $scope.districtMessage="Error! Try again later";
         }); 
     };
 
