@@ -67,10 +67,14 @@ angular.module('novusApp')
     };
 
     $scope.loadDCoptions1=function(){
-        var promise=addcase.loadDCoptions1();
+        var dcObj1={
+            "state":$scope.addCase.Dstate
+        }
+
+        var promise=addcase.loadDCoptions1(dcObj1);
         promise.then(function(data) {
-            console.log(data);
-            $scope.court=data.data[1].caseType;
+            console.log(dcObj1,data);
+            $scope.court=data.data;
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;
@@ -89,9 +93,13 @@ angular.module('novusApp')
     };
 
     $scope.loadDCoptions2=function(){
-        var promise=addcase.loadDCoptions2();
+        var dcObj2={
+            "cname":$scope.addCase.court
+        }
+        var promise=addcase.loadDCoptions2(dcObj);
         promise.then(function(data) {
-            $scope.dctype=data.data[2].caseType;
+             console.log(dcObj2,data);
+            $scope.dctype=data.data;
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;

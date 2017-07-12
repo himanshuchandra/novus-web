@@ -24,7 +24,7 @@ angular.module('novusApp')
 
       loadDCoptions1:function(obj){
         var defer = $q.defer(); 
-        $http.get('server/hcoptions.json')
+        $http.post(requrl+ "/php/dist_menu.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
@@ -35,7 +35,7 @@ angular.module('novusApp')
 
       loadDCoptions2:function(obj){
         var defer = $q.defer(); 
-        $http.get('server/hcoptions.json')
+        $http.post(requrl+ "/php/dist_menu.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
