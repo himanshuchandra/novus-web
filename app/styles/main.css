@@ -176,7 +176,8 @@ body {
 #login-page {
         
         height: 150vh;
-        margin: 0 -14px;
+        /*margin: 0 -14px;*/
+        margin-left: -234px;
     }
 #login-result{
     text-align: center;
