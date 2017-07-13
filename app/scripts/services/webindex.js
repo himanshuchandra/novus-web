@@ -16,7 +16,9 @@ angular.module('novusApp')
         loaded:false,
         loggedIn:false,
         userData:{
-            cases:0,
+            Scases:0,
+            Hcases:0,
+            Dcases:0,
         },
 
         checkStatus:function(){

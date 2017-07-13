@@ -8,24 +8,45 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('dashboard', function ($http,$q,requrl) {
-    
-    var object={
+    .factory('dashboard', function ($http, $q, requrl) {
 
-      loadData:function(){
-          var defer = $q.defer(); 
-         $http.post(requrl+"/php/view_data.php")
-          .then(function(data){
-               defer.resolve(data);
-           },function(error){
-               defer.reject(error);
-           }) 
-            return defer.promise;
-        },
+        var object = {
 
-    };
+            loadSupreme: function () {
+                var defer = $q.defer();
+                $http.post(requrl + "/php/view_sup.php")
+                    .then(function (data) {
+                        defer.resolve(data);
+                    }, function (error) {
+                        defer.reject(error);
+                    })
+                return defer.promise;
+            },
 
-    return object;
+            loadHigh: function () {
+                var defer = $q.defer();
+                $http.post(requrl + "/php/view_high.php")
+                    .then(function (data) {
+                        defer.resolve(data);
+                    }, function (error) {
+                        defer.reject(error);
+                    })
+                return defer.promise;
+            },
+
+            loadDistrict: function () {
+                var defer = $q.defer();
+                $http.post(requrl + "/php/view_dist.php")
+                    .then(function (data) {
+                        defer.resolve(data);
+                    }, function (error) {
+                        defer.reject(error);
+                    })
+                return defer.promise;
+            },
+        };
+
+        return object;
 
 
-  });
+    });

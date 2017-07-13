@@ -46,9 +46,19 @@ angular.module('novusApp')
 
     $scope.loadHCoptions=function(){
 
-        var promise=addcase.loadHCoptions(obj);
+        var hcObj={
+            "state":$scope.addCase.state
+        }
+
+        var promise=addcase.loadHCoptions(hcObj);
         promise.then(function(data) {
-            $scope.ctype=data.data[0].caseType;
+            console.log(hcObj,data);
+            $scope.ctypeArray=[];
+            for(var i=0;i<data.data.length;i++){
+                $scope.ctypeArray.push(data.data[i].case_type);
+            }
+            $scope.ctype=$scope.ctypeArray;
+          
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;
@@ -276,6 +286,14 @@ angular.module('novusApp')
     $scope.sendHighData=function(obj){
         var promise=addcase.sendHighData(obj);
         promise.then(function(data) {
+            console.log("sent data",obj);
+            console.log("received data",data.data);
+            if(data.data!=""){
+                $scope.highMessage="Added successfully to dashboard";
+            }
+            else{
+                $scope.highMessage="Error adding!Try again later.";
+            }
         //   if(data.data.message==="unknown"){
         //     // $window.location.reload();
         //     $scope.HideMobileForm=true;

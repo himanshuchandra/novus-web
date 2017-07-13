@@ -40,7 +40,7 @@ angular.module('novusApp')
                 $scope.Fname=webindex.userData.fname;
                 $scope.Lname=webindex.userData.lname;
                 $scope.Mobile=webindex.userData.mobile;
-                $scope.TotalCases=webindex.userData.cases;
+                $scope.TotalCases=webindex.userData.Scases+webindex.userData.Hcases+webindex.userData.Dcases;
             }
         };
 

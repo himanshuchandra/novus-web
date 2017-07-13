@@ -13,7 +13,7 @@ angular.module('novusApp')
     var object={
       loadHCoptions:function(obj){
         var defer = $q.defer(); 
-        $http.get('server/hcoptions.json')
+        $http.post(requrl+ "/php/high_menu.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
@@ -68,8 +68,7 @@ angular.module('novusApp')
 
       sendHighData:function(obj){
         var defer = $q.defer(); 
-          var url="Macintosh HD\Users\mukuljuneja\Desktop\novus softwares\novus-web/app/views";
-        $http.get(url)
+        $http.post(requrl+ "/php/add_high.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){

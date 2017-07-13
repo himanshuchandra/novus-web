@@ -27,7 +27,9 @@ angular.module('novusApp')
         $window.location.assign(requrl + "/#/login");
       }
       else{
-        $scope.loadData();
+      $scope.loadSupreme();
+      $scope.loadHigh();
+      $scope.loadDistrict();
       }
     };
 
@@ -39,32 +41,90 @@ angular.module('novusApp')
     }, true);
 
     //////////Load cases
-    $scope.loadData = function () {
+    $scope.loadSupreme = function () {
 
-      var promise = dashboard.loadData();
+      var promise = dashboard.loadSupreme();
       promise.then(function (data) {
+        console.log("supreme", data.data);
         if (data.data != undefined) {
-          
+
           for (var i = 0; i < data.data.length; i++) {
-            var judgements = data.data[i].judgements;
-            var jArray = judgements.split(',');
-            data.data[i].jArray = jArray;
+            if (data.data[i].judgements != undefined) {
+              var judgements = data.data[i].judgements;
+              var jArray = judgements.split(',');
+              data.data[i].jArray = jArray;
+            }
           }
-          $scope.cases = data.data;
-          
-          webindex.userData.cases=data.data.length;
+          $scope.Scases = data.data;
+
+          webindex.userData.Scases = data.data.length;
           console.log(webindex.userData);
         }
         else {
-          $scope.dashboardMessage = "No cases yet";
+          $scope.supremeMessage = "No Supreme court cases yet";
         }
       }, function (error) {
-        $scope.dashboardMessage = "Error loading data";
+        $scope.supremeMessage = "Error loading data";
       });
 
     };
 
-    
+    $scope.loadHigh = function () {
+
+      var promise = dashboard.loadHigh();
+      promise.then(function (data) {
+        console.log("high", data.data);
+        if (data.data != undefined) {
+
+          // for (var i = 0; i < data.data.length; i++) {
+          //   if(data.data[i].judgements!=undefined){
+          //     var judgements = data.data[i].judgements;
+          //     var jArray = judgements.split(',');
+          //     data.data[i].jArray = jArray; 
+          //   }
+          // }
+          $scope.Hcases = data.data;
+
+          webindex.userData.Hcases = data.data.length;
+          console.log(webindex.userData);
+        }
+        else {
+          $scope.highMessage = "No High court cases yet";
+        }
+      }, function (error) {
+        $scope.highMessage = "Error loading data";
+      });
+
+    };
+
+    $scope.loadDistrict = function () {
+
+      var promise = dashboard.loadDistrict();
+      promise.then(function (data) {
+        console.log("district", data.data);
+        if (data.data != undefined) {
+
+          // for (var i = 0; i < data.data.length; i++) {
+          //   if(data.data[i].judgements!=undefined){
+          //     var judgements = data.data[i].judgements;
+          //     var jArray = judgements.split(',');
+          //     data.data[i].jArray = jArray; 
+          //   }
+          // }
+          $scope.Dcases = data.data;
+
+          webindex.userData.Dcases = data.data.length;
+          console.log(webindex.userData);
+        }
+        else {
+          $scope.districtMessage = "No District court cases yet";
+        }
+      }, function (error) {
+        $scope.districtMessage = "Error loading data";
+      });
+
+    };
+
 
     /////////////Control ng-repeat 
     $scope.hideId = 0;
