@@ -106,7 +106,7 @@ angular.module('novusApp')
              console.log(dcObj2,data);
              $scope.caseTypes=[];
             for(var i=0;i<data.data.length;i++){
-                $caseTypes.push(data.data[i].Case_Type);
+                $scope.caseTypes.push(data.data[i].Case_Type);
             }
             $scope.dctype=$scope.caseTypes;
             $scope.allCaseTypes=data.data;
