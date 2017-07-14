@@ -324,10 +324,15 @@
     <table border="1" class="table table-striped table-inverse table_custom print-area-2">
         <thead>
             <tr class="bgInfo">
+                <td class="td_border table_heading"  colspan="7" class="table_heading"><span class="case_title">COURNT NAME: {{dcdetails.court_name}}</span></td>
+            </tr>
+            <tr class="bgInfo">
 <!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{dcdetails.sNo}}</td>-->
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{dcdetails.diary_number}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Year :</span>{{dcdetails.year}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{dcdetails.case_no}}</td>
+                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{dcdetails.diary_number}}</td>-->
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Type :</span>{{dcdetails.case_type}}</td>
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{dcdetails.case_number}}</td>
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Year :</span>{{dcdetails.case_year}}</td>
+                <td class="td_border" class="td_border" colspan="1"><span class="case_title">CNR  :</span>{{dcdetails.cnr_number}}</td>                
             </tr>
 <!--
             <tr class="dividing_line">
@@ -335,18 +340,27 @@
             </tr>
 -->
             <tr class="bgInfo">
-                <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">CASE STATUS</span></td>
+                <td class="td_border table_heading"  colspan="7" class="table_heading"><span class="case_title">CASE STATUS</span></td>
             </tr>
             <tr class="bgInfo">
-                <td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{dcdetails.last_update_by}}</td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Last Listed On :</span><span class="blink">{{dcdetails.last_listed_on}}</span></td>
+                <!--<td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{dcdetails.last_update_by}}</td>-->
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">First Hearing Date :</span><span>{{dcdetails.first_hearing_date}}</span></td>
+                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Next Hearing Date :</span><span class="blink">{{dcdetails.next_hearing_date}}</span></td>                
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Last Hearing Date :</span><span>{{dcdetails.final_hearing_date_list}}</span></td>
                 <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{dcdetails.last_order}}</td>-->
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{dcdetails.updated_on}}</td>-->
             </tr>
             <tr class="bgInfo">
-                <td class="td_border" class="td_border"><span class="case_title">Status :</span>{{dcdetails.status}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Statuary Info :</span>{{dcdetails.statuary_info}}</td>
-                <td class="td_border" class="td_border"><span class="case_title">Case Stage :</span>{{dcdetails.case_stage}}</td>
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Status :</span>{{dcdetails.case_status}}</td>
+                <td class="td_border" class="td_border" colspan="3"><span class="case_title">decision Date :</span>{{dcdetails.decision_date}}</td>
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Nature of Disposal :</span>{{dcdetails.nature_of_disposal}}</td>
+                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
+                
+            </tr>
+            <tr class="bgInfo">
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Stage of Case :</span>{{dcdetails.stage_of_case}}</td>
+                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Jusge Name :</span>{{dcdetails.final_judge_list}}</td>
+                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Court Number :</span>{{dcdetails.court_number}}</td>
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
                 
             </tr>
@@ -356,24 +370,21 @@
             </tr>
 -->
             <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">PARTY's DETAILS</span></td>
+                <td class="td_border table_heading" colspan="7" ><span class="case_title">PARTY's DETAILS</span></td>
             </tr>
            
             <tr class="bgInfo">
-                <td class="td_border" colspan="3"><span class="case_title">Petitioners :</span>{{dcdetails.petitioners}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Respondents :</span>{{dcdetails.respondents}}</td>
+                <td class="td_border" colspan="3"><span class="case_title">Petitioner & Advocate Name :</span>{{dcdetails.petitioner_and_advocate}}</td>
+                <td class="td_border" colspan="4"><span class="case_title">Respondents & Advocate Name :</span>{{dcdetails.respondent_and_advocate}}</td>
             </tr>
-            <tr class="bgInfo">
-                <td class="td_border" colspan="3"><span class="case_title">Petitioners Advocate :</span>{{dcdetails.pet_advocates}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Respondents Advocate :</span>{{dcdetails.resp_advocates}}</td>
-            </tr>
+           
 <!--
              <tr class="dividing_line">
                 <td class="td_border" colspan="6"></td>
             </tr>
 -->
             <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
+                <td class="td_border table_heading" colspan="7" ><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
             </tr>
             <tr class="bgInfo"> 
                 <td class="td_border" colspan=""><span class="case_title">Act :</span>{{dcdetails.act}}</td>
