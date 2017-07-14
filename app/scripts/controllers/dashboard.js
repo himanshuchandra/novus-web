@@ -82,13 +82,13 @@ angular.module('novusApp')
         console.log("high", data.data);
         if (data.data != undefined) {
 
-          // for (var i = 0; i < data.data.length; i++) {
-          //   Object.keys(data.data[i]).forEach(function (key) {
-          //     if(key.startsWith('final')){
-          //       data.data[i][key]=$scope.splitString(data.data[i][key]);
-          //     }
-          //   });
-          // }
+          for (var i = 0; i < data.data.length; i++) {
+            if(data.data[i].file_path!=undefined){
+                  data.data[i].file_path=data.data[i].file_path.replace(/['"]+/g, '');
+                  data.data[i].file_path=$scope.splitString(data.data[i].file_path);
+              }
+          }
+
           $scope.Hcases = data.data;
 
           webindex.userData.Hcases = data.data.length;
