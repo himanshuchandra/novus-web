@@ -110,9 +110,9 @@
         <thead>
             <tr class="bgInfo">
 <!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{scdetails.sNo}}</td>-->
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{scdetails.diary_number}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Year :</span>{{scdetails.year}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{scdetails.case_no}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{scdetails.diary_number}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Year :</span>{{scdetails.year}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{scdetails.case_no}}</td>
             </tr>
 <!--
             <tr class="dividing_line">
@@ -123,16 +123,16 @@
                 <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">CASE STATUS</span></td>
             </tr>
             <tr class="bgInfo">
-                <td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{scdetails.last_update_by}}</td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Last Listed On :</span><span class="blink">{{scdetails.last_listed_on}}</span></td>
-                <td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{scdetails.last_order}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>
+                <td class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{scdetails.last_update_by}}</td>
+                <td class="td_border" colspan="3"><span class="case_title">Last Listed On :</span><span class="blink">{{scdetails.last_listed_on}}</span></td>
+                <td class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{scdetails.last_order}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>
             </tr>
             <tr class="bgInfo">
-                <td class="td_border" class="td_border"><span class="case_title">Status :</span>{{scdetails.status}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Statuary Info :</span>{{scdetails.statuary_info}}</td>
-                <td class="td_border" class="td_border"><span class="case_title">Case Stage :</span>{{scdetails.case_stage}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{scdetails.bench}}</td>
+                <td class="td_border"><span class="case_title">Status :</span>{{scdetails.status}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Statuary Info :</span>{{scdetails.statuary_info}}</td>
+                <td class="td_border"><span class="case_title">Case Stage :</span>{{scdetails.case_stage}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{scdetails.bench}}</td>
                 
             </tr>
 <!--
@@ -219,94 +219,39 @@
     <table border="1" class="table table-striped table-inverse table_custom print-area-2">
         <thead>
             <tr class="bgInfo">
+                <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">HIGH COURNT NAME: {{hcdetails.court_name}}</span></td>
+            </tr>
+            <tr class="bgInfo">
 <!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{hcdetails.sNo}}</td>-->
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{hcdetails.diary_number}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Year :</span>{{hcdetails.year}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{hcdetails.case_no}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{hcdetails.case_number}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Case Type :</span>{{hcdetails.case_type}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">Case Year :</span>{{hcdetails.case_year}}</td>
+                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{hcdetails.case_no}}</td>-->
             </tr>
-<!--
-            <tr class="dividing_line">
-                <td class="td_border" class="td_border" colspan="6"></td>
-            </tr>
--->
+
             <tr class="bgInfo">
-                <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">CASE STATUS</span></td>
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{hcdetails.last_update_by}}</td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Last Listed On :</span><span class="blink">{{hcdetails.last_listed_on}}</span></td>
+                <td class="td_border" colspan="3" ><span class="case_title">Status :</span>{{hcdetails.case_status}}</td>
+                <td class="td_border" colspan="3"><span class="case_title">Next Hearing Date :</span><span class="blink">{{hcdetails.next_date}}</span></td>
                 <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{hcdetails.last_order}}</td>-->
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{hcdetails.updated_on}}</td>-->
             </tr>
             <tr class="bgInfo">
-                <td class="td_border" class="td_border"><span class="case_title">Status :</span>{{hcdetails.status}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Statuary Info :</span>{{hcdetails.statuary_info}}</td>
-                <td class="td_border" class="td_border"><span class="case_title">Case Stage :</span>{{hcdetails.case_stage}}</td>
-                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{hcdetails.bench}}</td>-->
-                
+                <td class="td_border" colspan="6"><span class="case_title">Petitioner Name :</span>{{hcdetails.petitioner}}</td>
             </tr>
-<!--
-             <tr class="dividing_line">
-                <td class="td_border" class="td_border" colspan="6"></td>
+             <tr class="bgInfo">
+                <td class="td_border" colspan="6"><span class="case_title">Respondent Name :</span>{{hcdetails.respondent}}</td>
             </tr>
--->
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">PARTY's DETAILS</span></td>
+              <tr class="bgInfo">
+                <td class="td_border" colspan="6"><span class="case_title">Advocate :</span>{{hcdetails.advocate}}</td>
             </tr>
-           
-            <tr class="bgInfo">
-                <td class="td_border" colspan="3"><span class="case_title">Petitioners :</span>{{hcdetails.petitioners}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Respondents :</span>{{hcdetails.respondents}}</td>
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" colspan="3"><span class="case_title">Petitioners Advocate :</span>{{hcdetails.pet_advocates}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Respondents Advocate :</span>{{hcdetails.resp_advocates}}</td>
-            </tr>
-<!--
-             <tr class="dividing_line">
-                <td class="td_border" colspan="6"></td>
-            </tr>
--->
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
-            </tr>
-            <tr class="bgInfo"> 
-                <td class="td_border" colspan=""><span class="case_title">Act :</span>{{hcdetails.act}}</td>
-                <td class="td_border" colspan="4"><span class="case_title">U_section :</span>{{hcdetails.u_section}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Category :</span>{{hcdetails.category}}</td>
-               
-            </tr>
-<!--
-            <tr class="dividing_line">
-                <td class="td_border" colspan="6"></td>
-            </tr>
--->
-            <tr class="bgInfo">
-                <!--<td class="td_border" colspan="2"><span class="case_title">D.A. Name :</span>{{hcdetails.da_name}}</td>-->
-                <td class="td_border" colspan="2"><span class="case_title">Admitted :</span>{{hcdetails.admitted}}</td>
-                <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{hcdetails.updated_on}}</td>-->
-            </tr>
-<!--
-            <tr class="dividing_line">
-                <td class="td_border" colspan="6"></td>
-            </tr>
--->
-           <tr class="bgInfo">
+             <tr class="bgInfo">
                 <td class="td_border table_heading" colspan="6" ><span class="case_title">Judgements</span></td>
             </tr>
-            <tr class="bgInfo" ng-repeat="judgements in hcdetails.jArray">
-<!--                <td class="td_border" colspan="">-->
-<!--
-                <ul ng-repeat="judgements in hcdetails.jArray">
-                    <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></li>
-                </ul>
--->
+            <tr class="bgInfo" ng-repeat="judgements in hcdetails.file_path">
+
                 <td class="td_border" colspan="6"><a class="judgementA" href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>
-<!--                </td>-->
             </tr>
-            <tr class="bgInfo">
-                <td class="td_border" colspan="6"><span class="case_title">Display Type :</span>{{hcdetails.disp_type}}</td>
-            </tr>
+            
             
         </thead>
     </table>
@@ -367,11 +312,8 @@
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
                 
             </tr>
-<!--
-             <tr class="dividing_line">
-                <td class="td_border" class="td_border" colspan="6"></td>
-            </tr>
--->
+
+
             <tr class="bgInfo">
                 <td class="td_border table_heading" colspan="7" ><span class="case_title">PARTY's DETAILS</span></td>
             </tr>
@@ -381,11 +323,7 @@
                 <td class="td_border" colspan="4"><span class="case_title">Respondents & Advocate Name :</span>{{dcdetails.respondent_and_advocate}}</td>
             </tr>
            
-<!--
-             <tr class="dividing_line">
-                <td class="td_border" colspan="6"></td>
-            </tr>
--->
+
             <tr class="bgInfo">
                 <td class="td_border table_heading" colspan="7" ><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
             </tr>
@@ -399,29 +337,14 @@
                 <td class="td_border table_heading" colspan="7" ><span class="case_title">FIR DETAILS</span></td>
             </tr>
 
-<!--
-            <tr class="dividing_line">
-                <td class="td_border" colspan="6"></td>
-            </tr>
--->
             <tr class="bgInfo">
 
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">FIR NUMBER :</span>{{dcdetails.fir_number}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">DATED :</span>{{dcdetails.fir_year}}</td>
-                
-
-
-                <!--<td class="td_border" colspan="3"><span class="case_title"><b>POLICE STATION</b></td>
-                <td class="td_border" colspan="2"><span class="case_title"><b>FIR NUMBER</b></td>
-                <td class="td_border" colspan="2"><span class="case_title"><b>DATED</b></td>           -->
-                <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{dcdetails.updated_on}}</td>-->
+                <td class="td_border" colspan="3"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">FIR NUMBER :</span>{{dcdetails.fir_number}}</td>
+                <td class="td_border" colspan="2"><span class="case_title">DATED :</span>{{dcdetails.fir_year}}</td>
+               
             </tr>
-<!--
-            <tr class="dividing_line">
-                <td class="td_border" colspan="6"></td>
-            </tr>
--->
+
            <tr class="bgInfo">
                 <td class="td_border table_heading" colspan="7" ><span class="case_title">HISTORY OF CASE</span></td>
             </tr>
@@ -435,14 +358,6 @@
                 <td class="td_border" ><span class="case_title"><b>ORDER DATE</b></td>
                 <td class="td_border" ><span class="case_title"><b>ORDER DETAILS</b></td>  
 
-<!--                <td class="td_border" colspan="">-->
-<!--
-                <ul ng-repeat="judgements in dcdetails.jArray">
-                    <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></li>
-                </ul>
--->
-                <!--<td class="td_border" colspan="6"><a class="judgementA" href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>-->
-<!--                </td>-->
             </tr>
 
             <tr class="bgInfo" >
