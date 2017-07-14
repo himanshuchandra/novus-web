@@ -116,16 +116,16 @@ angular.module('novusApp')
         console.log("district", data.data);
         if (data.data != undefined) {
 
-          for (var i = 0; i < data.data.length; i++) {
-            Object.keys(data.data[i]).forEach(function (key) {
-              if(key.startsWith('final')){
-                data.data[i][key]=$scope.splitString(data.data[i][key]);
-                for(var j=0;j < data.data[i][key].length ;i++ ){
-                  data.data[i][key][j].replace(/['"]+/g, '');
-                }
-              }
-            });
-          }
+          // for (var i = 0; i < data.data.length; i++) {
+          //   Object.keys(data.data[i]).forEach(function (key) {
+          //     if(key.startsWith('final')){
+          //       data.data[i][key]=$scope.splitString(data.data[i][key]);
+          //       for(var j=0;j < data.data[i][key].length ;i++ ){
+          //         data.data[i][key][j].replace(/['"]+/g, '');
+          //       }
+          //     }
+          //   });
+          // }
           $scope.Dcases = data.data;
 
           webindex.userData.Dcases = data.data.length;
