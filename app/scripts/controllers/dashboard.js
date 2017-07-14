@@ -24,7 +24,7 @@ angular.module('novusApp')
     $scope.hideDashboard = false;
     $scope.supremeCaseDetails = true;
     $scope.districtCaseDetails = true;
-    $scope.districtCaseDetails = true;
+    $scope.highCaseDetails = true;
 
     $scope.loadFirst = function () {
       if (webindex.loggedIn != true) {
@@ -120,6 +120,9 @@ angular.module('novusApp')
             Object.keys(data.data[i]).forEach(function (key) {
               if(key.startsWith('final')){
                 data.data[i][key]=$scope.splitString(data.data[i][key]);
+                for(var j=0;j < data.data[i][key].length ;i++ ){
+                  data.data[i][key][j].replace(/['"]+/g, '');
+                }
               }
             });
           }
