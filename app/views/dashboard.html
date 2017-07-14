@@ -5,7 +5,7 @@
     <button ng-click="showAllCases()" class="btn btn-primary">All</button>
     <button ng-click="showSupremeCases()" class="btn btn-primary">Supreme Court</button>
     <button ng-click="showHighCases()" class="btn btn-primary">High Court</button>
-    <button ng-click="showDistrictCases()" class="btn btn-primary">District</button>
+    <button ng-click="showDistrictCases()" class="btn btn-primary">District Court</button>
     
     <div ng-repeat="case in Scases track by $index" class="cases" ng-hide="supremeCasesHide">
 
@@ -99,10 +99,10 @@
    <br><br>
      <div id="btn_holder" style="position:relative">
      <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button>
-     <div ng-click="printDiv()"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
+     <div ng-click="printDiv('supremePrint')"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
      </div>
      <br>
-     <div id="printDiv">
+     <div id='supremePrint'>
      <h1>Case Details</h1>
     <table border="1" class="table table-striped table-inverse table_custom print-area-2">
         <thead>
@@ -208,10 +208,10 @@
    <br><br>
      <div id="btn_holder" style="position:relative">
      <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button>
-     <div ng-click="printDiv()"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
+     <div ng-click="printDiv('highPrint')"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
      </div>
      <br>
-     <div id="printDiv">
+     <div id='highPrint'>
      <h1>Case Details</h1>
     <table border="1" class="table table-striped table-inverse table_custom print-area-2">
         <thead>
@@ -316,10 +316,10 @@
    <br><br>
      <div id="btn_holder" style="position:relative">
      <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button>
-     <div ng-click="printDiv()"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
+     <div ng-click="printDiv('districtPrint')"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
      </div>
      <br>
-     <div id="printDiv">
+     <div id="districtPrint">
      <h1>Case Details</h1>
     <table border="1" class="table table-striped table-inverse table_custom print-area-2">
         <thead>
@@ -352,14 +352,14 @@
             </tr>
             <tr class="bgInfo">
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">Status :</span>{{dcdetails.case_status}}</td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">decision Date :</span>{{dcdetails.decision_date}}</td>
+                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Decision Date :</span>{{dcdetails.decision_date}}</td>
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">Nature of Disposal :</span>{{dcdetails.nature_of_disposal}}</td>
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
                 
             </tr>
             <tr class="bgInfo">
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">Stage of Case :</span>{{dcdetails.stage_of_case}}</td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Jusge Name :</span>{{dcdetails.final_judge_list}}</td>
+                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Judge Name :</span>{{dcdetails.final_judge_list}}</td>
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">Court Number :</span>{{dcdetails.court_number}}</td>
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
                 

@@ -22,7 +22,9 @@ angular.module('novusApp')
     $scope.districtCasesHide = false;
 
     $scope.hideDashboard = false;
-    $scope.caseDetails = true;
+    $scope.supremeCaseDetails = true;
+    $scope.districtCaseDetails = true;
+    $scope.districtCaseDetails = true;
 
     $scope.loadFirst = function () {
       if (webindex.loggedIn != true) {
@@ -80,11 +82,11 @@ angular.module('novusApp')
         if (data.data != undefined) {
 
           // for (var i = 0; i < data.data.length; i++) {
-          //   if(data.data[i].judgements!=undefined){
-          //     var judgements = data.data[i].judgements;
-          //     var jArray = judgements.split(',');
-          //     data.data[i].jArray = jArray; 
-          //   }
+          //   Object.keys(data.data[i]).forEach(function (key) {
+          //     if(key.startsWith('final')){
+          //       data.data[i][key]=$scope.splitString(data.data[i][key]);
+          //     }
+          //   });
           // }
           $scope.Hcases = data.data;
 
@@ -100,6 +102,13 @@ angular.module('novusApp')
 
     };
 
+    $scope.splitString = function (string) {
+      if (string != undefined) {
+        var array = string.split(',');
+        return array;
+      }
+    };
+
     $scope.loadDistrict = function () {
 
       var promise = dashboard.loadDistrict();
@@ -107,13 +116,13 @@ angular.module('novusApp')
         console.log("district", data.data);
         if (data.data != undefined) {
 
-          // for (var i = 0; i < data.data.length; i++) {
-          //   if(data.data[i].judgements!=undefined){
-          //     var judgements = data.data[i].judgements;
-          //     var jArray = judgements.split(',');
-          //     data.data[i].jArray = jArray; 
-          //   }
-          // }
+          for (var i = 0; i < data.data.length; i++) {
+            Object.keys(data.data[i]).forEach(function (key) {
+              if(key.startsWith('final')){
+                data.data[i][key]=$scope.splitString(data.data[i][key]);
+              }
+            });
+          }
           $scope.Dcases = data.data;
 
           webindex.userData.Dcases = data.data.length;
@@ -157,13 +166,13 @@ angular.module('novusApp')
       $scope.districtCaseDetails = true;
     };
 
-    $scope.showAllCases();
-
     $scope.showAllCases = function () {
       $scope.supremeCasesHide = false;
       $scope.highCasesHide = false;
       $scope.districtCasesHide = false;
     };
+
+    $scope.showAllCases();
 
     $scope.showSupremeCases = function () {
       $scope.supremeCasesHide = false;
@@ -199,8 +208,8 @@ angular.module('novusApp')
     //         $scope.hideApplicants=sNo;
     //     }
     // };
-    $scope.printDiv = function () {
-      var divToPrint = document.getElementById('printDiv');
+    $scope.printDiv = function (div) {
+      var divToPrint = document.getElementById(div);
       var newWin = window.open("");
       newWin.document.write(divToPrint.outerHTML);
       newWin.print();
