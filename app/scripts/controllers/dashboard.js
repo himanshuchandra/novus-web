@@ -15,8 +15,11 @@ angular.module('novusApp')
     }
 
     $scope.dashboard = {
-
     };
+
+    $scope.supremeCasesHide = false;
+    $scope.highCasesHide = false;
+    $scope.districtCasesHide = false;
 
     $scope.hideDashboard = false;
     $scope.caseDetails = true;
@@ -26,10 +29,10 @@ angular.module('novusApp')
         $window.location.reload();
         $window.location.assign(requrl + "/#/login");
       }
-      else{
-      $scope.loadSupreme();
-      $scope.loadHigh();
-      $scope.loadDistrict();
+      else {
+        $scope.loadSupreme();
+        $scope.loadHigh();
+        $scope.loadDistrict();
       }
     };
 
@@ -129,17 +132,57 @@ angular.module('novusApp')
     /////////////Control ng-repeat 
     $scope.hideId = 0;
 
-    $scope.showCasesButton = function (caseObj) {
-      $scope.cdetails = caseObj;
+    $scope.showDetailsButton = function (caseObj, type) {
       $scope.hideDashboard = true;
-      $scope.caseDetails = false;
+      if (type === 's') {
+        $scope.scdetails = caseObj;
+        $scope.supremeCaseDetails = false;
+      }
+      else if (type === 'h') {
+        $scope.hcdetails = caseObj;
+        $scope.highCaseDetails = false;
+      }
+      else if (type === 'd') {
+        $scope.dcdetails = caseObj;
+        $scope.districtCaseDetails = false;
+      }
+
     };
 
 
-    $scope.showDetailsButton = function () {
+    $scope.showCasesButton = function () {
       $scope.hideDashboard = false;
-      $scope.caseDetails = true;
+      $scope.supremeCaseDetails = true;
+      $scope.highCaseDetails = true;
+      $scope.districtCaseDetails = true;
     };
+
+    $scope.showAllCases();
+
+    $scope.showAllCases = function () {
+      $scope.supremeCasesHide = false;
+      $scope.highCasesHide = false;
+      $scope.districtCasesHide = false;
+    };
+
+    $scope.showSupremeCases = function () {
+      $scope.supremeCasesHide = false;
+      $scope.highCasesHide = true;
+      $scope.districtCasesHide = true;
+    };
+
+    $scope.showHighCases = function () {
+      $scope.supremeCasesHide = true;
+      $scope.highCasesHide = false;
+      $scope.districtCasesHide = true;
+    };
+
+    $scope.showDistrictCases = function () {
+      $scope.supremeCasesHide = true;
+      $scope.highCasesHide = true;
+      $scope.districtCasesHide = false;
+    };
+
 
     // $scope.hideApplicants=0;
     // $scope.approvedText=0;

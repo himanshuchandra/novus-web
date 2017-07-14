@@ -345,7 +345,7 @@ ul.sidebar-menu li{
 }
 
 ul.sidebar-menu li.sub-menu{
-    line-height: 6px;
+    line-height: 1px;
 }
 
 ul.sidebar-menu li a span{
