@@ -1,12 +1,14 @@
 <!--<div class="container dashboard">-->
     <div class="row" ng-hide="hideDashboard">
-
+        <br>
     <h3 style="text-align:center"></h3>
-    <button ng-click="showAllCases()" class="btn btn-primary">All</button>
-    <button ng-click="showSupremeCases()" class="btn btn-primary">Supreme Court</button>
-    <button ng-click="showHighCases()" class="btn btn-primary">High Court</button>
-    <button ng-click="showDistrictCases()" class="btn btn-primary">District Court</button>
-    
+    <div class="container" style="display:flex"> 
+    <button ng-click="showAllCases()" class="btn btn-primary" style="flex:1;margin-right: 10px;">All</button>
+    <button ng-click="showSupremeCases()" class="btn btn-primary" style="flex:1;margin-right: 10px;">Supreme Court</button>
+    <button ng-click="showHighCases()" class="btn btn-primary" style="flex:1;margin-right: 10px;">High Court</button>
+    <button ng-click="showDistrictCases()" class="btn btn-primary" style="flex:1;">District Court</button>
+    </div>
+    <br>
     <div ng-repeat="case in Scases track by $index" class="cases" ng-hide="supremeCasesHide">
 
         <div class="panel panel-default cursor">
