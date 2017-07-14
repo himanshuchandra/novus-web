@@ -55,6 +55,7 @@ angular.module('novusApp')
 
           for (var i = 0; i < data.data.length; i++) {
             if (data.data[i].judgements != undefined) {
+              data.data[i].judgements=data.data[i].judgements.replace(/['"]+/g, '');
               var judgements = data.data[i].judgements;
               var jArray = judgements.split(',');
               data.data[i].jArray = jArray;
@@ -116,16 +117,14 @@ angular.module('novusApp')
         console.log("district", data.data);
         if (data.data != undefined) {
 
-          // for (var i = 0; i < data.data.length; i++) {
-          //   Object.keys(data.data[i]).forEach(function (key) {
-          //     if(key.startsWith('final')){
-          //       data.data[i][key]=$scope.splitString(data.data[i][key]);
-          //       for(var j=0;j < data.data[i][key].length ;i++ ){
-          //         data.data[i][key][j].replace(/['"]+/g, '');
-          //       }
-          //     }
-          //   });
-          // }
+          for (var i = 0; i < data.data.length; i++) {
+            Object.keys(data.data[i]).forEach(function (key) {
+              if(key.startsWith('final') && data.data[i][key]!=undefined){
+                  data.data[i][key]=data.data[i][key].replace(/['"]+/g, '');
+                  data.data[i][key]=$scope.splitString(data.data[i][key]);
+              }
+            });
+          }
           $scope.Dcases = data.data;
 
           webindex.userData.Dcases = data.data.length;
