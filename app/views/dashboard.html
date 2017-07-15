@@ -44,12 +44,12 @@
         
             <div class="panel-body" >
 <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
-                <div class="contents" ng-click="showDetailsButton(case,'h')"><span class="case_title">Dairy No: &nbsp;</span>{{case.diary_number}} </div>
+                <div class="contents" ng-click="showDetailsButton(case,'h')"><span class="case_title">Case No: </span>{{case.case_number}} </div>
 <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
                 
-                <div class="contents caseNo" ng-click="showDetailsButton(case,'h')"><span class="case_title">Case No: </span> {{case.case_no}}</div>
+                <div class="contents caseNo" ng-click="showDetailsButton(case,'h')"><span class="case_title">Petitioner Vs Respondent: </span> {{case.petitioner}} Vs {{case.respondent}}</div>
                <div class="img_hold">
-<!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
+
                <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteImg()"></i>
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'h')">
@@ -58,7 +58,7 @@
                     <div class="date-content">
                         <p class="dia">24</p>
                         <hr class="nomargin" />
-                        <p class="nomargin"><strong>{{case.year}}</strong></p>
+                        <p class="nomargin"><strong>{{case.case_year}}</strong></p>
 
                     </div>
                 </div>
@@ -73,7 +73,7 @@
         
             <div class="panel-body" >
 <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
-                <div class="contents" ng-click="showDetailsButton(case,'d')"><span class="case_title">Dairy No: &nbsp;</span>{{case.diary_number}} </div>
+                <div class="contents" ng-click="showDetailsButton(case,'d')"><span class="case_title">Case No:  </span>{{case.case_number}} </div>
 <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
                 
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'d')"><span class="case_title">Case No: </span> {{case.case_no}}</div>
@@ -87,7 +87,7 @@
                     <div class="date-content">
                         <p class="dia">24</p>
                         <hr class="nomargin" />
-                        <p class="nomargin"><strong>{{case.year}}</strong></p>
+                        <p class="nomargin"><strong>{{case.case_year}}</strong></p>
 
                     </div>
                 </div>
@@ -362,45 +362,45 @@
 
             <tr class="bgInfo" >
                 
-                <td  class="td_border" >
-                    <table>
-                        <tr class="bgInfo" ng-repeat="judge in dcdetails.final_judge_list">
-                            <td class="td_border"><span class="case_title"></span>{{judge}}</td>
+                <td  class="td_border down_list" >
+                    <table class="down_table">
+                        <tr class="down_row" ng-repeat="judge in dcdetails.final_judge_list">
+                            <td class="down_td"><span class="case_title"></span>{{judge}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border" >
-                    <table>
-                        <tr class="bgInfo" ng-repeat="dates in dcdetails.final_business_on_date_list">
-                            <td class="td_border"><span class="case_title"></span>{{dates}}</td>
+                <td  class="td_border down_list" >
+                    <table class="down_table">
+                        <tr class="down_row" ng-repeat="dates in dcdetails.final_business_on_date_list">
+                            <td class="down_td"><span class="case_title"></span>{{dates}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border" >
-                    <table>
-                        <tr class="bgInfo" ng-repeat="hearingDate in dcdetails.final_hearing_date_list">
-                            <td class="td_border"><span class="case_title"></span>{{hearingDate}}</td>
+                <td  class="td_border down_list" >
+                    <table class="down_table">
+                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list">
+                            <td class="down_td"><span class="case_title"></span>{{hearingDate}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border" colspan="2">
-                    <table>
-                        <tr class="bgInfo" ng-repeat="hearingDate in dcdetails.final_hearing_date_list">
-                            <td class="td_border" colspan="2"><span class="case_title"></span>{{hearingDate}}</td>
+                <td  class="td_border down_list" colspan="2">
+                    <table class="down_table">
+                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list">
+                            <td class="down_td" colspan="2"><span class="case_title"></span>{{hearingDate}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border" >
-                    <table>
-                        <tr class="bgInfo" ng-repeat="orderDate in dcdetails.final_interim_order_date_list">
-                            <td class="td_border"><span class="case_title"></span>{{orderDate}}</td>
+                <td  class="td_border down_list" >
+                    <table class="down_table">
+                        <tr class="down_row" ng-repeat="orderDate in dcdetails.final_interim_order_date_list">
+                            <td class="down_td"><span class="case_title"></span>{{orderDate}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border" >
-                     <table>
-                        <tr class="bgInfo" ng-repeat="details in dcdetails.final_interim_order_file_list">
-                            <td class="td_border"><span class="case_title"></span>{{details}}</td>
+                <td  class="td_border down_list" >
+                     <table class="down_table">
+                        <tr class="down_row" ng-repeat="details in dcdetails.final_interim_order_file_list">
+                            <td class="down_td"><span class="case_title"></span>{{details}}</td>
                         </tr>   
                     </table>
                 </td>
@@ -417,17 +417,17 @@
             </tr>       
 
             <tr class="bgInfo">
-                <td  class="td_border" colspan="4">
-                    <table>
-                        <tr class="bgInfo" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list">
-                            <td class="td_border"><span class="case_title"></span>{{jdate}}</td>
+                <td  class="td_border down_list" colspan="4">
+                    <table class="down_table">
+                        <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list">
+                            <td class="down_td"><span class="case_title"></span>{{jdate}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border" colspan="3">
-                    <table>
-                         <tr class="bgInfo" ng-repeat="file in dcdetails.final_final_judgement_order_file_list">
-                            <td class="td_border"><span class="case_title"></span>{{file}}</td>
+                <td  class="td_border down_list" colspan="3">
+                    <table class="down_table">
+                         <tr class="down_row" ng-repeat="file in dcdetails.final_final_judgement_order_file_list">
+                            <td class="down_td"><span class="case_title"></span>{{file}}</td>
                         </tr>    
                     </table>
                 </td>
@@ -447,31 +447,31 @@
 
              </tr> 
              <tr class="bgInfo">
-                <td  class="td_border" >
-                    <table>
+                <td  class="td_border down_list" >
+                    <table class="down_table">
                         <!--couldnt find case number array-->
-                        <tr class="bgInfo" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list">
-                            <td class="td_border"><span class="case_title"></span>{{jdate}}</td>
+                        <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list">
+                            <td class="down_td"><span class="case_title"></span>{{jdate}}</td>
                         </tr>   
                     </table>
                 </td>
-                 <td  class="td_border" >
-                    <table>
-                        <tr class="bgInfo" ng-repeat="tdate in dcdetails.final_case_transfer_transfer_date_list">
-                            <td class="td_border"><span class="case_title"></span>{{tdate}}</td>
+                 <td  class="td_border down_list" >
+                    <table class="down_table"> 
+                        <tr class="down_row" ng-repeat="tdate in dcdetails.final_case_transfer_transfer_date_list">
+                            <td class="down_td"><span class="case_title"></span>{{tdate}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border" colspan="3">
-                    <table>
-                         <tr class="bgInfo" ng-repeat="from in dcdetails.final_case_transfer_from_court_no_judge_list">
-                            <td class="td_border"><span class="case_title"></span>{{from}}</td>
+                <td  class="td_border down_list" colspan="3">
+                    <table class="down_table">
+                         <tr class="down_row" ng-repeat="from in dcdetails.final_case_transfer_from_court_no_judge_list">
+                            <td class="down_td"><span class="case_title"></span>{{from}}</td>
                         </tr>    
                     </table>
-                 <td  class="td_border" colspan="2">
-                    <table>
-                        <tr class="bgInfo" ng-repeat="to in dcdetails.final_case_transfer_to_court_no_judge_list">
-                            <td class="td_border"><span class="case_title"></span>{{to}}</td>
+                 <td  class="td_border down_list" colspan="2">
+                    <table class="down_table">
+                        <tr class="down_row" ng-repeat="to in dcdetails.final_case_transfer_to_court_no_judge_list">
+                            <td class="down_td"><span class="case_title"></span>{{to}}</td>
                         </tr>   
                     </table>
                 </td>   
