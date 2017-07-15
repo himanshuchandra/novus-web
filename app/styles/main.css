@@ -337,3 +337,18 @@ body {
 .second_li{
     float: right;
 }
+
+.down_list{
+    padding: 0xp;
+}
+
+.down_table{
+    width: 100%;
+}
+.down_td{
+    text-align: center;
+}
+
+.down_row{
+    border-bottom: 1px solid black;
+}
