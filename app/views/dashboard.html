@@ -415,16 +415,19 @@
             <tr class="bgInfo">
                 <td class="td_border table_heading" colspan="7" ><span class="case_title">JUDGEMENT OF CASE</span></td>
             </tr>       
-
             <tr class="bgInfo">
-                <td  class="td_border down_list" colspan="4">
+                <td class="td_border" colspan="3"><span class="case_title"><b>Judgement Date</b></td>
+                <td class="td_border" colspan="4"><span class="case_title"><b>Judgement Link</b></td>
+            </tr>
+            <tr class="bgInfo">
+                <td  class="td_border down_list" colspan="3">
                     <table class="down_table">
                         <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list">
                             <td class="down_td"><span class="case_title"></span>{{jdate}}</td>
                         </tr>   
                     </table>
                 </td>
-                <td  class="td_border down_list" colspan="3">
+                <td  class="td_border down_list" colspan="4">
                     <table class="down_table">
                          <tr class="down_row" ng-repeat="file in dcdetails.final_final_judgement_order_file_list">
                             <td class="down_td"><span class="case_title"></span>{{file}}</td>
