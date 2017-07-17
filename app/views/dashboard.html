@@ -230,13 +230,15 @@
 
 <div ng-hide="highCaseDetails" class="container">
    <br><br>
-     <div id="btn_holder" style="position:relative">
-     <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button>
-     <div ng-click="printDiv('highPrint')"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
+   <div style="display:flex; flex:3;">  
+     <div id="btn_holder" style="flex:1;">
+     <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+     <div style="flex:1;margin-top:-30px;"><h1>Case Details</h1></div>
+     <div ng-click="printDiv('highPrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
      </div>
      <br>
      <div id='highPrint' class="table_width">
-     <h1>Case Details</h1>
+     <!--<h1>Case Details</h1>-->
     <table border="1" class="table table-striped table-inverse table_custom print-area-2">
         <thead>
             <tr class="bgInfo">
