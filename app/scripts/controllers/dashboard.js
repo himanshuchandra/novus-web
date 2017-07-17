@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl, phpurl) {
+  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl) {
 
     $scope.deleteImg = () => {
       alert("hey");
@@ -29,7 +29,7 @@ angular.module('novusApp')
     $scope.loadFirst = function () {
       if (webindex.loggedIn != true) {
         $window.location.reload();
-        $window.location.assign(phpurl);
+        $window.location.assign(requrl);
       }
       else {
         $scope.loadSupreme();
