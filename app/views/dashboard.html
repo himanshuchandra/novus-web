@@ -15,10 +15,17 @@
         
             <div class="panel-body" >
 <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
-                <div class="contents" ng-click="showDetailsButton(case,'s')"><span class="case_title">Dairy No: &nbsp;</span>{{case.diary_number}} </div>
+                <div class="contents" ng-click="showDetailsButton(case,'s')">
+                    <div style="font-size:15px"><span class="case_title">Dairy No: &nbsp;&nbsp;</span>{{case.diary_number}}</div> 
+                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.year}}</div>                   
+                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span></div> 
+                    </div>
 <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
                 
-                <div class="contents caseNo" ng-click="showDetailsButton(case,'s')"><span class="case_title">Case No: </span> {{case.case_no}}</div>
+                <div class="contents caseNo" ng-click="showDetailsButton(case,'s')">
+                    <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> Supreme Court</div>
+                    <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.petitioners}} <b>VS</b> {{case.respondents}}</div>
+                    </div>
                <div class="img_hold">
 <!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
                <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteImg()"></i>
@@ -44,10 +51,17 @@
         
             <div class="panel-body" >
 <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
-                <div class="contents" ng-click="showDetailsButton(case,'h')"><span class="case_title">Case No: </span>{{case.case_number}} </div>
+                <div class="contents" ng-click="showDetailsButton(case,'h')"><span class="case_title">
+                     <div style="font-size:15px"><span class="case_title">Case No: &nbsp;&nbsp;</span>{{case.case_number}}</div> 
+                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>                   
+                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div> 
+                    </div>
 <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
                 
-                <div class="contents caseNo" ng-click="showDetailsButton(case,'h')"><span class="case_title">Petitioner Vs Respondent: </span> {{case.petitioner}} Vs {{case.respondent}}</div>
+                <div class="contents caseNo" ng-click="showDetailsButton(case,'h')"><span class="case_title">
+                    <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> Delhi High Court</div>
+                    <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.petitioner}} <b>VS</b> {{case.respondent}}</div>
+                    </div>
                <div class="img_hold">
 
                <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteImg()"></i>
@@ -73,10 +87,17 @@
         
             <div class="panel-body" >
 <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
-                <div class="contents" ng-click="showDetailsButton(case,'d')"><span class="case_title">Case No:  </span>{{case.case_number}} </div>
+                <div class="contents" ng-click="showDetailsButton(case,'d')">
+                     <div style="font-size:15px"><span class="case_title">Case No: &nbsp;&nbsp;</span>{{case.case_number}}</div> 
+                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>                   
+                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div> 
+                    </div>
 <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
                 
-                <div class="contents caseNo" ng-click="showDetailsButton(case,'d')"><span class="case_title">Petitioner Vs Respondent: </span> {{case.pt}}... Vs {{case.rs}}...</div>
+                <div class="contents caseNo" ng-click="showDetailsButton(case,'d')">
+                    <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> {{case.court_name}}</div>
+                    <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>Vs</b> {{case.rs}}...</div>
+                    </div>
                <div class="img_hold">
 <!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
                <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteImg()"></i>
@@ -124,7 +145,7 @@
             </tr>
             <tr class="bgInfo">
                 <td class="td_border" colspan="3"><span class="case_title">Last Updated By :</span>{{scdetails.last_update_by}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Last Listed On :</span><span class="blink">{{scdetails.last_listed_on}}</span></td>
+                <td class="td_border" colspan="3"><span class="case_title">Last Listed On :</span><span >{{scdetails.last_listed_on}}</span></td>
                 <!--<td class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{scdetails.last_order}}</td>-->
                 <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>-->
             </tr>
@@ -231,7 +252,7 @@
 
             <tr class="bgInfo">
                 <td class="td_border" colspan="3" ><span class="case_title">Status :</span>{{hcdetails.case_status}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Next Hearing Date :</span><span class="blink">{{hcdetails.next_date}}</span></td>
+                <td class="td_border" colspan="3"><span class="case_title">Next Hearing Date :</span><span >{{hcdetails.next_date}}</span></td>
                 <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{hcdetails.last_order}}</td>-->
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{hcdetails.updated_on}}</td>-->
             </tr>
@@ -293,7 +314,7 @@
             <tr class="bgInfo">
                 <!--<td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{dcdetails.last_update_by}}</td>-->
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">First Hearing Date : </span><span>{{dcdetails.first_hearing_date}}</span></td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Next Hearing Date : </span><span class="blink">{{dcdetails.next_hearing_date}}</span></td>                
+                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Next Hearing Date : </span><span >{{dcdetails.next_hearing_date}}</span></td>                
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">Last Hearing Date : </span><span>{{dcdetails.final_hearing_date_list}}</span></td>
                 <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{dcdetails.last_order}}</td>-->
                 <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{dcdetails.updated_on}}</td>-->
