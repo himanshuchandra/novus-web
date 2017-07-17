@@ -24,9 +24,9 @@ angular
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/dashboard.html',
-        controller: 'DashboardCtrl',
-        controllerAs: 'dashboard'
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .when('/calender', {
         templateUrl: 'views/calender.html',
@@ -74,7 +74,7 @@ angular
         controllerAs: 'addcase'
       })
       .otherwise({
-        redirectTo: '/login'
+        redirectTo: '/'
       });
 
       $locationProvider.hashPrefix('');

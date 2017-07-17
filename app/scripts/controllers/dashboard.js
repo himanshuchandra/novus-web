@@ -28,8 +28,8 @@ angular.module('novusApp')
 
     $scope.loadFirst = function () {
       if (webindex.loggedIn != true) {
-        $window.location.reload();
-        $window.location.assign(requrl);
+        // $window.location.reload();
+        // $window.location.assign(requrl);
       }
       else {
         $scope.loadSupreme();

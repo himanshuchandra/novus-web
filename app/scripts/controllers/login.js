@@ -11,10 +11,10 @@ angular.module('novusApp')
     .controller('LoginCtrl', function ($scope, login, webindex, $window, requrl, md5) {
 
         $scope.checkLogin= function () {
-            if (webindex.loggedIn === true) {
-                $window.location.reload();
-                $window.location.assign(requrl + "/#/dashboard");
-            }
+            // if (webindex.loggedIn === true) {
+            //     $window.location.reload();
+            //     $window.location.assign(requrl + "/#/dashboard");
+            // }
         };
 
         var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
