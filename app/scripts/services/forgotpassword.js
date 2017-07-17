@@ -8,13 +8,13 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('forgotpassword', function ($http,$q,requrl) {
+  .factory('forgotpassword', function ($http,$q,phpurl) {
       
       var object= {
 
         sendLink:function(ForgotObject){
           var defer = $q.defer(); 
-          $http.post(requrl+'/php/fpass.php',ForgotObject)
+          $http.post(phpurl+'/php/signup/fpass.php',ForgotObject)
           .then(function(data){
             defer.resolve(data); 
           },function(error){
@@ -25,7 +25,7 @@ angular.module('novusApp')
 
         passwordReset:function(PasswordObject){
           var defer = $q.defer(); 
-          $http.post(requrl+'/forgotpassword/passwordReset',PasswordObject)
+          $http.post(phpurl+'/forgotpassword/passwordReset',PasswordObject)
           .then(function(data){
             defer.resolve(data); 
           },function(error){

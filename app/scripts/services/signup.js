@@ -8,13 +8,13 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('signup', function ($http,$q,requrl) {
+  .factory('signup', function ($http,$q,phpurl) {
 
     var object = {
         
         sendCode:function(mobileObject){
           var defer = $q.defer();
-           $http.post(requrl+'/signup/registerUser',mobileObject)
+           $http.post(phpurl+'/signup/registerUser',mobileObject)
            .then(function(data){
                defer.resolve(data);
            },function(error){
@@ -25,7 +25,7 @@ angular.module('novusApp')
 
         registerUser:function(userObject){
           var defer = $q.defer();
-           $http.post(requrl+'/php/signup/signup.php',userObject)
+           $http.post(phpurl+'/php/signup/signup.php',userObject)
            .then(function(data){
                defer.resolve(data);
            },function(error){

@@ -8,12 +8,12 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('addcase', function ($http,$q,requrl) {
+  .factory('addcase', function ($http,$q,phpurl) {
 
     var object={
       loadHCoptions:function(obj){
         var defer = $q.defer(); 
-        $http.post(requrl+ "/php/high_menu.php",obj)
+        $http.post(phpurl+ "/php/high_menu.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
@@ -24,7 +24,7 @@ angular.module('novusApp')
 
       loadDCoptions1:function(obj){
         var defer = $q.defer(); 
-        $http.post(requrl+ "/php/dist_menu.php",obj)
+        $http.post(phpurl+ "/php/dist_menu.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
@@ -35,7 +35,7 @@ angular.module('novusApp')
 
       loadDCoptions2:function(obj){
         var defer = $q.defer(); 
-        $http.post(requrl+ "/php/dist_menu.php",obj)
+        $http.post(phpurl+ "/php/dist_menu.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
@@ -46,7 +46,7 @@ angular.module('novusApp')
 
       sendSupremeData:function(obj){
         var defer = $q.defer(); 
-        $http.post(requrl+ "/php/add_sup.php",obj)
+        $http.post(phpurl+ "/php/add_sup.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
@@ -57,7 +57,7 @@ angular.module('novusApp')
 
       sendDistrictData:function(obj){
         var defer = $q.defer(); 
-        $http.post(requrl+ "/php/add_dist.php",obj)
+        $http.post(phpurl+ "/php/add_dist.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){
@@ -68,7 +68,7 @@ angular.module('novusApp')
 
       sendHighData:function(obj){
         var defer = $q.defer(); 
-        $http.post(requrl+ "/php/add_high.php",obj)
+        $http.post(phpurl+ "/php/add_high.php",obj)
         .then(function(data){
           defer.resolve(data); 
         },function(error){

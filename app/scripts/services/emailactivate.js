@@ -8,13 +8,13 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('emailactivate', function ($http,$q,requrl) {
+  .factory('emailactivate', function ($http,$q,phpurl) {
 
     var object = {
 
         activateEmail:function(activationObject){
             var defer = $q.defer(); 
-            $http.post(requrl+'/commonroutes/activateEmail',activationObject)
+            $http.post(phpurl+'/commonroutes/activateEmail',activationObject)
             .then(function(data){
                 defer.resolve(data);
             },function(error){

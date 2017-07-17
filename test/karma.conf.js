@@ -30,6 +30,7 @@ module.exports = function(config) {
       'bower_components/ng-country-select/dist/ng-country-select.js',
       'bower_components/please-wait/build/please-wait.js',
       'bower_components/ng-file-upload/ng-file-upload.js',
+      'bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

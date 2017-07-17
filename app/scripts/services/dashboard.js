@@ -8,13 +8,13 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-    .factory('dashboard', function ($http, $q, requrl) {
+    .factory('dashboard', function ($http, $q, phpurl) {
 
         var object = {
 
             loadSupreme: function () {
                 var defer = $q.defer();
-                $http.post(requrl + "/php/view_sup.php")
+                $http.post(phpurl + "/php/view_sup.php")
                     .then(function (data) {
                         defer.resolve(data);
                     }, function (error) {
@@ -25,7 +25,7 @@ angular.module('novusApp')
 
             loadHigh: function () {
                 var defer = $q.defer();
-                $http.post(requrl + "/php/view_high.php")
+                $http.post(phpurl + "/php/view_high.php")
                     .then(function (data) {
                         defer.resolve(data);
                     }, function (error) {
@@ -36,7 +36,7 @@ angular.module('novusApp')
 
             loadDistrict: function () {
                 var defer = $q.defer();
-                $http.post(requrl + "/php/view_dist.php")
+                $http.post(phpurl + "/php/view_dist.php")
                     .then(function (data) {
                         defer.resolve(data);
                     }, function (error) {

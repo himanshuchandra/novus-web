@@ -18,7 +18,8 @@ angular
     'ngFileUpload'
   ])
 
-  .constant("requrl","http://mynovus.xyz")
+  .constant("requrl","http://mynovus.xyz/app")
+  .constant("phpurl","http://mynovus.xyz")
   
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider

@@ -80,13 +80,10 @@ angular.module('novusApp')
         
         var promise=forgotpassword.sendLink(ForgotObject);
         promise.then(function(data){
-          if(data.data.message==="sent"){
+          if(data.data==="success"){
             $scope.result = "Link Sent";
             $scope.SendForm=true;
             $scope.sendAgainButton=false;
-          }
-          else if(data.data.message==="notFound"){
-            $scope.result = "Email not found";
           }
           else{
             $scope.result = "Error occurred! Try again Later.";
@@ -142,9 +139,9 @@ angular.module('novusApp')
          var HashPassword=md5.createHash($scope.forgotpassword.ResetPassword);
 
           var NewPasswordObject={
-            "UserEmail":verifiedUserEmail,
-            "Token":Token,
-            "NewPassword":HashPassword,
+            "email":verifiedUserEmail,
+            "code":Token,
+            "password":HashPassword,
           }
          
           var promise = forgotpassword.passwordReset(NewPasswordObject);
