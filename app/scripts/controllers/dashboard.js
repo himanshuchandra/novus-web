@@ -54,7 +54,7 @@ angular.module('novusApp')
         if (data.data != undefined) {
 
           for (var i = 0; i < data.data.length; i++) {
-            if (data.data[i].judgements != undefined && data.data[i].judgements!="") {
+            if (data.data[i].judgements != undefined && data.data[i].judgements!="" && data.data[i].judgements.length>1) {
               data.data[i].judgements=data.data[i].judgements.replace(/['"]+/g, '');
               var judgements = data.data[i].judgements;
               var jArray = judgements.split(',');
@@ -119,10 +119,10 @@ angular.module('novusApp')
 
           for (var i = 0; i < data.data.length; i++) {
             if(data.data[i].petitioner_and_advocate!=undefined){
-                data.data[i].pt=data.data[i].petitioner_and_advocate.slice(0,8);
+                data.data[i].pt=data.data[i].petitioner_and_advocate.slice(3,11);
               }
               if(data.data[i].respondent_and_advocate!=undefined){
-                data.data[i].rs=data.data[i].respondent_and_advocate.slice(0,8);
+                data.data[i].rs=data.data[i].respondent_and_advocate.slice(3,11);
             }
             Object.keys(data.data[i]).forEach(function (key) {
               if(key.startsWith('final') && data.data[i][key]!=undefined){
