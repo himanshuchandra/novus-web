@@ -32,7 +32,7 @@ angular.module('novusApp')
         $scope.checkLogin= function () {
             if (webindex.loggedIn != true) {
                 $window.location.reload();
-                $window.location.assign(requrl + "/#/login");
+                $window.location.assign(phpurl);
             }
             else{
                 console.log("Profile data",webindex.userData);

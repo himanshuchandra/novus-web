@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('AddcaseCtrl', function ($scope,addcase,webindex,$window,requrl) {
+  .controller('AddcaseCtrl', function ($scope,addcase,webindex,$window,requrl,phpurl) {
    var obj;
     $scope.addCase={
         year:"",
@@ -31,7 +31,7 @@ angular.module('novusApp')
     $scope.loadFirst = function () {
       if (webindex.loggedIn != true) {
         $window.location.reload();
-        $window.location.assign(requrl + "/#/login");
+        $window.location.assign(phpurl);
       }
     };
     
