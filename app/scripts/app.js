@@ -74,7 +74,7 @@ angular
         controllerAs: 'addcase'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
 
       $locationProvider.hashPrefix('');
