@@ -54,7 +54,7 @@ angular.module('novusApp')
         if (data.data != undefined) {
 
           for (var i = 0; i < data.data.length; i++) {
-            if (data.data[i].judgements != undefined) {
+            if (data.data[i].judgements != undefined && data.data[i].judgements!="") {
               data.data[i].judgements=data.data[i].judgements.replace(/['"]+/g, '');
               var judgements = data.data[i].judgements;
               var jArray = judgements.split(',');
@@ -119,6 +119,12 @@ angular.module('novusApp')
 
           for (var i = 0; i < data.data.length; i++) {
             Object.keys(data.data[i]).forEach(function (key) {
+              if(data.data.petitioner_and_advocate!=undefined){
+                data.data.pt=data.data.petitioner_and_advocate.slice(0,8);
+              }
+              if(data.data.respondent_and_advocate!=undefined){
+                data.data.pt=data.data.respondent_and_advocate.slice(0,8);
+              }
               if(key.startsWith('final') && data.data[i][key]!=undefined){
                   data.data[i][key]=data.data[i][key].replace(/['"]+/g, '');
                   data.data[i][key]=$scope.splitString(data.data[i][key]);

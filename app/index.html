@@ -79,11 +79,11 @@
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="/#about">About</a></li>
-              <li><a ng-href="/#">Contact</a></li>
-              <li ng-hide="SignupButton"><a ng-href="/#signup">Signup</a></li>
-              <li ng-hide="LoginButton"><a ng-href="/#login">Login</a></li>
-              <li ng-hide="ProfileButton"><a ng-href="/#profile">My account</a></li>
+              <li><a ng-href="/app/#about">About</a></li>
+              <li><a ng-href="/app/#">Contact</a></li>
+              <li ng-hide="SignupButton"><a ng-href="/app/#signup">Signup</a></li>
+              <li ng-hide="LoginButton"><a ng-href="/app/#login">Login</a></li>
+              <li ng-hide="ProfileButton"><a ng-href="/app/#profile">My account</a></li>
             </ul>
           </div>
         </div>  
@@ -198,12 +198,12 @@
                             <!--                    <ul class="nav navbar-nav">-->
 
                             <!--<li class="active nav-menu"><a href="#/" class="nav-a">Home</a></li>-->
-                            <!--<li class="nav-menu hiden nav-menu-hide"><a class="nav-a" ng-href="/#about">About</a></li>-->
-                            <!--<li class="nav-menu hiden nav-menu-hide"><a ng-href="/#" class="nav-a">Contact</a></li>-->
-                            <!--<li ng-hide="SignupButton" class="nav-menu nav-menu-hide"><a class="nav-a" ng-href="/#signup">Signup</a></li>-->
-                            <!--<li ng-hide="LoginButton" class="nav-menu"><a class="nav-a" ng-href="/#login">Login</a></li>-->
-                            <li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>
-                            <!--<li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/#profile">My account</a></li>-->
+                            <!--<li class="nav-menu hiden nav-menu-hide"><a class="nav-a" ng-href="/app/#about">About</a></li>-->
+                            <!--<li class="nav-menu hiden nav-menu-hide"><a ng-href="/app/#" class="nav-a">Contact</a></li>-->
+                            <!--<li ng-hide="SignupButton" class="nav-menu nav-menu-hide"><a class="nav-a" ng-href="/app/#signup">Signup</a></li>-->
+                            <!--<li ng-hide="LoginButton" class="nav-menu"><a class="nav-a" ng-href="/app/#login">Login</a></li>-->
+                            <li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/app/#profile">My account</a></li>
+                            <!--<li ng-hide="ProfileButton" class="nav-menu"><a class="nav-a" ng-href="/app/#profile">My account</a></li>-->
                             <li class="nav-menu">
                                 <div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div>
                             </li>
@@ -252,88 +252,88 @@
                             <h5 class="centered">Novus Softwares</h5>-->
 
                             <li class="sub-menu" ng-controller="DashboardCtrl">
-                                <a href="/#dashboard" ng-click="showCasesButton()" class="active">
+                                <a href="/app/#dashboard" ng-click="showCasesButton()" class="active">
                           <i class="fa fa-dashboard"></i>
                           <span class="dash">Dashboard</span>
                       </a>
                             </li>
 
                             <li class="sub-menu">
-                                <a href="/#addcase">
+                                <a href="/app/#addcase">
                           <i class="fa fa-book"></i>
                           <span>Add New Case</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/#calender">
+                                <a href="/app/#calender">
                           <i class="fa fa-calendar"></i>
                           <span>Calender View</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/#">
+                                <a href="/app/#">
                           <i class="fa fa-list"></i>
                           <span>Cause List</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/#">
+                                <a href="/app/#">
                           <i class="fa fa-tasks"></i>
                           <span>Task Manager</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/#">
+                                <a href="/app/#">
                           <i class="fa fa-handshake-o"></i>
                           <span>Appointments</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/#">
+                                <a href="/app/#">
                           <i class="fa fa-credit-card-alt"></i>
                           <span>Expense Manager</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/#">
+                                <a href="/app/#">
                           <i class="fa fa-money"></i>
                           <span>Revenue/Income</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/#">
+                                <a href="/app/#">
                           <i class="fa fa-comments"></i>
                           <span>Help/Live Chat</span>
                       </a>
                             </li>
                             <li class="active nav-menu"><a href="#/" class="nav-a">Home</a></li>
                             <li class="sub-menu resp_disp">
-                                <a class="nav-a" ng-href="/#about">
+                                <a class="nav-a" ng-href="/app/#about">
                   <i class="fa fa-info-circle"></i>
                   <span>About</span>
                   </a>
                             </li>
                             <li class="sub-menu resp_disp">
-                                <a ng-href="/#" class="nav-a">
+                                <a ng-href="/app/#" class="nav-a">
                   <i class="fa fa-phone"></i>
                   <span>Contact</span>
                   </a>
                             </li>
                             <li ng-hide="SignupButton" class="sub-menu resp_disp">
-                                <a class="nav-a" ng-href="/#signup">
+                                <a class="nav-a" ng-href="/app/#signup">
                   <i class="fa fa-user-plus"></i>
                   <span>Signup</span>
                   </a>
                             <!--</li>
                             <li ng-hide="LoginButton" class="sub-menu resp_disp">
-                                <a class="nav-a" ng-href="/#login">
+                                <a class="nav-a" ng-href="/app/#login">
                   <i class="fa fa-sign-in"></i>
                   <span>Login</span>
                   </a>
                             </li>-->
 
                             <li ng-hide="ProfileButton" class="sub-menu resp_disp">
-                                <a class="nav-a" ng-href="/#profile">
+                                <a class="nav-a" ng-href="/app/#profile">
                   <i class="fa fa-user"></i>
                   <span>My account</span></a></li>
 

@@ -76,7 +76,7 @@
                 <div class="contents" ng-click="showDetailsButton(case,'d')"><span class="case_title">Case No:  </span>{{case.case_number}} </div>
 <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
                 
-                <div class="contents caseNo" ng-click="showDetailsButton(case,'d')"><span class="case_title">Case No: </span> {{case.case_no}}</div>
+                <div class="contents caseNo" ng-click="showDetailsButton(case,'d')"><span class="case_title">Petitioner Vs Respondent: </span> {{case.pt}} Vs {{case.rs}}</div>
                <div class="img_hold">
 <!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
                <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteImg()"></i>
@@ -219,7 +219,7 @@
     <table border="1" class="table table-striped table-inverse table_custom print-area-2">
         <thead>
             <tr class="bgInfo">
-                <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">HIGH COURNT NAME: Delhi High Court</span></td>
+                <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">HIGH COURT NAME: Delhi High Court</span></td>
             </tr>
             <tr class="bgInfo">
 <!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{hcdetails.sNo}}</td>-->
