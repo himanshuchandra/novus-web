@@ -54,7 +54,7 @@ angular.module('novusApp')
         if (data.data != undefined) {
 
           for (var i = 0; i < data.data.length; i++) {
-            if (data.data[i].judgements != undefined && data.data[i].judgements!="" && data.data[i].judgements.length>1) {
+            if (data.data[i].judgements != undefined && data.data[i].judgements!="" && data.data[i].judgements.length>5) {
               data.data[i].judgements=data.data[i].judgements.replace(/['"]+/g, '');
               var judgements = data.data[i].judgements;
               var jArray = judgements.split(',');
