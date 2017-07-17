@@ -75,7 +75,7 @@ angular.module('novusApp')
      $scope.SendLink=function() {
       
         var ForgotObject={
-            "Email":$scope.forgotpassword.ForgotEmail,
+            "email":$scope.forgotpassword.ForgotEmail,
         };
         
         var promise=forgotpassword.sendLink(ForgotObject);

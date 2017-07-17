@@ -14,7 +14,7 @@ angular.module('novusApp')
 
         sendLink:function(ForgotObject){
           var defer = $q.defer(); 
-          $http.post(requrl+'/forgotpassword/sendLink',ForgotObject)
+          $http.post(requrl+'/php/fpass.php',ForgotObject)
           .then(function(data){
             defer.resolve(data); 
           },function(error){

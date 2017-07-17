@@ -55,7 +55,7 @@ angular.module('novusApp')
             console.log(hcObj,data);
             $scope.ctypeArray=[];
             for(var i=0;i<data.data.length;i++){
-                $scope.ctypeArray.push(data.data[i].case_type);
+                $scope.ctypeArray.push(data.data[i].case_type_code);
             }
             $scope.ctype=$scope.ctypeArray;
           
