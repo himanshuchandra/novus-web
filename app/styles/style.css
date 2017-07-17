@@ -1971,13 +1971,13 @@ label {
 
 .form-login h2.form-login-heading {
 	margin: 0;
-	padding: 25px 20px;
+	padding: 10px 20px;
 	text-align: center;
 	background: #68dff0;
 	border-radius: 5px 5px 0 0;
 	-webkit-border-radius: 5px 5px 0 0;
 	color: #fff;
-	font-size: 20px;
+	font-size: 25px;
 	text-transform: uppercase;
 	font-weight: 300;
 }
