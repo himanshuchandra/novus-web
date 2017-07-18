@@ -175,6 +175,8 @@ angular.module('novusApp')
     };
 
     $scope.dshowCasesButton = function () {
+      console.log("inside dashboard controller");
+      $window.location.assign(requrl+'/#/dashboard');
       $route.reload();
     };
 
