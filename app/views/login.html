@@ -6,6 +6,7 @@
 		      <form class="form-login" name="loginForm" ng-submit="submitForm(loginForm)" novalidate>
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
+					<h5 id="login-result" style="margin-top: -3%;">{{result}} </h5>
 		            <input type="text" class="form-control" placeholder="User ID" autofocus ng-model="login.loginid" name="validloginid"
                     pattern="[a-zA-Z0-9_.@!#$%^&*-+=><?/~`'|]{5,50}" required>
                     <span  ng-show="loginForm.validloginid.$touched &&
@@ -32,21 +33,34 @@
                     <span  ng-show="submitted && !loginForm.validloginpass.$touched &&
                      loginForm.validloginpass.$error.pattern">
                      password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span><br>
-		             <input type="checkbox" ng-model="login.RememberMe" value="false">Remember Me<br>
+		            <div style=" display: flex;flex: 2;">
+				<div style="flex: 1;">
+				<input type="checkbox" ng-model="login.RememberMe" value="false" class="ng-pristine ng-untouched ng-valid ng-empty">
+   				 Remember Me
+				</div>
+				<div style="flex: 1;margin-top: -10px;">    
+				<label class="checkbox">
+		                <span class="pull-right">
+		                <a data-toggle="modal" ng-href="#forgotpassword" href="#forgotpassword"> Forgot Password?</a>
+						</span>
+ 				</label>
+   				 </div>  
+				</div>
+					 <!--<input type="checkbox" ng-model="login.RememberMe" value="false">Remember Me<br>
                       <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" ng-href="#forgotpassword"> Forgot Password?</a>
 		
 		                </span>
-		            </label>
+		            </label>-->
 		             <input type="submit" class="btn btn-theme btn-block" ng-click="submitted=true;" value="Login">
 <!--		            <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>-->
 		            <hr>
 		            
 		            <div class="login-social-link centered">
 		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-		                <button class="btn btn-twitter" type="submit"><i class="fa fa-google-plus"></i> Gmail</button>
+		                <button class="btn btn-facebook" style="width:48%" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
+		                <button class="btn btn-twitter" type="submit" style="width:48%"><i class="fa fa-google-plus"></i> Gmail</button>
 		            </div>
 		            <div class="registration">
 		                Don't have an account yet?<br/>
@@ -80,7 +94,7 @@
 		          <!-- modal -->
 		
 		      </form>	  	
-	  	      <h5 id="login-result">{{result}} </h5>   
+	  	      <!--<h5 id="login-result" style="margin-top: -3%;">{{result}} </h5>   -->
 	  	</div>
 	  </div>
 

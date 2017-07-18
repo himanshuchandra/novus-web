@@ -1,134 +1,7 @@
-<!--
-<h1>Register</h1>
-
-<div ng-hide="MobileForm">
-    
-    <form name="regForm"  ng-submit="submitForm(regForm)" novalidate>
-             
-
-        <input type="email" name="validemail" ng-model="signup.email" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
-        <span  ng-show="regForm.validemail.$touched && regForm.validemail.$invalid &&
-        !regForm.validemail.$error.required">Invalid email </span>
-        <span  ng-show="regForm.validemail.$touched && regForm.validemail.$error.required">
-            Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validemail.$touched &&
-        regForm.validemail.$error.required">Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validemail.$touched &&
-        regForm.validemail.$invalid && !regForm.validemail.$error.required">
-            Invalid email </span>
-            
-        <br>        
-            
-        <input type="text" name="validfname" ng-model="signup.fname" ng-keyup="enableRegister(regForm);"
-        placeholder="First Name" pattern="[a-zA-Z]{3,20}" required/>
-        <span  ng-show="regForm.validfname.$touched &&
-        regForm.validfname.$error.pattern &&
-        !regForm.validfname.$error.required">
-        Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
-        <span  ng-show="regForm.validfname.$touched &&
-        regForm.validfname.$error.required">Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validfname.$touched &&
-        regForm.validfname.$error.required">
-            Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validfname.$touched &&
-        regForm.validfname.$error.pattern">
-        Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
-
-        <input type="text" name="validlname" ng-model="signup.lname" ng-keyup="enableRegister(regForm);"
-        placeholder="Last Name" pattern="[a-zA-Z]{3,20}" required/>
-        <span  ng-show="regForm.validlname.$touched &&
-        regForm.validlname.$error.pattern &&
-        !regForm.validlname.$error.required">
-        Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
-        <span  ng-show="regForm.validlname.$touched &&
-        regForm.validlname.$error.required">Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validlname.$touched &&
-        regForm.validlname.$error.required">
-            Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validlname.$touched &&
-        regForm.validlname.$error.pattern">
-        Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
-
-        <br>
-
-        <input type="tel" ng-model="signup.mobile" name="validMobile" ng-keyup="enableRegister(regForm);"
-        placeholder="Mobile number" pattern="[0-9]{10}" required/>
-        <span  ng-show="regForm.validMobile.$touched &&
-        regForm.validMobile.$error.pattern &&
-        !regForm.validMobile.$error.required">
-        Invalid Mobile number(Should be 10 digits only 0-9 allowed)</span>
-        <span  ng-show="regForm.validMobile.$touched &&
-        regForm.validMobile.$error.required">Cannot be left empty </span>
-        <span  ng-show="MobileSubmitted && !regForm.validMobile.$touched &&
-        regForm.validMobile.$error.required">
-            Cannot be left empty </span>
-        <span  ng-show="MobileSubmitted && !regForm.validMobile.$touched &&
-        regForm.validMobile.$error.pattern">
-        Invalid Mobile number(Should be 10 digits only 0-9 allowed) </span>
-
-        <br>
-
-        <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password1" name="validpass1" 
-        placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}" required/>
-        <span  ng-show="regForm.validpass1.$touched && regForm.validpass1.$error.pattern &&
-            !regForm.validpass1.$error.required">
-            password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
-        <span  ng-show="regForm.validpass1.$touched && regForm.validpass1.$error.required">
-            Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validpass1.$touched &&
-        regForm.validpass1.$error.required">
-            Cannot be left empty </span>
-        <span  ng-show="submitted && !regForm.validpass1.$touched &&
-        regForm.validpass1.$error.pattern">
-        password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
-        
-        <br>
-        <input type="password" ng-keyup="checkp(regForm)" ng-model="signup.password2" placeholder="Password" />
-        {{passtext}}
-        
-        <br>
-        <input type="submit" ng-click="submitted=true;" value="Register" ng-disabled="isNotValid">
-
-    </form>
-
-</div>
-   
-<div ng-hide=CodeForm>
-        <form name="codeForm" ng-submit="submitCode(codeForm)" novalidate>
-            <h5>Enter 6 digit verification code from your mobile that we just sent you</h5>
-            <input type="text" ng-model="signup.VCode" name="vCode" pattern="[a-z0-9A-Z]{6}" required/>
-            <span  ng-show="codeForm.vCode.$touched &&
-            codeForm.vCode.$error.pattern &&
-            !codeForm.vCode.$error.required">
-            Invalid Code Format</span>
-            <!--<span  ng-show="codeForm.vCode.$touched &&
-            codeForm.vCode.$error.required">Cannot be left empty </span>-->
-            <!--<span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
-            codeForm.vCode.$error.required">
-                Cannot be left empty </span>-->
-        <!--    <span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
-            codeForm.vCode.$error.pattern">
-            Invalid code Format</span>
-            <br>
-                {{CodeMessage}}
-
-            <input type="submit" ng-click="CodeSubmitted=true;" value="Verify">
-            <input type="button" ng-click="SendAgain()" value="Send Again">
-        </form>         
-        
-    </div>
-<!--</div>-->
-   
-  
-    <!--{{result}}
-    
-
-<H1><a ng-href="#login">LOGIN</a></H1>
-
-<button>Google SignIn</button>  -->
 
 
-<div id="login-page" style="margin-top:-5%">
+
+<div id="login-page" style="margin-top:-12%">
     <div id="comp_logo" title="Back to Home"><a href="http://mynovus.xyz/home.html"><img  src="http://novussoftwares.com/images/aboutus/5.png" alt=""> </a>
 	  	</div>
 	  	<div class="container">
@@ -137,8 +10,8 @@
            <div ng-hide="MobileForm">
             <form name="regForm" style="max-width: 350px;" class="form-login" ng-submit="submitForm(regForm)" novalidate>
 		        <h2 class="form-login-heading" style="font-weight:600">SIGN UP</h2>
-		        <div class="login-wrap">
-                
+		        <div class="login-wrap" style="padding-bottom: 0px;">
+                <h5 id="login-result" style="margin-top:-3%">{{result}} </h5>  
                      <input type="email" class="form-control" name="validemail" ng-model="signup.email" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
                     <span  ng-show="regForm.validemail.$touched && regForm.validemail.$invalid &&
                     !regForm.validemail.$error.required">Invalid email </span>
@@ -223,11 +96,12 @@
                       <input type="submit" style="font-weight:700" ng-click="submitted=true;" class="btn btn-theme btn-block" value="Register" ng-disabled="isNotValid">
 		      <hr>
 		            
-		            <div class="login-social-link centered">
-		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-		                <button class="btn btn-twitter" type="submit"><i class="fa fa-google-plus"></i> Gmail</button>
-		            </div>       
+		            <div class="login-social-link centered" style="margin-top: -20px;padding: 0px;margin-bottom: 0px;">
+                    <p>or you can sign in via your social network</p>
+                    <button class="btn btn-facebook" type="submit" style="width: 48%;margin-top: -10%;"><i class="fa fa-facebook"></i> Facebook</button>
+                    <button class="btn btn-twitter" type="submit" style="width: 48%;margin-top: -10%;"><i class="fa fa-google-plus"></i> Gmail</button>    
+                    <p><a href="#/login">Sign in if you already have account</p>
+                    </div>   
 	           
                 </div>
 		
@@ -262,4 +136,4 @@
         
     </div>
 	  </div>
-<h5 id="login-result">{{result}} </h5>   
+ 
