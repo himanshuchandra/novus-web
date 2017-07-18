@@ -22,17 +22,17 @@ angular.module('novusApp')
          
          $scope.Result="Checking";
 
-          var PasswordObject={
-            "UserEmail":UserEmail,
-            "Token":Token,  
+          var CodeObject={
+            "email":UserEmail,
+            "code":Token,  
           }
          
-          var promise = forgotpassword.passwordReset(PasswordObject);
+          var promise = forgotpassword.verifyCode(CodeObject);
           promise.then(function(data){
-            if(data.data.message==="fail"){
+            if(data.data==="fail"){
               $scope.Result="Link expired.. Send a new one!";
             }
-            else if(data.data.message==="pass"){
+            else if(data.data==="pass"){
               verifiedUserEmail=PasswordObject.UserEmail;
               $scope.NewPasswordForm=false;
               $scope.Result=undefined;
@@ -51,8 +51,8 @@ angular.module('novusApp')
 
     $scope.NewPasswordForm=true; 
     $scope.sendAgainButton=true;
-    var UserEmail=$location.search().e;
-    var Token=$location.search().t;
+    var UserEmail=$location.search().id;
+    var Token=$location.search().code;
     var verifiedUserEmail=undefined;
 
     if(UserEmail!=undefined && Token!=undefined)

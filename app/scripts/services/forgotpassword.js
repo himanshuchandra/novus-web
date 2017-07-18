@@ -23,9 +23,20 @@ angular.module('novusApp')
           return defer.promise;
         },
 
+        verifyCode:function(CodeObject){
+          var defer = $q.defer(); 
+          $http.post(phpurl+'/php/checkf.php',CodeObject)
+          .then(function(data){
+            defer.resolve(data); 
+          },function(error){
+            defer.reject(error);
+          })
+          return defer.promise;
+        },
+
         passwordReset:function(PasswordObject){
           var defer = $q.defer(); 
-          $http.post(phpurl+'/forgotpassword/passwordReset',PasswordObject)
+          $http.post(phpurl+'/php/rpass.php',PasswordObject)
           .then(function(data){
             defer.resolve(data); 
           },function(error){

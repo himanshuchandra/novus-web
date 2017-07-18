@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl) {
+  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl, $route) {
 
     $scope.deleteImg = () => {
       alert("hey");
@@ -54,8 +54,8 @@ angular.module('novusApp')
         if (data.data != undefined) {
 
           for (var i = 0; i < data.data.length; i++) {
-            if (data.data[i].judgements != undefined && data.data[i].judgements!="" && data.data[i].judgements.length>5) {
-              data.data[i].judgements=data.data[i].judgements.replace(/['"]+/g, '');
+            if (data.data[i].judgements != undefined && data.data[i].judgements != "" && data.data[i].judgements.length > 5) {
+              data.data[i].judgements = data.data[i].judgements.replace(/['"]+/g, '');
               var judgements = data.data[i].judgements;
               var jArray = judgements.split(',');
               data.data[i].jArray = jArray;
@@ -83,10 +83,10 @@ angular.module('novusApp')
         if (data.data != undefined) {
 
           for (var i = 0; i < data.data.length; i++) {
-            if(data.data[i].file_path!=undefined){
-                  data.data[i].file_path=data.data[i].file_path.replace(/['"]+/g, '');
-                  data.data[i].file_path=$scope.splitString(data.data[i].file_path);
-              }
+            if (data.data[i].file_path != undefined) {
+              data.data[i].file_path = data.data[i].file_path.replace(/['"]+/g, '');
+              data.data[i].file_path = $scope.splitString(data.data[i].file_path);
+            }
           }
 
           $scope.Hcases = data.data;
@@ -118,16 +118,16 @@ angular.module('novusApp')
         if (data.data != undefined) {
 
           for (var i = 0; i < data.data.length; i++) {
-            if(data.data[i].petitioner_and_advocate!=undefined){
-                data.data[i].pt=data.data[i].petitioner_and_advocate.slice(3,11);
-              }
-              if(data.data[i].respondent_and_advocate!=undefined){
-                data.data[i].rs=data.data[i].respondent_and_advocate.slice(3,11);
+            if (data.data[i].petitioner_and_advocate != undefined) {
+              data.data[i].pt = data.data[i].petitioner_and_advocate.slice(3, 11);
+            }
+            if (data.data[i].respondent_and_advocate != undefined) {
+              data.data[i].rs = data.data[i].respondent_and_advocate.slice(3, 11);
             }
             Object.keys(data.data[i]).forEach(function (key) {
-              if(key.startsWith('final') && data.data[i][key]!=undefined){
-                  data.data[i][key]=data.data[i][key].replace(/['"]+/g, '');
-                  data.data[i][key]=$scope.splitString(data.data[i][key]);
+              if (key.startsWith('final') && data.data[i][key] != undefined) {
+                data.data[i][key] = data.data[i][key].replace(/['"]+/g, '');
+                data.data[i][key] = $scope.splitString(data.data[i][key]);
               }
             });
           }
@@ -174,6 +174,10 @@ angular.module('novusApp')
       $scope.districtCaseDetails = true;
     };
 
+    $scope.dshowCasesButton = function () {
+      $route.reload();
+    };
+
     $scope.showAllCases = function () {
       $scope.supremeCasesHide = false;
       $scope.highCasesHide = false;
@@ -200,6 +204,51 @@ angular.module('novusApp')
       $scope.districtCasesHide = false;
     };
 
+    $scope.deleteThis = function (deleteObj) {
+      console.log("deleteObj", deleteObj);
+      var promise = dashboard.deleteCase(deleteObj);
+      promise.then(function (data) {
+
+        if (data.data === 'success') {
+          $route.reload();
+        }
+        else {
+          window.alert("Error deleteing case! Please try again later.");
+        }
+      }, function (error) {
+        window.alert("Error deleteing case! Please try again later.");
+      });
+    };
+
+
+    $scope.deleteObj = {};
+    $scope.deleteCase = function (caseData, type) {
+      if (type === 's') {
+        $scope.deleteObj = {};
+        $scope.deleteObj.diary_number = caseData.diary_number;
+        $scope.deleteObj.year = caseData.year;
+        $scope.deleteThis($scope.deleteObj);
+      }
+      else if (type === 'h') {
+        $scope.deleteObj = {};
+        $scope.deleteObj.state = caseData.state_name;
+        $scope.deleteObj.type = caseData.case_type;
+        $scope.deleteObj.number = caseData.case_number;
+        $scope.deleteObj.year = caseData.case_year;
+        $scope.deleteThis($scope.deleteObj);
+      }
+      else if (type === 'd') {
+        $scope.deleteObj = {};
+        $scope.deleteObj.state = caseData.state_name;
+        $scope.deleteObj.court = caseData.court_number;
+        $scope.deleteObj.type = caseData.case_type;
+        $scope.deleteObj.number = caseData.case_number;
+        $scope.deleteObj.year = caseData.case_year;
+        $scope.deleteObj.district = caseData.district_code;
+        $scope.deleteThis($scope.deleteObj);
+      }
+
+    };
 
     // $scope.hideApplicants=0;
     // $scope.approvedText=0;

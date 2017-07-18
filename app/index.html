@@ -252,9 +252,9 @@
                             <h5 class="centered">Novus Softwares</h5>-->
 
                             <li class="sub-menu" ng-controller="DashboardCtrl">
-                                <a href="/app/#dashboard" ng-click="showCasesButton()" class="active">
+                                <a href="/app/#dashboard" class="active">
                           <i class="fa fa-dashboard"></i>
-                          <span class="dash">Dashboard</span>
+                          <span class="dash" ng-click="dashboard.dshowCasesButton()">Dashboard</span>
                       </a>
                             </li>
 
@@ -379,8 +379,8 @@
       </div>
     </div>
 -->
-        <div ng-controller="FinalizeCtrl">
-        </div>
+        <!--<div ng-controller="FinalizeCtrl">
+        </div>-->
     </div>
 
     <script>
@@ -440,7 +440,7 @@
     <script src="scripts/services/emailactivate.js"></script>
     <script src="scripts/controllers/forgotpassword.js"></script>
     <script src="scripts/services/forgotpassword.js"></script>
-    <script src="scripts/controllers/finalize.js"></script>
+    <!--<script src="scripts/controllers/finalize.js"></script>-->
     <script src="scripts/controllers/addcase.js"></script>
     <script src="scripts/services/addcase.js"></script>
     <script src="scripts/controllers/dashboard.js"></script>

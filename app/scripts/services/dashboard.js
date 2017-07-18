@@ -44,6 +44,17 @@ angular.module('novusApp')
                     })
                 return defer.promise;
             },
+
+            deleteCase: function (deleteObj) {
+                var defer = $q.defer();
+                $http.post(phpurl + "/php/delete.php",deleteObj)
+                    .then(function (data) {
+                        defer.resolve(data);
+                    }, function (error) {
+                        defer.reject(error);
+                    })
+                return defer.promise;
+            },
         };
 
         return object;
