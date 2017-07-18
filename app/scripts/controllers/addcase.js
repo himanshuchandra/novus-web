@@ -29,10 +29,10 @@ angular.module('novusApp')
     $scope.districtFormHide=true;
 
     $scope.loadFirst = function () {
-    //   if (webindex.loggedIn != true) {
-    //     $window.location.reload();
-    //     $window.location.assign(requrl);
-    //   }
+      if (webindex.loggedIn != true) {
+        $window.location.reload();
+        $window.location.assign(requrl);
+      }
     };
     
     var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {

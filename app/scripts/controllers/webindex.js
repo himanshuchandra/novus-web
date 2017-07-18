@@ -11,7 +11,7 @@
 
 
 angular.module('novusApp')
-    .controller('WebindexCtrl', function ($scope, webindex, requrl, $window, $timeout, $rootScope, $routeParams, $location) {
+    .controller('WebindexCtrl', function ($scope, webindex, requrl, $window, $timeout, $rootScope, $location, $route) {
 
         // $scope.loading_screen = pleaseWait({
         //     logo: "../images/Loading_Text.png",
@@ -55,11 +55,11 @@ angular.module('novusApp')
                 else {
                     webindex.loggedIn = true;
                     $scope.headerHide = false;
-                    webindex.userData=data.data[0];
+                    webindex.userData = data.data[0];
 
-                    if(data.data[0].userStatus!='Y'){
-                        $scope.Status="Your Email address "+data.data[0].email+" is not Verified";
-                        $scope.ActivationStatus=false;
+                    if (data.data[0].userStatus != 'Y') {
+                        $scope.Status = "Your Email address " + data.data[0].email + " is not Verified";
+                        $scope.ActivationStatus = false;
                     }
                     $scope.LoginButton = true;
                     $scope.SignupButton = true;
@@ -71,7 +71,7 @@ angular.module('novusApp')
                 //     $scope.loginStatus="Login/SignUp";
                 // }
                 webindex.needReload = false;
-                webindex.loaded=true;
+                webindex.loaded = true;
             });
         };
 
@@ -112,8 +112,8 @@ angular.module('novusApp')
             promise.then(function (data) {
                 console.log(data);
                 // if (data.data === "logout") {
-                    $window.location.reload();
-                    $window.location.assign(requrl + "/#/login");
+                $window.location.reload();
+                $window.location.assign(requrl + "/#/login");
                 // }
                 // else {
                 //     $scope.LogoutMessage = "Error,Try again Later";
@@ -121,6 +121,11 @@ angular.module('novusApp')
             }, function (error) {
                 $scope.LogoutMessage = "Error,Try again Later";
             });
+        };
+
+        $scope.dshowCasesButton = function () {
+            $window.location.assign(requrl + '/#/dashboard');
+            $route.reload();
         };
 
     });
