@@ -26,13 +26,9 @@
     .custom-bar-chart {
         margin-bottom: 40px;
     }
-    .login-page{
-        margin-left: 0xp;
-    }
-    /*chat room*/
-
 
 }
+
 
 @media(max-width: 698px){
     .hide_li{
@@ -65,7 +61,9 @@
 }
 
 @media (max-width: 768px) {
-
+    .login-page{
+        margin-left: 0xp;
+    }
     .header {
         position: absolute;
     }
