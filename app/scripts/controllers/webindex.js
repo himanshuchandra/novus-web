@@ -34,7 +34,7 @@ angular.module('novusApp')
                     console.log("2");
                     if (webindex.loggedIn != true) {
                         // $window.location.reload();
-                        window.location.href(phpurl);
+                        $location.url(phpurl);
                     }
                 }
             }
@@ -62,11 +62,11 @@ angular.module('novusApp')
                     if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
                         console.log("3");
                         // $window.location.reload();
-                        window.location.href(phpurl);
+                        $location.url(phpurl);
                     }
                 }
                 else {
-                    if ($location.path() === '/login' || $location.path() === '/signup') {
+                    if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/') {
                         console.log("4");
                         $window.location.reload();
                         $window.location.assign(requrl + '/#/dashboard');
