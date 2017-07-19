@@ -27,15 +27,15 @@ angular.module('novusApp')
     $scope.highCaseDetails = true;
 
     $scope.loadFirst = function () {
-      if (webindex.loggedIn != true) {
-        $window.location.reload();
-        $window.location.assign(requrl);
-      }
-      else {
+      // if (webindex.loggedIn != true) {
+      //   $window.location.reload();
+      //   $window.location.assign(requrl);
+      // }
+      // else {
         $scope.loadSupreme();
         $scope.loadHigh();
         $scope.loadDistrict();
-      }
+      // }
     };
 
     var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {

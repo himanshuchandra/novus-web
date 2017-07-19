@@ -22,19 +22,19 @@ angular.module('novusApp')
         };
 
 
-        $scope.checkLogin= function () {
-            if (webindex.loggedIn === true) {
-                $window.location.reload();
-                $window.location.assign(requrl + "/#/dashboard");
-            }
-        };
+        // $scope.checkLogin= function () {
+        //     if (webindex.loggedIn === true) {
+        //         $window.location.reload();
+        //         $window.location.assign(requrl + "/#/dashboard");
+        //     }
+        // };
 
-        var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
-            if (!angular.equals(webindex.loaded, false)) {
-                $scope.checkLogin();
-                unregister();
-            }
-        }, true);
+        // var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
+        //     if (!angular.equals(webindex.loaded, false)) {
+        //         $scope.checkLogin();
+        //         unregister();
+        //     }
+        // }, true);
 
 
 

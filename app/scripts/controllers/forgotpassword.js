@@ -29,10 +29,11 @@ angular.module('novusApp')
          
           var promise = forgotpassword.verifyCode(CodeObject);
           promise.then(function(data){
+            console.log(data);
             if(data.data==="fail"){
               $scope.Result="Link expired.. Send a new one!";
             }
-            else if(data.data==="pass"){
+            else if(data.data==="success"){
               verifiedUserEmail=PasswordObject.UserEmail;
               $scope.NewPasswordForm=false;
               $scope.Result=undefined;

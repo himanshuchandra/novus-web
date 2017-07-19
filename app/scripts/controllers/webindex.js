@@ -21,16 +21,22 @@ angular.module('novusApp')
         //     //look in spinkit.css for more loading animations
         // });
 
-        // $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-        //     if ($location.path() === '/login' || $location.path() === '/signup') {
-        //         $scope.headerHide = true;
-        //         console.log("1");
-        //     }
-        //     else {
-        //         console.log("2");
-        //         $scope.headerHide = false;
-        //     }
-        // });
+        $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+            if ($location.path() === '/login' || $location.path() === '/signup') {
+                console.log("1");
+                if (webindex.loggedIn === true) {
+                    $window.location.reload();
+                    $window.location.assign(requrl + '/#/dashboard');
+                }
+            }
+            else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
+                console.log("2");
+                if (webindex.loggedIn != true) {
+                    $window.location.reload();
+                    $window.location.assign(requrl + '/#/login');
+                }
+            }
+        });
 
         $scope.loginStatus = "Login/SignUp";
         $scope.ActivationStatus = true;

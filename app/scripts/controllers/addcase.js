@@ -28,19 +28,19 @@ angular.module('novusApp')
     $scope.highFormHide=true;
     $scope.districtFormHide=true;
 
-    $scope.loadFirst = function () {
-      if (webindex.loggedIn != true) {
-        $window.location.reload();
-        $window.location.assign(requrl);
-      }
-    };
+    // $scope.loadFirst = function () {
+    //   if (webindex.loggedIn != true) {
+    //     $window.location.reload();
+    //     $window.location.assign(requrl);
+    //   }
+    // };
     
-    var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
-      if (!angular.equals(webindex.loaded, false)) {
-        $scope.loadFirst();
-        unregister();
-      }
-    }, true);
+    // var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
+    //   if (!angular.equals(webindex.loaded, false)) {
+    //     $scope.loadFirst();
+    //     unregister();
+    //   }
+    // }, true);
 
 
 

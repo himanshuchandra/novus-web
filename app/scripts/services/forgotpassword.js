@@ -25,7 +25,7 @@ angular.module('novusApp')
 
         verifyCode:function(CodeObject){
           var defer = $q.defer(); 
-          $http.post(phpurl+'/php/checkf.php',CodeObject)
+          $http.post(phpurl+'/php/signup/checkf.php',CodeObject)
           .then(function(data){
             defer.resolve(data); 
           },function(error){
@@ -36,7 +36,7 @@ angular.module('novusApp')
 
         passwordReset:function(PasswordObject){
           var defer = $q.defer(); 
-          $http.post(phpurl+'/php/rpass.php',PasswordObject)
+          $http.post(phpurl+'/php/signup/rpass.php',PasswordObject)
           .then(function(data){
             defer.resolve(data); 
           },function(error){
