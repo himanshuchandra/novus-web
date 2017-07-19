@@ -34,7 +34,7 @@ angular.module('novusApp')
                     console.log("2");
                     if (webindex.loggedIn != true) {
                         // $window.location.reload();
-                        $location.url(phpurl);
+                        $window.location.href=phpurl;
                     }
                 }
             }
@@ -62,7 +62,7 @@ angular.module('novusApp')
                     if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
                         console.log("3");
                         // $window.location.reload();
-                        $location.url(phpurl);
+                        $window.location.href=phpurl;
                     }
                 }
                 else {
