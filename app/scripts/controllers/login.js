@@ -56,8 +56,7 @@ angular.module('novusApp')
                 console.log(data);
                 if (data.data === "success") {
                     $scope.result = "Logged in successfully";
-                    $window.location.reload();
-                    $window.location.assign(requrl + "/#/dashboard");
+                    $window.location.href=requrl+'/#/dashboard';
                 }
                 else if (data.data === "incorrectpassword") {
                     $scope.result = "Wrong Email/Username/Mobile or password";

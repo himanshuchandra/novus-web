@@ -62,7 +62,7 @@
 
 @media (max-width: 768px) {
     .login-page{
-        margin-left: 0xp;
+        margin-left: 0px !important;
     }
     .header {
         position: absolute;
