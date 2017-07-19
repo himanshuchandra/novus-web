@@ -11,7 +11,7 @@
 
 
 angular.module('novusApp')
-    .controller('WebindexCtrl', function ($scope, webindex, requrl, $window, $timeout, $rootScope, $location, $route) {
+    .controller('WebindexCtrl', function ($scope, webindex, requrl, $window, $timeout, $rootScope, $location, $route, phpurl) {
 
         // $scope.loading_screen = pleaseWait({
         //     logo: "../images/Loading_Text.png",
@@ -33,8 +33,8 @@ angular.module('novusApp')
                 else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
                     console.log("2");
                     if (webindex.loggedIn != true) {
-                        $window.location.reload();
-                        $window.location.assign(requrl + '/#/login');
+                        // $window.location.reload();
+                        window.location.href(phpurl);
                     }
                 }
             }
@@ -61,8 +61,8 @@ angular.module('novusApp')
                     $scope.headerHide = true;
                     if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
                         console.log("3");
-                        $window.location.reload();
-                        $window.location.assign(requrl + '/#/login');
+                        // $window.location.reload();
+                        window.location.href(phpurl);
                     }
                 }
                 else {

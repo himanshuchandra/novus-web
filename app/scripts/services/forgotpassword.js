@@ -36,7 +36,7 @@ angular.module('novusApp')
 
         passwordReset:function(PasswordObject){
           var defer = $q.defer(); 
-          $http.post(phpurl+'/php/signup/rpass.php',PasswordObject)
+          $http.post(phpurl+'/php/signup/resetpass.php',PasswordObject)
           .then(function(data){
             defer.resolve(data); 
           },function(error){

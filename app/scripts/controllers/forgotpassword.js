@@ -34,7 +34,7 @@ angular.module('novusApp')
               $scope.Result="Link expired.. Send a new one!";
             }
             else if(data.data.startsWith("success")){
-              verifiedUserEmail=PasswordObject.UserEmail;
+              verifiedUserEmail=CodeObject.email;
               $scope.NewPasswordForm=false;
               $scope.Result=undefined;
               //show new password form
@@ -147,10 +147,10 @@ angular.module('novusApp')
          
           var promise = forgotpassword.passwordReset(NewPasswordObject);
           promise.then(function(data){
-            if(data.data.message==="fail"){
+            if(data.data==="fail"){
               $scope.Result = "Error occured,Try again later";
             }
-            else if(data.data.message==="success"){
+            else if(data.data==="success"){
               $scope.NewPasswordForm=true; 
               $scope.Result = "Password Changed";
             }
