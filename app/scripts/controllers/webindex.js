@@ -64,32 +64,33 @@ angular.module('novusApp')
                         $window.location.reload();
                         $window.location.assign(requrl + '/#/login');
                     }
-                    else {
-                        if ($location.path() === '/login' || $location.path() === '/signup') {
-                            console.log("4");
-                            $window.location.reload();
-                            $window.location.assign(requrl + '/#/dashboard');
-                        }
-                        webindex.loggedIn = true;
-                        $scope.headerHide = false;
-                        webindex.userData = data.data[0];
-
-                        if (data.data[0].userStatus != 'Y') {
-                            $scope.Status = "Your Email address " + data.data[0].email + " is not Verified";
-                            $scope.ActivationStatus = false;
-                        }
-                        $scope.LoginButton = true;
-                        $scope.SignupButton = true;
-                        $scope.ProfileButton = false;
-                        $scope.LogoutButton = false;
-                        $scope.sideBar = false;
+                }
+                else {
+                    if ($location.path() === '/login' || $location.path() === '/signup') {
+                        console.log("4");
+                        $window.location.reload();
+                        $window.location.assign(requrl + '/#/dashboard');
                     }
-                    // else{
-                    //     $scope.loginStatus="Login/SignUp";
-                    // }
-                    webindex.needReload = false;
-                    webindex.loaded = true;
-                });
+                    webindex.loggedIn = true;
+                    $scope.headerHide = false;
+                    webindex.userData = data.data[0];
+
+                    if (data.data[0].userStatus != 'Y') {
+                        $scope.Status = "Your Email address " + data.data[0].email + " is not Verified";
+                        $scope.ActivationStatus = false;
+                    }
+                    $scope.LoginButton = true;
+                    $scope.SignupButton = true;
+                    $scope.ProfileButton = false;
+                    $scope.LogoutButton = false;
+                    $scope.sideBar = false;
+                }
+                // else{
+                //     $scope.loginStatus="Login/SignUp";
+                // }
+                webindex.needReload = false;
+                webindex.loaded = true;
+            });
         };
 
         $scope.$watch(function () { return webindex.needReload }, function (newValue, oldValue) {
