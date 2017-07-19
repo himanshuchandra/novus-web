@@ -47,7 +47,7 @@ angular.module('novusApp')
         $scope.ProfileButton = true;
         $scope.LogoutButton = true;
         $scope.sideBar = true;
-        $scope.headerHide = false;
+        $scope.headerHide = true;
 
         $scope.ActivationMessage = undefined;
 

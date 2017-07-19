@@ -33,7 +33,7 @@ angular.module('novusApp')
             if(data.data==="fail"){
               $scope.Result="Link expired.. Send a new one!";
             }
-            else if(data.data==="success"){
+            else if(data.data.startsWith("success")){
               verifiedUserEmail=PasswordObject.UserEmail;
               $scope.NewPasswordForm=false;
               $scope.Result=undefined;
