@@ -22,18 +22,20 @@ angular.module('novusApp')
         // });
 
         $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-            if ($location.path() === '/login' || $location.path() === '/signup') {
-                console.log("1");
-                if (webindex.loggedIn === true) {
-                    $window.location.reload();
-                    $window.location.assign(requrl + '/#/dashboard');
+            if (webindex.loaded === true) {
+                if ($location.path() === '/login' || $location.path() === '/signup') {
+                    console.log("1");
+                    if (webindex.loggedIn === true) {
+                        $window.location.reload();
+                        $window.location.assign(requrl + '/#/dashboard');
+                    }
                 }
-            }
-            else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
-                console.log("2");
-                if (webindex.loggedIn != true) {
-                    $window.location.reload();
-                    $window.location.assign(requrl + '/#/login');
+                else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
+                    console.log("2");
+                    if (webindex.loggedIn != true) {
+                        $window.location.reload();
+                        $window.location.assign(requrl + '/#/login');
+                    }
                 }
             }
         });
@@ -57,28 +59,37 @@ angular.module('novusApp')
                     // $scope.loginStatus = "";
                     webindex.loggedIn = false;
                     $scope.headerHide = true;
-                }
-                else {
-                    webindex.loggedIn = true;
-                    $scope.headerHide = false;
-                    webindex.userData = data.data[0];
-
-                    if (data.data[0].userStatus != 'Y') {
-                        $scope.Status = "Your Email address " + data.data[0].email + " is not Verified";
-                        $scope.ActivationStatus = false;
+                    if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
+                        console.log("3");
+                        $window.location.reload();
+                        $window.location.assign(requrl + '/#/login');
                     }
-                    $scope.LoginButton = true;
-                    $scope.SignupButton = true;
-                    $scope.ProfileButton = false;
-                    $scope.LogoutButton = false;
-                    $scope.sideBar = false;
-                }
-                // else{
-                //     $scope.loginStatus="Login/SignUp";
-                // }
-                webindex.needReload = false;
-                webindex.loaded = true;
-            });
+                    else {
+                        if ($location.path() === '/login' || $location.path() === '/signup') {
+                            console.log("4");
+                            $window.location.reload();
+                            $window.location.assign(requrl + '/#/dashboard');
+                        }
+                        webindex.loggedIn = true;
+                        $scope.headerHide = false;
+                        webindex.userData = data.data[0];
+
+                        if (data.data[0].userStatus != 'Y') {
+                            $scope.Status = "Your Email address " + data.data[0].email + " is not Verified";
+                            $scope.ActivationStatus = false;
+                        }
+                        $scope.LoginButton = true;
+                        $scope.SignupButton = true;
+                        $scope.ProfileButton = false;
+                        $scope.LogoutButton = false;
+                        $scope.sideBar = false;
+                    }
+                    // else{
+                    //     $scope.loginStatus="Login/SignUp";
+                    // }
+                    webindex.needReload = false;
+                    webindex.loaded = true;
+                });
         };
 
         $scope.$watch(function () { return webindex.needReload }, function (newValue, oldValue) {
