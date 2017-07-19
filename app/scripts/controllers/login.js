@@ -56,6 +56,8 @@ angular.module('novusApp')
                 console.log(data);
                 if (data.data === "success") {
                     $scope.result = "Logged in successfully";
+                    webindex.loggedIn=true;
+                    $window.location.reload();
                     $window.location.href=requrl+'/#/dashboard';
                 }
                 else if (data.data === "incorrectpassword") {
