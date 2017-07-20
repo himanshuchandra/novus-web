@@ -181,8 +181,11 @@ angular.module('novusApp')
     $scope.sendSupremeData=function(obj){
         var promise=addcase.sendSupremeData(obj);
         promise.then(function(data) {
-            if(data.data!=""){
+            if(data.data==="success"){
                 $scope.supremeMessage="Added successfully to dashboard";
+            }
+            else if(data.data==="aadded"){
+                $scope.supremeMessage="Already exists";
             }
             else{
                 $scope.supremeMessage="Error adding!Try again later.";
@@ -240,8 +243,11 @@ angular.module('novusApp')
         promise.then(function(data) {
             console.log("sent data",obj);
             console.log("received data",data.data);
-            if(data.data!=""){
+            if(data.data==="success"){
                 $scope.districtMessage="Added successfully to dashboard";
+            }
+            else if(data.data==="aadded"){
+                $scope.districtMessage="Already exists";
             }
             else{
                 $scope.districtMessage="Error adding!Try again later.";
@@ -288,8 +294,11 @@ angular.module('novusApp')
         promise.then(function(data) {
             console.log("sent data",obj);
             console.log("received data",data.data);
-            if(data.data!=""){
+            if(data.data==="success"){
                 $scope.highMessage="Added successfully to dashboard";
+            }
+            else if(data.data==="aadded"){
+                $scope.highMessage="Already exists";
             }
             else{
                 $scope.highMessage="Error adding!Try again later.";
@@ -307,7 +316,7 @@ angular.module('novusApp')
         //     $scope.MobileMessage="Error! Try again later";
         //   }
         },function(error) {
-            // $scope.MobileMessage="Error! Try again later";
+            $scope.highMessage="Error adding!Try again later.";
         });    
     };
     

@@ -28,10 +28,10 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
-      .when('/calender', {
-        templateUrl: 'views/calender.html',
-        controller: 'calender',
-        controllerAs: 'calender'
+      .when('/calendar', {
+        templateUrl: 'views/calendar.html',
+        controller: 'CalendarCtrl',
+        controllerAs: 'calendar'
       })
       .when('/about', {
         templateUrl: 'views/about.html',

@@ -66,11 +66,11 @@ angular.module('novusApp')
                     }
                 }
                 else {
-                    if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/') {
-                        console.log("4");
-                        $window.location.reload();
-                        $window.location.assign(requrl + '/#/dashboard');
-                    }
+                    // if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/forgotpassword' || $location.path() === '/') {
+                    //     console.log("4");
+                    //     // $window.location.reload();
+                    //     $window.location.assign(requrl + '/#/dashboard');
+                    // }
                     webindex.loggedIn = true;
                     $scope.headerHide = false;
                     webindex.userData = data.data[0];
