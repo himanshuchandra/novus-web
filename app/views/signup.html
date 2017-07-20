@@ -2,7 +2,7 @@
 
 
 <div id="login-page">
-    <div id="comp_logo" style="margin-top:-7%" title="Back to Home"><a href="http://mynovus.xyz/home.html"><img  src="http://novussoftwares.com/images/aboutus/5.png" alt=""> </a>
+    <div id="comp_logo" style="margin-top:-5%" title="Back to Home"><a href="http://mynovus.xyz/home.html"><img  src="http://novussoftwares.com/images/aboutus/5.png" alt=""> </a>
 	  	</div>
 	  	<div class="container">
 	  	
@@ -12,6 +12,8 @@
 		        <h2 class="form-login-heading" style="font-weight:600">SIGN UP</h2>
 		        <div class="login-wrap" style="padding-bottom: 0px;">
                 <h5 id="login-result" style="margin-top:-3%">{{result}} </h5>  
+                  <div id="signup_horizontal">  
+                     <div>
                      <input type="email" class="form-control" name="validemail" ng-model="signup.email" placeholder="Email" ng-keyup="enableRegister(regForm);" required/>
                     <span  ng-show="regForm.validemail.$touched && regForm.validemail.$invalid &&
                     !regForm.validemail.$error.required">Invalid email </span>
@@ -22,10 +24,8 @@
                     <span  ng-show="submitted && !regForm.validemail.$touched &&
                     regForm.validemail.$invalid && !regForm.validemail.$error.required">
                     Invalid email </span>
-            
-		            <br>
-		            
-		            
+                     </div>
+		        <div>
 		             <input type="text" class="form-control" name="validfname" ng-model="signup.fname" ng-keyup="enableRegister(regForm);"
                      placeholder="First Name" pattern="[a-zA-Z]{3,20}" required/>
                      <span  ng-show="regForm.validfname.$touched &&
@@ -40,7 +40,8 @@
                     <span  ng-show="submitted && !regForm.validfname.$touched &&
                     regForm.validfname.$error.pattern">
                     Invalid first name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
-		            <br>
+		        </div>
+                <div>
 		            <input type="text" class="form-control" name="validlname" ng-model="signup.lname" ng-keyup="enableRegister(regForm);"
         placeholder="Last Name" pattern="[a-zA-Z]{3,20}" required/>
         <span  ng-show="regForm.validlname.$touched &&
@@ -56,8 +57,8 @@
         regForm.validlname.$error.pattern">
         Invalid last name(Should have only a-z,A-z,and 3-20 chars,without any spaces) </span>
 
-        <br>
-
+                </div>
+        <div>
         <input type="tel" class="form-control" ng-model="signup.mobile" name="validMobile" ng-keyup="enableRegister(regForm);"
         placeholder="Mobile number" pattern="[0-9]{10}" required/>
         <span  ng-show="regForm.validMobile.$touched &&
@@ -73,8 +74,8 @@
         regForm.validMobile.$error.pattern">
         Invalid Mobile number(Should be 10 digits only 0-9 allowed) </span>
 
-        <br>
-
+        </div>
+        <div>
         <input type="password" class="form-control" ng-keyup="checkp(regForm)" ng-model="signup.password1" name="validpass1" 
         placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}" required/>
         <span  ng-show="regForm.validpass1.$touched && regForm.validpass1.$error.pattern &&
@@ -89,9 +90,12 @@
         regForm.validpass1.$error.pattern">
         password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
         
-        <br>
+        </div>
+        <div>
         <input type="password" class="form-control" ng-keyup="checkp(regForm)" ng-model="signup.password2" placeholder="Password" />
         {{passtext}}
+        </div>
+		        </div>
 		            <br>
                       <input type="submit" style="font-weight:700" ng-click="submitted=true;" class="btn btn-theme btn-block" value="Register" ng-disabled="isNotValid">
 		      <hr>
