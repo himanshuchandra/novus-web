@@ -399,4 +399,10 @@ body {
 @media print {
    * { color: black; background: white; }
    table { font-size: 80%; }
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
 }
