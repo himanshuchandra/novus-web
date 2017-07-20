@@ -21,24 +21,24 @@ angular.module('novusApp')
         //     //look in spinkit.css for more loading animations
         // });
 
-        $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-            if (webindex.loaded === true) {
-                if ($location.path() === '/login' || $location.path() === '/signup') {
-                    console.log("1");
-                    if (webindex.loggedIn === true) {
-                        $window.location.reload();
-                        $window.location.assign(requrl + '/#/dashboard');
-                    }
-                }
-                else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
-                    console.log("2");
-                    if (webindex.loggedIn != true) {
-                        // $window.location.reload();
-                        $window.location.href=phpurl;
-                    }
-                }
-            }
-        });
+        // $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+        //     if (webindex.loaded === true) {
+        //         if ($location.path() === '/login' || $location.path() === '/signup') {
+        //             console.log("1");
+        //             if (webindex.loggedIn === true) {
+        //                 $window.location.reload();
+        //                 $window.location.assign(requrl + '/#/dashboard');
+        //             }
+        //         }
+        //         else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
+        //             console.log("2");
+        //             if (webindex.loggedIn != true) {
+        //                 // $window.location.reload();
+        //                 $window.location.href=phpurl;
+        //             }
+        //         }
+        //     }
+        // });
 
         $scope.loginStatus = "Login/SignUp";
         $scope.ActivationStatus = true;
