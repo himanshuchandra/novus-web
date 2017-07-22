@@ -73,6 +73,21 @@ angular
         controller: 'AddcaseCtrl',
         controllerAs: 'addcase'
       })
+      .when('/causelist', {
+        templateUrl: 'views/causelist.html'
+      })
+      .when('/taskmanager', {
+        templateUrl: 'views/taskmanager.html'
+      })
+      .when('/expensemanager', {
+        templateUrl: 'views/expensemanager.html'
+      })
+      .when('/appointments', {
+        templateUrl: 'views/appointments.html'
+      })
+      .when('/revenue', {
+        templateUrl: 'views/revenue.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
