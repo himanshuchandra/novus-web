@@ -275,7 +275,7 @@
                                 <a class="nav-a" ng-href="/app/#signup">
                   <i class="fa fa-user-plus"></i>
                   <span>Signup</span>
-                  </a>
+                  </a></li>
                                 <!--</li>
                             <li ng-hide="LoginButton" class="sub-menu resp_disp">
                                 <a class="nav-a" ng-href="/app/#login">
@@ -288,9 +288,14 @@
                                     <a class="nav-a" ng-href="/app/#profile">
                   <i class="fa fa-user"></i>
                   <span>My account</span></a></li>
+                   <!--<div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div>-->
+                            
+                  <li ng-hide="LogoutButton" ng-cloak class="sub-menu resp_disp">
+                                    <a class="nav-a" ng-href="#" ng-click="Logout()">
+                  <i class="fa fa-sign-out"></i>
+                  <span>Logout</span></a></li>
 
-
-                                -->
+                                
 
                         </ul>
                         <!-- sidebar menu end-->
