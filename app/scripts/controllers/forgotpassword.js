@@ -143,7 +143,7 @@ angular.module('novusApp')
 
       var promise = forgotpassword.passwordReset(NewPasswordObject);
       promise.then(function (data) {
-        console.log("passwordresetresult",data);
+        console.log("passwordresetresult", data);
         if (data.data === "fail") {
           $scope.Result = "Error occured,Try again later";
         }

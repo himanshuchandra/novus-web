@@ -9,8 +9,6 @@
     "angular-route": "^1.4.0",
     "angular-md5": "^0.1.10",
     "ng-country-select": "^0.1.4",
-    "please-wait": "^0.0.5",
-    "SpinKit": "spinkit#^1.2.5",
     "ng-file-upload": "^12.2.13",
     "font-awesome": "^4.7.0",
     "bootstrap-toggle": "^2.2.2"

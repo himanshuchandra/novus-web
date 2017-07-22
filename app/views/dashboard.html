@@ -20,14 +20,13 @@
                     <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.year}}</div>                   
                     <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span></div> 
                     </div>
-<!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
                 
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'s')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> Supreme Court</div>
                     <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.petitioners}} <b>VS</b> {{case.respondents}}</div>
                     </div>
                <div class="img_hold">
-<!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
+
                <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'s')"></i>
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'s')">

@@ -13,13 +13,6 @@
 angular.module('novusApp')
     .controller('WebindexCtrl', function ($scope, webindex, requrl, $window, $timeout, $rootScope, $location, $route, phpurl) {
 
-        // $scope.loading_screen = pleaseWait({
-        //     logo: "../images/Loading_Text.png",
-        //     backgroundColor: '#4f52ba',
-        //     //loadingHtml: "<div class='sk-wandering-cubes'><div class='sk-cube sk-cube1'></div><div class='sk-cube sk-cube2'></div></div>"
-        //     loadingHtml: "<div class='sk-wave'><div class='sk-rect sk-rect1'></div><div class='sk-rect sk-rect2'></div><div class='sk-rect sk-rect3'></div><div class='sk-rect sk-rect4'></div><div class='sk-rect sk-rect5'></div></div>"
-        //     //look in spinkit.css for more loading animations
-        // });
 
         // $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
         //     if (webindex.loaded === true) {
@@ -66,11 +59,11 @@ angular.module('novusApp')
                     }
                 }
                 else {
-                    // if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/forgotpassword' || $location.path() === '/') {
-                    //     console.log("4");
-                    //     // $window.location.reload();
-                    //     $window.location.assign(requrl + '/#/dashboard');
-                    // }
+                    if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/forgotpassword' || $location.path() === '/') {
+                        console.log("4");
+                        // $window.location.reload();
+                        $window.location.assign(requrl + '/#/dashboard');
+                    }
                     webindex.loggedIn = true;
                     $scope.headerHide = false;
                     webindex.userData = data.data[0];
@@ -129,9 +122,10 @@ angular.module('novusApp')
             var promise = webindex.logout();
             promise.then(function (data) {
                 console.log(data);
+                $window.location.href=phpurl;
                 // if (data.data === "logout") {
-                $window.location.reload();
-                $window.location.assign(requrl + "/#/login");
+                // $window.location.reload();
+                // $window.location.assign(requrl + "/#/login");
                 // }
                 // else {
                 //     $scope.LogoutMessage = "Error,Try again Later";
