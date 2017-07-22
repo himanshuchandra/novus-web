@@ -1960,7 +1960,7 @@ label {
 
 /*LOGIN CONFIGURATION PAGE*/
 .form-login {
-	max-width: 330px;
+	max-width: 400px;   /*330px*/
 	margin: 100px auto 0;
 	background: #fff;
 	border-radius: 5px;

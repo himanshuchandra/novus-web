@@ -392,7 +392,7 @@ body {
 
 #signup_horizontal{
     display: grid;
-    grid-template-columns: 150px 150px !important;
+    grid-template-columns: 50% 50% !important;
     grid-gap: 4px !important;
 }
 

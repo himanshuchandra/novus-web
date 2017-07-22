@@ -5,7 +5,11 @@
     }
 
 }
-
+@media(min-width:1100px){
+    #comp_logo{
+        margin-left: 47%;
+    }
+}
 @media(min-width:1200px){
     .table_width{
         width: 125%;
