@@ -8,17 +8,22 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('webindex', function ($http,$q,requrl) {
+  .factory('webindex', function ($http,$q,phpurl) {
       
       var object = {
 
         needReload:true,
         loaded:false,
-        userData:{},
+        loggedIn:false,
+        userData:{
+            Scases:0,
+            Hcases:0,
+            Dcases:0,
+        },
 
         checkStatus:function(){
           var defer = $q.defer(); 
-          $http.post(requrl+'/webindex')
+          $http.post(phpurl+'/php/signup/check.php')
           .then(function(data){
                defer.resolve(data);
            },function(error){
@@ -29,7 +34,7 @@ angular.module('novusApp')
 
         sendActivationLink:function(){
           var defer = $q.defer(); 
-          $http.post(requrl+'/sendActivationLink')
+          $http.post(phpurl+'/sendActivationLink')
           .then(function(data){
                defer.resolve(data);
            },function(error){
@@ -40,7 +45,7 @@ angular.module('novusApp')
         
         logout:function(){
           var defer = $q.defer(); 
-          $http.post(requrl+'/logout')
+          $http.post(phpurl+'/php/signup/logout.php')
           .then(function(data){
                defer.resolve(data);
            },function(error){

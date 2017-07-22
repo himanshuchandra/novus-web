@@ -18,14 +18,20 @@ angular
     'ngFileUpload'
   ])
 
-  .constant("requrl","http://localhost:1234")
+  .constant("requrl","http://mynovus.xyz/app")
+  .constant("phpurl","http://mynovus.xyz")
   
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
+      .when('/calendar', {
+        templateUrl: 'views/calendar.html',
+        controller: 'CalendarCtrl',
+        controllerAs: 'calendar'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -56,6 +62,16 @@ angular
         templateUrl: 'views/forgotpassword.html',
         controller: 'ForgotpasswordCtrl',
         controllerAs: 'forgotpassword'
+      })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl',
+        controllerAs: 'dashboard'
+      })
+      .when('/addcase', {
+        templateUrl: 'views/addcase.html',
+        controller: 'AddcaseCtrl',
+        controllerAs: 'addcase'
       })
       .otherwise({
         redirectTo: '/'

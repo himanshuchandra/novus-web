@@ -1,0 +1,176 @@
+<br>
+<div class="container caseInfo">
+<!--   <div class="container">-->
+    <div id="button_section">
+
+    
+    <button id="SC" data-form="supremeFormHide" ng-click="showSCField()" class="btn btn-default case-form">Supreme Court</button>
+    <button id="HC" data-form="highFormHide" ng-click="showHCField()" class="btn btn-default case-form">High Court</button>
+    <button id="DC" data-form="districtFormHide" ng-click="showDCField()" class="btn btn-default case-form">District Court</button>
+    <button id="TC" ng-click="" class="case-form btn btn-default">Tribunals</button>
+    
+
+</div>
+
+<div id="forms">
+
+<div ng-hide="supremeFormHide" >
+    <form name="supremeForm" id="supremecourtform" ng-submit="submitSupremeForm(supremeForm)" novalidate>
+ 
+<!--<h5>Supreme Court Form</h5>-->
+    <br>
+     <div class="form-group">
+    <label for="Dnumber">Diary Number:</label>
+    <input type="text" class="form-control" name="Dnumber" ng-model="addCase.Dnumber" pattern="[0-9]{1,6}" required>
+    <span  ng-show="supremeForm.Dnumber.$touched &&
+     supremeForm.Dnumber.$error.pattern &&
+      !supremeForm.Dnumber.$error.required">
+      Invalid diary number(Only 0-9 and 1-6 chars allowed,without any spaces) </span>
+    <span  ng-show="supremeForm.Dnumber.$touched &&
+     supremeForm.Dnumber.$error.required">Cannot be left empty </span>
+    <span  ng-show="supremeSubmitted && !supremeForm.Dnumber.$touched &&
+     supremeForm.Dnumber.$error.required">
+        Cannot be left empty </span>
+    <span  ng-show="supremeSubmitted && !supremeForm.Dnumber.$touched &&
+     supremeForm.Dnumber.$error.pattern">
+     Invalid diary number(Only 0-9 and 5 chars allowed,without any spaces)  </span>
+        </div>
+   <br>
+   <div class="form-group">
+    <label for="year">Year:</label>
+    <input class="form-control" type="number" min="1950" max="2050" name="year" ng-model="addCase.year" pattern="[0-9]{4}" required/>
+    <span  ng-show="supremeForm.year.$touched &&
+     supremeForm.year.$error.pattern &&
+      !supremeForm.year.$error.required">
+      Invalid year(Only 0-9 and 4 chars allowed,without any spaces) </span>
+    <span  ng-show="supremeForm.year.$touched &&
+     supremeForm.year.$error.required">Cannot be left empty </span>
+    <span  ng-show="supremeSubmitted && !supremeForm.year.$touched &&
+     supremeForm.year.$error.required">
+        Cannot be left empty </span>
+    <span  ng-show="supremeSubmitted && !supremeForm.year.$touched &&
+     supremeForm.year.$error.pattern">
+     Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
+        </div>
+<br>
+<input type="submit" class="btn btn-default" ng-click="supremeSubmitted=true;" value="Search">
+     
+</form>
+{{supremeMessage}}
+
+</div>
+
+
+
+
+<div ng-hide="highFormHide">
+    <form name="highForm" id="highcourtform" ng-submit="submitHighForm(highForm)" novalidate>
+
+<!--<h5>High Court Form</h5>-->
+   <br>
+     
+   <label for="state">State</label>
+   <select class="form-control" name="state" id="state" ng-model="addCase.state" ng-change="loadHCoptions();" required>
+        <option value="Delhi">Delhi</option>
+    </select>
+    <br>
+    <label for="ctype">Case type</label>
+    <select class="form-control"  name="ctype" ng-model="addCase.ctype" ng-options="x for x in ctype" required>
+    </select>
+    
+    <br>
+    <label for="Cnumber">Case Number:</label>
+    <input class="form-control" type="text" name="Cnumber" ng-model="addCase.HCnumber" pattern="[0-9]{1,6}" required>
+    <span  ng-show="highForm.Cnumber.$touched &&
+     highForm.Cnumber.$error.pattern &&
+      !highForm.Cnumber.$error.required">
+      Invalid case number(Only 0-9 and 1-6 chars allowed,without any spaces) </span>
+    <span  ng-show="highForm.Cnumber.$touched &&
+     highForm.Cnumber.$error.required">Cannot be left empty </span>
+    <span  ng-show="highSubmitted && !highForm.Cnumber.$touched &&
+     highForm.Cnumber.$error.required">
+        Cannot be left empty </span>
+    <span  ng-show="highSubmitted && !highForm.Cnumber.$touched &&
+     highForm.Cnumber.$error.pattern">
+     Invalid case number(Only 0-9 and 4 chars allowed,without any spaces)  </span>
+
+   <br>
+    <label for="year">Year:</label>
+    <input class="form-control" type="number" name="year" ng-model="addCase.HCcaseyear" pattern="[0-9]{4}" required/>
+    <span  ng-show="highForm.year.$touched &&
+     highForm.year.$error.pattern &&
+      !highForm.year.$error.required">
+      Invalid year(Only 0-9 and 4 chars allowed,without any spaces) </span>
+    <span  ng-show="highForm.year.$touched &&
+     highForm.year.$error.required">Cannot be left empty </span>
+    <span  ng-show="highSubmitted && !highForm.year.$touched &&
+     highForm.year.$error.required">
+        Cannot be left empty </span>
+    <span  ng-show="highSubmitted && !highForm.year.$touched &&
+     highForm.year.$error.pattern">
+     Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
+<br>
+<input type="submit" class="btn btn-default" ng-click="highSubmitted=true;" value="Search">
+</form>
+{{highMessage}}
+
+</div>
+
+<div ng-hide="districtFormHide">
+    <form name="districtForm" id="districtcourtform" ng-submit="submitDistrictForm(districtForm)" novalidate>
+
+<!--<h5>District Court Form</h5>-->
+<br>
+<label for="state">state</label>
+   <select style="margin-bottom:-10px" name="state" class="form-control" id="state" ng-model="addCase.Dstate" ng-change="loadDCoptions1();" required>
+        <option value="Delhi">Delhi</option>
+    </select>
+    <br>
+    <label for="court">court name</label>
+    <select style="margin-bottom:-10px" name="court" class="form-control" ng-model="addCase.court" ng-options="x for x in court" ng-change="loadDCoptions2();" required>
+    </select>
+    <br>
+    <label for="dctype">case type</label>
+    <select style="margin-bottom:-10px" name="dctype" class="form-control" ng-model="addCase.dctype" ng-options="x for x in dctype" required>
+    </select>
+    <br>
+    <label for="Cnumber">Case Number:</label>
+    <input class="form-control" type="text" name="Cnumber" ng-model="addCase.DCnumber" pattern="[0-9]{1,6}" required/>
+    <span  ng-show="districtForm.Cnumber.$touched &&
+     districtForm.Cnumber.$error.pattern &&
+      !districtForm.Cnumber.$error.required">
+      Invalid case number(Only 0-9 and 1-6 chars allowed,without any spaces) </span>
+    <span  ng-show="districtForm.Cnumber.$touched &&
+     districtForm.Cnumber.$error.required">Cannot be left empty </span>
+    <span  ng-show="districtSubmitted && !districtForm.Cnumber.$touched &&
+     districtForm.Cnumber.$error.required">
+        Cannot be left empty </span>
+    <span  ng-show="districtSubmitted && !districtForm.Cnumber.$touched &&
+     districtForm.Cnumber.$error.pattern">
+     Invalid case number(Only 0-9 and 4 chars allowed,without any spaces)  </span>
+    
+   <br>
+    <label for="year">Year:</label>
+    <input class="form-control" type="number" name="year" ng-model="addCase.DCcaseyear" pattern="[0-9]{4}" required/>
+    <span  ng-show="districtForm.year.$touched &&
+     districtForm.year.$error.pattern &&
+      !districtForm.year.$error.required">
+      Invalid year(Only 0-9 and 4 chars allowed,without any spaces) </span>
+    <span  ng-show="districtForm.year.$touched &&
+     districtForm.year.$error.required">Cannot be left empty </span>
+    <span  ng-show="districtSubmitted && !districtForm.year.$touched &&
+     districtForm.year.$error.required">
+        Cannot be left empty </span>
+    <span  ng-show="districtSubmitted && !districtForm.year.$touched &&
+     districtForm.year.$error.pattern">
+     Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
+<br>
+<input type="submit" class="btn btn-default" ng-click="districtSubmitted=true;" value="Search">
+</form>
+{{districtMessage}}
+
+</div>
+    </div>
+</div>
+
+

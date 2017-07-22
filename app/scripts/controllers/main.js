@@ -9,4 +9,6 @@
  */
 angular.module('novusApp')
   .controller('MainCtrl', function ($scope) {
+
+    
   });

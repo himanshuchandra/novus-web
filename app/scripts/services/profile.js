@@ -8,13 +8,13 @@
  * Factory in the novusApp.
  */
 angular.module('novusApp')
-  .factory('profile', function ($http,$q,requrl) {
+  .factory('profile', function ($http,$q,phpurl) {
 
     var object = {
         /* Optional call if loading data from session
         getData:function(){
           var defer = $q.defer(); 
-          $http.post(requrl+'/profile/getData')
+          $http.post(phpurl+'/profile/getData')
           .then(function(data){
                defer.resolve(data);
            },function(error){
@@ -25,7 +25,7 @@ angular.module('novusApp')
 
         checkUsername:function(usernameObj){
            var defer = $q.defer();
-           $http.post(requrl+'/commonroutes/checkUsername',usernameObj)
+           $http.post(phpurl+'/commonroutes/checkUsername',usernameObj)
            .then(function(data){
                defer.resolve(data);
            },function(error){
@@ -36,7 +36,7 @@ angular.module('novusApp')
         
        changeUsername:function(usernameObject){
             var defer=$q.defer();
-            $http.post(requrl+"/profile/changeUsername",usernameObject)
+            $http.post(phpurl+"/profile/changeUsername",usernameObject)
             .then(function(data){
                 defer.resolve(data); 
             },function(error){
@@ -47,7 +47,7 @@ angular.module('novusApp')
 
         updateProfileData:function(profileObject){
             var defer=$q.defer();
-            $http.post(requrl+"/profile/updateProfileData",profileObject)
+            $http.post(phpurl+"/profile/updateProfileData",profileObject)
             .then(function(data){
                 defer.resolve(data); 
             },function(error){
@@ -58,7 +58,7 @@ angular.module('novusApp')
 
         updateMobile:function(mobileObject){
             var defer=$q.defer();
-            $http.post(requrl+"/profile/updateMobile",mobileObject)
+            $http.post(phpurl+"/profile/updateMobile",mobileObject)
             .then(function(data){
                 defer.resolve(data); 
             },function(error){
@@ -69,7 +69,7 @@ angular.module('novusApp')
 
         verifyCode:function(codeObject){
             var defer=$q.defer();
-            $http.post(requrl+"/profile/verifyCode",codeObject)
+            $http.post(phpurl+"/profile/verifyCode",codeObject)
             .then(function(data){
                 defer.resolve(data); 
             },function(error){
@@ -80,7 +80,7 @@ angular.module('novusApp')
 
         setNewPassword:function(passwordObject){
             var defer=$q.defer();
-            $http.post(requrl+"/profile/setNewPassword",passwordObject)
+            $http.post(phpurl+"/profile/setNewPassword",passwordObject)
             .then(function(data){
                 defer.resolve(data); 
             },function(error){

@@ -8,58 +8,67 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('LoginCtrl', function ($scope,login,webindex,$window,requrl,md5) {
+    .controller('LoginCtrl', function ($scope, login, webindex, $window, requrl, md5) {
 
-    if(webindex.userData.useremail!=undefined){
-        $window.location.assign(requrl);
-    }
+        // $scope.checkLogin= function () {
+        //     if (webindex.loggedIn === true) {
+        //         $window.location.reload();
+        //         $window.location.assign(requrl + "/#/dashboard");
+        //     }
+        // };
 
-    //all ng-models declared 
-      $scope.login={
-        loginid:"",
-        loginpassword:"",
-        RememberMe:undefined
-      };
-      
-     $scope.submitForm=function(loginForm){
-        if(loginForm.$valid){
-            $scope.result="Checking..";
-            $scope.doLogin();
-        }
-        else{
-            $scope.result="Invalid info.";
-        }
-    };
-    
-    
-    $scope.doLogin=function(){
-        
-        var hashLoginPassword=md5.createHash($scope.login.loginpassword);
+        // var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
+        //     if (!angular.equals(webindex.loaded, false)) {
+        //         $scope.checkLogin();
+        //         unregister();
+        //     }
+        // }, true);
 
-        var loginObject = {
-            "loginid":$scope.login.loginid,
-            "loginpassword":hashLoginPassword,
-            "rememberMe":$scope.login.RememberMe
+        //all ng-models declared 
+        $scope.login = {
+            loginid: "",
+            loginpassword: "",
+            RememberMe: undefined
         };
-        var promise = login.loginUser(loginObject);
-        promise.then(function(data){
-            if(data.data.message==="success"){
-                $scope.result="Logged in successfully";
-                $window.location.reload();
-                $window.location.assign(requrl);
+
+        $scope.submitForm = function (loginForm) {
+            if (loginForm.$valid) {
+                $scope.result = "Checking..";
+                $scope.doLogin();
             }
-            else if(data.data.message==="conflict"){
-                $scope.result="Please specify country code if using Mobile number";
+            else {
+                $scope.result = "Invalid info.";
             }
-            else if(data.data.message==="fail"){
-                $scope.result="Wrong Email/Username/Mobile or password";
-            }
-            else{
-                $scope.result="Error occurred! Try again later.";
-            }
-        },function(error){
-            $scope.result = "Error occurred! Try again later.";
-        });
-    };
-  
-  });
+        };
+
+
+        $scope.doLogin = function () {
+
+            var hashLoginPassword = md5.createHash($scope.login.loginpassword);
+
+            var loginObject = {
+                "loginid": $scope.login.loginid,
+                "loginpassword": hashLoginPassword,
+                "rememberMe": $scope.login.RememberMe
+            };
+            var promise = login.loginUser(loginObject);
+            promise.then(function (data) {
+                console.log(data);
+                if (data.data === "success") {
+                    $scope.result = "Logged in successfully";
+                    webindex.needReload = true;
+                    // $window.location.reload();
+                    // $window.location.href=requrl+'/#/dashboard';
+                }
+                else if (data.data === "incorrectpassword") {
+                    $scope.result = "Wrong Email/Username/Mobile or password";
+                }
+                else {
+                    $scope.result = "Error occurred! Try again later.";
+                }
+            }, function (error) {
+                $scope.result = "Error occurred! Try again later.";
+            });
+        };
+
+    });

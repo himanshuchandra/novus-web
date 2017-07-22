@@ -1,31 +1,89 @@
-<h1>PROFILE</h1>
+<!--
+    <div class="container">
+      <div class="row">
+     
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Sheena Shrestha</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                
+                
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Email</td>
+                        <td>{{Email}}</td>
+                      </tr>
+                      <tr>
+                        <td>First name</td>
+                        <td>{{Fname}}</td>
+                      </tr>
+                      <tr>
+                        <td>Last name</td>
+                        <td>{{Lname}}</td>
+                      </tr>
+                      <tr>
+                        <td>Mobile</td>
+                        <td>{{Mobile}}</td>
+                      </tr>
+                        <tr>
+                        <td>Total cases</td>
+                        <td>{{TotalCases}}</td>
+                      </tr>
+                      <tr>
+                        <td>Daily updates</td>
+                        <td><input type="checkbox" id="toggle-one" data-toggle="toggle"></td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number</td>
+                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                       
+                           
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  
+                  <a href="#" class="btn btn-primary">My Sales Performance</a>
+                  <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                        
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+-->
+
+
+<div class="container">
+<h1>My Account</h1>
 <h5>Email</h5> <p>{{Email}}</p>
-<h5>Username</h5><p>{{uName}}</p>
-<div ng-hide="UsernameForm">
-    <form name="usernameForm" ng-submit="submitUsernameForm(usernameForm)" novalidate>
+<h5>First name</h5><p>{{Fname}}</p>
+<h5>Last name</h5><p>{{Lname}}</p>
+<h5>Mobile</h5><p>{{Mobile}}</p>
+<h5>Total cases</h5><p>{{TotalCases}}</p>
+<h5>Expires On</h5><p>{{ExpiresOn}}</p>
+<h5>Daily updates</h5><input type="checkbox" />
+<h5>Task Reminders</h5><input type="checkbox" />
+<h5>File Number in Workspace</h5><input type="checkbox" />
+<h5>Invoicing</h5><input type="checkbox" />
 
-<h5>New Username</h5>
-    <input type="text" name="newusername" ng-model="profile.newUsername" ng-keyup="checkUsername(usernameForm)" pattern="[a-zA-Z0-9_.]{5,20}" required/>
-    <span  ng-show="usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.pattern &&
-      !usernameForm.newusername.$error.required">
-      Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
-    <span  ng-show="usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.required">Cannot be left empty </span>
-    <span  ng-show="submitted && !usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="submitted && !usernameForm.newusername.$touched &&
-     usernameForm.newusername.$error.pattern">
-     Invalid username(Should have only a-z,0-9,.,_ and 5-20 chars,without any spaces) </span>
+<button>Edit automatic File numbers</button>
+<button>Pay Now</button>
 
-<input type="submit" ng-disabled="disableButton" ng-click="UsernameSubmitted=true;" value="Save">
-</form>
-{{UsernameMessage}}
-{{UsernameResult}}
-
-</div>
-<input type="button" ng-hide="toggleButton" ng-click="toggleUsernameForm()" value={{EditUsername}} />
 
 <h3>
 
@@ -50,112 +108,9 @@
         <button ng-click="toggleImageForm()" ng-hide="toggleButton">{{uploadButton}}</button>
 </div>
 
-<div ng-hide="Profile">
-    
-    <h5>Name</h5><p>{{Name||"Not Saved"}}</p>   
-    <h5>Address</h5>
-    <h5>Area</h5><p>{{Area||"Not Saved"}}</p>
-    <h5>City</h5><p>{{City||"Not Saved"}}</p>
-    <h5>State</h5><p>{{State||"Not Saved"}}</p>
-    <h5>Pincode</h5><p>{{Pincode||"Not Saved"}}</p>
-    <h5>Country</h5><p>{{Country||"Not Saved"}}</p>
-    <h5>Mobile Number</h5><p>{{Mobile||"Not Saved"}}</p>
-</div>
-
-<div ng-hide="ProfileForm">
-<form name="profForm" ng-submit="submitProfileForm(profForm)" novalidate>
-    <h5>Full Name</h5>
-    <input type="text" name="validName" ng-model="profile.newName" placeholder="Full Name"
-    pattern="[A-Za-z ]{3,30}" required>
-    <span  ng-show="profForm.validName.$touched &&
-     profForm.validName.$error.pattern &&
-      !profForm.validName.$error.required">
-      Invalid name(Should be 3-30 only a-z,A-Z and space allowed) </span>
-    <span  ng-show="profForm.validName.$touched &&
-     profForm.validName.$error.required">Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validName.$touched &&
-     profForm.validName.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validName.$touched &&
-     profForm.validName.$error.pattern">
-      Invalid name(Should be 3-30 only a-z,A-Z and space allowed) </span>
-
-    <h5>Area</h5>
-    <input type="text" name="validArea" ng-model="profile.newArea" 
-    placeholder="Area" pattern="[A-Za-z0-9,-.' ]{5,50}" required>
-        <span  ng-show="profForm.validArea.$touched &&
-     profForm.validArea.$error.pattern &&
-      !profForm.validArea.$error.required">
-      Invalid Area(Should be 5-50 only a-z,A-Z,0-9,-,',. , and space allowed) </span>
-    <span  ng-show="profForm.validArea.$touched &&
-     profForm.validArea.$error.required">Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validArea.$touched &&
-     profForm.validArea.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validArea.$touched &&
-     profForm.validArea.$error.pattern">
-     Invalid Area(Should be 5-50 only a-z,A-Z,0-9,-,. , and space allowed) </span>
-
-    <h5>City</h5>
-    <input type="text" name="validCity" ng-model="profile.newCity" 
-    placeholder="City" pattern="[A-Za-z0-9' ]{4,15}" required>
-        <span  ng-show="profForm.validCity.$touched &&
-     profForm.validCity.$error.pattern &&
-      !profForm.validCity.$error.required">
-      Invalid City(Should be 4-15 only a-z,A-Z,0-9,' and space allowed) </span>
-    <span  ng-show="profForm.validCity.$touched &&
-     profForm.validCity.$error.required">Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validCity.$touched &&
-     profForm.validCity.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validCity.$touched &&
-     profForm.validCity.$error.pattern">
-     Invalid City(Should be 4-15 only a-z,A-Z,0-9 and space allowed)</span>
-    
-    <h5>State</h5>
-    <input type="text" name="validState" ng-model="profile.newState" 
-    placeholder="State" pattern="[A-Za-z0-9' ]{4,15}" required>
-        <span  ng-show="profForm.validState.$touched &&
-     profForm.validState.$error.pattern &&
-      !profForm.validState.$error.required">
-      Invalid State(Should be 4-15 only a-z,A-Z,0-9,' and space allowed) </span>
-    <span  ng-show="profForm.validState.$touched &&
-     profForm.validState.$error.required">Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validState.$touched &&
-     profForm.validState.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validState.$touched &&
-     profForm.validState.$error.pattern">
-     Invalid State(Should be 4-15 only a-z,A-Z,0-9 and space allowed)</span>
-    
-    <h5>Pincode</h5>
-    <input type="text" name="validPincode" ng-model="profile.newPincode" 
-    placeholder="Pincode" pattern="[0-9]{3,15}" required>
-        <span  ng-show="profForm.validPincode.$touched &&
-     profForm.validPincode.$error.pattern &&
-      !profForm.validPincode.$error.required">
-      Invalid Pincode(Should be 3-15 digits only 0-9 allowed) </span>
-    <span  ng-show="profForm.validPincode.$touched &&
-     profForm.validPincode.$error.required">Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validPincode.$touched &&
-     profForm.validPincode.$error.required">
-        Cannot be left empty </span>
-    <span  ng-show="ProfileSubmitted && !profForm.validPincode.$touched &&
-     profForm.validPincode.$error.pattern">
-     Invalid Pincode(Should be 3-15 digits only 0-9 allowed) </span>
-
-    <h5>Country</h5>
-    <country-select name="validCountry" ng-model="profile.newCountry" cs-required 
-    cs-priorities="IN, AU, DE, GB, US" option value="India"></country-select>
-        {{ProfileResult}}
-    <!--country-select ng-model="profile.newCountry" cs-only="AU, DE, GB, US"></country-select-->
 
 
-<input type="submit" ng-click="ProfileSubmitted=true;" value="Save Profile">
-</form>
-</div>
-
-<div ng-hide="MobileForm">
+<!--<div ng-hide="MobileForm">
     <div ng-hide="HideMobileForm" >
         <form name="mobileForm" ng-submit="submitMobileForm(mobileForm)" novalidate>
             <h5>Country Code</h5>
@@ -203,11 +158,6 @@
             codeForm.vCode.$error.pattern &&
             !codeForm.vCode.$error.required">
             Invalid Code Format</span>
-            <!--<span  ng-show="codeForm.vCode.$touched &&
-            codeForm.vCode.$error.required">Cannot be left empty </span>-->
-            <!--<span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
-            codeForm.vCode.$error.required">
-                Cannot be left empty </span>-->
             <span  ng-show="CodeSubmitted && !codeForm.vCode.$touched &&
             codeForm.vCode.$error.pattern">
             Invalid code Format</span>
@@ -219,7 +169,7 @@
         </form>         
         
     </div>
-</div>
+</div>-->
 
 <div ng-hide="PasswordForm">
 <form name="passForm"  ng-submit="submitPasswordForm(passForm)" novalidate>
@@ -258,10 +208,10 @@
 
 <input type="submit" ng-click="PasswordSubmitted=true;" value="Save Password">
 </form>
-
+<button ng-click="PasswordForm=true;PasswordFormButton=false">Cancel</button>
 {{PasswordResult}}
 </div>
 
-<input type="button" ng-hide="ProfileFormButton" ng-click="ShowProfileForm()" value="Edit Profile" />
 <input type="button" ng-hide="MobileFormButton" ng-click="ShowMobileForm()" value="Edit Mobile" />
 <input type="button" ng-hide="PasswordFormButton" ng-click="ShowPasswordForm()" value="Change Password" />
+</div>
