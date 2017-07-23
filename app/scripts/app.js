@@ -88,6 +88,9 @@ angular
       .when('/revenue', {
         templateUrl: 'views/revenue.html'
       })
+      .when('/chat', {
+        templateUrl: 'views/chat.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
