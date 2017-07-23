@@ -3,10 +3,10 @@
         <br>
     <h3 style="text-align:center"></h3>
     <div class="container" style="display:flex"> 
-    <button ng-click="showAllCases()" class="btn btn-primary" style="flex:1;margin-right: 10px;">All</button>
-    <button ng-click="showSupremeCases()" class="btn btn-primary" style="flex:1;margin-right: 10px;">Supreme Court</button>
-    <button ng-click="showHighCases()" class="btn btn-primary" style="flex:1;margin-right: 10px;">High Court</button>
-    <button ng-click="showDistrictCases()" class="btn btn-primary" style="flex:1;">District Court</button>
+    <button ng-click="showAllCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">All</button>
+    <button ng-click="showSupremeCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">Supreme Court</button>
+    <button ng-click="showHighCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">High Court</button>
+    <button ng-click="showDistrictCases()" class="btn btn-primary respo" style="flex:1;">District Court</button>
     </div>
     <br>
     <div ng-repeat="case in Scases track by $index" class="cases" ng-hide="supremeCasesHide">

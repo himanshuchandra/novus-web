@@ -326,10 +326,14 @@
         background-color: #ccc;
         border-color:#ccc ;
     }
-    .black_bg{
+    header{
         background: rgb(79,82,186) !important;
     }
-
+    .respo{
+        font-size: 13px !important;
+         margin-left: -5px;
+    }
+    
 }
 
 @media (max-width:320px) {
