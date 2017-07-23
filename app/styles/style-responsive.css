@@ -75,7 +75,8 @@
         margin-left: 0px !important;
     }
     .header {
-        position: absolute;
+        /*position: absolute;*/
+        position: fixed;
     }
 
     .fa-bars{
@@ -101,7 +102,7 @@
     #sidebar {
         height: auto;
         overflow: hidden;
-        position: absolute;
+        position: fixed;
         width: 100%;
         z-index: 1001;
     }
