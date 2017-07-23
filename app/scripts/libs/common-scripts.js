@@ -47,27 +47,7 @@ var Script = function () {
         $(window).on('load', responsiveView);
         $(window).on('resize', responsiveView);
     });
-    $('.sub-menu').click(function(){
-        if ($('#sidebar > ul').is(":visible") === true) {
-            $('#main-content').css({
-                'margin-left': '-0px'
-            });
-            $('#sidebar').css({
-                'margin-left': '-277px'
-            });
-            $('#sidebar > ul').hide();
-            $("#container").addClass("sidebar-closed");
-        } else {
-            $('#main-content').css({
-                'margin-left': '277px'
-            });
-            $('#sidebar > ul').show();
-            $('#sidebar').css({
-                'margin-left': '0'
-            });
-            $("#container").removeClass("sidebar-closed");
-        }
-    });
+
     $('.fa-bars').click(function () {
         if ($('#sidebar > ul').is(":visible") === true) {
             $('#main-content').css({
