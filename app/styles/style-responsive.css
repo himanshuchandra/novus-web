@@ -64,6 +64,11 @@
     }
 }
 
+@media(max-width:600px){
+    .menu_hidden{
+        display: none !important;
+    }
+}
 
 @media (max-width: 768px) {
     #login-page{
@@ -84,9 +89,9 @@
         display: none !important;
     }
 
-    .menu_hidden{
+    /*.menu_hidden{
         display: none ;
-    }
+    }*/
 
     .resp_disp{
         display: block !important;
@@ -321,8 +326,8 @@
         background-color: #ccc;
         border-color:#ccc ;
     }
-    .header{
-        background: rgb(79,82,186);
+    .black_bg{
+        background: rgb(79,82,186) !important;
     }
 
 }
