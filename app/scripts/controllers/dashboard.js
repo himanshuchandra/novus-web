@@ -15,7 +15,8 @@ angular.module('novusApp')
     }
 
     $scope.dashboard = {
-      nxtDate: ""
+      nxtDate: "",
+      nxtDateMessage: "",
     };
 
     $scope.supremeCasesHide = false;
@@ -63,6 +64,12 @@ angular.module('novusApp')
               var jArray = judgements.split(',');
               data.data[i].jArray = jArray;
             }
+            if (data.data[i].petitioners != undefined) {
+              data.data[i].pt = data.data[i].petitioners.slice(3, 11);
+            }
+            if (data.data[i].respondents != undefined) {
+              data.data[i].rs = data.data[i].respondents.slice(3, 11);
+            }
           }
           $scope.Scases = data.data;
 
@@ -90,11 +97,17 @@ angular.module('novusApp')
               data.data[i].file_path = data.data[i].file_path.replace(/['"]+/g, '');
               data.data[i].file_path = $scope.splitString(data.data[i].file_path);
             }
-            if (data.data[i].next_date != "" || data.data[i].next_date != null) {
+            if (data.data[i].next_date != "" && data.data[i].next_date != null) {
               data.data[i].visDate = data.data[i].next_date.slice(0, 2);
               data.data[i].visYear = data.data[i].next_date.slice(6, 10);
               data.data[i].visMonth = data.data[i].next_date.slice(3, 5);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
+            }
+            if (data.data[i].petitioner != undefined) {
+              data.data[i].pt = data.data[i].petitioner.slice(3, 11);
+            }
+            if (data.data[i].respondent != undefined) {
+              data.data[i].rs = data.data[i].respondent.slice(3, 11);
             }
           }
 
@@ -160,7 +173,7 @@ angular.module('novusApp')
             if (data.data[i].status === "waiting") {
               data.data[i].status = "This case will be added shortly!";
             }
-            if (data.data[i].next_hearing_date != "" || data.data[i].next_hearing_date != null) {
+            if (data.data[i].next_hearing_date != "" && data.data[i].next_hearing_date != null) {
               data.data[i].visDate = data.data[i].next_hearing_date.slice(0, 2);
               data.data[i].visYear = data.data[i].next_hearing_date.slice(6, 10);
               data.data[i].visMonth = data.data[i].next_hearing_date.slice(3, 5);
@@ -206,9 +219,33 @@ angular.module('novusApp')
     };
 
     $scope.setNxtDate = function () {
-      console.log("nxt date", $scope.dashboard.nxtDate);
+      if ($scope.dashboard.nxtDate != "" || $scope.dashboard.nxtDate != null) {
+        $scope.dashboard.nxtDateMessage = "Updating date..";
+        $scope.setDateDb();
+      }
+      else {
+        $scope.dashboard.nxtDateMessage = "Enter valid date!";
+      }
     };
 
+    $scope.setDateDb = function () {
+      var sdate=$scope.dashboard.nxtDate.getDate();
+
+
+      var dateObj = {
+        "date": $scope.dashboard.nxtDate
+      }
+
+      var promise = addcase.setDateDb(dateObj);
+      promise.then(function (data) {
+        $scope.dashboard.nxtDateMessage = "";
+        $scope.nxtDatePopup=true;
+        
+
+      }, function (error) {
+        $scope.dashboard.nxtDateMessage = "";
+      });
+    };
 
     $scope.showCasesButton = function () {
       $scope.hideDashboard = false;
@@ -281,8 +318,8 @@ angular.module('novusApp')
       else if (type === 'd') {
         $scope.deleteObj = {};
         $scope.deleteObj.state = caseData.state_name;
-        $scope.deleteObj.court = caseData.court_number;
-        $scope.deleteObj.type = caseData.case_type;
+        $scope.deleteObj.court = caseData.court_complex;
+        $scope.deleteObj.type = caseData.case_type_code;
         $scope.deleteObj.number = caseData.case_number;
         $scope.deleteObj.year = caseData.case_year;
         $scope.deleteObj.district = caseData.district_code;

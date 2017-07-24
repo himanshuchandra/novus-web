@@ -52,6 +52,17 @@ angular.module('novusApp')
                defer.reject(error);
            }) 
             return defer.promise;
+        },
+
+        setDateDb:function(obj){
+          var defer = $q.defer(); 
+          $http.post(phpurl+'/php/sup_next.php',obj)
+          .then(function(data){
+               defer.resolve(data);
+           },function(error){
+               defer.reject(error);
+           }) 
+            return defer.promise;
         }
 
     };

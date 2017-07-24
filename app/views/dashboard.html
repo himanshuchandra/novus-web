@@ -23,7 +23,7 @@
                 
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'s')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> Supreme Court</div>
-                    <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.petitioners}} <b>VS</b> {{case.respondents}}</div>
+                    <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>VS</b> {{case.rs}}...</div>
                     </div>
                <div class="img_hold">
 
@@ -59,7 +59,7 @@
                 
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'h')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> Delhi High Court</div>
-                    <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.petitioner}} <b>VS</b> {{case.respondent}}</div>
+                    <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>VS</b> {{case.rs}}...</div>
                     </div>
                <div class="img_hold">
 
@@ -226,6 +226,7 @@
     </div>
     <div ng-hide="nxtDatePopup">
         <h5>Enter next hearing date :</h5><input type="date" ng-model="dashboard.nxtDate"><button ng-click="setNxtDate()">Submit</button>
+        {{nxtDateMessage}}
     </div>
 <!--   </div>-->
 </div>
