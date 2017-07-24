@@ -74,6 +74,7 @@
     .modal{
         left:0% !important;
     }
+    
     #login-page{
         margin-left: 0px !important;
     }
@@ -307,7 +308,9 @@
 
 
 @media (max-width: 480px) {
-
+    .modal-body > input{
+        margin-left: 30% !important;
+    }
     .notify-row, .search, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
         display: none;
     }

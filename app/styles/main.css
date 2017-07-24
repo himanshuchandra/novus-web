@@ -406,3 +406,8 @@ body {
     border-bottom-width: 1px;
     border-left-width: 1px;
 }
+
+.modal{
+    left:20%;
+    top:30%;
+}
