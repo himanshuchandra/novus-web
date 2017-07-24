@@ -17,6 +17,7 @@ angular.module('novusApp')
     $scope.dashboard = {
       nxtDate: "",
       nxtDateMessage: "",
+      updated:false
     };
 
     $scope.supremeCasesHide = false;
@@ -218,6 +219,29 @@ angular.module('novusApp')
 
     };
 
+    $scope.setDateDb = function () {
+      var sdate=$scope.dashboard.nxtDate.getDate();
+      var smonth=$scope.dashboard.nxtDate.getMonth()+1;
+      var syear=$scope.dashboard.nxtDate.getFullYear();
+      var finaldate = sdate+"/"+smonth+'/'+syear;
+
+      var dateObj = {
+        "date": finaldate
+      }
+      console.log(dateObj.date);
+      var promise = dashboard.setDateDb(dateObj);
+      promise.then(function (data) {
+        $scope.scdetails.next_date=dateObj.finaldate;
+        $scope.dashboard.updated=true;
+        $scope.dashboard.nxtDateMessage = "";
+        $scope.nxtDatePopup=true;
+        
+
+      }, function (error) {
+        $scope.dashboard.nxtDateMessage = "";
+      });
+    };
+
     $scope.setNxtDate = function () {
       if ($scope.dashboard.nxtDate != "" || $scope.dashboard.nxtDate != null) {
         $scope.dashboard.nxtDateMessage = "Updating date..";
@@ -228,26 +252,11 @@ angular.module('novusApp')
       }
     };
 
-    $scope.setDateDb = function () {
-      var sdate=$scope.dashboard.nxtDate.getDate();
-
-
-      var dateObj = {
-        "date": $scope.dashboard.nxtDate
-      }
-
-      var promise = addcase.setDateDb(dateObj);
-      promise.then(function (data) {
-        $scope.dashboard.nxtDateMessage = "";
-        $scope.nxtDatePopup=true;
-        
-
-      }, function (error) {
-        $scope.dashboard.nxtDateMessage = "";
-      });
-    };
 
     $scope.showCasesButton = function () {
+      if($scope.dashboard.updated===true){
+        $scope.loadSupreme();
+      }
       $scope.hideDashboard = false;
       $scope.supremeCaseDetails = true;
       $scope.highCaseDetails = true;

@@ -130,7 +130,7 @@ angular.module('novusApp')
 
         $scope.submitSupremeForm = function (supremeForm) {
 
-            if (supremeForm.$valid) {
+            if (supremeForm.$valid && $scope.addCase.year<=new Date().getFullYear()) {
                 $scope.supremeMessage = "Searching...";
 
                 obj = {
@@ -167,24 +167,29 @@ angular.module('novusApp')
         };
 
         $scope.submitDistrictForm = function (districtForm) {
-            if (districtForm.$valid && $scope.addCase.Dstate != undefined && $scope.addCase.dctype != undefined && $scope.addCase.court != undefined) {
+            if (districtForm.$valid && $scope.addCase.Dstate != undefined && $scope.addCase.dctype != undefined && $scope.addCase.court != undefined && $scope.addCase.DCcaseyear<=new Date().getFullYear()) {
                 $scope.districtMessage = "Searching...";
 
                 var cindex = $scope.courtNames.indexOf($scope.addCase.court);
                 var courtId = $scope.allCourts[cindex].Court_ID;
                 var district = $scope.allCourts[cindex].District_ID;
+                var cname = $scope.allCourts[cindex].Court_Name;
 
                 var dindex = $scope.caseTypes.indexOf($scope.addCase.dctype);
                 var caseTypeId = $scope.allCaseTypes[dindex].Case_ID;
-
+		        var casetype = $scope.allCaseTypes[cindex].Case_Type;
+			
                 obj = {
                     state: $scope.addCase.Dstate,
                     court: courtId,
                     type: caseTypeId,
                     number: $scope.addCase.DCnumber,
                     year: $scope.addCase.DCcaseyear,
-                    district: district
+                    district: district,
+                    court_name:cname, 
+                    case_type:casetype
                 };
+		console.log("sendobject",obj);
                 $scope.sendDistrictData(obj);
             }
             else {
@@ -198,7 +203,7 @@ angular.module('novusApp')
                 console.log("sent data", obj);
                 console.log("received data", data.data);
                 if (data.data === "success") {
-                    $scope.districtMessage = "Added successfully to dashboard";
+                    $scope.districtMessage = "The case will be added shortly.";
                 }
                 else if (data.data === "aadded") {
                     $scope.districtMessage = "Already exists";
@@ -214,7 +219,8 @@ angular.module('novusApp')
 
 
         $scope.submitHighForm = function (highForm) {
-            if (highForm.$valid && highForm.state != undefined && highForm.ctype != undefined) {
+
+            if (highForm.$valid && highForm.state != undefined && highForm.ctype != undefined && $scope.addCase.HCcaseyear<=new Date().getFullYear()) {
                 $scope.highMessage = "Searching...";
 
                 obj = {
