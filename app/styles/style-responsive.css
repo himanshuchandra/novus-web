@@ -120,11 +120,13 @@
 
     #sidebar > ul > li > a > span {
         line-height: 35px;
+        margin-top: 0px;
     }
 
-    #sidebar > ul > li {
+    /*#sidebar > ul > li {
         margin: 0 10px 5px 10px;
-    }
+    } 
+    */
     #sidebar > ul > li > a {
         height:35px;
         line-height:35px;
@@ -133,6 +135,7 @@
     }
     #sidebar > ul > li > a i{
         /*display: none !important;*/
+        padding-left: 3%;
     }
 
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
@@ -146,7 +149,8 @@
     }
 
     #sidebar > ul > li > a, #sidebar > ul > li > ul.sub > li {
-        width: 100%;
+           width: 100%;
+           padding: 0px;
     }
     #sidebar > ul > li > ul.sub > li > a {
         background: transparent !important ;

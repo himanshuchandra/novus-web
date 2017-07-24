@@ -245,6 +245,7 @@ ul.top-menu > li > .logout {
 
 #sidebar ul li {
     position: relative;
+    outline: 0px !important;
 }
 
 #sidebar .sub-menu > .sub li  {
@@ -346,11 +347,12 @@ ul.sidebar-menu li{
 }
 
 ul.sidebar-menu li.sub-menu{
-    line-height: 1px;
+    line-height: 11px;
 }
 
 ul.sidebar-menu li a span{
     display: inline-block;
+    color: black !important;
 }
 
 ul.sidebar-menu li a{
@@ -387,14 +389,16 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
 ul.sidebar-menu li a i {
     font-size: 17px;
     padding-right: 6px;
+    color: black !important;
+    padding-left: 10px;
 }
 
 ul.sidebar-menu li a:hover i, ul.sidebar-menu li a:focus i {
-    color: #fff;
+    color: #fff !important;
 }
 
 ul.sidebar-menu li a.active i {
-    color: #fff;
+    color: #fff !important;
 }
 
 
