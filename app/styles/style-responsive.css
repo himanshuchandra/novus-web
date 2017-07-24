@@ -71,6 +71,9 @@
 }
 
 @media (max-width: 768px) {
+    .modal{
+        left:0% !important;
+    }
     #login-page{
         margin-left: 0px !important;
     }
