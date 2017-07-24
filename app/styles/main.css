@@ -408,6 +408,6 @@ body {
 }
 
 .modal{
-    left:20%;
-    top:30%;
+    left:20% !important;
+    top:30% !important;
 }
