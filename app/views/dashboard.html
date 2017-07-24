@@ -67,11 +67,11 @@
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'h')">
                    
-                    <label for="" class="date-title">July</label>
+                    <label for="" class="date-title">{{case.visMonth}}</label>
                     <div class="date-content">
-                        <p class="dia">24</p>
+                        <p class="dia">{{case.visDate}}</p>
                         <hr class="nomargin" />
-                        <p class="nomargin"><strong>{{case.case_year}}</strong></p>
+                        <p class="nomargin"><strong>{{case.visYear}}</strong></p>
 
                     </div>
                 </div>
@@ -103,14 +103,14 @@
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'d')">
                    
-                    <label for="" class="date-title">July</label>
                     <div class="date-content">
-                        <p class="dia">24</p>
+                        <p class="dia">{{case.visDate}}</p>
                         <hr class="nomargin" />
-                        <p class="nomargin"><strong>{{case.case_year}}</strong></p>
+                        <p class="nomargin"><strong>{{case.visYear}}</strong></p>
 
                     </div>
                 </div>
+                <h5>{{case.status}}</h5>
             </div>
         </div>
         {{districtMessage}}
@@ -223,6 +223,9 @@
             
         </thead>
     </table>
+    </div>
+    <div ng-hide="nxtDatePopup">
+        <h5>Enter next hearing date :</h5><input type="date" ng-model="dashboard.nxtDate"><button ng-click="setNxtDate()">Submit</button>
     </div>
 <!--   </div>-->
 </div>

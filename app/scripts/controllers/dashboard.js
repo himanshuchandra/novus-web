@@ -15,6 +15,7 @@ angular.module('novusApp')
     }
 
     $scope.dashboard = {
+      nxtDate: ""
     };
 
     $scope.supremeCasesHide = false;
@@ -26,15 +27,17 @@ angular.module('novusApp')
     $scope.districtCaseDetails = true;
     $scope.highCaseDetails = true;
 
+    $scope.nxtDatePopup = true;
+
     $scope.loadFirst = function () {
       // if (webindex.loggedIn != true) {
       //   $window.location.reload();
       //   $window.location.assign(requrl);
       // }
       // else {
-        $scope.loadSupreme();
-        $scope.loadHigh();
-        $scope.loadDistrict();
+      $scope.loadSupreme();
+      $scope.loadHigh();
+      $scope.loadDistrict();
       // }
     };
 
@@ -87,6 +90,12 @@ angular.module('novusApp')
               data.data[i].file_path = data.data[i].file_path.replace(/['"]+/g, '');
               data.data[i].file_path = $scope.splitString(data.data[i].file_path);
             }
+            if (data.data[i].next_date != "" || data.data[i].next_date != null) {
+              data.data[i].visDate = data.data[i].next_date.slice(0, 2);
+              data.data[i].visYear = data.data[i].next_date.slice(6, 10);
+              data.data[i].visMonth = data.data[i].next_date.slice(3, 5);
+              data.data[i].visMonth = $scope.month(data.data[i].visMonth);
+            }
           }
 
           $scope.Hcases = data.data;
@@ -110,6 +119,24 @@ angular.module('novusApp')
       }
     };
 
+    $scope.month = function (month) {
+      switch (month) {
+        case "01": return "January";
+        case "02": return "February";
+        case "03": return "March";
+        case "04": return "April";
+        case "05": return "May";
+        case "06": return "June";
+        case "07": return "July";
+        case "08": return "August";
+        case "09": return "September";
+        case "10": return "October";
+        case "11": return "Novembor";
+        case "12": return "December";
+        default: return "";
+      }
+    };
+
     $scope.loadDistrict = function () {
 
       var promise = dashboard.loadDistrict();
@@ -130,6 +157,15 @@ angular.module('novusApp')
                 data.data[i][key] = $scope.splitString(data.data[i][key]);
               }
             });
+            if (data.data[i].status === "waiting") {
+              data.data[i].status = "This case will be added shortly!";
+            }
+            if (data.data[i].next_hearing_date != "" || data.data[i].next_hearing_date != null) {
+              data.data[i].visDate = data.data[i].next_hearing_date.slice(0, 2);
+              data.data[i].visYear = data.data[i].next_hearing_date.slice(6, 10);
+              data.data[i].visMonth = data.data[i].next_hearing_date.slice(3, 5);
+              data.data[i].visMonth = $scope.month(data.data[i].visMonth);
+            }
           }
           $scope.Dcases = data.data;
 
@@ -152,6 +188,9 @@ angular.module('novusApp')
     $scope.showDetailsButton = function (caseObj, type) {
       $scope.hideDashboard = true;
       if (type === 's') {
+        if (caseObj.next_date === null) {
+          $scope.nxtDatePopup = false;
+        }
         $scope.scdetails = caseObj;
         $scope.supremeCaseDetails = false;
       }
@@ -164,6 +203,10 @@ angular.module('novusApp')
         $scope.districtCaseDetails = false;
       }
 
+    };
+
+    $scope.setNxtDate = function () {
+      console.log("nxt date", $scope.dashboard.nxtDate);
     };
 
 
@@ -223,7 +266,7 @@ angular.module('novusApp')
         $scope.deleteObj = {};
         $scope.deleteObj.diary_number = caseData.diary_number;
         $scope.deleteObj.year = caseData.year;
-        $scope.deleteObj.court_type='s';
+        $scope.deleteObj.court_type = 's';
         $scope.deleteThis($scope.deleteObj);
       }
       else if (type === 'h') {
@@ -232,7 +275,7 @@ angular.module('novusApp')
         $scope.deleteObj.type = caseData.case_type;
         $scope.deleteObj.number = caseData.case_number;
         $scope.deleteObj.year = caseData.case_year;
-        $scope.deleteObj.court_type='h';
+        $scope.deleteObj.court_type = 'h';
         $scope.deleteThis($scope.deleteObj);
       }
       else if (type === 'd') {
@@ -243,7 +286,7 @@ angular.module('novusApp')
         $scope.deleteObj.number = caseData.case_number;
         $scope.deleteObj.year = caseData.case_year;
         $scope.deleteObj.district = caseData.district_code;
-        $scope.deleteObj.court_type='d';
+        $scope.deleteObj.court_type = 'd';
         $scope.deleteThis($scope.deleteObj);
       }
 

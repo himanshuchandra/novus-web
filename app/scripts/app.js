@@ -24,9 +24,7 @@ angular
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
+        templateUrl: 'views/main.html',
       })
       .when('/calendar', {
         templateUrl: 'views/calendar.html',
