@@ -17,6 +17,7 @@ angular
     'countrySelect',
     'ngFileUpload',
     'mwl.calendar', 
+    
   ])
 
   .constant("requrl","http://mynovus.xyz/app")
