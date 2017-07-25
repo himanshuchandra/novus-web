@@ -81,19 +81,18 @@
                                 <ul class="dropdown-menu extended tasks-bar">
                                     <div class="notify-arrow notify-arrow-green"></div>
                                     <li>
-                                        <p class="green" style="font-size: 14px;font-weight: 900;text-align: center;">You have 4 pending tasks</p>
+                                        <p class="green" style="font-size: 14px;font-weight: 900;text-align: center;">You have added {{totalCases}} cases</p>
                                     </li>
-                                    <li style="transform: scaleX(-1);">
-                                        <a href="index.html#" style="display: flex;flex: 2;">
+                                    <li style="transform: scaleX(-1);" ng-repeat="case in notifications">
+                                        <!--<a href="index.html#" style="display: flex;flex: 2;">-->
                                             <div class="task-info" style="flex: 1;">
-                                                 <div>THC-DC-Criminal Revision 50/2017:</div>
-                                                 <div>Respondent VS Petitioner</div>
-                                                 <div>1 new judgement;5 new orders;</div>
+                                                <p>New Case added</p>
+                                                 <div>Court Type: {{case.type}}</div>
+                                                 <div>Case number/Diary number: {{case.number}}</div>
+                                                 <div>Case Year: {{case.year}}</div>
                                             </div>
-                                            <div class="" style="flex: 1;">
-                                                 <div style="float: right;">Date of case added</div>                             
-                                            </div>     
-                                         </a>
+               
+                                         <!--</a>-->
                                     </li>
                                     <!--<li>
                                         <a href="index.html#">

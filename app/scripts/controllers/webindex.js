@@ -52,10 +52,10 @@ angular.module('novusApp')
                     // $scope.loginStatus = "";
                     webindex.loggedIn = false;
                     $scope.headerHide = true;
-                    if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
+                    if ($location.path() === '/dashboard' || $location.path() === '/addcase' || $location.path() === '/') {
                         console.log("3");
                         // $window.location.reload();
-                        $window.location.href=phpurl;
+                        $window.location.assign(requrl + '/#/login');
                     }
                 }
                 else {
@@ -91,6 +91,10 @@ angular.module('novusApp')
                 $scope.loadData();
             }
         }, true);
+
+        ///////////notifications
+        $scope.notfications=webindex.notfications;
+        $scope.totalCases=webindex.userData.Scases+webindex.userData.Hcases+webindex.userData.Dcases;
 
         ////////////////////////////
         $scope.sendLinkButton = false;

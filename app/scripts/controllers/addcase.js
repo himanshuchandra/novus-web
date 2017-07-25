@@ -148,7 +148,12 @@ angular.module('novusApp')
             var promise = addcase.sendSupremeData(obj);
             promise.then(function (data) {
                 if (data.data === "success") {
-                    webindex.notifications.push(obj);
+                    var notif={
+                        number :obj.diarynumber,
+                        year:obj.year,
+                        type:"Supreme"
+                    }
+                    webindex.notifications.push(notif);
                     $scope.supremeMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {
@@ -203,7 +208,12 @@ angular.module('novusApp')
                 console.log("sent data", obj);
                 console.log("received data", data.data);
                 if (data.data === "success") {
-                    webindex.notifications.push(obj);
+                    var notif={
+                        number :obj.number,
+                        year:obj.year,
+                        type:"District"
+                    }
+                    webindex.notifications.push(notif);
                     $scope.districtMessage = "The case will be added shortly.";
                 }
                 else if (data.data === "aadded") {
@@ -244,7 +254,12 @@ angular.module('novusApp')
                 console.log("sent data", obj);
                 console.log("received data", data.data);
                 if (data.data === "success") {
-                    webindex.notifications.push(obj);
+                    var notif={
+                        number :obj.number,
+                        year:obj.year,
+                        type:"High"
+                    }
+                    webindex.notifications.push(notif);
                     $scope.highMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {
