@@ -535,7 +535,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     min-width: 160px !important;
     top: 42px;
     width: 400px !important;
-    right: 15px;
+    /*right: 15px;*/
+    left: -370px;
     padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.176) !important;
     border: none !important;
