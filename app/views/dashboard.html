@@ -209,10 +209,10 @@
            <tr class="bgInfo">
                 <td class="td_border table_heading" colspan="6" ><span class="case_title">Judgements</span></td>
             </tr>
-            <tr class="bgInfo" ng-repeat="judgements in scdetails.jArray">
+            <tr class="bgInfo" ng-repeat="judgements in scdetails.jArray track by $index">
 <!--                <td class="td_border" colspan="">-->
 <!--
-                <ul ng-repeat="judgements in scdetails.jArray">
+                <ul ng-repeat="judgements in scdetails.jArray track by $index">
                     <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></li>
                 </ul>
 -->
@@ -227,12 +227,12 @@
     </table>
     </div>
    <div ng-hide="nxtDatePopup">
-         <div class="modal" style="display:block">
+         <div class="modal">
   <div class="modal-dialog">
     <div class="modal-content" style="background:rgb(250,250,250);">
       <div class="modal-header">
           	
-			<button type="button" id="close" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<button type="button" id="close" class="close" data-dismiss="modal" ng-click="nxtDatePopup=true"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 			 <h4 class="modal-title" style="text-align:center;font-family: Arial, Helvetica, sans-serif;">Enter next <b>HEARING DATE</b></h4>
 	
       </div>
@@ -252,14 +252,7 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<script>
-    $('#close').click(function(){
-        $('.modal').css('display','none');
-    })
-</script>
-
 </div>
-
 
 
 <div ng-hide="highCaseDetails" class="container">
@@ -304,7 +297,7 @@
              <tr class="bgInfo">
                 <td class="td_border table_heading" colspan="6" ><span class="case_title">Judgements</span></td>
             </tr>
-            <tr class="bgInfo" ng-repeat="judgements in hcdetails.file_path">
+            <tr class="bgInfo" ng-repeat="judgements in hcdetails.file_path track by $index">
 
                 <td class="td_border" colspan="6"><a class="judgementA" href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>
             </tr>
@@ -428,42 +421,42 @@
                 
                 <td  class="td_border down_list" >
                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="judge in dcdetails.final_judge_list">
+                        <tr class="down_row" ng-repeat="judge in dcdetails.final_judge_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{judge}}</td>
                         </tr>   
                     </table>
                 </td>
                 <td  class="td_border down_list" >
                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="dates in dcdetails.final_business_on_date_list">
+                        <tr class="down_row" ng-repeat="dates in dcdetails.final_business_on_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{dates}}</td>
                         </tr>   
                     </table>
                 </td>
                 <td  class="td_border down_list" >
                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list">
+                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{hearingDate}}</td>
                         </tr>   
                     </table>
                 </td>
                 <td  class="td_border down_list" colspan="2">
                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list">
+                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
                             <td class="down_td" colspan="2"><span class="case_title"></span>{{hearingDate}}</td>
                         </tr>   
                     </table>
                 </td>
                 <td  class="td_border down_list" >
                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="orderDate in dcdetails.final_interim_order_date_list">
+                        <tr class="down_row" ng-repeat="orderDate in dcdetails.final_interim_order_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{orderDate}}</td>
                         </tr>   
                     </table>
                 </td>
                 <td  class="td_border down_list" >
                      <table class="down_table">
-                        <tr class="down_row" ng-repeat="details in dcdetails.final_interim_order_file_list">
+                        <tr class="down_row" ng-repeat="details in dcdetails.final_interim_order_file_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{details}}</td>
                         </tr>   
                     </table>
@@ -486,14 +479,14 @@
             <tr class="bgInfo">
                 <td  class="td_border down_list" colspan="3">
                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list">
+                        <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{jdate}}</td>
                         </tr>   
                     </table>
                 </td>
                 <td  class="td_border down_list" colspan="4">
                     <table class="down_table">
-                         <tr class="down_row" ng-repeat="file in dcdetails.final_final_judgement_order_file_list">
+                         <tr class="down_row" ng-repeat="file in dcdetails.final_final_judgement_order_file_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{file}}</td>
                         </tr>    
                     </table>
@@ -517,27 +510,27 @@
                 <td  class="td_border down_list" >
                     <table class="down_table">
                         <!--couldnt find case number array-->
-                        <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list">
+                        <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{jdate}}</td>
                         </tr>   
                     </table>
                 </td>
                  <td  class="td_border down_list" >
                     <table class="down_table"> 
-                        <tr class="down_row" ng-repeat="tdate in dcdetails.final_case_transfer_transfer_date_list">
+                        <tr class="down_row" ng-repeat="tdate in dcdetails.final_case_transfer_transfer_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{tdate}}</td>
                         </tr>   
                     </table>
                 </td>
                 <td  class="td_border down_list" colspan="3">
                     <table class="down_table">
-                         <tr class="down_row" ng-repeat="from in dcdetails.final_case_transfer_from_court_no_judge_list">
+                         <tr class="down_row" ng-repeat="from in dcdetails.final_case_transfer_from_court_no_judge_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{from}}</td>
                         </tr>    
                     </table>
                  <td  class="td_border down_list" colspan="2">
                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="to in dcdetails.final_case_transfer_to_court_no_judge_list">
+                        <tr class="down_row" ng-repeat="to in dcdetails.final_case_transfer_to_court_no_judge_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{to}}</td>
                         </tr>   
                     </table>
