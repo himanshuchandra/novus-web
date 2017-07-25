@@ -289,13 +289,28 @@ angular.module('novusApp')
       $scope.districtCasesHide = false;
     };
 
-    $scope.deleteThis = function (deleteObj) {
+    ////////////Deletion of cases logic
+    $scope.sdeleted=[];
+    $scope.hdeleted=[];
+    $scope.ddeleted=[];
+
+    $scope.deleteThis = function (deleteObj,caseData,cindex) {
       console.log("deleteObj", deleteObj);
       var promise = dashboard.deleteCase(deleteObj);
       promise.then(function (data) {
 
         if (data.data === 'success') {
-          $route.reload();
+          if(deleteObj.court_type==='s'){
+            $scope.Scases.pop(caseData);
+            // $scope.sdeleted.push(deleteObj.diary_number);
+          }
+          // else if(type==='h'){
+          //   $scope.hdeleted.push(deleteObj.diary_number);
+          // }
+          // else if(type==='d'){
+          //   $scope.ddeleted.push(deleteObj.diary_number);
+          // }
+          // $route.reload();
         }
         else {
           window.alert("Error deleteing case! Please try again later.");
@@ -307,13 +322,13 @@ angular.module('novusApp')
 
 
     $scope.deleteObj = {};
-    $scope.deleteCase = function (caseData, type) {
+    $scope.deleteCase = function (caseData, type ,cindex ) {
       if (type === 's') {
         $scope.deleteObj = {};
         $scope.deleteObj.diary_number = caseData.diary_number;
         $scope.deleteObj.year = caseData.year;
         $scope.deleteObj.court_type = 's';
-        $scope.deleteThis($scope.deleteObj);
+        $scope.deleteThis($scope.deleteObj,caseData,cindex);
       }
       else if (type === 'h') {
         $scope.deleteObj = {};
@@ -322,7 +337,7 @@ angular.module('novusApp')
         $scope.deleteObj.number = caseData.case_number;
         $scope.deleteObj.year = caseData.case_year;
         $scope.deleteObj.court_type = 'h';
-        $scope.deleteThis($scope.deleteObj);
+        $scope.deleteThis($scope.deleteObj,caseData,cindex);
       }
       else if (type === 'd') {
         $scope.deleteObj = {};
@@ -333,11 +348,12 @@ angular.module('novusApp')
         $scope.deleteObj.year = caseData.case_year;
         $scope.deleteObj.district = caseData.district_code;
         $scope.deleteObj.court_type = 'd';
-        $scope.deleteThis($scope.deleteObj);
+        $scope.deleteThis($scope.deleteObj,caseData,cindex);
       }
 
     };
 
+    //////////Printing of case details logic
     $scope.printDiv = function (div) {
       var divToPrint = document.getElementById(div);
       var newWin = window.open("");
