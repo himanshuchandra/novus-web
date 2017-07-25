@@ -15,7 +15,8 @@ angular
     'ngRoute',
     'angular-md5',
     'countrySelect',
-    'ngFileUpload'
+    'ngFileUpload','mwl.calendar', 
+    'ui.bootstrap'
   ])
 
   .constant("requrl","http://mynovus.xyz/app")
