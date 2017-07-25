@@ -260,9 +260,8 @@ body {
 
 .dash,.sub-menu>a>span{
     font-size: 20px !important;
-/*    font-family: 'Open Sans', sans-serif !important;*/
     font-weight: 200;
-    font-family: 'Prociono', serif !important;
+    font-family: Roboto,sans-serif !important;
 }
 
 .sub-menu>a>span{
