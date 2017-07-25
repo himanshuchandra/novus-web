@@ -20,6 +20,7 @@ angular.module('novusApp')
             Hcases:0,
             Dcases:0,
         },
+        notifications:[],
 
         checkStatus:function(){
           var defer = $q.defer(); 

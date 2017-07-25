@@ -171,9 +171,9 @@ angular.module('novusApp')
                 data.data[i][key] = $scope.splitString(data.data[i][key]);
               }
             });
-            if (data.data[i].status === "waiting") {
-              data.data[i].status = "This case will be added shortly!";
-            }
+            // if (data.data[i].status === "waiting") {
+            //   data.data[i].status = "This case will be added shortly!";
+            // }
             if (data.data[i].next_hearing_date != "" && data.data[i].next_hearing_date != null) {
               data.data[i].visDate = data.data[i].next_hearing_date.slice(0, 2);
               data.data[i].visYear = data.data[i].next_hearing_date.slice(6, 10);
@@ -294,22 +294,21 @@ angular.module('novusApp')
     $scope.hdeleted=[];
     $scope.ddeleted=[];
 
-    $scope.deleteThis = function (deleteObj,caseData,cindex) {
+    $scope.deleteThis = function (deleteObj,cindex) {
       console.log("deleteObj", deleteObj);
       var promise = dashboard.deleteCase(deleteObj);
       promise.then(function (data) {
 
         if (data.data === 'success') {
           if(deleteObj.court_type==='s'){
-            $scope.Scases.pop(caseData);
-            // $scope.sdeleted.push(deleteObj.diary_number);
+            $scope.Scases.splice(cindex,1);
           }
-          // else if(type==='h'){
-          //   $scope.hdeleted.push(deleteObj.diary_number);
-          // }
-          // else if(type==='d'){
-          //   $scope.ddeleted.push(deleteObj.diary_number);
-          // }
+          else if(deleteObj.court_type==='h'){
+            $scope.Hcases.splice(cindex,1);
+          }
+          else if(deleteObj.court_type==='d'){
+            $scope.Dcases.splice(cindex,1);
+          }
           // $route.reload();
         }
         else {
@@ -328,7 +327,7 @@ angular.module('novusApp')
         $scope.deleteObj.diary_number = caseData.diary_number;
         $scope.deleteObj.year = caseData.year;
         $scope.deleteObj.court_type = 's';
-        $scope.deleteThis($scope.deleteObj,caseData,cindex);
+        $scope.deleteThis($scope.deleteObj,cindex);
       }
       else if (type === 'h') {
         $scope.deleteObj = {};
@@ -337,7 +336,7 @@ angular.module('novusApp')
         $scope.deleteObj.number = caseData.case_number;
         $scope.deleteObj.year = caseData.case_year;
         $scope.deleteObj.court_type = 'h';
-        $scope.deleteThis($scope.deleteObj,caseData,cindex);
+        $scope.deleteThis($scope.deleteObj,cindex);
       }
       else if (type === 'd') {
         $scope.deleteObj = {};
@@ -348,7 +347,7 @@ angular.module('novusApp')
         $scope.deleteObj.year = caseData.case_year;
         $scope.deleteObj.district = caseData.district_code;
         $scope.deleteObj.court_type = 'd';
-        $scope.deleteThis($scope.deleteObj,caseData,cindex);
+        $scope.deleteThis($scope.deleteObj,cindex);
       }
 
     };

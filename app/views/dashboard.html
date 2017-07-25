@@ -1,36 +1,36 @@
 <!--<div class="container dashboard">-->
-    <div class="row" ng-hide="hideDashboard">
-        <br>
+<div class="row" ng-hide="hideDashboard">
+    <br>
     <h3 style="text-align:center"></h3>
-    <div class="container" style="display:flex"> 
-    <button ng-click="showAllCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">All</button>
-    <button ng-click="showSupremeCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">Supreme Court</button>
-    <button ng-click="showHighCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">High Court</button>
-    <button ng-click="showDistrictCases()" class="btn btn-primary respo" style="flex:1;">District Court</button>
+    <div class="container" style="display:flex">
+        <button ng-click="showAllCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">All</button>
+        <button ng-click="showSupremeCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">Supreme Court</button>
+        <button ng-click="showHighCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">High Court</button>
+        <button ng-click="showDistrictCases()" class="btn btn-primary respo" style="flex:1;">District Court</button>
     </div>
     <br>
     <div ng-repeat="case in Scases track by $index" class="cases" ng-hide="supremeCasesHide">
 
-        <div class="panel panel-default cursor" ng-if="checkIndex!=sdeleted.indexOf($index)">">
-        
-            <div class="panel-body" >
-<!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
+        <div class="panel panel-default cursor">
+
+            <div class="panel-body">
+                <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
                 <div class="contents" ng-click="showDetailsButton(case,'s')">
-                    <div style="font-size:15px"><span class="case_title">Dairy No: &nbsp;&nbsp;</span>{{case.diary_number}}</div> 
-                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.year}}</div>                   
-                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span></div> 
-                    </div>
-                
+                    <div style="font-size:15px"><span class="case_title">Dairy No: &nbsp;&nbsp;</span>{{case.diary_number}}</div>
+                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.year}}</div>
+                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span></div>
+                </div>
+
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'s')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> Supreme Court</div>
                     <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>VS</b> {{case.rs}}...</div>
-                    </div>
-               <div class="img_hold">
+                </div>
+                <div class="img_hold">
 
-               <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'s',$index)"></i>
+                    <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'s',$index)"></i>
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'s')">
-                   
+
                     <label for="" class="date-title">July</label>
                     <div class="date-content">
                         <p class="dia">24</p>
@@ -47,26 +47,26 @@
     <div ng-repeat="case in Hcases track by $index" class="cases" ng-hide="highCasesHide">
 
         <div class="panel panel-default cursor">
-        
-            <div class="panel-body" >
-<!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
+
+            <div class="panel-body">
+                <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
                 <div class="contents" ng-click="showDetailsButton(case,'h')">
-                     <div style="font-size:15px"><span class="case_title">Case No: &nbsp;&nbsp;</span>{{case.case_number}}</div> 
-                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>                   
-                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div> 
-                    </div>
-<!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
-                
+                    <div style="font-size:15px"><span class="case_title">Case No: &nbsp;&nbsp;</span>{{case.case_number}}</div>
+                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>
+                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div>
+                </div>
+                <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
+
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'h')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> Delhi High Court</div>
                     <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>VS</b> {{case.rs}}...</div>
-                    </div>
-               <div class="img_hold">
+                </div>
+                <div class="img_hold">
 
-               <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'h')"></i>
+                    <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'h')"></i>
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'h')">
-                   
+
                     <label for="" class="date-title">{{case.visMonth}}</label>
                     <div class="date-content">
                         <p class="dia">{{case.visDate}}</p>
@@ -83,27 +83,29 @@
     <div ng-repeat="case in Dcases track by $index" class="cases" ng-hide="districtCasesHide">
 
         <div class="panel panel-default cursor">
-        
-            <div class="panel-body" >
-<!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
+
+            <div class="panel-body">
+                <!--                <div class="pull-left" ng-click="showDetailsButton(case)"><span class="case_title">Serial No:</span>{{case.sNo}}</div> <br>-->
                 <div class="contents" ng-click="showDetailsButton(case,'d')">
-                     <div style="font-size:15px"><span class="case_title">Case No: &nbsp;&nbsp;</span>{{case.case_number}}</div> 
-                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>                   
-                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div> 
-                    </div>
-<!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
-                
+                    <div style="font-size:15px"><span class="case_title">Case No: &nbsp;&nbsp;</span>{{case.case_number}}</div>
+                    <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>
+                    <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div>
+                </div>
+                <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
+
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'d')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> {{case.court_name}}</div>
                     <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>Vs</b> {{case.rs}}...</div>
-                    <div style="font-size:15px"><h5 style="font-size:15px;">This case will be added shortly!!</h5></div>
+                    <div style="font-size:15px">
+                        <h5 style="font-size:15px;">{{case.status}}</h5>
                     </div>
-               <div class="img_hold">
-<!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
-               <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'d')"></i>
+                </div>
+                <div class="img_hold">
+                    <!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
+                    <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'d')"></i>
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'d')">
-                   
+
                     <div class="date-content">
                         <p class="dia">{{case.visDate}}</p>
                         <hr class="nomargin" />
@@ -111,304 +113,316 @@
 
                     </div>
                 </div>
-                    
-                    </div>
-                </div>
+
+            </div>
         </div>
-        {{districtMessage}}
     </div>
+    {{districtMessage}}
+</div>
 </div>
 
 <div ng-hide="supremeCaseDetails" class="container">
-   <br><br>
-<div style="display:flex; flex:3;">  
-     <div id="btn_holder" style="flex:1;">
-     <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
-     <div style="flex:1;margin-top:-30px;"><h1>Case Details</h1></div>
-     <div ng-click="printDiv('supremePrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
-     </div>
-     <br>
-     <div id='supremePrint' class="table_width">
-     <!--<h1>Case Details</h1>-->
-    <table border="1" class="table table-striped table-inverse table_custom print-area-2">
-        <thead>
-            <tr class="bgInfo">
-<!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{scdetails.sNo}}</td>-->
-                <td class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{scdetails.diary_number}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Year :</span>{{scdetails.year}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{scdetails.case_no}}</td>
-            </tr>
-<!--
+    <br><br>
+    <div style="display:flex; flex:3;">
+        <div id="btn_holder" style="flex:1;">
+            <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+        <div style="flex:1;margin-top:-30px;">
+            <h1>Case Details</h1>
+        </div>
+        <div ng-click="printDiv('supremePrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
+    </div>
+    <br>
+    <div id='supremePrint' class="table_width">
+        <!--<h1>Case Details</h1>-->
+        <table border="1" class="table table-striped table-inverse table_custom print-area-2">
+            <thead>
+                <tr class="bgInfo">
+                    <!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{scdetails.sNo}}</td>-->
+                    <td class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{scdetails.diary_number}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Year :</span>{{scdetails.year}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{scdetails.case_no}}</td>
+                </tr>
+                <!--
             <tr class="dividing_line">
                 <td class="td_border" class="td_border" colspan="6"></td>
             </tr>
 -->
-            <tr class="bgInfo">
-                <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">CASE STATUS</span></td>
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" colspan="4"><span class="case_title">Last Updated By :</span>{{scdetails.last_update_by}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Last Listed On :</span><span >{{scdetails.last_listed_on}}</span></td>
-                <!--<td class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{scdetails.last_order}}</td>-->
-                <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>-->
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border"><span class="case_title">Status :</span>{{scdetails.status}}</td>
-                <td class="td_border" colspan="3" style="width:30%"><span class="case_title">Statuary Info :</span>{{scdetails.statuary_info}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Case Stage :</span>{{scdetails.case_stage}}</td>
-                <!--<td class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{scdetails.bench}}</td>-->
-                
-            </tr>
-<!--
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="6" class="table_heading"><span class="case_title">CASE STATUS</span></td>
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="4"><span class="case_title">Last Updated By :</span>{{scdetails.last_update_by}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Last Listed On :</span><span>{{scdetails.last_listed_on}}</span></td>
+                    <!--<td class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{scdetails.last_order}}</td>-->
+                    <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>-->
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border"><span class="case_title">Status :</span>{{scdetails.status}}</td>
+                    <td class="td_border" colspan="3" style="width:30%"><span class="case_title">Statuary Info :</span>{{scdetails.statuary_info}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Case Stage :</span>{{scdetails.case_stage}}</td>
+                    <!--<td class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{scdetails.bench}}</td>-->
+
+                </tr>
+                <!--
              <tr class="dividing_line">
                 <td class="td_border" class="td_border" colspan="6"></td>
             </tr>
 -->
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">PARTY's DETAILS</span></td>
-            </tr>
-           
-            <tr class="bgInfo">
-                <td class="td_border" colspan="4"><span class="case_title">Petitioners :</span>{{scdetails.petitioners}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Respondents :</span>{{scdetails.respondents}}</td>
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" colspan="4"><span class="case_title">Petitioners Advocate :</span>{{scdetails.pet_advocates}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Respondents Advocate :</span>{{scdetails.resp_advocates}}</td>
-            </tr>
-<!--
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="6"><span class="case_title">PARTY's DETAILS</span></td>
+                </tr>
+
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="4"><span class="case_title">Petitioners :</span>{{scdetails.petitioners}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Respondents :</span>{{scdetails.respondents}}</td>
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="4"><span class="case_title">Petitioners Advocate :</span>{{scdetails.pet_advocates}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Respondents Advocate :</span>{{scdetails.resp_advocates}}</td>
+                </tr>
+                <!--
              <tr class="dividing_line">
                 <td class="td_border" colspan="6"></td>
             </tr>
 -->
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
-            </tr>
-            <tr class="bgInfo"> 
-                <td class="td_border" ><span class="case_title">Act :</span>{{scdetails.act}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">U_section :</span>{{scdetails.u_section}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Category :</span>{{scdetails.category}}</td>
-               
-            </tr>
-<!--
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="6"><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border"><span class="case_title">Act :</span>{{scdetails.act}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">U_section :</span>{{scdetails.u_section}}</td>
+                    <td class="td_border" colspan="3"><span class="case_title">Category :</span>{{scdetails.category}}</td>
+
+                </tr>
+                <!--
             <tr class="dividing_line">
                 <td class="td_border" colspan="6"></td>
             </tr>
             
 -->
-            <tr class="bgInfo">
-                <!--<td class="td_border" colspan="4"><span class="case_title">D.A. Name :</span>{{scdetails.da_name}}</td>-->
-                <td class="td_border" colspan="6"><span class="case_title">Admitted :</span>{{scdetails.admitted}}</td>
-                <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>-->
-            </tr>
-<!--
+                <tr class="bgInfo">
+                    <!--<td class="td_border" colspan="4"><span class="case_title">D.A. Name :</span>{{scdetails.da_name}}</td>-->
+                    <td class="td_border" colspan="6"><span class="case_title">Admitted :</span>{{scdetails.admitted}}</td>
+                    <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>-->
+                </tr>
+                <!--
             <tr class="dividing_line">
                 <td class="td_border" colspan="6"></td>
             </tr>
 -->
-           <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">Judgements</span></td>
-            </tr>
-            <tr class="bgInfo" ng-repeat="judgements in scdetails.jArray track by $index">
-<!--                <td class="td_border" colspan="">-->
-<!--
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="6"><span class="case_title">Judgements</span></td>
+                </tr>
+                <tr class="bgInfo" ng-repeat="judgements in scdetails.jArray track by $index">
+                    <!--                <td class="td_border" colspan="">-->
+                    <!--
                 <ul ng-repeat="judgements in scdetails.jArray track by $index">
                     <li><a ng-href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></li>
                 </ul>
 -->
-                <td class="td_border" colspan="6"><a href="{{judgements}}" target="_blank" class="judgementA">Judgement:{{$index+1}}</a></td>
-<!--                </td>-->
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" colspan="6"><span class="case_title">Display Type :</span>{{scdetails.disp_type}}</td>
-            </tr>
-            
-        </thead>
-    </table>
-    </div>
-   <div ng-hide="nxtDatePopup">
-         <div class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content" style="background:rgb(250,250,250);">
-      <div class="modal-header">
-          	
-			<button type="button" id="close" class="close" data-dismiss="modal" ng-click="nxtDatePopup=true"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-			 <h4 class="modal-title" style="text-align:center;font-family: Arial, Helvetica, sans-serif;">Enter next <b>HEARING DATE</b></h4>
-	
-      </div>
-      <div class="modal-body">
-       <input type="date" ng-model="dashboard.nxtDate" style="margin-left: 37%;text-align: center;">
-        <div class="row">
-            <div class="col-12-xs text-center">
-                <br>
-                <button ng-click="setNxtDate()" class="btn btn-success btn-md">Submit</button>
-               <br>
-                
-            </div>
-        </div>
-      </div>
-    <div><h5 style="text-align:center">{{nxtDateMessage}}</h5></div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                    <td class="td_border" colspan="6"><a href="{{judgements}}" target="_blank" class="judgementA">Judgement:{{$index+1}}</a></td>
+                    <!--                </td>-->
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="6"><span class="case_title">Display Type :</span>{{scdetails.disp_type}}</td>
+                </tr>
 
+            </thead>
+        </table>
+    </div>
+    <div ng-hide="nxtDatePopup">
+        <div class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background:rgb(250,250,250);">
+                    <div class="modal-header">
+
+                        <button type="button" id="close" class="close" data-dismiss="modal" ng-click="nxtDatePopup=true"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" style="text-align:center;font-family: Arial, Helvetica, sans-serif;">Enter next <b>HEARING DATE</b></h4>
+
+                    </div>
+                    <div class="modal-body">
+                        <input type="date" ng-model="dashboard.nxtDate" style="margin-left: 37%;text-align: center;">
+                        <div class="row">
+                            <div class="col-12-xs text-center">
+                                <br>
+                                <button ng-click="setNxtDate()" class="btn btn-success btn-md">Submit</button>
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 style="text-align:center">{{nxtDateMessage}}</h5>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+    </div>
 </div>
 
 
 <div ng-hide="highCaseDetails" class="container">
-   <br><br>
-   <div style="display:flex; flex:3;">  
-     <div id="btn_holder" style="flex:1;">
-     <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
-     <div style="flex:1;margin-top:-30px;"><h1>Case Details</h1></div>
-     <div ng-click="printDiv('highPrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
-     </div>
-     <br>
-     <div id='highPrint' class="table_width">
-     <!--<h1>Case Details</h1>-->
-    <table border="1" class="table table-striped table-inverse table_custom print-area-2">
-        <thead>
-            <tr class="bgInfo">
-                <td class="td_border table_heading"  colspan="6" class="table_heading"><span class="case_title">HIGH COURT NAME: Delhi High Court</span></td>
-            </tr>
-            <tr class="bgInfo">
-<!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{hcdetails.sNo}}</td>-->
-                <td class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{hcdetails.case_number}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Case Type :</span>{{hcdetails.case_type}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">Case Year :</span>{{hcdetails.case_year}}</td>
-                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{hcdetails.case_no}}</td>-->
-            </tr>
-
-            <tr class="bgInfo">
-                <td class="td_border" colspan="3" ><span class="case_title">Status :</span>{{hcdetails.case_status}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Next Hearing Date :</span><span >{{hcdetails.next_date}}</span></td>
-                <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{hcdetails.last_order}}</td>-->
-                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{hcdetails.updated_on}}</td>-->
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" colspan="6"><span class="case_title">Petitioner Name :</span>{{hcdetails.petitioner}}</td>
-            </tr>
-             <tr class="bgInfo">
-                <td class="td_border" colspan="6"><span class="case_title">Respondent Name :</span>{{hcdetails.respondent}}</td>
-            </tr>
-              <tr class="bgInfo">
-                <td class="td_border" colspan="6"><span class="case_title">Advocate :</span>{{hcdetails.advocate}}</td>
-            </tr>
-             <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="6" ><span class="case_title">Judgements</span></td>
-            </tr>
-            <tr class="bgInfo" ng-repeat="judgements in hcdetails.file_path track by $index">
-
-                <td class="td_border" colspan="6"><a class="judgementA" href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>
-            </tr>
-            
-            
-        </thead>
-    </table>
+    <br><br>
+    <div style="display:flex; flex:3;">
+        <div id="btn_holder" style="flex:1;">
+            <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+        <div style="flex:1;margin-top:-30px;">
+            <h1>Case Details</h1>
+        </div>
+        <div ng-click="printDiv('highPrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
     </div>
-<!--   </div>-->
+    <br>
+    <div id='highPrint' class="table_width">
+        <!--<h1>Case Details</h1>-->
+        <table border="1" class="table table-striped table-inverse table_custom print-area-2">
+            <thead>
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="6" class="table_heading"><span class="case_title">HIGH COURT NAME: Delhi High Court</span></td>
+                </tr>
+                <tr class="bgInfo">
+                    <!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{hcdetails.sNo}}</td>-->
+                    <td class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{hcdetails.case_number}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Case Type :</span>{{hcdetails.case_type}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">Case Year :</span>{{hcdetails.case_year}}</td>
+                    <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{hcdetails.case_no}}</td>-->
+                </tr>
+
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="3"><span class="case_title">Status :</span>{{hcdetails.case_status}}</td>
+                    <td class="td_border" colspan="3"><span class="case_title">Next Hearing Date :</span><span>{{hcdetails.next_date}}</span></td>
+                    <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{hcdetails.last_order}}</td>-->
+                    <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{hcdetails.updated_on}}</td>-->
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="6"><span class="case_title">Petitioner Name :</span>{{hcdetails.petitioner}}</td>
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="6"><span class="case_title">Respondent Name :</span>{{hcdetails.respondent}}</td>
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="6"><span class="case_title">Advocate :</span>{{hcdetails.advocate}}</td>
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="6"><span class="case_title">Judgements</span></td>
+                </tr>
+                <tr class="bgInfo" ng-repeat="judgements in hcdetails.file_path track by $index">
+
+                    <td class="td_border" colspan="6"><a class="judgementA" href="{{judgements}}" target="_blank">Judgement:{{$index+1}}</a></td>
+                </tr>
+
+
+            </thead>
+        </table>
+    </div>
+    <!--   </div>-->
 </div>
 
 
 <div ng-hide="districtCaseDetails" class="container">
-   <br><br>
-    <div style="display:flex; flex:3;">  
-     <div id="btn_holder" style="flex:1;">
-     <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
-     <div style="flex:1;margin-top:-30px;"><h1>Case Details</h1></div>
-     <div ng-click="printDiv('districtPrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
-     </div>
-   
-     <!--<div id="btn_holder" style="position:relative">
+    <br><br>
+    <div style="display:flex; flex:3;">
+        <div id="btn_holder" style="flex:1;">
+            <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+        <div style="flex:1;margin-top:-30px;">
+            <h1>Case Details</h1>
+        </div>
+        <div ng-click="printDiv('districtPrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
+    </div>
+
+    <!--<div id="btn_holder" style="position:relative">
      <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button>
      <div ng-click="printDiv('districtPrint')"><i style="position:absolute; bottom:15% ;color:black ;right:0px ; font-size:40px;" class="fa fa-print" aria-hidden="true"></i></div>
      </div>-->
-     <br>
-     <div id="districtPrint" class="table_width">
-     <!--<h1>Case Details</h1>-->
-    <table border="1" class="table table-striped table-inverse table_custom print-area-2">
-        <thead>
-            <tr class="bgInfo">
-                <td class="td_border table_heading"  colspan="7" class="table_heading"><span class="case_title">COURNT NAME: {{dcdetails.court_name}}</span></td>
-            </tr>
-            <tr class="bgInfo">
-<!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{dcdetails.sNo}}</td>-->
-                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{dcdetails.diary_number}}</td>-->
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Type :</span>{{dcdetails.case_type}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{dcdetails.case_number}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Year :</span>{{dcdetails.case_year}}</td>
-                <td class="td_border" class="td_border" colspan="1"><span class="case_title">CNR  :</span>{{dcdetails.cnr_number}}</td>                
-            </tr>
-<!--
+    <br>
+    <div id="districtPrint" class="table_width">
+        <!--<h1>Case Details</h1>-->
+        <table border="1" class="table table-striped table-inverse table_custom print-area-2">
+            <thead>
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="7" class="table_heading"><span class="case_title">COURNT NAME: {{dcdetails.court_name}}</span></td>
+                </tr>
+                <tr class="bgInfo">
+                    <!--                <td class="td_border" class="td_border" style="width:25%"><span class="case_title">SNo. :</span>{{dcdetails.sNo}}</td>-->
+                    <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Diary Number :</span>{{dcdetails.diary_number}}</td>-->
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Type :</span>{{dcdetails.case_type}}</td>
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Number :</span>{{dcdetails.case_number}}</td>
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Year :</span>{{dcdetails.case_year}}</td>
+                    <td class="td_border" class="td_border" colspan="1"><span class="case_title">CNR  :</span>{{dcdetails.cnr_number}}</td>
+                </tr>
+                <!--
             <tr class="dividing_line">
                 <td class="td_border" class="td_border" colspan="6"></td>
             </tr>
 -->
-            <tr class="bgInfo">
-                <td class="td_border table_heading"  colspan="7" class="table_heading"><span class="case_title">CASE STATUS</span></td>
-            </tr>
-            <tr class="bgInfo">
-                <!--<td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{dcdetails.last_update_by}}</td>-->
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">First Hearing Date : </span><span>{{dcdetails.first_hearing_date}}</span></td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Next Hearing Date : </span><span >{{dcdetails.next_hearing_date}}</span></td>                
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Last Hearing Date : </span><span>{{dcdetails.final_hearing_date_list}}</span></td>
-                <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{dcdetails.last_order}}</td>-->
-                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{dcdetails.updated_on}}</td>-->
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Status :</span>{{dcdetails.case_status}}</td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Decision Date :</span>{{dcdetails.decision_date}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Nature of Disposal :</span>{{dcdetails.nature_of_disposal}}</td>
-                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
-                
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Stage of Case :</span>{{dcdetails.stage_of_case}}</td>
-                <td class="td_border" class="td_border" colspan="3"><span class="case_title">Judge Name :</span>{{dcdetails.final_judge_list}}</td>
-                <td class="td_border" class="td_border" colspan="2"><span class="case_title">Court Number :</span>{{dcdetails.court_number}}</td>
-                <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
-                
-            </tr>
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="7" class="table_heading"><span class="case_title">CASE STATUS</span></td>
+                </tr>
+                <tr class="bgInfo">
+                    <!--<td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{dcdetails.last_update_by}}</td>-->
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">First Hearing Date : </span><span>{{dcdetails.first_hearing_date}}</span></td>
+                    <td class="td_border" class="td_border" colspan="3"><span class="case_title">Next Hearing Date : </span><span>{{dcdetails.next_hearing_date}}</span></td>
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Last Hearing Date : </span><span>{{dcdetails.final_hearing_date_list}}</span></td>
+                    <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{dcdetails.last_order}}</td>-->
+                    <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{dcdetails.updated_on}}</td>-->
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Status :</span>{{dcdetails.case_status}}</td>
+                    <td class="td_border" class="td_border" colspan="3"><span class="case_title">Decision Date :</span>{{dcdetails.decision_date}}</td>
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Nature of Disposal :</span>{{dcdetails.nature_of_disposal}}</td>
+                    <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
+
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Stage of Case :</span>{{dcdetails.stage_of_case}}</td>
+                    <td class="td_border" class="td_border" colspan="3"><span class="case_title">Judge Name :</span>{{dcdetails.final_judge_list}}</td>
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Court Number :</span>{{dcdetails.court_number}}</td>
+                    <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
+
+                </tr>
 
 
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="7" ><span class="case_title">PARTY's DETAILS</span></td>
-            </tr>
-           
-            <tr class="bgInfo">
-                <td class="td_border" colspan="3"><span class="case_title">Petitioner & Advocate Name :</span>{{dcdetails.petitioner_and_advocate}}</td>
-                <td class="td_border" colspan="4"><span class="case_title">Respondents & Advocate Name :</span>{{dcdetails.respondent_and_advocate}}</td>
-            </tr>
-           
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="7"><span class="case_title">PARTY's DETAILS</span></td>
+                </tr>
 
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="7" ><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
-            </tr>
-            <tr class="bgInfo"> 
-                <td class="td_border" colspan="4"><span class="case_title">Under Acts :</span>{{dcdetails.under_act}}</td>
-                <td class="td_border" colspan="3"><span class="case_title">Section's :</span>{{dcdetails.under_section}}</td>
-                <!--<td class="td_border" colspan="3"><span class="case_title">Category :</span>{{dcdetails.category}}</td>-->
-               
-            </tr>
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="7" ><span class="case_title">FIR DETAILS</span></td>
-            </tr>
-
-            <tr class="bgInfo">
-
-                <td class="td_border" colspan="3"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">FIR NUMBER :</span>{{dcdetails.fir_number}}</td>
-                <td class="td_border" colspan="2"><span class="case_title">DATED :</span>{{dcdetails.fir_year}}</td>
-               
-            </tr>
-
-           <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="7" ><span class="case_title">HISTORY OF CASE</span></td>
-            </tr>
-            <tr class="bgInfo" >
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="3"><span class="case_title">Petitioner & Advocate Name :</span>{{dcdetails.petitioner_and_advocate}}</td>
+                    <td class="td_border" colspan="4"><span class="case_title">Respondents & Advocate Name :</span>{{dcdetails.respondent_and_advocate}}</td>
+                </tr>
 
 
-                <td class="td_border" ><span class="case_title"><b>JUDGE</b></td>
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="7"><span class="case_title">ACTS & CATEGORY OF CASE</span></td>
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border" colspan="4"><span class="case_title">Under Acts :</span>{{dcdetails.under_act}}</td>
+                    <td class="td_border" colspan="3"><span class="case_title">Section's :</span>{{dcdetails.under_section}}</td>
+                    <!--<td class="td_border" colspan="3"><span class="case_title">Category :</span>{{dcdetails.category}}</td>-->
+
+                </tr>
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="7"><span class="case_title">FIR DETAILS</span></td>
+                </tr>
+
+                <tr class="bgInfo">
+
+                    <td class="td_border" colspan="3"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">FIR NUMBER :</span>{{dcdetails.fir_number}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">DATED :</span>{{dcdetails.fir_year}}</td>
+
+                </tr>
+
+                <tr class="bgInfo">
+                    <td class="td_border table_heading" colspan="7"><span class="case_title">HISTORY OF CASE</span></td>
+                </tr>
+                <tr class="bgInfo">
+
+
+                    <td class="td_border"><span class="case_title"><b>JUDGE</b></td>
                 <td class="td_border" ><span class="case_title"><b>BUSINESS ON DATE</b></td>
                 <td class="td_border" ><span class="case_title"><b>HEARING DATE</b></td>  
                 <td class="td_border" colspan="2"><span class="case_title"><b>PURPOSE OF HEARING</b></td>
@@ -423,57 +437,57 @@
                     <table class="down_table">
                         <tr class="down_row" ng-repeat="judge in dcdetails.final_judge_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{judge}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                <td  class="td_border down_list" >
-                    <table class="down_table">
-                        <tr class="down_row" ng-repeat="dates in dcdetails.final_business_on_date_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{dates}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                <td  class="td_border down_list" >
-                    <table class="down_table">
-                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{hearingDate}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                <td  class="td_border down_list" colspan="2">
-                    <table class="down_table">
-                        <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
-                            <td class="down_td" colspan="2"><span class="case_title"></span>{{hearingDate}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                <td  class="td_border down_list" >
-                    <table class="down_table">
-                        <tr class="down_row" ng-repeat="orderDate in dcdetails.final_interim_order_date_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{orderDate}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                <td  class="td_border down_list" >
-                     <table class="down_table">
-                        <tr class="down_row" ng-repeat="details in dcdetails.final_interim_order_file_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{details}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                    
-               
-                <!--<td class="td_border" class="td_border" colspan="3"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
+                </tr>
+        </table>
+        </td>
+        <td class="td_border down_list">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="dates in dcdetails.final_business_on_date_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{dates}}</td>
+                </tr>
+            </table>
+        </td>
+        <td class="td_border down_list">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{hearingDate}}</td>
+                </tr>
+            </table>
+        </td>
+        <td class="td_border down_list" colspan="2">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
+                    <td class="down_td" colspan="2"><span class="case_title"></span>{{hearingDate}}</td>
+                </tr>
+            </table>
+        </td>
+        <td class="td_border down_list">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="orderDate in dcdetails.final_interim_order_date_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{orderDate}}</td>
+                </tr>
+            </table>
+        </td>
+        <td class="td_border down_list">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="details in dcdetails.final_interim_order_file_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{details}}</td>
+                </tr>
+            </table>
+        </td>
+
+
+        <!--<td class="td_border" class="td_border" colspan="3"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">FIR NUMBER :</span>{{dcdetails.fir_number}}</td>
                 <td class="td_border" class="td_border" colspan="2"><span class="case_title">DATED :</span>{{dcdetails.fir_year}}</td>-->
-                
-            </tr> 
 
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="7" ><span class="case_title">JUDGEMENT OF CASE</span></td>
-            </tr>       
-            <tr class="bgInfo">
-                <td class="td_border" colspan="3"><span class="case_title"><b>Judgement Date</b></td>
+        </tr>
+
+        <tr class="bgInfo">
+            <td class="td_border table_heading" colspan="7"><span class="case_title">JUDGEMENT OF CASE</span></td>
+        </tr>
+        <tr class="bgInfo">
+            <td class="td_border" colspan="3"><span class="case_title"><b>Judgement Date</b></td>
                 <td class="td_border" colspan="4"><span class="case_title"><b>Judgement Link</b></td>
             </tr>
             <tr class="bgInfo">
@@ -481,26 +495,26 @@
                     <table class="down_table">
                         <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{jdate}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                <td  class="td_border down_list" colspan="4">
-                    <table class="down_table">
-                         <tr class="down_row" ng-repeat="file in dcdetails.final_final_judgement_order_file_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{file}}</td>
-                        </tr>    
-                    </table>
-                </td>
-            </tr>
-            
-            <tr class="bgInfo">
-                <td class="td_border table_heading" colspan="7" ><span class="case_title">CASE TRANSFER DETAILS BETWEEN THE COURTS</span></td>
-            </tr> 
+        </tr>
+        </table>
+        </td>
+        <td class="td_border down_list" colspan="4">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="file in dcdetails.final_final_judgement_order_file_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{file}}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
 
-             <tr class="bgInfo" >
+        <tr class="bgInfo">
+            <td class="td_border table_heading" colspan="7"><span class="case_title">CASE TRANSFER DETAILS BETWEEN THE COURTS</span></td>
+        </tr>
+
+        <tr class="bgInfo">
 
 
-                <td class="td_border" ><span class="case_title"><b>Case No.</b></td>
+            <td class="td_border"><span class="case_title"><b>Case No.</b></td>
                 <td class="td_border" ><span class="case_title"><b>Transfer Date</b></td>
                 <td class="td_border" colspan="3"><span class="case_title"><b>FROM Court No. and Judge</b></td>  
                 <td class="td_border" colspan="2"><span class="case_title"><b>TO Court No. and Judge</b></td>
@@ -512,36 +526,36 @@
                         <!--couldnt find case number array-->
                         <tr class="down_row" ng-repeat="jdate in dcdetails.final_final_judgement_order_date_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{jdate}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                 <td  class="td_border down_list" >
-                    <table class="down_table"> 
-                        <tr class="down_row" ng-repeat="tdate in dcdetails.final_case_transfer_transfer_date_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{tdate}}</td>
-                        </tr>   
-                    </table>
-                </td>
-                <td  class="td_border down_list" colspan="3">
-                    <table class="down_table">
-                         <tr class="down_row" ng-repeat="from in dcdetails.final_case_transfer_from_court_no_judge_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{from}}</td>
-                        </tr>    
-                    </table>
-                 <td  class="td_border down_list" colspan="2">
-                    <table class="down_table">
-                        <tr class="down_row" ng-repeat="to in dcdetails.final_case_transfer_to_court_no_judge_list track by $index">
-                            <td class="down_td"><span class="case_title"></span>{{to}}</td>
-                        </tr>   
-                    </table>
-                </td>   
-                </td>
-            </tr> 
-            
+        </tr>
+        </table>
+        </td>
+        <td class="td_border down_list">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="tdate in dcdetails.final_case_transfer_transfer_date_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{tdate}}</td>
+                </tr>
+            </table>
+        </td>
+        <td class="td_border down_list" colspan="3">
+            <table class="down_table">
+                <tr class="down_row" ng-repeat="from in dcdetails.final_case_transfer_from_court_no_judge_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{from}}</td>
+                </tr>
+            </table>
+            <td class="td_border down_list" colspan="2">
+                <table class="down_table">
+                    <tr class="down_row" ng-repeat="to in dcdetails.final_case_transfer_to_court_no_judge_list track by $index">
+                        <td class="down_td"><span class="case_title"></span>{{to}}</td>
+                    </tr>
+                </table>
+            </td>
+        </td>
+        </tr>
+
         </thead>
-    </table>
+        </table>
     </div>
-<!--   </div>-->
+    <!--   </div>-->
 </div>
 <!--
 

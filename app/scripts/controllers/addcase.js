@@ -148,6 +148,7 @@ angular.module('novusApp')
             var promise = addcase.sendSupremeData(obj);
             promise.then(function (data) {
                 if (data.data === "success") {
+                    webindex.notifications.push(obj);
                     $scope.supremeMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {
@@ -189,7 +190,6 @@ angular.module('novusApp')
                     court_name:cname, 
                     case_type:casetype
                 };
-		console.log("sendobject",obj);
                 $scope.sendDistrictData(obj);
             }
             else {
@@ -203,6 +203,7 @@ angular.module('novusApp')
                 console.log("sent data", obj);
                 console.log("received data", data.data);
                 if (data.data === "success") {
+                    webindex.notifications.push(obj);
                     $scope.districtMessage = "The case will be added shortly.";
                 }
                 else if (data.data === "aadded") {
@@ -243,6 +244,7 @@ angular.module('novusApp')
                 console.log("sent data", obj);
                 console.log("received data", data.data);
                 if (data.data === "success") {
+                    webindex.notifications.push(obj);
                     $scope.highMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {
