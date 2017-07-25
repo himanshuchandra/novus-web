@@ -297,12 +297,13 @@ body {
     padding-left: 24%;
 }
 .logout_button{
-    background: white;
-    border: solid white;
-    color: black;
+    background: #13B1E0;
+    border: solid #13B1E0;
+    color: white;
     font-size: 16px;
     margin-top: -3.5px;
-    margin-left: -5px;
+    font-weight: 900;
+    margin-left: -15px;
 }
 
 .td_border{
@@ -405,4 +406,9 @@ body {
     border-right-width: 1px;
     border-bottom-width: 1px;
     border-left-width: 1px;
+}
+
+.modal{
+    left:20%;
+    top:30%;
 }

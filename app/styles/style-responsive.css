@@ -70,10 +70,11 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
     .modal{
         left:0% !important;
     }
+    
     #login-page{
         margin-left: 0px !important;
     }
@@ -119,11 +120,13 @@
 
     #sidebar > ul > li > a > span {
         line-height: 35px;
+        margin-top: 0px;
     }
 
-    #sidebar > ul > li {
+    /*#sidebar > ul > li {
         margin: 0 10px 5px 10px;
-    }
+    } 
+    */
     #sidebar > ul > li > a {
         height:35px;
         line-height:35px;
@@ -132,6 +135,7 @@
     }
     #sidebar > ul > li > a i{
         /*display: none !important;*/
+        padding-left: 3%;
     }
 
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
@@ -145,7 +149,8 @@
     }
 
     #sidebar > ul > li > a, #sidebar > ul > li > ul.sub > li {
-        width: 100%;
+           width: 100%;
+           padding: 0px;
     }
     #sidebar > ul > li > ul.sub > li > a {
         background: transparent !important ;
@@ -307,7 +312,9 @@
 
 
 @media (max-width: 480px) {
-
+    .modal-body > input{
+        margin-left: 30% !important;
+    }
     .notify-row, .search, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
         display: none;
     }
@@ -331,7 +338,7 @@
         border-color:#ccc ;
     }
     header{
-        background: rgb(79,82,186) !important;
+        background: #13B1E0 !important;
     }
     .respo{
         font-size: 13px !important;
