@@ -196,13 +196,14 @@ angular.module('novusApp')
 
 
     /////////////Control ng-repeat
-    $scope.hideId = 0;
+    $scope.sdcase={};
 
     $scope.showDetailsButton = function (caseObj, type) {
       $scope.hideDashboard = true;
       if (type === 's') {
         if (caseObj.next_date === null) {
           $scope.nxtDatePopup = false;
+          $scope.sdcase=caseObj;
         }
         $scope.scdetails = caseObj;
         $scope.supremeCaseDetails = false;
@@ -225,7 +226,9 @@ angular.module('novusApp')
       var finaldate = sdate+"/"+smonth+'/'+syear;
 
       var dateObj = {
-        "date": finaldate
+        "date": finaldate,
+        "diary_number": $scope.sdcase.diary_number,
+        "year": $scope.sdcase.year
       }
       console.log(dateObj.date);
       var promise = dashboard.setDateDb(dateObj);
