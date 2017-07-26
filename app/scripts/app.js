@@ -16,13 +16,13 @@ angular
     'angular-md5',
     'countrySelect',
     'ngFileUpload',
-    'mwl.calendar', 
-    
+    'mwl.calendar',
+
   ])
 
   .constant("requrl","http://mynovus.xyz/app")
   .constant("phpurl","http://mynovus.xyz")
-  
+
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider
       .when('/', {
@@ -77,7 +77,9 @@ angular
         templateUrl: 'views/causelist.html'
       })
       .when('/taskmanager', {
-        templateUrl: 'views/taskmanager.html'
+        templateUrl: 'views/taskmanager.html',
+        controller: 'TaskmanagerCtrl',
+        controllerAs: 'taskmanager'
       })
       .when('/expensemanager', {
         templateUrl: 'views/expensemanager.html'

@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name novusApp.controller:DashboardCtrl
+ * @name novusApp.controller:TaskmanagerCtrl
  * @description
- * # DashboardCtrl
+ * # TaskmanagerCtrl
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl, $route) {
+  .controller('TaskmanagerCtrl', function ($scope, taskmanager, webindex, $window, requrl, $route) {
 
     $scope.dashboard = {
       nxtDate: "",
