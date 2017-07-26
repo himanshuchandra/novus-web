@@ -14,24 +14,24 @@ angular.module('novusApp')
     .controller('WebindexCtrl', function ($scope, webindex, requrl, $window, $timeout, $rootScope, $location, $route, phpurl) {
 
 
-        // $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-        //     if (webindex.loaded === true) {
-        //         if ($location.path() === '/login' || $location.path() === '/signup') {
-        //             console.log("1");
-        //             if (webindex.loggedIn === true) {
-        //                 $window.location.reload();
-        //                 $window.location.assign(requrl + '/#/dashboard');
-        //             }
-        //         }
-        //         else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
-        //             console.log("2");
-        //             if (webindex.loggedIn != true) {
-        //                 // $window.location.reload();
-        //                 $window.location.href=phpurl;
-        //             }
-        //         }
-        //     }
-        // });
+        $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+            if (webindex.loaded === true) {
+                if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/forgotpassword' || $location.path() === '/') {
+                    console.log("1");
+                    if (webindex.loggedIn === true) {
+                        // $window.location.reload();
+                        $window.location.assign(requrl + '/#/dashboard');
+                    }
+                }
+                else if ($location.path() === '/dashboard' || $location.path() === '/addcase' || $location.path() === '/') {
+                    console.log("2");
+                    if (webindex.loggedIn != true) {
+                        // $window.location.reload();
+                        $window.location.assign(requrl + '/#/login');
+                    }
+                }
+            }
+        });
 
         $scope.loginStatus = "Login/SignUp";
         $scope.ActivationStatus = true;
@@ -93,8 +93,22 @@ angular.module('novusApp')
         }, true);
 
         ///////////notifications
-        $scope.notfications=webindex.notfications;
-        $scope.totalCases=webindex.userData.Scases+webindex.userData.Hcases+webindex.userData.Dcases;
+        $scope.nlength=0;
+        $scope.updateNotif = function () {
+            $scope.notifications = webindex.notifications;
+            $scope.totalCases = $scope.totalCases+1;
+            $scope.nlength++;
+        }
+
+        $scope.$watch(function () { return webindex.notifications }, function (newValue, oldValue) {
+            if (webindex.notifications.length > 0) {
+                $scope.updateNotif();
+            }
+        }, true);
+
+        $scope.$watch(function () { return webindex.userData }, function (newValue, oldValue) {
+            $scope.totalCases = webindex.userData.Scases + webindex.userData.Hcases + webindex.userData.Dcases;
+        }, true);
 
         ////////////////////////////
         $scope.sendLinkButton = false;
@@ -126,7 +140,7 @@ angular.module('novusApp')
             var promise = webindex.logout();
             promise.then(function (data) {
                 console.log(data);
-                $window.location.href=phpurl;
+                $window.location.href = phpurl;
                 // if (data.data === "logout") {
                 // $window.location.reload();
                 // $window.location.assign(requrl + "/#/login");

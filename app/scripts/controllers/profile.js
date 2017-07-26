@@ -27,7 +27,7 @@ angular.module('novusApp')
         $scope.uploadButton = "Upload image";
         $scope.profileUrl = "/User_data/" + webindex.userData.useremail + "profile.jpeg";
 
-        //////Loading data from index service 
+        //////Loading data from index service
 
         $scope.checkLogin= function () {
             if (webindex.loggedIn != true) {
@@ -51,6 +51,9 @@ angular.module('novusApp')
             }
         }, true);
 
+        $scope.$watch(function () { return webindex.userData }, function (newValue, oldValue) {
+            $scope.TotalCases = webindex.userData.Scases + webindex.userData.Hcases + webindex.userData.Dcases;
+        }, true);
 
         // $scope.loadData=function(){
         //     if(webindex.userData.useremail!=undefined){
@@ -59,15 +62,15 @@ angular.module('novusApp')
         //         $scope.uName=print.username;
 
         //     }
-        //     else{  
-        //         $window.location.reload(); 
+        //     else{
+        //         $window.location.reload();
         //         $window.location.assign(requrl+"/#/login");
         //     }
         // };
 
         // var unregister=$scope.$watch(webindex.loaded,function(newValue,oldValue){
         //     if(!angular.equals(webindex.loaded, false)){
-        //         $scope.loadData(); 
+        //         $scope.loadData();
         //         unregister();
         //     }
         // },true);
@@ -76,7 +79,7 @@ angular.module('novusApp')
         $scope.$watch(function(){return webindex.userData},function(newValue,oldValue){
             if(!angular.equals(webindex.userData, {})){
                 console.log("Profile data changed",webindex.userData);
-                $scope.loadData(); 
+                $scope.loadData();
             }
         },true);
 
@@ -167,13 +170,13 @@ angular.module('novusApp')
         //       }
         //     },function(error) {
         //         $scope.MobileMessage="Error! Try again later";
-        //     });    
+        //     });
         // };
 
         // $scope.submitCode=function(codeForm){
         //   if(codeForm.$valid){
         //     $scope.CodeMessage="Checking Code..";
-        //     $scope.VerifyCode();          
+        //     $scope.VerifyCode();
         //   }
         //   else{
         //     $scope.CodeMessage="Enter valid code";
@@ -211,7 +214,7 @@ angular.module('novusApp')
         //       }
         //     },function(error) {
         //         $scope.CodeMessage="Error! Try again later";
-        //     });    
+        //     });
         // };
 
         // $scope.SendAgain=function(){

@@ -62,7 +62,7 @@
                         <ul>
                      <li class="nav-menu first_li" ng-cloak ng-hide="false" >
                                 <a class="nav-a" href="#" style="cursor:text">{{Status}}</a>
-                               
+
                             </li class="nav-menu" ng-cloak ng-hide="false">
                             <li class="second_li nav-menu">
                                 <div ng-cloak><button ng-hide="sendLinkButton" class="logout_button" ng-click="SendActivationLink()">Send Link Again</button>{{ActivationMessage}}</div>
@@ -77,7 +77,7 @@
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="">
                             <i class="fa fa-bell-o"></i>
-                            <span class="badge bg-theme">4</span>
+                            <span class="badge bg-theme">{{nlength}}</span>
                         </a>
                                 <ul class="dropdown-menu extended tasks-bar">
                                     <div class="notify-arrow notify-arrow-green"></div>
@@ -92,7 +92,7 @@
                                                  <div>Case number/Diary number: {{case.number}}</div>
                                                  <div>Case Year: {{case.year}}</div>
                                             </div>
-               
+
                                          <!--</a>-->
                                     </li>
                                     <!--<li>
@@ -159,7 +159,7 @@
                             </li>
                             <!--<li class="nav-menu hide_li" ng-cloak ng-hide="false" >
                                 <a class="nav-a" href="#" style="cursor:text">{{Status}}</a>
-                               
+
                             </li>
                             <li class="nav-menu hide_li" ng-cloak ng-hide="false">
                                 <div ng-cloak><button ng-hide="sendLinkButton" class="logout_button" ng-click="SendActivationLink()">Send Link Again</button><span>{{ActivationMessage}}</span></div>
@@ -175,7 +175,7 @@
                         <!--
                 <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            
+
           </div>
 -->
                     </div>
@@ -215,7 +215,7 @@
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/app/#calender">
+                                <a href="/app/#calendar">
                           <i class="fa fa-calendar"></i>
                           <span>Calender View</span>
                       </a>
@@ -287,13 +287,13 @@
                   <i class="fa fa-user"></i>
                   <span>My account</span></a></li>
                    <!--<div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div>-->
-                            
+
                   <li ng-hide="LogoutButton" ng-cloak class="sub-menu resp_disp">
                                     <a class="nav-a" ng-href="#" ng-click="Logout()">
                   <i class="fa fa-sign-out"></i>
                   <span>Logout</span></a></li>
 
-                                
+
 
                         </ul>
                         <!-- sidebar menu end-->
