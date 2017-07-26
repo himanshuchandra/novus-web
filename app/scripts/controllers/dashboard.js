@@ -62,10 +62,10 @@ angular.module('novusApp')
               data.data[i].jArray = jArray;
             }
             if (data.data[i].petitioners != undefined) {
-              data.data[i].pt = data.data[i].petitioners.slice(3, 11);
+              data.data[i].pt = data.data[i].petitioners.slice(3, 15);
             }
             if (data.data[i].respondents != undefined) {
-              data.data[i].rs = data.data[i].respondents.slice(3, 11);
+              data.data[i].rs = data.data[i].respondents.slice(3, 15);
             }
           }
           $scope.Scases = data.data;
