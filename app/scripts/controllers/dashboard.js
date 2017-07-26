@@ -101,10 +101,10 @@ angular.module('novusApp')
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
             if (data.data[i].petitioner != undefined) {
-              data.data[i].pt = data.data[i].petitioner.slice(3, 11);
+              data.data[i].pt = data.data[i].petitioner.slice(3, 15);
             }
             if (data.data[i].respondent != undefined) {
-              data.data[i].rs = data.data[i].respondent.slice(3, 11);
+              data.data[i].rs = data.data[i].respondent.slice(3, 15);
             }
           }
 
@@ -156,10 +156,10 @@ angular.module('novusApp')
 
           for (var i = 0; i < data.data.length; i++) {
             if (data.data[i].petitioner_and_advocate != undefined) {
-              data.data[i].pt = data.data[i].petitioner_and_advocate.slice(3, 11);
+              data.data[i].pt = data.data[i].petitioner_and_advocate.slice(3, 15);
             }
             if (data.data[i].respondent_and_advocate != undefined) {
-              data.data[i].rs = data.data[i].respondent_and_advocate.slice(3, 11);
+              data.data[i].rs = data.data[i].respondent_and_advocate.slice(3, 15);
             }
             Object.keys(data.data[i]).forEach(function (key) {
               if (key.startsWith('final') && data.data[i][key] != undefined) {
