@@ -198,7 +198,7 @@
             <tr class="dividing_line">
                 <td class="td_border" colspan="6"></td>
             </tr>
-            
+
 -->
                 <tr class="bgInfo">
                     <!--<td class="td_border" colspan="4"><span class="case_title">D.A. Name :</span>{{scdetails.da_name}}</td>-->
@@ -424,15 +424,15 @@
 
                     <td class="td_border"><span class="case_title"><b>JUDGE</b></td>
                 <td class="td_border" ><span class="case_title"><b>BUSINESS ON DATE</b></td>
-                <td class="td_border" ><span class="case_title"><b>HEARING DATE</b></td>  
+                <td class="td_border" ><span class="case_title"><b>HEARING DATE</b></td>
                 <td class="td_border" colspan="2"><span class="case_title"><b>PURPOSE OF HEARING</b></td>
                 <td class="td_border" ><span class="case_title"><b>ORDER DATE</b></td>
-                <td class="td_border" ><span class="case_title"><b>ORDER DETAILS</b></td>  
+                <td class="td_border" ><span class="case_title"><b>ORDER DETAILS</b></td>
 
             </tr>
 
             <tr class="bgInfo" >
-                
+
                 <td  class="td_border down_list" >
                     <table class="down_table">
                         <tr class="down_row" ng-repeat="judge in dcdetails.final_judge_list track by $index">
@@ -449,8 +449,8 @@
         </td>
         <td class="td_border down_list">
             <table class="down_table">
-                <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
-                    <td class="down_td"><span class="case_title"></span>{{hearingDate}}</td>
+                <tr class="down_row">
+                    <td class="down_td"><span class="case_title"></span>{{dcdetails.lastHearingDate}}</td>
                 </tr>
             </table>
         </td>
@@ -516,10 +516,10 @@
 
             <td class="td_border"><span class="case_title"><b>Case No.</b></td>
                 <td class="td_border" ><span class="case_title"><b>Transfer Date</b></td>
-                <td class="td_border" colspan="3"><span class="case_title"><b>FROM Court No. and Judge</b></td>  
+                <td class="td_border" colspan="3"><span class="case_title"><b>FROM Court No. and Judge</b></td>
                 <td class="td_border" colspan="2"><span class="case_title"><b>TO Court No. and Judge</b></td>
 
-             </tr> 
+             </tr>
              <tr class="bgInfo">
                 <td  class="td_border down_list" >
                     <table class="down_table">

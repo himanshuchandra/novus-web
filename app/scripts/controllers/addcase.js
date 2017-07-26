@@ -183,8 +183,8 @@ angular.module('novusApp')
 
                 var dindex = $scope.caseTypes.indexOf($scope.addCase.dctype);
                 var caseTypeId = $scope.allCaseTypes[dindex].Case_ID;
-		        var casetype = $scope.allCaseTypes[cindex].Case_Type;
-			
+		        var casetype = $scope.allCaseTypes[dindex].Case_Type;
+
                 obj = {
                     state: $scope.addCase.Dstate,
                     court: courtId,
@@ -192,7 +192,7 @@ angular.module('novusApp')
                     number: $scope.addCase.DCnumber,
                     year: $scope.addCase.DCcaseyear,
                     district: district,
-                    court_name:cname, 
+                    court_name:cname,
                     case_type:casetype
                 };
                 $scope.sendDistrictData(obj);

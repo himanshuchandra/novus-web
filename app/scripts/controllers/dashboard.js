@@ -176,6 +176,9 @@ angular.module('novusApp')
               data.data[i].visMonth = data.data[i].next_hearing_date.slice(3, 5);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
+            if (data.data[i].final_hearing_date_list!=undefined){
+                data.data[i].lastHearingDate=data.data[i].final_hearing_date_list[data.data[i].final_hearing_date_list.length-1];
+            }
           }
           $scope.Dcases = data.data;
 
@@ -286,9 +289,6 @@ angular.module('novusApp')
     };
 
     ////////////Deletion of cases logic
-    $scope.sdeleted=[];
-    $scope.hdeleted=[];
-    $scope.ddeleted=[];
 
     $scope.deleteThis = function (deleteObj,cindex) {
       console.log("deleteObj", deleteObj);
