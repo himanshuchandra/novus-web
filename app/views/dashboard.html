@@ -96,8 +96,8 @@
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'d')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> {{case.court_name}}</div>
                     <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>Vs</b> {{case.rs}}...</div>
-                    <div style="font-size:15px">
-                        <h5 style="font-size:15px;">{{case.status}}</h5>
+                    <div style="margin-top: -12px;">
+                        <h5 style="font-size: 18px;text-align: center;" class="ng-binding">{{case.status}}</h5>
                     </div>
                 </div>
                 <div class="img_hold">
@@ -559,7 +559,10 @@
 </div>
 <!--
 
-   array work done.. just a cross check is needed if right array key is used at right place
+dont delete this.... new look of calendar for referance
 
-
+<div class="" ng-click="showDetailsButton(case,'s')">
+<i class="fa fa-calendar-o" aria-hidden="true" style="font-size: 110px;color: rgb(19,177,224);position: relative;">
+  <div style="position: absolute;top: 50%;color: black;line-height: 0px;font-size: 20px;left: 15%;font-family: cursive;">24 July <br><hr style="width: 123%;margin-left: -8px;margin-bottom: 12px;"><span style="margin-left: 10px;"> 2017<span></span></span></div>
+</i></div>
 -->
