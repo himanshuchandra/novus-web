@@ -4,10 +4,10 @@
     <div id="button_section">
 
     
-    <button id="SC" data-form="supremeFormHide" ng-click="showSCField()" class="btn btn-default case-form">Supreme Court</button>
-    <button id="HC" data-form="highFormHide" ng-click="showHCField()" class="btn btn-default case-form">High Court</button>
-    <button id="DC" data-form="districtFormHide" ng-click="showDCField()" class="btn btn-default case-form">District Court</button>
-    <button id="TC" ng-click="" class="case-form btn btn-default">Tribunals</button>
+    <button id="SC" data-form="supremeFormHide" ng-click="showSCField()" class="btn btn-primary case-form">Supreme Court</button>
+    <button id="HC" data-form="highFormHide" ng-click="showHCField()" class="btn btn-primary case-form">High Court</button>
+    <button id="DC" data-form="districtFormHide" ng-click="showDCField()" class="btn btn-primary case-form">District Court</button>
+    <button id="TC" ng-click="" class="case-form btn btn-primary">Tribunals</button>
     
 
 </div>
@@ -53,7 +53,7 @@
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
         </div>
 <br>
-<input type="submit" class="btn btn-default" ng-click="supremeSubmitted=true;" value="Search">
+<input type="submit" class="btn btn-success" ng-click="supremeSubmitted=true;" value="Search">
      
 </form>
 {{supremeMessage}}
@@ -110,7 +110,7 @@
      highForm.year.$error.pattern">
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
 <br>
-<input type="submit" class="btn btn-default" ng-click="highSubmitted=true;" value="Search">
+<input type="submit" class="btn btn-success" ng-click="highSubmitted=true;" value="Search">
 </form>
 {{highMessage}}
 
@@ -165,7 +165,7 @@
      districtForm.year.$error.pattern">
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
 <br>
-<input type="submit" class="btn btn-default" ng-click="districtSubmitted=true;" value="Search">
+<input type="submit" class="btn btn-success" ng-click="districtSubmitted=true;" value="Search">
 </form>
 {{districtMessage}}
 

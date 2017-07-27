@@ -104,6 +104,10 @@ body {
 .contents{
     flex: 2
 }
+.contents:first-child{
+    padding-top: 10px;
+}
+
 .panel.disabled .panel-body :after,
 .panel.disabled .panel-disabled {
     display:block;
@@ -206,7 +210,7 @@ body {
     font-size: 20px;
     position: absolute;
     right: 60%;
-    bottom: 2%;
+    bottom: 10%;
    
     
 }
@@ -289,6 +293,9 @@ body {
 }
 .caseNo > div{
     padding-left: 10px;
+}
+.caseNo:first-child{
+        padding-top: 10px;
 }
 @media (max-width: 850px) {
 		.nav-menu {
