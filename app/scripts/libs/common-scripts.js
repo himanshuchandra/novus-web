@@ -48,6 +48,8 @@ var Script = function () {
         $(window).on('resize', responsiveView);
     });
     $('.sub-menu').click(function () {
+         var wSize = $(window).width();
+            if (wSize <= 768) {
         if ($('#sidebar > ul').is(":visible") === true) {
             $('#main-content').css({
                 'margin-left': '-0px'
@@ -67,6 +69,7 @@ var Script = function () {
             });
             $("#container").removeClass("sidebar-closed");
         }
+            }
     });
     $('.fa-bars').click(function () {
         if ($('#sidebar > ul').is(":visible") === true) {
