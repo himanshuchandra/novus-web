@@ -87,7 +87,7 @@
     <div class="container" ng-hide="profileData">
         <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" style="margin-left:0 !important;">
 
 
                 <div class="panel panel-info">
@@ -146,8 +146,9 @@
                                     </tbody>
                                 </table>
 
-                                <a href="#" class="btn btn-primary">Edit automatic File numbers</a>
-                                <a href="#" class="btn btn-primary">Pay Now</a>
+                                <a href="#" class="btn btn-primary passBTN">Edit automatic File numbers</a>
+                                <a href="#" class="btn btn-primary passBTN">Pay Now</a>
+                                <a href="#" ng-hide="PasswordFormButton" class="btn btn-primary passBTN" ng-click="ShowPasswordForm()">Change Password"<a/>
                             </div>
                         </div>
                     </div>
@@ -289,6 +290,6 @@
     </div>
 
     <input type="button" ng-hide="MobileFormButton" ng-click="ShowMobileForm()" value="Edit Mobile" />
-    <input type="button" ng-hide="PasswordFormButton" ng-click="ShowPasswordForm()" value="Change Password" />
+    
 
 </div>
