@@ -61,6 +61,12 @@ angular.module('novusApp')
             if (data.data[i].respondents != undefined) {
               data.data[i].rs = data.data[i].respondents.slice(0, 25);
             }
+            if (data.data[i].next_date != "" && data.data[i].next_date != null) {
+              data.data[i].visDate = data.data[i].next_date.slice(0, 2);
+              data.data[i].visYear = data.data[i].next_date.slice(6, 10);
+              data.data[i].visMonth = data.data[i].next_date.slice(3, 5);
+              data.data[i].visMonth = $scope.month(data.data[i].visMonth);
+            }
           }
           $scope.Scases = data.data;
 
