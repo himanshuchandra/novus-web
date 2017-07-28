@@ -17,14 +17,12 @@ angular.module('novusApp')
         $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
             if (webindex.loaded === true) {
                 if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/forgotpassword' || $location.path() === '/') {
-                    console.log("1");
                     if (webindex.loggedIn === true) {
                         // $window.location.reload();
                         $window.location.assign(requrl + '/#/dashboard');
                     }
                 }
                 else if ($location.path() === '/dashboard' || $location.path() === '/addcase' || $location.path() === '/') {
-                    console.log("2");
                     if (webindex.loggedIn != true) {
                         // $window.location.reload();
                         $window.location.assign(requrl + '/#/login');
@@ -53,7 +51,6 @@ angular.module('novusApp')
                     webindex.loggedIn = false;
                     $scope.headerHide = true;
                     if ($location.path() === '/dashboard' || $location.path() === '/addcase' || $location.path() === '/') {
-                        console.log("3");
                         // $window.location.reload();
                         $window.location.assign(requrl + '/#/login');
                     }
@@ -93,10 +90,10 @@ angular.module('novusApp')
         }, true);
 
         ///////////notifications
-        $scope.nlength=0;
+        $scope.nlength = 0;
         $scope.updateNotif = function () {
             $scope.notifications = webindex.notifications;
-            $scope.totalCases = $scope.totalCases+1;
+            $scope.totalCases = $scope.totalCases + 1;
             $scope.nlength++;
         }
 
@@ -141,13 +138,6 @@ angular.module('novusApp')
             promise.then(function (data) {
                 console.log(data);
                 $window.location.href = phpurl;
-                // if (data.data === "logout") {
-                // $window.location.reload();
-                // $window.location.assign(requrl + "/#/login");
-                // }
-                // else {
-                //     $scope.LogoutMessage = "Error,Try again Later";
-                // }
             }, function (error) {
                 $scope.LogoutMessage = "Error,Try again Later";
             });

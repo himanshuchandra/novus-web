@@ -35,6 +35,12 @@
         {{dataMessage}}
     </div>
 
+    <div ng-hide="comingSoon">
+        <div class="container" style="margin-top: 5%;">
+            <h5 style="text-align: center;font-size: 36px;margin: 1em 0 .6em 0;font-family: 'Hammersmith One', sans-serif;text-shadow: 0 3px 0 lightblue;color: black;">Coming soon....</h5>
+        </div>
+    </div>
+
 </div>
 <div ng-hide="hideJudgeDetails" class="container">
     <br><br>
@@ -49,13 +55,13 @@
     <br>
     <div id='jPrint' class="table_width">
         <h3 style="text-align:center"><span class="case_title">Judge Name : </span><i>{{judgeObject.name}}</i></h3>
-    <h3 style="text-align:center;line-height: 0;"><span class="case_title">Court name : </span><i>{{judgeObject.court}}</i></h3>
-            <!--Judge Name : {{judgeObject.name}} <br>-->
-            <!--Court name : {{judgeObject.court}} -->
-            <br>
-            <img src="{{judgeObject.image}}"/ style="height:150px;width:150px;float:right;margin-top:30px;"> <br>
-            <p style="font-weight: 900;font-size: 14px;"><span class="case_title">About : </span> {{judgeObject.about}}</p> <br>
-            <p style="font-weight: 900;font-size: 14px;"><span class="case_title">Remarks :</span> {{judgeObject.remarks}}</p> <br>
+        <h3 style="text-align:center;line-height: 0;"><span class="case_title">Court name : </span><i>{{judgeObject.court}}</i></h3>
+        <!--Judge Name : {{judgeObject.name}} <br>-->
+        <!--Court name : {{judgeObject.court}} -->
+        <br>
+        <img src="{{judgeObject.image}}" / style="height:150px;width:150px;float:right;margin-top:30px;"> <br>
+        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">About : </span> {{judgeObject.about}}</p> <br>
+        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">Remarks :</span> {{judgeObject.remarks}}</p> <br>
     </div>
 
 </div>

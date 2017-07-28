@@ -28,15 +28,9 @@ angular.module('novusApp')
     $scope.nxtDatePopup = true;
 
     $scope.loadFirst = function () {
-      // if (webindex.loggedIn != true) {
-      //   $window.location.reload();
-      //   $window.location.assign(requrl);
-      // }
-      // else {
       $scope.loadSupreme();
       $scope.loadHigh();
       $scope.loadDistrict();
-      // }
     };
 
     var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
@@ -167,9 +161,12 @@ angular.module('novusApp')
                 data.data[i][key] = $scope.splitString(data.data[i][key]);
               }
             });
-            // if (data.data[i].status === "waiting") {
-            //   data.data[i].status = "This case will be added shortly!";
-            // }
+            if (data.data[i].status === "waiting") {
+                data.data[i].status = "This case will be added shortly!";
+            }
+            else if(data.data[i].status === "Successfull"){
+                data.data[i].status = "";
+            }
             if (data.data[i].next_hearing_date != "" && data.data[i].next_hearing_date != null) {
               data.data[i].visDate = data.data[i].next_hearing_date.slice(0, 2);
               data.data[i].visYear = data.data[i].next_hearing_date.slice(6, 10);
@@ -269,6 +266,7 @@ angular.module('novusApp')
       $scope.supremeCasesHide = false;
       $scope.highCasesHide = false;
       $scope.districtCasesHide = false;
+      $scope.tribunalCasesHide = true; //do false when tribunal part is ready
     };
 
     $scope.showAllCases();
@@ -277,18 +275,28 @@ angular.module('novusApp')
       $scope.supremeCasesHide = false;
       $scope.highCasesHide = true;
       $scope.districtCasesHide = true;
+      $scope.tribunalCasesHide = true;
     };
 
     $scope.showHighCases = function () {
       $scope.supremeCasesHide = true;
       $scope.highCasesHide = false;
       $scope.districtCasesHide = true;
+      $scope.tribunalCasesHide = true;
     };
 
     $scope.showDistrictCases = function () {
       $scope.supremeCasesHide = true;
       $scope.highCasesHide = true;
       $scope.districtCasesHide = false;
+      $scope.tribunalCasesHide = true;
+    };
+
+    $scope.showTribunalCases = function () {
+      $scope.supremeCasesHide = true;
+      $scope.highCasesHide = true;
+      $scope.districtCasesHide = true;
+      $scope.tribunalCasesHide = false;
     };
 
     ////////////Deletion of cases logic

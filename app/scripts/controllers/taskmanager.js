@@ -80,17 +80,22 @@ angular.module('novusApp')
 
         $scope.showAllCases = function () {
            $scope.vJudges=$scope.allJudges;
+           $scope.comingSoon=true;
         };
 
         $scope.showSupremeCases = function () {
+            $scope.comingSoon=true;
             $scope.vJudges=$scope.supremeJudges;
         };
 
         $scope.showHighCases = function () {
+            $scope.comingSoon=true;
             $scope.vJudges=$scope.highJudges;
         };
 
+        $scope.comingSoon=true;
         $scope.showDistrictCases = function () {
+            $scope.comingSoon=false;
            $scope.vJudges=$scope.districtJudges;
         };
 

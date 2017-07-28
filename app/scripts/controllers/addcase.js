@@ -109,22 +109,31 @@ angular.module('novusApp')
         };
 
         $scope.showSCField = function () {
-
             $scope.supremeFormHide = false;
             $scope.highFormHide = true;
             $scope.districtFormHide = true;
+            $scope.tribunalFormHide = true;
         };
 
         $scope.showHCField = function () {
             $scope.supremeFormHide = true;
             $scope.highFormHide = false;
             $scope.districtFormHide = true;
+            $scope.tribunalFormHide = true;
         };
 
         $scope.showDCField = function () {
             $scope.supremeFormHide = true;
             $scope.highFormHide = true;
             $scope.districtFormHide = false;
+            $scope.tribunalFormHide = true;
+        };
+
+        $scope.showTCField = function () {
+            $scope.supremeFormHide = true;
+            $scope.highFormHide = true;
+            $scope.districtFormHide = true;
+            $scope.tribunalFormHide = false;
         };
 
 

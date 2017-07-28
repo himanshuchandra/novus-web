@@ -91,7 +91,7 @@
                     <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>
                     <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div>
                 </div>
-               
+
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'d')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> {{case.court_name}}</div>
                     <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>Vs</b> {{case.rs}}...</div>
@@ -114,10 +114,16 @@
 
             </div>
         </div>
+        {{districtMessage}}
     </div>
-    {{districtMessage}}
+
+    <div ng-hide="tribunalCasesHide">
+        <div class="container" style="margin-top: 5%;">
+            <h5 style="text-align: center;font-size: 36px;margin: 1em 0 .6em 0;font-family: 'Hammersmith One', sans-serif;text-shadow: 0 3px 0 lightblue;color: black;">Coming soon....</h5>
+        </div>
+    </div>
 </div>
-</div>
+
 
 <div ng-hide="supremeCaseDetails" class="container">
     <br><br>
@@ -151,7 +157,7 @@
                 <tr class="bgInfo">
                     <td class="td_border" colspan="4"><span class="case_title">Last Updated By :</span>{{scdetails.last_update_by}}</td>
                     <td class="td_border" colspan="1"><span class="case_title">Last Listed On :</span><span>{{scdetails.last_listed_on}}</span></td>
-                    <td class="td_border" colspan="1"><span class="case_title">Next Hearing Date :</span><span>{{scdetails.NextHearingDate}}</span></td>
+                    <td class="td_border" colspan="1"><span class="case_title">Next Hearing Date :</span><span>{{scdetails.next_date}}</span></td>
                     <!--<td class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{scdetails.last_order}}</td>-->
                     <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>-->
                 </tr>
@@ -162,7 +168,7 @@
                     <!--<td class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{scdetails.bench}}</td>-->
 
                 </tr>
-               
+
                 <tr class="bgInfo">
                     <td class="td_border table_heading" colspan="6"><span class="case_title">PARTY's DETAILS</span></td>
                 </tr>
