@@ -348,11 +348,28 @@
     .respo{
         font-size: 12px !important;
          margin-left: -5px;
+         font-weight: 900;
     }
     
 }
 
+@media (max-width:380px){
+   .respo{
+        font-size: 10px !important;
+         margin-left: -5px;
+         font-weight: 900;
+    } 
+    .respo:first-child{
+        margin-left: -10px;
+    }
+}
+
 @media (max-width:320px) {
+    .respo{
+        font-size: 8px !important;
+         margin-left: -5px;
+         font-weight: 900;
+    } 
     .login-social-link a {
         padding: 15px 17px !important;
     }
