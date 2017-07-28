@@ -264,6 +264,10 @@ body {
     margin-left: 25%;
 }
 
+#btn_holder > button{
+    width: 70% ;
+}
+
 .dash,.sub-menu>a>span{
     font-size: 20px !important;
     font-weight: 200;

@@ -317,6 +317,9 @@
 
 
 @media (max-width: 480px) {
+    #btn_holder > button{
+    width: 90% ;
+}
     .passBTN{
         display: block !important;
     }
