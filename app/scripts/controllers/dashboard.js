@@ -167,14 +167,14 @@ angular.module('novusApp')
             else if(data.data[i].status === "Successfull"){
                 data.data[i].status = "";
             }
-            if (data.data[i].next_hearing_date != "" && data.data[i].next_hearing_date != null) {
-              data.data[i].visDate = data.data[i].next_hearing_date.slice(0, 2);
-              data.data[i].visYear = data.data[i].next_hearing_date.slice(6, 10);
-              data.data[i].visMonth = data.data[i].next_hearing_date.slice(3, 5);
-              data.data[i].visMonth = $scope.month(data.data[i].visMonth);
-            }
             if (data.data[i].final_hearing_date_list!=undefined){
                 data.data[i].lastHearingDate=data.data[i].final_hearing_date_list[data.data[i].final_hearing_date_list.length-1];
+            }
+            if (data.data[i].lastHearingDate != "" && data.data[i].lastHearingDate != null) {
+              data.data[i].visDate = data.data[i].lastHearingDate.slice(0, 2);
+              data.data[i].visYear = data.data[i].lastHearingDate.slice(6, 10);
+              data.data[i].visMonth = data.data[i].lastHearingDate.slice(3, 5);
+              data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
           }
           $scope.Dcases = data.data;
@@ -230,7 +230,7 @@ angular.module('novusApp')
       console.log(dateObj.date);
       var promise = dashboard.setDateDb(dateObj);
       promise.then(function (data) {
-        $scope.scdetails.next_date=dateObj.finaldate;
+        $scope.scdetails.next_date=dateObj.date;
         $scope.dashboard.updated=true;
         $scope.dashboard.nxtDateMessage = "";
         $scope.nxtDatePopup=true;

@@ -27,6 +27,7 @@ angular.module('novusApp')
         $scope.supremeFormHide = true;
         $scope.highFormHide = true;
         $scope.districtFormHide = true;
+        $scope.tribunalFormHide = true;
 
         // $scope.loadFirst = function () {
         //   if (webindex.loggedIn != true) {
