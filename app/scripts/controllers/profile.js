@@ -20,7 +20,7 @@ angular.module('novusApp')
 
         ///////////////////////////////
 
-
+        $scope.profileData=false;
         $scope.PasswordForm = true;
         $scope.uploadPicForm = true;
         $scope.toggleButton = false;
@@ -102,6 +102,7 @@ angular.module('novusApp')
         // }
 
         $scope.ShowPasswordForm = function () {
+            $scope.profileData=true;
             $scope.PasswordForm = false;
             $scope.PasswordFormButton = true;
 
