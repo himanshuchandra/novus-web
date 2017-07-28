@@ -317,6 +317,9 @@
 
 
 @media (max-width: 480px) {
+    .passBTN{
+        display: block !important;
+    }
     .modal-body > input{
         margin-left: 30% !important;
     }
