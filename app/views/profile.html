@@ -148,7 +148,7 @@
 
                                 <a href="#" class="btn btn-primary passBTN">Edit automatic File numbers</a>
                                 <a href="#" class="btn btn-primary passBTN">Pay Now</a>
-                                <a href="#" ng-hide="PasswordFormButton" class="btn btn-primary passBTN" ng-click="ShowPasswordForm()">Change Password"<a/>
+                                <a ng-hide="PasswordFormButton" class="btn btn-primary passBTN" ng-click="ShowPasswordForm()">Change Password<a/>
                             </div>
                         </div>
                     </div>
@@ -250,7 +250,7 @@
     </div>
 
 
-    <div ng-hide="PasswordForm">
+    <!--<div ng-hide="PasswordForm">
         <form name="passForm" ng-submit="submitPasswordForm(passForm)" novalidate>
 
             <h5>Old Password</h5>
@@ -290,6 +290,56 @@
     </div>
 
     <input type="button" ng-hide="MobileFormButton" ng-click="ShowMobileForm()" value="Edit Mobile" />
+    -->
+
+
+    <div id="login-page" ng-hide="PasswordForm" style="margin-top: 30px;">
+<div class="container">
+ <form class="form-login" name="passForm" ng-submit="submitPasswordForm(passForm)" novalidate="">
+<h2 class="form-login-heading">Password Recovery</h2>
+<div class="login-wrap">
+<h5 id="login-result" style="margin-top: -3%;">{{PasswordResult}} </h5>
+    <label>Old Password:</label>
+<input type="password" class="form-control" ng-model="profile.oldPassword" name="oldpass" placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&amp;*()_.]{8,25}" required="">
+            <span ng-show="passForm.oldpass.$touched &amp;&amp;
+    passForm.oldpass.$error.pattern &amp;&amp; !passForm.oldpass.$error.required">
+    password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+            <span ng-show="passForm.oldpass.$touched &amp;&amp; passForm.oldpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.oldpass.$touched &amp;&amp;
+     passForm.oldpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.oldpass.$touched &amp;&amp;
+     passForm.oldpass.$error.pattern">
+     password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+<br>
+ <label>New Password:</label>   
+<input type="password" class="form-control" ng-keyup="checkPassword()" ng-model="profile.newPassword" name="newpass" placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&amp;*()_.]{8,25}" required="">
+            <span ng-show="passForm.newpass.$touched &amp;&amp; passForm.newpass.$error.pattern &amp;&amp;
+    !passForm.newpass.$error.required">
+    password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+            <span ng-show="passForm.newpass.$touched &amp;&amp; passForm.newpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.newpass.$touched &amp;&amp;
+     passForm.newpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.newpass.$touched &amp;&amp;
+     passForm.newpass.$error.pattern">
+     password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+<br>
+    <label>New Password Again:</label>
+<input type="password" class="form-control" ng-keyup="checkPassword()" ng-model="profile.newPassword2" placeholder="Password Again">            {{PasswordMessage}}
+
+<br>
+<input type="submit" class="btn btn-theme btn-block" ng-click="PasswordSubmitted=true;" value="Save Password">
+
+ <div class="modal-footer" style="padding: 0;padding-top: 5px;">
+<button ng-click="PasswordForm=true;PasswordFormButton=false;profileData=false" class="btn btn-theme" style="display: block;margin-left: 40%;">Cancel</button>
+
     
+ </div>
+
+
+
+</div>
+</form>
+</div>
+</div>
 
 </div>

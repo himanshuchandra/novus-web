@@ -89,7 +89,7 @@ angular.module('novusApp')
         };
 
         $scope.showHighCases = function () {
-            $scope.comingSoon=true;
+            $scope.comingSoon=false;
             $scope.vJudges=$scope.highJudges;
         };
 

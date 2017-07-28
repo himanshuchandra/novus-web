@@ -31,11 +31,11 @@
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'s')">
 
-                    <label for="" class="date-title">July</label>
+                    <label for="" class="date-title">{{case.visMonth}}</label>
                     <div class="date-content">
-                        <p class="dia">24</p>
+                        <p class="dia">{{case.visDate}}</p>
                         <hr class="nomargin" />
-                        <p class="nomargin"><strong>{{case.year}}</strong></p>
+                        <p class="nomargin"><strong>{{case.visYear}}</strong></p>
 
                     </div>
                 </div>
@@ -366,7 +366,7 @@
                     <!--<td class="td_border" class="td_border" class="td_border" style="width:35%"><span class="case_title">Last Updated By :</span>{{dcdetails.last_update_by}}</td>-->
                     <td class="td_border" class="td_border" colspan="2"><span class="case_title">First Hearing Date : </span><span>{{dcdetails.first_hearing_date}}</span></td>
                     <td class="td_border" class="td_border" colspan="3"><span class="case_title">Next Hearing Date : </span><span>{{dcdetails.next_hearing_date}}</span></td>
-                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Last Hearing Date : </span><span>{{dcdetails.final_hearing_date_list}}</span></td>
+                    <td class="td_border" class="td_border" colspan="2"><span class="case_title">Last Hearing Date : </span><span>{{dcdetails.lastHearingDate}}</span></td>
                     <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{dcdetails.last_order}}</td>-->
                     <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{dcdetails.updated_on}}</td>-->
                 </tr>
@@ -451,7 +451,7 @@
         <td class="td_border down_list">
             <table class="down_table">
                 <tr class="down_row">
-                    <td class="down_td"><span class="case_title"></span>{{dcdetails.lastHearingDate}}</td>
+                    <td class="down_td"><span class="case_title"></span>{{dcdetails.final_hearing_date_list}}</td>
                 </tr>
             </table>
         </td>
