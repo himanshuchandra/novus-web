@@ -91,21 +91,19 @@
                     <div style="font-size:15px"><span class="case_title">Case Year: &nbsp;&nbsp;</span>{{case.case_year}}</div>
                     <div style="font-size:15px"><span class="case_title">Case Type: &nbsp;&nbsp;</span>{{case.case_type}}</div>
                 </div>
-                <!--                <div class="contents" ng-click="showDetailsButton(case)">{{case.year}}</div>-->
-
+               
                 <div class="contents caseNo" ng-click="showDetailsButton(case,'d')">
                     <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span> {{case.court_name}}</div>
                     <div style="font-size:15px"><span class="case_title">Party's: &nbsp;&nbsp;</span>{{case.pt}}... <b>Vs</b> {{case.rs}}...</div>
-                    <div style="font-size:15px">
-                        <h5 style="font-size:15px;">{{case.status}}</h5>
+                    <div style="margin-top: -12px;">
+                        <h5 style="font-size: 18px;text-align: center;" class="ng-binding">{{case.status}}</h5>
                     </div>
                 </div>
                 <div class="img_hold">
-                    <!--                <img src="../images/delete.png" id="del_img" alt="" ng-click="deleteImg()">-->
                     <i class="fa fa-trash-o" aria-hidden="true" id="del_img" ng-click="deleteCase(case,'d')"></i>
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(case,'d')">
-
+                    <label for="" class="date-title">{{case.visMonth}}</label>
                     <div class="date-content">
                         <p class="dia">{{case.visDate}}</p>
                         <hr class="nomargin" />
@@ -125,7 +123,7 @@
     <br><br>
     <div style="display:flex; flex:3;">
         <div id="btn_holder" style="flex:1;">
-            <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+            <button ng-click="showCasesButton()" class="btn btn-primary" style="width:70%">Go Back</button></div>
         <div style="flex:1;margin-top:-30px;">
             <h1>Case Details</h1>
         </div>
@@ -152,7 +150,8 @@
                 </tr>
                 <tr class="bgInfo">
                     <td class="td_border" colspan="4"><span class="case_title">Last Updated By :</span>{{scdetails.last_update_by}}</td>
-                    <td class="td_border" colspan="2"><span class="case_title">Last Listed On :</span><span>{{scdetails.last_listed_on}}</span></td>
+                    <td class="td_border" colspan="1"><span class="case_title">Last Listed On :</span><span>{{scdetails.last_listed_on}}</span></td>
+                    <td class="td_border" colspan="1"><span class="case_title">Next Hearing Date :</span><span>{{scdetails.NextHearingDate}}</span></td>
                     <!--<td class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{scdetails.last_order}}</td>-->
                     <!--<td class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{scdetails.updated_on}}</td>-->
                 </tr>
@@ -163,11 +162,7 @@
                     <!--<td class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{scdetails.bench}}</td>-->
 
                 </tr>
-                <!--
-             <tr class="dividing_line">
-                <td class="td_border" class="td_border" colspan="6"></td>
-            </tr>
--->
+               
                 <tr class="bgInfo">
                     <td class="td_border table_heading" colspan="6"><span class="case_title">PARTY's DETAILS</span></td>
                 </tr>
@@ -269,7 +264,7 @@
     <br><br>
     <div style="display:flex; flex:3;">
         <div id="btn_holder" style="flex:1;">
-            <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+            <button ng-click="showCasesButton()" class="btn btn-primary" style="width:70%">Go Back</button></div>
         <div style="flex:1;margin-top:-30px;">
             <h1>Case Details</h1>
         </div>
@@ -326,7 +321,7 @@
     <br><br>
     <div style="display:flex; flex:3;">
         <div id="btn_holder" style="flex:1;">
-            <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+            <button ng-click="showCasesButton()" style="width:70%" class="btn btn-primary">Go Back</button></div>
         <div style="flex:1;margin-top:-30px;">
             <h1>Case Details</h1>
         </div>
@@ -559,7 +554,10 @@
 </div>
 <!--
 
-   array work done.. just a cross check is needed if right array key is used at right place
+dont delete this.... new look of calendar for referance
 
-
+<div class="" ng-click="showDetailsButton(case,'s')">
+<i class="fa fa-calendar-o" aria-hidden="true" style="font-size: 110px;color: rgb(19,177,224);position: relative;">
+  <div style="position: absolute;top: 50%;color: black;line-height: 0px;font-size: 20px;left: 15%;font-family: cursive;">24 July <br><hr style="width: 123%;margin-left: -8px;margin-bottom: 12px;"><span style="margin-left: 10px;"> 2017<span></span></span></div>
+</i></div>
 -->
