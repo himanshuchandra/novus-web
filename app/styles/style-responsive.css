@@ -324,12 +324,12 @@
 
 
 @media (max-width: 480px) {
+   #allPrint{
+       margin-top: 20px !important;
+   }
     #printAll{
-    color: black;
-    font-size: 40px;
-    position: fixed;
-    right: 0;
-    top: 21%;
+    right: 0 !important;
+    top: 21% !important;
 }
     .comingSoon{
     position: fixed;
