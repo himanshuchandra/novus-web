@@ -346,7 +346,7 @@
                 </tr>
                 <tr class="bgInfo">
                     <td class="td_border" class="td_border" colspan="2"><span class="case_title">Stage of Case :</span>{{dcdetails.stage_of_case}}</td>
-                    <td class="td_border" class="td_border" colspan="3"><span class="case_title">Judge Name :</span>{{dcdetails.final_judge_list}}</td>
+                    <td class="td_border" class="td_border" colspan="3"><span class="case_title">Judge Name :</span>{{dcdetails.final_judge_list[0]}}</td>
                     <td class="td_border" class="td_border" colspan="2"><span class="case_title">Court Number :</span>{{dcdetails.court_number}}</td>
                     <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Case Bench :</span>{{dcdetails.bench}}</td>-->
 
@@ -439,7 +439,7 @@
         <td class="td_border down_list">
             <table class="down_table">
                 <tr class="down_row" ng-repeat="details in dcdetails.final_interim_order_file_list track by $index">
-                    <td class="down_td"><span class="case_title"></span>{{details}}</td>
+                    <td class="down_td"><span class="case_title"></span><a ng-href="{{details}}">Order {{$index+1}}</a></td>
                 </tr>
             </table>
         </td>
