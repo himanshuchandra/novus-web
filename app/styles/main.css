@@ -365,7 +365,7 @@ body {
     width: 100%;
 }
 .down_td{
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     text-align: center;
 }
 
