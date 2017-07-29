@@ -18,6 +18,13 @@
 }
 
 @media(min-width:1400px){
+    #printAll{
+    color: black;
+    font-size: 40px;
+    position: fixed;
+    right: 52px;
+    top: 12.5%;
+}
     .table_width{
         width: 150%;
         margin-left: -20%;
@@ -317,6 +324,28 @@
 
 
 @media (max-width: 480px) {
+    #printAll{
+    color: black;
+    font-size: 40px;
+    position: fixed;
+    right: 0;
+    top: 21%;
+}
+    .comingSoon{
+    position: fixed;
+    width: 50%;
+    top: 10%;
+    left: 25% !important;
+}
+    #comp_logo{
+    display:inline-block;
+    margin-left: 37%;
+    width:38%;
+    margin-top:2%;
+   }
+    #btn_holder > button{
+    width: 90% ;
+}
     .passBTN{
         display: block !important;
     }

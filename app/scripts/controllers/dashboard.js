@@ -8,7 +8,7 @@
  * Controller of the novusApp
  */
 angular.module('novusApp')
-  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl, $route) {
+  .controller('DashboardCtrl', function ($scope, dashboard, webindex, $window, requrl, $route, moment, calendarConfig) {
 
     $scope.dashboard = {
       nxtDate: "",
@@ -67,6 +67,18 @@ angular.module('novusApp')
               data.data[i].visMonth = data.data[i].next_date.slice(3, 5);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
+            else{
+              data.data[i].visDate = "next";
+              data.data[i].visYear = "date";
+              data.data[i].visMonth = "Enter";
+            }
+            var event ={
+              title : data.data[i].petitioners+" VS "+data.data[i].respondents,
+              color : calendarConfig.important,
+              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
+              endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+            }
+            webindex.events.push(event);
           }
           $scope.Scases = data.data;
 
@@ -106,6 +118,13 @@ angular.module('novusApp')
             if (data.data[i].respondent != undefined) {
               data.data[i].rs = data.data[i].respondent.slice(0, 25);
             }
+            var event ={
+              title : data.data[i].petitioner+" VS "+data.data[i].respondent,
+              color : calendarConfig.warning,
+              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
+              endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+            }
+            webindex.events.push(event);
           }
 
           $scope.Hcases = data.data;
@@ -164,13 +183,18 @@ angular.module('novusApp')
             Object.keys(data.data[i]).forEach(function (key) {
               if (key.startsWith('final') && data.data[i][key] != undefined) {
                 data.data[i][key] = data.data[i][key].replace(/['"]+/g, '');
-                data.data[i][key] = $scope.splitString(data.data[i][key]);
+                if(key!="final_interim_order_file_list"){
+                  data.data[i][key] = $scope.splitString(data.data[i][key]);
+                }
+                else if(data.data[i][key]!=undefined){
+                  data.data[i][key] = data.data[i][key].split('~');
+                }
               }
             });
             if (data.data[i].status === "waiting") {
                 data.data[i].status = "This case will be added shortly!";
             }
-            else if(data.data[i].status === "Successfull"){
+            else if(data.data[i].status === "success"){
                 data.data[i].status = "";
             }
             if (data.data[i].final_hearing_date_list!=undefined){
@@ -182,6 +206,18 @@ angular.module('novusApp')
               data.data[i].visMonth = data.data[i].lastHearingDate.slice(3, 5);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
+            else{
+              data.data[i].visDate = " ";
+              data.data[i].visYear = " ";
+              data.data[i].visMonth = " ";
+            }
+            var event ={
+              title : data.data[i].petitioner_and_advocate+" VS "+data.data[i].respondent_and_advocate,
+              color : calendarConfig.info,
+              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
+              endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+            }
+            webindex.events.push(event);
           }
           $scope.Dcases = data.data;
 
@@ -216,6 +252,18 @@ angular.module('novusApp')
         $scope.highCaseDetails = false;
       }
       else if (type === 'd') {
+        if(caseObj.police_station===undefined || caseObj.police_station==="" || caseObj.police_station==="None"){
+          $scope.firHide=true;
+        }
+        else{
+          $scope.firHide=false;
+        }
+        if(caseObj.final_case_transfer_transfer_date_list[0]===undefined || caseObj.final_case_transfer_transfer_date_list[0]===""){
+          $scope.caseTransferHide=true;
+        }
+        else{
+          $scope.caseTransferHide=false;
+        }
         $scope.dcdetails = caseObj;
         $scope.districtCaseDetails = false;
       }
@@ -225,6 +273,14 @@ angular.module('novusApp')
     $scope.setDateDb = function () {
       var sdate=$scope.dashboard.nxtDate.getDate();
       var smonth=$scope.dashboard.nxtDate.getMonth()+1;
+      sdate=parseInt(sdate);
+      if(sdate<10){
+        sdate='0'+sdate;
+      }
+      smonth=parseInt(smonth);
+      if(smonth<10){
+        smonth='0'+smonth;
+      }
       var syear=$scope.dashboard.nxtDate.getFullYear();
       var finaldate = sdate+"/"+smonth+'/'+syear;
 
@@ -373,5 +429,7 @@ angular.module('novusApp')
       newWin.print();
       newWin.close();
     }
+//     var momentObj = moment(dateString, 'MM-DD-YYYY');
+// var momentString = momentObj.format('YYYY-MM-DD');
 
   });

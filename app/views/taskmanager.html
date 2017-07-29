@@ -27,7 +27,7 @@
                 </div>
                 <div class="text-center date-body" ng-click="showDetailsButton(judge)">
                     <div>
-                        <img ng-src="{{judge.image}}" />
+                        <img ng-src="{{judge.image}}" style="height:105px;width:85px"/>
                     </div>
                 </div>
             </div>
@@ -55,13 +55,14 @@
     <br>
     <div id='jPrint' class="table_width">
         <h3 style="text-align:center"><span class="case_title">Judge Name : </span><i>{{judgeObject.name}}</i></h3>
-        <h3 style="text-align:center;line-height: 0;"><span class="case_title">Court name : </span><i>{{judgeObject.court}}</i></h3>
+        <h3 style="text-align:center;"><span class="case_title">Court name : </span><i>{{judgeObject.court}}</i></h3>
         <!--Judge Name : {{judgeObject.name}} <br>-->
         <!--Court name : {{judgeObject.court}} -->
-        <br>
+        <div>
         <img src="{{judgeObject.image}}" / style="height:150px;width:150px;float:right;margin-top:30px;"> <br>
-        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">About : </span> {{judgeObject.about}}</p> <br>
-        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">Remarks :</span> {{judgeObject.remarks}}</p> <br>
+        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">About : </span> {{judgeObject.about}}</p> 
+        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">Remarks :</span> {{judgeObject.remarks}}</p> 
+        </div>
     </div>
 
 </div>

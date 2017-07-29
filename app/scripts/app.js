@@ -20,8 +20,8 @@ angular
 
   ])
 
-  .constant("requrl","http://mynovus.xyz/app")
-  .constant("phpurl","http://mynovus.xyz")
+  .constant("requrl","http://myemunshi.com/app")
+  .constant("phpurl","http://myemunshi.com")
 
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider

@@ -159,6 +159,7 @@ angular.module('novusApp')
             promise.then(function (data) {
                 if (data.data === "success") {
                     var notif={
+                        message:"New case added",
                         number :obj.diarynumber,
                         year:obj.year,
                         type:"Supreme"
@@ -219,6 +220,7 @@ angular.module('novusApp')
                 console.log("received data", data.data);
                 if (data.data === "success") {
                     var notif={
+                        message:"Case will be added shortly",
                         number :obj.number,
                         year:obj.year,
                         type:"District"
@@ -265,6 +267,7 @@ angular.module('novusApp')
                 console.log("received data", data.data);
                 if (data.data === "success") {
                     var notif={
+                        message:"New case added",
                         number :obj.number,
                         year:obj.year,
                         type:"High"

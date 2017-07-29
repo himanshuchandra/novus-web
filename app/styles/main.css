@@ -168,7 +168,9 @@ body {
 
 #comp_logo{
     display:inline-block;
-    margin-left: 45%;
+    margin-left: 44%;
+    width:20%;
+    margin-top:2%;
 }
 
 #comp_logo img{
@@ -264,9 +266,13 @@ body {
     margin-left: 25%;
 }
 
+#btn_holder > button{
+    width: 70% ;
+}
+
 .dash,.sub-menu>a>span{
     font-size: 20px !important;
-    font-weight: 200;
+    font-weight: 400;
     font-family: Roboto,sans-serif !important;
 }
 
@@ -352,19 +358,18 @@ body {
 }
 
 .down_list{
-    padding: 0xp;
+    padding: 0px !important;
 }
 
 .down_table{
     width: 100%;
 }
 .down_td{
+    border-bottom: 1px solid black;
     text-align: center;
 }
 
-.down_row{
-    /*border-bottom: 1px solid black;*/
-}
+
 
 
 /*profile*/
@@ -409,8 +414,9 @@ body {
 
 #signup_horizontal{
     display: grid;
-    grid-template-columns: 50% 50% !important;
-    grid-gap: 4px !important;
+    grid-template-columns: 48% 48% !important;
+    grid-gap: 14px !important;
+    grid-row-gap:12 !important;
 }
 
 @media print {
@@ -427,4 +433,19 @@ body {
 .modal{
     left:20%;
     top:30%;
+}
+
+.comingSoon{
+    position: fixed;
+    width: 50%;
+    top: 10%;
+    left: 35%;
+}
+
+#printAll{
+    color: black;
+    font-size: 40px;
+    position: fixed;
+    right: 52px;
+    top: 14%;
 }

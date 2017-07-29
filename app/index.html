@@ -7,13 +7,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="icon" href="./favicon.png">
     <!--<script src="bower_components/please-wait/build/please-wait.min.js"></script>-->
     <script src="bower_components/angular/angular.js"></script>
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap-toggle/css/bootstrap-toggle.min.css" />
+    <!-- <link rel="stylesheet" href="bower_components/bootstrap-toggle/css/bootstrap-toggle.min.css" /> -->
     <link rel="stylesheet" href="bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css" />
+    
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -25,6 +27,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/style-responsive.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bootstrap2-toggle.min.css">
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -86,14 +89,14 @@
                                     </li>
                                     <li style="transform: scaleX(-1);" ng-repeat="case in notifications">
                                         <!--<a href="index.html#" style="display: flex;flex: 2;">-->
-                                            <div class="task-info" style="flex: 1;">
-                                                <p>New Case added</p>
-                                                 <div>Court Type: {{case.type}}</div>
-                                                 <div>Case number/Diary number: {{case.number}}</div>
-                                                 <div>Case Year: {{case.year}}</div>
-                                            </div>
+                                        <div class="task-info" style="flex: 1;">
+                                            <p>{{case.message}}</p>
+                                            <div>Court Type: {{case.type}}</div>
+                                            <div>Case number/Diary number: {{case.number}}</div>
+                                            <div>Case Year: {{case.year}}</div>
+                                        </div>
 
-                                         <!--</a>-->
+                                        <!--</a>-->
                                     </li>
                                     <!--<li>
                                         <a href="index.html#">
@@ -216,20 +219,20 @@
                             </li>
                             <li class="sub-menu">
                                 <a href="/app/#calendar">
-                          <i class="fa fa-calendar"></i>
+                          <i class="fa fa-calendar-check-o"></i>
                           <span>Calender View</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/app/#causelist">
-                          <i class="fa fa-list"></i>
-                          <span>Cause List</span>
+                                <a href="/app/#taskmanager">
+                          <i class="fa fa-gavel"></i>
+                          <span>Judge List</span>
                       </a>
                             </li>
                             <li class="sub-menu">
-                                <a href="/app/#taskmanager">
-                          <i class="fa fa-tasks"></i>
-                          <span>Judge List</span>
+                                <a href="/app/#causelist">
+                          <i class="fa fa-list-ol"></i>
+                          <span>Cause List</span>
                       </a>
                             </li>
                             <li class="sub-menu">
@@ -240,7 +243,7 @@
                             </li>
                             <li class="sub-menu">
                                 <a href="/app/#expensemanager">
-                          <i class="fa fa-credit-card-alt"></i>
+                          <i class="fa fa-credit-card"></i>
                           <span>Expense Manager</span>
                       </a>
                             </li>
@@ -252,7 +255,7 @@
                             </li>
                             <li class="sub-menu">
                                 <a href="/app/#chat">
-                          <i class="fa fa-comments"></i>
+                          <i class="fa fa-whatsapp"></i>
                           <span>Help/Live Chat</span>
                       </a>
                             </li>
@@ -274,7 +277,7 @@
                   <i class="fa fa-user-plus"></i>
                   <span>Signup</span>
                   </a></li>
-                                <!--</li>
+                            <!--</li>
                             <li ng-hide="LoginButton" class="sub-menu resp_disp">
                                 <a class="nav-a" ng-href="/app/#login">
                   <i class="fa fa-sign-in"></i>
@@ -282,14 +285,14 @@
                   </a>
                             </li>-->
 
-                                <li ng-hide="ProfileButton" class="sub-menu resp_disp">
-                                    <a class="nav-a" ng-href="/app/#profile">
+                            <li ng-hide="ProfileButton" class="sub-menu resp_disp">
+                                <a class="nav-a" ng-href="/app/#profile">
                   <i class="fa fa-user"></i>
                   <span>My account</span></a></li>
-                   <!--<div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div>-->
+                            <!--<div ng-hide="LogoutButton" ng-cloak><button class="logout_button" type="button" ng-click="Logout()">Logout</button>{{LogoutMessage}}</div>-->
 
-                  <li ng-hide="LogoutButton" ng-cloak class="sub-menu resp_disp">
-                                    <a class="nav-a" ng-href="#" ng-click="Logout()">
+                            <li ng-hide="LogoutButton" ng-cloak class="sub-menu resp_disp">
+                                <a class="nav-a" ng-href="#" ng-click="Logout()">
                   <i class="fa fa-sign-out"></i>
                   <span>Logout</span></a></li>
 
@@ -359,7 +362,7 @@
     <script src="bower_components/angular-md5/angular-md5.js"></script>
     <script src="bower_components/ng-country-select/dist/ng-country-select.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-    <script src="bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+    <!-- <script src="bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js"></script> -->
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js"></script>
     <!-- endbower -->
@@ -372,7 +375,7 @@
     <script src="scripts/libs/jquery.nicescroll.js"></script>
     <!--common script for all pages-->
     <script src="scripts/libs/common-scripts.js"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>      
+    <script src="scripts/libs/bootstrap-toggle.min.js"></script>
     <!--stylingjs-->
 
     <!--script for this page-->
