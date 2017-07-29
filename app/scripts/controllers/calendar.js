@@ -148,6 +148,10 @@ angular.module('novusApp')
             newWin.document.write(divToPrint.outerHTML);
             newWin.print();
             newWin.close();
-        }
+        };
 
+        $scope.$watch(function () { return webindex.events }, function (newValue, oldValue) {
+            console.log(webindex.events);
+            vm.events = webindex.events;
+        }, true);
     });
