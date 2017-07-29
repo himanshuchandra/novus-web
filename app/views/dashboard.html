@@ -411,9 +411,9 @@
 
                 <tr class="bgInfo">
 
-                    <td class="td_border" colspan="3"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
+                    <td class="td_border" colspan="2"><span class="case_title">POLICE STATION :</span>{{dcdetails.police_station}}</td>
                     <td class="td_border" colspan="2"><span class="case_title">FIR NUMBER :</span>{{dcdetails.fir_number}}</td>
-                    <td class="td_border" colspan="2"><span class="case_title">DATED :</span>{{dcdetails.fir_year}}</td>
+                    <td class="td_border" colspan="3"><span class="case_title">DATED :</span>{{dcdetails.fir_year}}</td>
 
                 </tr>
 
@@ -450,22 +450,22 @@
         </td>
         <td class="td_border down_list">
             <table class="down_table">
-                <tr class="down_row">
-                    <td class="down_td"><span class="case_title"></span>{{dcdetails.final_hearing_date_list}}</td>
+                <tr class="down_row" ng-repeat="dates in dcdetails.final_hearing_date_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{dates}}</td>
                 </tr>
             </table>
         </td>
         <td class="td_border down_list" colspan="2">
             <table class="down_table">
-                <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_hearing_date_list track by $index">
+                <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_purpose_of_hearing_list track by $index">
                     <td class="down_td" colspan="2"><span class="case_title"></span>{{hearingDate}}</td>
                 </tr>
             </table>
         </td>
         <td class="td_border down_list">
             <table class="down_table">
-                <tr class="down_row" ng-repeat="orderDate in dcdetails.final_interim_order_date_list track by $index">
-                    <td class="down_td"><span class="case_title"></span>{{orderDate}}</td>
+                <tr class="down_row" ng-repeat="orderPurpose in dcdetails.final_interim_order_date_list track by $index">
+                    <td class="down_td"><span class="case_title"></span>{{orderPurpose}}</td>
                 </tr>
             </table>
         </td>
