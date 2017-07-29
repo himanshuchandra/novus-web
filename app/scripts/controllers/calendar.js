@@ -140,4 +140,12 @@ angular.module('novusApp')
 
         };
 
+        $scope.printDiv = function (div) {
+            var divToPrint = document.getElementById(div);
+            var newWin = window.open("");
+            newWin.document.write(divToPrint.outerHTML);
+            newWin.print();
+            newWin.close();
+        }
+
     });
