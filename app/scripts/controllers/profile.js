@@ -53,6 +53,7 @@ angular.module('novusApp')
 
         $scope.$watch(function () { return webindex.userData }, function (newValue, oldValue) {
             $scope.TotalCases = webindex.userData.Scases + webindex.userData.Hcases + webindex.userData.Dcases;
+            $scope.TotalCases = isNaN(parseInt($scope.TotalCases))?0:parseInt($scope.TotalCases);
         }, true);
 
         // $scope.loadData=function(){
