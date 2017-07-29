@@ -413,8 +413,9 @@ body {
 
 #signup_horizontal{
     display: grid;
-    grid-template-columns: 50% 50% !important;
-    grid-gap: 4px !important;
+    grid-template-columns: 48% 48% !important;
+    grid-gap: 14px !important;
+    grid-row-gap:12 !important;
 }
 
 @media print {
