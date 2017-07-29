@@ -358,19 +358,18 @@ body {
 }
 
 .down_list{
-    padding: 0xp;
+    padding: 0px !important;
 }
 
 .down_table{
     width: 100%;
 }
 .down_td{
+    border: 1px solid black;
     text-align: center;
 }
 
-.down_row{
-    /*border-bottom: 1px solid black;*/
-}
+
 
 
 /*profile*/
