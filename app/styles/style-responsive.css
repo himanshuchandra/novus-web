@@ -317,6 +317,12 @@
 
 
 @media (max-width: 480px) {
+    .comingSoon{
+    position: fixed;
+    width: 50%;
+    top: 10%;
+    left: 25%;
+}
     #comp_logo{
     display:inline-block;
     margin-left: 34%;
