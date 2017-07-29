@@ -216,6 +216,18 @@ angular.module('novusApp')
         $scope.highCaseDetails = false;
       }
       else if (type === 'd') {
+        if(caseObj.police_station===undefined || caseObj.police_station==="" || caseObj.police_station==="None"){
+          $scope.firHide=true;
+        }
+        else{
+          $scope.firHide=false;
+        }
+        if(caseObj.final_case_transfer_transfer_date_list[0]===undefined || caseObj.final_case_transfer_transfer_date_list[0]===""){
+          $scope.caseTransferHide=true;
+        }
+        else{
+          $scope.caseTransferHide=false;
+        }
         $scope.dcdetails = caseObj;
         $scope.districtCaseDetails = false;
       }
