@@ -441,3 +441,11 @@ body {
     top: 10%;
     left: 35%;
 }
+
+#printAll{
+    color: black;
+    font-size: 40px;
+    position: fixed;
+    right: 52px;
+    top: 14%;
+}
