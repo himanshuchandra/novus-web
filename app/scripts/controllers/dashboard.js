@@ -75,7 +75,7 @@ angular.module('novusApp')
             var event ={
               title : data.data[i].petitioners+"VS"+data.data[i].respondents,
               color : calendarConfig.important,
-              startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
+              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
               endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
             }
             webindex.events.push(event);
@@ -121,7 +121,7 @@ angular.module('novusApp')
             var event ={
               title : data.data[i].petitioner+"VS"+data.data[i].respondent,
               color : calendarConfig.warning,
-              startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
+              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
               endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
             }
             webindex.events.push(event);
@@ -214,7 +214,7 @@ angular.module('novusApp')
             var event ={
               title : data.data[i].petitioner_and_advocate+"VS"+data.data[i].respondent_and_advocate,
               color : calendarConfig.info,
-              startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
+              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
               endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
             }
             webindex.events.push(event);
