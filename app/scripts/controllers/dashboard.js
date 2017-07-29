@@ -67,6 +67,11 @@ angular.module('novusApp')
               data.data[i].visMonth = data.data[i].next_date.slice(3, 5);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
+            else{
+              data.data[i].visDate = "next";
+              data.data[i].visYear = "date";
+              data.data[i].visMonth = "Enter";
+            }
           }
           $scope.Scases = data.data;
 
@@ -168,14 +173,14 @@ angular.module('novusApp')
                   data.data[i][key] = $scope.splitString(data.data[i][key]);
                 }
                 else if(data.data[i][key]!=undefined){
-                  data.data[i][key] = data.data[i][key].split('`');
+                  data.data[i][key] = data.data[i][key].split('~');
                 }
               }
             });
             if (data.data[i].status === "waiting") {
                 data.data[i].status = "This case will be added shortly!";
             }
-            else if(data.data[i].status === "Successfull"){
+            else if(data.data[i].status === "success"){
                 data.data[i].status = "";
             }
             if (data.data[i].final_hearing_date_list!=undefined){
@@ -186,6 +191,11 @@ angular.module('novusApp')
               data.data[i].visYear = data.data[i].lastHearingDate.slice(6, 10);
               data.data[i].visMonth = data.data[i].lastHearingDate.slice(3, 5);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
+            }
+            else{
+              data.data[i].visDate = " ";
+              data.data[i].visYear = " ";
+              data.data[i].visMonth = " ";
             }
           }
           $scope.Dcases = data.data;
@@ -242,6 +252,14 @@ angular.module('novusApp')
     $scope.setDateDb = function () {
       var sdate=$scope.dashboard.nxtDate.getDate();
       var smonth=$scope.dashboard.nxtDate.getMonth()+1;
+      sdate=parseInt(sdate);
+      if(sdate<10){
+        sdate='0'+sdate;
+      }
+      smonth=parseInt(smonth);
+      if(smonth<10){
+        smonth='0'+smonth;
+      }
       var syear=$scope.dashboard.nxtDate.getFullYear();
       var finaldate = sdate+"/"+smonth+'/'+syear;
 
