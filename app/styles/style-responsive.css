@@ -317,6 +317,12 @@
 
 
 @media (max-width: 480px) {
+    #comp_logo{
+    display:inline-block;
+    margin-left: 34%;
+    width:30%;
+    margin-top:2%;
+   }
     #btn_holder > button{
     width: 90% ;
 }

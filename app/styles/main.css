@@ -168,7 +168,9 @@ body {
 
 #comp_logo{
     display:inline-block;
-    margin-left: 45%;
+    margin-left: 40%;
+    width:20%;
+    margin-top:2%;
 }
 
 #comp_logo img{
