@@ -429,5 +429,7 @@ angular.module('novusApp')
       newWin.print();
       newWin.close();
     }
+//     var momentObj = moment(dateString, 'MM-DD-YYYY');
+// var momentString = momentObj.format('YYYY-MM-DD');
 
   });
