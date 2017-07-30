@@ -329,6 +329,10 @@
 
 
 @media (max-width: 480px) {
+    #dist_table{
+        display: inline-block !important;
+        padding-left: 0px !important;
+    }
     .SC_btn{
         padding-left: 5px;
     }
