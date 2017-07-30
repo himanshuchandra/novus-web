@@ -72,11 +72,13 @@ angular.module('novusApp')
               data.data[i].visYear = "date";
               data.data[i].visMonth = "Enter";
             }
+
+            var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioners+" VS "+data.data[i].respondents,
               color : calendarConfig.important,
-              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
-              endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+              startsAt: mdate,
+              endsAt: mdate,
             }
             webindex.events.push(event);
           }
@@ -118,11 +120,12 @@ angular.module('novusApp')
             if (data.data[i].respondent != undefined) {
               data.data[i].rs = data.data[i].respondent.slice(0, 25);
             }
+            var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioner+" VS "+data.data[i].respondent,
               color : calendarConfig.warning,
-              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
-              endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+              startsAt: mdate,
+              endsAt: mdate,
             }
             webindex.events.push(event);
           }
@@ -211,11 +214,12 @@ angular.module('novusApp')
               data.data[i].visYear = " ";
               data.data[i].visMonth = " ";
             }
+            var mdate=moment(data.data[i].lastHearingDate,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioner_and_advocate+" VS "+data.data[i].respondent_and_advocate,
               color : calendarConfig.info,
-              startsAt: moment().startOf('week').subtract(1, 'days').add(8, 'hours').toDate(),
-              endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+              startsAt: mdate,
+              endsAt: mdate,
             }
             webindex.events.push(event);
           }
