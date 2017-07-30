@@ -22,7 +22,12 @@ angular.module('novusApp')
                         $window.location.assign(requrl + '/#/dashboard');
                     }
                 }
-                else if ($location.path() === '/dashboard' || $location.path() === '/addcase' || $location.path() === '/') {
+                else if ($location.path() === '/dashboard' ||
+                    $location.path() === '/addcase' ||
+                    $location.path() === '/profile' ||
+                    $location.path() === '/calendar' ||
+                    $location.path() === '/taskmanager' ||
+                    $location.path() === '/') {
                     if (webindex.loggedIn != true) {
                         // $window.location.reload();
                         $window.location.assign(requrl + '/#/login');

@@ -31,6 +31,7 @@ angular.module('novusApp')
       $scope.loadSupreme();
       $scope.loadHigh();
       $scope.loadDistrict();
+      webindex.events={};
     };
 
     var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
@@ -76,7 +77,7 @@ angular.module('novusApp')
             var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioners+" VS "+data.data[i].respondents,
-              color : calendarConfig.important,
+              color : calendarConfig.ered,
               startsAt: mdate,
               endsAt: mdate,
             }
@@ -123,7 +124,7 @@ angular.module('novusApp')
             var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioner+" VS "+data.data[i].respondent,
-              color : calendarConfig.warning,
+              color : calendarConfig.egreen,
               startsAt: mdate,
               endsAt: mdate,
             }
@@ -217,7 +218,7 @@ angular.module('novusApp')
             var mdate=moment(data.data[i].lastHearingDate,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioner_and_advocate+" VS "+data.data[i].respondent_and_advocate,
-              color : calendarConfig.info,
+              color : calendarConfig.blue,
               startsAt: mdate,
               endsAt: mdate,
             }
