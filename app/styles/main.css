@@ -453,3 +453,7 @@ body {
 .nclicked{
    background: rgb(245,245,245);
 }
+
+.goBack{
+    width: 70%;
+}

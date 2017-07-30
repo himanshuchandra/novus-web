@@ -361,6 +361,11 @@
     #btn_holder > button{
     width: 90% ;
 }
+
+.goBack{
+    width: 90% !important;
+}
+
     .passBTN{
         display: block !important;
     }
