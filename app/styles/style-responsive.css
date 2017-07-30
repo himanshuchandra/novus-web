@@ -6,6 +6,11 @@
 
 }
 @media(min-width:1100px){
+     #printAll{
+    
+    right: 52px !important;
+    top: 12.5% !important;
+}
     #comp_logo{
         margin-left: 47%;
     }
@@ -19,9 +24,9 @@
 
 @media(min-width:1400px){
     #printAll{
-    color: black;
+    /*color: black;
     font-size: 40px;
-    position: fixed;
+    position: fixed;*/
     right: 52px;
     top: 12.5%;
 }
@@ -324,6 +329,9 @@
 
 
 @media (max-width: 480px) {
+    .SC_btn{
+        padding-left: 5px;
+    }
    .passchange{
     margin-left: 0 !important;
 }

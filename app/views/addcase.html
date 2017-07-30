@@ -14,7 +14,7 @@
     <div id="button_section" class="row" style="display:flex">
 
 
-        <button id="SC" data-form="supremeFormHide" ng-click="showSCField()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">Supreme Court</button>
+        <button id="SC" class="SC_btn" data-form="supremeFormHide" ng-click="showSCField()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">Supreme Court</button>
         <button id="HC" data-form="highFormHide" ng-click="showHCField()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">High Court</button>
         <button id="DC" data-form="districtFormHide" ng-click="showDCField()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">District Court</button>
         <button id="TC" ng-click="showTCField()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">Tribunals</button>
@@ -64,7 +64,7 @@
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
                 </div>
                 <br>
-                <input type="submit" class="btn btn-success" style="width: 19%;font-weight: 900;font-size: 18px;" ng-click="supremeSubmitted=true;" value="Search">
+                <input type="submit" class="btn btn-success" style="width: 25%;font-weight: 900;font-size: 18px;" ng-click="supremeSubmitted=true;" value="Search">
 
             </form>
             {{supremeMessage}}
@@ -121,7 +121,7 @@
      highForm.year.$error.pattern">
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
                 <br>
-                <input type="submit" class="btn btn-success" ng-click="highSubmitted=true;" style="width: 19%;font-weight: 900;font-size: 18px;" ng-click="supremeSubmitted=true;" value="Search">
+                <input type="submit" class="btn btn-success" ng-click="highSubmitted=true;" style="width: 25%;font-weight: 900;font-size: 18px;" ng-click="supremeSubmitted=true;" value="Search">
             </form>
             {{highMessage}}
 
@@ -179,7 +179,7 @@
      districtForm.year.$error.pattern">
      Invalid year(Only 0-9 and 4 chars allowed,without any spaces)  </span>
                 <br>
-                <input type="submit" class="btn btn-success" ng-click="districtSubmitted=true;" style="width: 19%;font-weight: 900;font-size: 18px;" ng-click="supremeSubmitted=true;" value="Search">
+                <input type="submit" class="btn btn-success" ng-click="districtSubmitted=true;" style="width: 25%;font-weight: 900;font-size: 18px;" ng-click="supremeSubmitted=true;" value="Search">
             </form>
             {{districtMessage}}
 
