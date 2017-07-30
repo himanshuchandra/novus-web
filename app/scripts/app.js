@@ -17,6 +17,7 @@ angular
     'countrySelect',
     'ngFileUpload',
     'mwl.calendar',
+    'ui.toggle'
 
   ])
 
