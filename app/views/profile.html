@@ -129,19 +129,19 @@
                                         </tr>
                                         <tr>
                                             <td>Daily updates</td>
-                                            <td><toggle ng-model="toggleValue" ng-change="changed()" size="btn-sm"></toggle></td>
+                                            <td><toggle ng-model="toggleUpdates" size="btn-sm"></toggle></td>
                                         </tr>
                                         <tr>
                                             <td>Task Reminders</td>
-                                            <td><toggle ng-model="toggleValue" ng-change="changed()" size="btn-sm"></toggle></td>
+                                            <td><toggle ng-model="toggleReminders" size="btn-sm"></toggle></td>
                                         </tr>
                                         <tr>
                                             <td>File Number in Workspace</td>
-                                            <td><toggle ng-model="toggleValue" ng-change="changed()" size="btn-sm"></toggle></td>
+                                            <td><toggle ng-model="toggleFiles" size="btn-sm"></toggle></td>
                                         </tr>
                                         <tr>
                                             <td>Invoicing</td>
-                                            <td><toggle ng-model="toggleValue" ng-change="changed()" size="btn-sm"></toggle></td>
+                                            <td><toggle ng-model="toggleInvoicing" size="btn-sm"></toggle></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -310,7 +310,7 @@
      passForm.oldpass.$error.pattern">
      password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
 <br>
- <label>New Password:</label>   
+ <label>New Password:</label>
 <input type="password" class="form-control" ng-keyup="checkPassword()" ng-model="profile.newPassword" name="newpass" placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&amp;*()_.]{8,25}" required="">
             <span ng-show="passForm.newpass.$touched &amp;&amp; passForm.newpass.$error.pattern &amp;&amp;
     !passForm.newpass.$error.required">
@@ -331,7 +331,7 @@
  <div class="modal-footer" style="padding: 0;padding-top: 5px;">
 <button ng-click="PasswordForm=true;PasswordFormButton=false;profileData=false" class="btn btn-theme" style="display: block;margin-left: 40%;">Cancel</button>
 
-    
+
  </div>
 
 

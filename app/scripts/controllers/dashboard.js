@@ -31,6 +31,7 @@ angular.module('novusApp')
       $scope.loadSupreme();
       $scope.loadHigh();
       $scope.loadDistrict();
+      webindex.events=[];
     };
 
     var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
@@ -76,7 +77,7 @@ angular.module('novusApp')
             var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioners+" VS "+data.data[i].respondents,
-              color : calendarConfig.important,
+              color : calendarConfig.colorTypes.ered,
               startsAt: mdate,
               endsAt: mdate,
             }
@@ -123,7 +124,7 @@ angular.module('novusApp')
             var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioner+" VS "+data.data[i].respondent,
-              color : calendarConfig.warning,
+              color : calendarConfig.colorTypes.egreen,
               startsAt: mdate,
               endsAt: mdate,
             }
@@ -186,7 +187,7 @@ angular.module('novusApp')
             Object.keys(data.data[i]).forEach(function (key) {
               if (key.startsWith('final') && data.data[i][key] != undefined) {
                 data.data[i][key] = data.data[i][key].replace(/['"]+/g, '');
-                if(key!="final_interim_order_file_list"){
+                if(key!="final_interim_order_file_list" || key!="final_final_judgement_order_file_list"){
                   data.data[i][key] = $scope.splitString(data.data[i][key]);
                 }
                 else if(data.data[i][key]!=undefined){
@@ -217,7 +218,7 @@ angular.module('novusApp')
             var mdate=moment(data.data[i].lastHearingDate,'DD/MM/YYYY');
             var event ={
               title : data.data[i].petitioner_and_advocate+" VS "+data.data[i].respondent_and_advocate,
-              color : calendarConfig.info,
+              color : calendarConfig.colorTypes.blue,
               startsAt: mdate,
               endsAt: mdate,
             }
