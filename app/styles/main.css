@@ -449,3 +449,7 @@ body {
     right: 52px;
     top: 14%;
 }
+
+.nclicked{
+   background: rgb(245,245,245);
+}
