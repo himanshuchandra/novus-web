@@ -329,6 +329,9 @@
 
 
 @media (max-width: 480px) {
+    #supreme_table{
+         padding-left: 0px !important;
+    }
     #dist_table{
         display: inline-block !important;
         padding-left: 0px !important;
