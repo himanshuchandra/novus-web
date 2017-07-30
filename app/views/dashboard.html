@@ -394,10 +394,10 @@
                 <tr class="bgInfo">
 
 
-                    <td class="td_border"><span class="case_title"><b>JUDGE</b></td>
+                    <td class="td_border" colspan="2"><span class="case_title"><b>JUDGE</b></td>
                 <td class="td_border" ><span class="case_title"><b>BUSINESS ON DATE</b></td>
                 <td class="td_border" ><span class="case_title"><b>HEARING DATE</b></td>
-                <td class="td_border" colspan="2"><span class="case_title"><b>PURPOSE OF HEARING</b></td>
+                <td class="td_border" ><span class="case_title"><b>PURPOSE OF HEARING</b></td>
                 <td class="td_border" ><span class="case_title"><b>ORDER DATE</b></td>
                 <td class="td_border" ><span class="case_title"><b>ORDER DETAILS</b></td>
 
@@ -405,7 +405,7 @@
 
             <tr class="bgInfo" >
 
-                <td  class="td_border down_list" >
+                <td  class="td_border down_list" colspan="2">
                     <table class="down_table">
                         <tr class="down_row" ng-repeat="judge in dcdetails.final_judge_list track by $index">
                             <td class="down_td"><span class="case_title"></span>{{judge}}</td>
@@ -426,7 +426,7 @@
                 </tr>
             </table>
         </td>
-        <td class="td_border down_list" colspan="2">
+        <td class="td_border down_list" >
             <table class="down_table">
                 <tr class="down_row" ng-repeat="hearingDate in dcdetails.final_purpose_of_hearing_list track by $index">
                     <td class="down_td" colspan="2"><span class="case_title"></span>{{hearingDate}}</td>
