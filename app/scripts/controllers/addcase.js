@@ -165,6 +165,7 @@ angular.module('novusApp')
                         type:"Supreme"
                     }
                     webindex.notifications.push(notif);
+                    webindex.userData.Scases = webindex.userData.Scases + 1;
                     $scope.supremeMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {
@@ -226,6 +227,7 @@ angular.module('novusApp')
                         type:"District"
                     }
                     webindex.notifications.push(notif);
+                    webindex.userData.Dcases = webindex.userData.Dcases + 1;
                     $scope.districtMessage = "The case will be added shortly.";
                 }
                 else if (data.data === "aadded") {
@@ -273,6 +275,7 @@ angular.module('novusApp')
                         type:"High"
                     }
                     webindex.notifications.push(notif);
+                    webindex.userData.Hcases = webindex.userData.Hcases + 1;
                     $scope.highMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {
