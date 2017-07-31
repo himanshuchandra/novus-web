@@ -153,8 +153,8 @@ angular.module('novusApp')
             $route.reload();
         };
 
-        $scope.nclicked=function(index){
-            $scope.notifications[index].clicked=true;
-        };
+        // $scope.nclicked=function(index){
+        //     $scope.notifications[index].clicked=true;
+        // };
 
     });
