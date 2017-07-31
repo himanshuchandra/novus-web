@@ -332,8 +332,8 @@
     #supreme_table{
          padding-left: 0px !important;
     }
-    .dist_table{
-        display: inline-grid !important;
+    #dist_table{
+       width: 200% !important;
         padding-left: 0px !important;
     }
     .SC_btn{
