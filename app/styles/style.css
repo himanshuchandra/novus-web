@@ -794,14 +794,17 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .sidebar-closed > #sidebar > ul {
     display: none;
+    transition: 1.4s;
 }
 
 .sidebar-closed #main-content {
     margin-left: 0px;
+   
 }
 
 .sidebar-closed #sidebar {
     margin-left: -180px;
+    transition: 1.4s;
 }
 
 
