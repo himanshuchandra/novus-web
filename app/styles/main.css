@@ -87,8 +87,8 @@ body {
 .panel.disabled .panel-body {
     position: relative;
 /*    font-size: 12px;*/
-   
-    
+
+
 }
 
 .panel-body>div{
@@ -99,7 +99,7 @@ body {
 .panel-body{
     display: flex;
     flex: 5;
-    
+
 }
 .contents{
     flex: 2
@@ -149,7 +149,7 @@ body {
   margin: 0; font-size: 25px; font-weight: bold;
 }
 .nomargin{
-       
+
   margin: -2px;
 }
 
@@ -181,7 +181,7 @@ body {
 }
 
 #login-page {
-        
+
         /*height: 150vh;*/
         /*margin: 0 -14px;*/
         margin-left: -234px;
@@ -209,19 +209,19 @@ body {
 }
 
 #del_img{
-    
+
     font-size: 20px;
     position: absolute;
     right: 60%;
     bottom: 10%;
-   
-    
+
+
 }
 
 .case_title{
     font-weight: 700;
     color: black;
-    
+
 }
 
 .table_heading{
@@ -451,7 +451,7 @@ body {
 }
 
 .nclicked{
-   background: rgb(245,245,245);
+   background: white;
 }
 
 .goBack{

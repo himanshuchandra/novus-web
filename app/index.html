@@ -87,7 +87,7 @@
                                     <li>
                                         <p class="green" style="font-size: 14px;font-weight: 900;text-align: center;">You have added {{totalCases}} cases</p>
                                     </li>
-                                    <li style="transform: scaleX(-1);" ng-repeat="case in notifications track by $index" ng-class="nclicked:-1!=nclicked.indexOf($index)" ng-click="nclicked.push($index)">
+                                    <li style="transform: scaleX(-1);" ng-repeat="case in notifications track by $index" ng-class="nclicked:case.clicked" ng-click="nclicked($index)">
                                         <!--<a href="index.html#" style="display: flex;flex: 2;">-->
                                         <div class="task-info" style="flex: 1;">
                                             <p>{{case.message}}</p>

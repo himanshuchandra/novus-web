@@ -97,7 +97,7 @@ angular.module('novusApp')
         ///////////notifications
         $scope.nlength = 0;
         $scope.updateNotif = function () {
-            $scope.notifications = webindex.notifications;
+            $scope.notifications = webindex.notifications.reverse();
             $scope.totalCases = $scope.totalCases + 1;
             $scope.nlength++;
         }
@@ -151,6 +151,10 @@ angular.module('novusApp')
         $scope.dshowCasesButton = function () {
             $window.location.assign(requrl + '/#/dashboard');
             $route.reload();
+        };
+
+        $scope.nclicked=function(index){
+            $scope.notifications[index].clicked=true;
         };
 
     });
