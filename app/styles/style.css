@@ -456,11 +456,11 @@ ul.sidebar-menu li a.active i {
 }*/
 a.logo {
     font-size: 20px;
-    /*color: #ffffff;*/
+    
     color: black;
     background: #13B1E0;
     float: left;
-    line-height: 3;
+    line-height: 4;
     margin-top: 15px;
     text-transform: uppercase;
 }
