@@ -63,9 +63,9 @@ angular.module('novusApp')
               data.data[i].rs = data.data[i].respondents.slice(0, 25);
             }
             if (data.data[i].next_date != "" && data.data[i].next_date != null) {
-              data.data[i].visDate = data.data[i].next_date.slice(0, 2);
-              data.data[i].visYear = data.data[i].next_date.slice(6, 10);
-              data.data[i].visMonth = data.data[i].next_date.slice(3, 5);
+              data.data[i].visDate = data.data[i].next_date.slice(8, 10);
+              data.data[i].visYear = data.data[i].next_date.slice(0, 4);
+              data.data[i].visMonth = data.data[i].next_date.slice(5, 7);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
             else{
@@ -74,7 +74,7 @@ angular.module('novusApp')
               data.data[i].visMonth = "Enter";
             }
 
-            var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
+            var mdate=moment(data.data[i].next_date,'YYYY/MM/DD');
             var event ={
               title : data.data[i].petitioners+" VS "+data.data[i].respondents,
               color : calendarConfig.colorTypes.ered,
@@ -110,9 +110,9 @@ angular.module('novusApp')
               data.data[i].file_path = $scope.splitString(data.data[i].file_path);
             }
             if (data.data[i].next_date != "" && data.data[i].next_date != null) {
-              data.data[i].visDate = data.data[i].next_date.slice(0, 2);
-              data.data[i].visYear = data.data[i].next_date.slice(6, 10);
-              data.data[i].visMonth = data.data[i].next_date.slice(3, 5);
+              data.data[i].visDate = data.data[i].next_date.slice(8, 10);
+              data.data[i].visYear = data.data[i].next_date.slice(0, 4);
+              data.data[i].visMonth = data.data[i].next_date.slice(5, 7);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
             if (data.data[i].petitioner != undefined) {
@@ -121,7 +121,7 @@ angular.module('novusApp')
             if (data.data[i].respondent != undefined) {
               data.data[i].rs = data.data[i].respondent.slice(0, 25);
             }
-            var mdate=moment(data.data[i].next_date,'DD/MM/YYYY');
+            var mdate=moment(data.data[i].next_date,'YYYY/MM/DD');
             var event ={
               title : data.data[i].petitioner+" VS "+data.data[i].respondent,
               color : calendarConfig.colorTypes.egreen,
@@ -205,9 +205,9 @@ angular.module('novusApp')
                 data.data[i].lastHearingDate=data.data[i].final_hearing_date_list[data.data[i].final_hearing_date_list.length-1];
             }
             if (data.data[i].lastHearingDate != "" && data.data[i].lastHearingDate != null) {
-              data.data[i].visDate = data.data[i].lastHearingDate.slice(0, 2);
-              data.data[i].visYear = data.data[i].lastHearingDate.slice(6, 10);
-              data.data[i].visMonth = data.data[i].lastHearingDate.slice(3, 5);
+              data.data[i].visDate = data.data[i].lastHearingDate.slice(8, 10);
+              data.data[i].visYear = data.data[i].lastHearingDate.slice(0, 4);
+              data.data[i].visMonth = data.data[i].lastHearingDate.slice(5, 7);
               data.data[i].visMonth = $scope.month(data.data[i].visMonth);
             }
             else{
@@ -215,7 +215,7 @@ angular.module('novusApp')
               data.data[i].visYear = " ";
               data.data[i].visMonth = " ";
             }
-            var mdate=moment(data.data[i].lastHearingDate,'DD/MM/YYYY');
+            var mdate=moment(data.data[i].lastHearingDate,'YYYY/MM/DD');
             var event ={
               title : data.data[i].petitioner_and_advocate+" VS "+data.data[i].respondent_and_advocate,
               color : calendarConfig.colorTypes.blue,
@@ -245,7 +245,7 @@ angular.module('novusApp')
     $scope.showDetailsButton = function (caseObj, type) {
       $scope.hideDashboard = true;
       if (type === 's') {
-        if (caseObj.next_date === null) {
+        if (caseObj.next_date === null || caseObj.next_date === "") {
           $scope.nxtDatePopup = false;
           $scope.sdcase=caseObj;
         }
@@ -287,7 +287,7 @@ angular.module('novusApp')
         smonth='0'+smonth;
       }
       var syear=$scope.dashboard.nxtDate.getFullYear();
-      var finaldate = sdate+"/"+smonth+'/'+syear;
+      var finaldate = syear+"/"+smonth+'/'+sdate;
 
       var dateObj = {
         "date": finaldate,
