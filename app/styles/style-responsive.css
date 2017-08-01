@@ -6,6 +6,21 @@
 
 }
 
+@media(min-width:360px){
+    .contents_respo >div {
+        font-size: 10px !important;
+    }
+    #del_img{
+        right: 0% !important;
+    }
+    .panel-body{
+        padding-bottom: 0;
+    }
+    .contents_respo{
+        padding-top: 0;
+    }
+}
+
 @media( min-height: 800px ){
      #printAll{
     
