@@ -344,6 +344,10 @@
 
 
 @media (max-width: 480px) {
+    .search_btn{
+       width: 30% !important;
+       
+}
     #supreme_table{
          padding-left: 0px !important;
     }

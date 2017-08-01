@@ -172,7 +172,11 @@ body {
     width:20%;
     margin-top:2%;
 }
-
+.search_btn{
+   width: 25%;
+   font-weight: 900;
+   font-size: 18px;
+}
 #comp_logo img{
     max-width:60%;
 }
