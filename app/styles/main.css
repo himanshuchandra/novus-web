@@ -176,6 +176,9 @@ body {
 #comp_logo img{
     max-width:60%;
 }
+.logo img:hover{
+  filter:brightness(200%);
+}
 .nav-menu{
 /*    margin-left: 15px;*/
 }
@@ -463,3 +466,4 @@ body {
     padding-left: 0px !important;
     padding-right: 20px;
 }
+

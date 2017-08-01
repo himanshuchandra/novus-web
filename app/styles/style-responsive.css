@@ -5,12 +5,32 @@
     }
 
 }
-@media(min-width:1100px){
+
+@media(min-width:360px){
+    .contents_respo >div {
+        font-size: 10px !important;
+    }
+    #del_img{
+        right: 0% !important;
+    }
+    .panel-body{
+        padding-bottom: 0;
+    }
+    .contents_respo{
+        padding-top: 0;
+    }
+}
+
+@media( min-height: 800px ){
      #printAll{
     
     right: 52px !important;
     top: 12.5% !important;
 }
+}
+
+@media(min-width:1100px){
+    
     #comp_logo{
         margin-left: 47%;
     }
@@ -23,13 +43,7 @@
 }
 
 @media(min-width:1400px){
-    #printAll{
-    /*color: black;
-    font-size: 40px;
-    position: fixed;*/
-    right: 52px;
-    top: 12.5%;
-}
+   
     .table_width{
         width: 150%;
         margin-left: -20%;
@@ -347,7 +361,7 @@
    }
     #printAll{
     right: 0 !important;
-    top: 21% !important;
+    top: 24% !important;
 }
     .comingSoon{
     position: fixed;
