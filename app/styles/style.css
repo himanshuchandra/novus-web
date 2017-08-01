@@ -460,7 +460,7 @@ a.logo {
     color: black;
     background: #13B1E0;
     float: left;
-    line-height: 4;
+    line-height: 4 !important;
     margin-top: 15px;
     text-transform: uppercase;
 }
