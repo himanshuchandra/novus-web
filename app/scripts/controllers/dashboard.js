@@ -330,6 +330,12 @@ angular.module('novusApp')
                     "diary_number": $scope.sdcase.diary_number,
                     "year": $scope.sdcase.year
                 }
+                if(dateObj.date==='0000-00-00'){
+                   $scope.scdetails.next_date = 'disposed';
+                }
+                else{
+                    $scope.scdetails.next_date = dateObj.date;
+                }
             }
             else if ($scope.sdcase.courtType === 'h') {
                 var dateObj = {
@@ -338,11 +344,17 @@ angular.module('novusApp')
                     "case_year": $scope.sdcase.case_year,
                     "case_type": $scope.sdcase.case_type,
                 }
+                if(dateObj.date==='0000-00-00'){
+                   $scope.hcdetails.next_date = 'disposed';
+                }
+                else{
+                    $scope.hcdetails.next_date = dateObj.date;
+                }
             }
             console.log(dateObj.date);
             var promise = dashboard.setDateDb(dateObj);
             promise.then(function (data) {
-                $scope.scdetails.next_date = dateObj.date;
+
                 $scope.dashboard.updated = true;
                 $scope.dashboard.nxtDateMessage = "";
                 $scope.nxtDatePopup = true;
