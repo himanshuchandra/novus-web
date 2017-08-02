@@ -227,6 +227,7 @@
                             <div class="col-12-xs text-center">
                                 <br>
                                 <button ng-click="setNxtDate()" class="btn btn-success btn-md">Submit</button>
+                                <button class="btn btn-primary respo" ng-click="disposeCase();">The Case is Disposed</button>
                                 <br>
 
                             </div>
@@ -272,7 +273,7 @@
 
                 <tr class="bgInfo">
                     <td class="td_border" colspan="3"><span class="case_title">Status :</span>{{hcdetails.case_status}}</td>
-                    <td class="td_border" colspan="3"><span class="case_title">Next Hearing Date :</span><span>{{hcdetails.next_date}}</span></td>
+                    <td class="td_border" colspan="3" ng-click="nxtDatePopup=false"><span class="case_title">Next Hearing Date :</span><span>{{hcdetails.next_date}}</span></td>
                     <!--<td class="td_border" class="td_border" colspan="1"><span class="case_title">Last Order :</span>{{hcdetails.last_order}}</td>-->
                     <!--<td class="td_border" class="td_border" colspan="2"><span class="case_title">Updated On :</span>{{hcdetails.updated_on}}</td>-->
                 </tr>
