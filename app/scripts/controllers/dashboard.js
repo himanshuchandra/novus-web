@@ -13,7 +13,7 @@ angular.module('novusApp')
         $scope.dashboard = {
             nxtDate: "",
             nxtDateMessage: "",
-            finaldate :"",
+            finaldate: "",
             updated: false
         };
 
@@ -91,6 +91,8 @@ angular.module('novusApp')
                             }
                             webindex.events.push(event);
                         }
+                        data.data[i].courtType = 's';
+
                     }
                     $scope.Scases = data.data;
 
@@ -152,6 +154,7 @@ angular.module('novusApp')
                             }
                             webindex.events.push(event);
                         }
+                        data.data[i].courtType = 'h';
                     }
 
                     $scope.Hcases = data.data;
@@ -246,6 +249,7 @@ angular.module('novusApp')
                             endsAt: mdate,
                         }
                         webindex.events.push(event);
+                        data.data[i].courtType = 'd';
                     }
                     $scope.Dcases = data.data;
 
@@ -302,7 +306,7 @@ angular.module('novusApp')
 
         };
 
-        $scope.createDate=function() {
+        $scope.createDate = function () {
             var sdate = $scope.dashboard.nxtDate.getDate();
             var smonth = $scope.dashboard.nxtDate.getMonth() + 1;
             sdate = parseInt(sdate);
@@ -315,16 +319,25 @@ angular.module('novusApp')
             }
             var syear = $scope.dashboard.nxtDate.getFullYear();
             var finaldate = syear + "-" + smonth + '-' + sdate;
-            $scope.dashboard.finaldate=finaldate;
+            $scope.dashboard.finaldate = finaldate;
         };
 
 
         $scope.setDateDb = function () {
-
-            var dateObj = {
-                "date": $scope.dashboard.finaldate,
-                "diary_number": $scope.sdcase.diary_number,
-                "year": $scope.sdcase.year
+            if ($scope.sdcase.courtType === 's') {
+                var dateObj = {
+                    "date": $scope.dashboard.finaldate,
+                    "diary_number": $scope.sdcase.diary_number,
+                    "year": $scope.sdcase.year
+                }
+            }
+            else if ($scope.sdcase.courtType === 'h') {
+                var dateObj = {
+                    "date": $scope.dashboard.finaldate,
+                    "case_number": $scope.sdcase.case_number,
+                    "case_year": $scope.sdcase.case_year,
+                    "case_type": $scope.sdcase.case_type,
+                }
             }
             console.log(dateObj.date);
             var promise = dashboard.setDateDb(dateObj);
@@ -350,9 +363,9 @@ angular.module('novusApp')
             }
         };
 
-        $scope.disposeCase = function(){
-           $scope.dashboard.finaldate='0000-00-00';
-           $scope.setDateDb();
+        $scope.disposeCase = function () {
+            $scope.dashboard.finaldate = '0000-00-00';
+            $scope.setDateDb();
         };
 
 
