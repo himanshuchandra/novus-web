@@ -230,10 +230,10 @@ angular.module('novusApp')
                         if (data.data[i].final_hearing_date_list != undefined) {
                             data.data[i].lastHearingDate = data.data[i].final_hearing_date_list[data.data[i].final_hearing_date_list.length - 1];
                         }
-                        if (data.data[i].lastHearingDate != "" && data.data[i].lastHearingDate != null) {
-                            data.data[i].visDate = data.data[i].lastHearingDate.slice(8, 10);
-                            data.data[i].visYear = data.data[i].lastHearingDate.slice(0, 4);
-                            data.data[i].visMonth = data.data[i].lastHearingDate.slice(5, 7);
+                        if (data.data[i].next_hearing_date != "" && data.data[i].next_hearing_date != null && data.data[i].next_hearing_date != '0000-00-00') {
+                            data.data[i].visDate = data.data[i].next_hearing_date.slice(8, 10);
+                            data.data[i].visYear = data.data[i].next_hearing_date.slice(0, 4);
+                            data.data[i].visMonth = data.data[i].next_hearing_date.slice(5, 7);
                             data.data[i].visMonth = $scope.month(data.data[i].visMonth);
                         }
                         else {
@@ -241,14 +241,23 @@ angular.module('novusApp')
                             data.data[i].visYear = " ";
                             data.data[i].visMonth = " ";
                         }
-                        var mdate = moment(data.data[i].lastHearingDate, 'YYYY/MM/DD');
-                        var event = {
-                            title: data.data[i].petitioner_and_advocate + " VS " + data.data[i].respondent_and_advocate,
-                            color: calendarConfig.colorTypes.blue,
-                            startsAt: mdate,
-                            endsAt: mdate,
+                        if (data.data[i].next_hearing_date === '0000-00-00') {
+                            data.data[i].next_hearing_date = "Disposed";
+                            data.data[i].visDate = "Case";
+                            data.data[i].visYear = "Disposed";
+                            data.data[i].visMonth = " ";
                         }
-                        webindex.events.push(event);
+                        else {
+                            var mdate = moment(data.data[i].next_hearing_date, 'YYYY/MM/DD');
+                            var event = {
+                                title: data.data[i].petitioner_and_advocate + " VS " + data.data[i].respondent_and_advocate,
+                                color: calendarConfig.colorTypes.blue,
+                                startsAt: mdate,
+                                endsAt: mdate,
+                            }
+                            webindex.events.push(event);
+                        }
+
                         data.data[i].courtType = 'd';
                     }
                     $scope.Dcases = data.data;
@@ -324,17 +333,17 @@ angular.module('novusApp')
 
 
         $scope.setDateDb = function () {
-            var dateObj={};
+            var dateObj = {};
             if ($scope.sdcase.courtType === 's') {
                 dateObj = {
                     "date": $scope.dashboard.finaldate,
                     "diary_number": $scope.sdcase.diary_number,
                     "year": $scope.sdcase.year
                 }
-                if(dateObj.date==='0000-00-00'){
-                   $scope.scdetails.next_date = 'disposed';
+                if (dateObj.date === '0000-00-00') {
+                    $scope.scdetails.next_date = 'disposed';
                 }
-                else{
+                else {
                     $scope.scdetails.next_date = dateObj.date;
                 }
             }
@@ -345,10 +354,10 @@ angular.module('novusApp')
                     "case_year": $scope.sdcase.case_year,
                     "case_type": $scope.sdcase.case_type,
                 }
-                if(dateObj.date==='0000-00-00'){
-                   $scope.hcdetails.next_date = 'disposed';
+                if (dateObj.date === '0000-00-00') {
+                    $scope.hcdetails.next_date = 'disposed';
                 }
-                else{
+                else {
                     $scope.hcdetails.next_date = dateObj.date;
                 }
             }
