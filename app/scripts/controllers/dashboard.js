@@ -324,8 +324,9 @@ angular.module('novusApp')
 
 
         $scope.setDateDb = function () {
+            var dateObj={};
             if ($scope.sdcase.courtType === 's') {
-                var dateObj = {
+                dateObj = {
                     "date": $scope.dashboard.finaldate,
                     "diary_number": $scope.sdcase.diary_number,
                     "year": $scope.sdcase.year
@@ -338,7 +339,7 @@ angular.module('novusApp')
                 }
             }
             else if ($scope.sdcase.courtType === 'h') {
-                var dateObj = {
+                dateObj = {
                     "date": $scope.dashboard.finaldate,
                     "case_number": $scope.sdcase.case_number,
                     "case_year": $scope.sdcase.case_year,
