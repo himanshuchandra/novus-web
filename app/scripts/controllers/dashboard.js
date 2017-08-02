@@ -213,7 +213,7 @@ angular.module('novusApp')
                         Object.keys(data.data[i]).forEach(function (key) {
                             if (key.startsWith('final') && data.data[i][key] != undefined) {
                                 data.data[i][key] = data.data[i][key].replace(/['"]+/g, '');
-                                if (key != "final_interim_order_file_list" || key != "final_final_judgement_order_file_list") {
+                                if (key != "final_interim_order_file_list" && key != "final_final_judgement_order_file_list") {
                                     data.data[i][key] = $scope.splitString(data.data[i][key]);
                                 }
                                 else if (data.data[i][key] != undefined) {
@@ -303,7 +303,10 @@ angular.module('novusApp')
                 else {
                     $scope.firHide = false;
                 }
-                if (caseObj.final_case_transfer_transfer_date_list[0] === undefined || caseObj.final_case_transfer_transfer_date_list[0] === "") {
+                if (caseObj.final_case_transfer_transfer_date_list === null
+                    || caseObj.final_case_transfer_transfer_date_list === undefined
+                    || caseObj.final_case_transfer_transfer_date_list[0] === undefined
+                    || caseObj.final_case_transfer_transfer_date_list[0] === "") {
                     $scope.caseTransferHide = true;
                 }
                 else {
