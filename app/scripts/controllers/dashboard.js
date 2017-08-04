@@ -116,7 +116,7 @@ angular.module('novusApp')
                 if (data.data != undefined) {
 
                     for (var i = 0; i < data.data.length; i++) {
-                        if (data.data[i].file_path != undefined) {
+                        if (data.data[i].file_path != undefined && data.data[i].file_path != "" && data.data[i].file_path.length>4 ) {
                             data.data[i].file_path = data.data[i].file_path.replace(/['"]+/g, '');
                             data.data[i].file_path = $scope.splitString(data.data[i].file_path);
                         }
@@ -211,12 +211,14 @@ angular.module('novusApp')
                             data.data[i].rs = data.data[i].respondent_and_advocate.slice(0, 20);
                         }
                         Object.keys(data.data[i]).forEach(function (key) {
-                            if (key.startsWith('final') && data.data[i][key] != undefined) {
+                            if (key.startsWith('final') && data.data[i][key] != undefined && data.data[i][key] != "" && data.data[i][key].length>4) {
                                 data.data[i][key] = data.data[i][key].replace(/['"]+/g, '');
                                 if (key != "final_interim_order_file_list" && key != "final_final_judgement_order_file_list") {
+                                    data.data[i][key] = data.data[i][key].replace(',,',',-,');
                                     data.data[i][key] = $scope.splitString(data.data[i][key]);
                                 }
                                 else if (data.data[i][key] != undefined) {
+                                    data.data[i][key] = data.data[i][key].replace('~~','~-~');
                                     data.data[i][key] = data.data[i][key].split('~');
                                 }
                             }
