@@ -344,6 +344,9 @@
 
 
 @media (max-width: 480px) {
+    .down_td{
+        font-size: 11px !important;
+    }
     .search_btn{
        width: 30% !important;
        
