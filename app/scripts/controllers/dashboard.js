@@ -214,13 +214,18 @@ angular.module('novusApp')
                             if (key.startsWith('final') && data.data[i][key] != undefined && data.data[i][key] != "" && data.data[i][key].length>4) {
                                 data.data[i][key] = data.data[i][key].replace(/['"]+/g, '');
                                 if (key != "final_interim_order_file_list" && key != "final_final_judgement_order_file_list") {
-                                    data.data[i][key] = data.data[i][key].replace(',,',',-,');
+                                    data.data[i][key] = data.data[i][key].replace(/,,/g, ',-,');
+                                    data.data[i][key] = data.data[i][key].replace(/,,/g, ',-,');
                                     data.data[i][key] = $scope.splitString(data.data[i][key]);
+                                    data.data[i][key] = data.data[i][key].filter(Boolean);
                                 }
                                 else if (data.data[i][key] != undefined) {
                                     data.data[i][key] = data.data[i][key].replace('~~','~-~');
                                     data.data[i][key] = data.data[i][key].split('~');
                                 }
+                            }
+                            if(data.data[i][key] === '""'){
+                                data.data[i][key]="";
                             }
                         });
                         if (data.data[i].status === "waiting") {
