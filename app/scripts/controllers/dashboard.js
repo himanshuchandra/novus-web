@@ -287,10 +287,11 @@ angular.module('novusApp')
 
         $scope.showDetailsButton = function (caseObj, type) {
             $scope.hideDashboard = true;
+            $scope.sdcase = caseObj;
             if (type === 's') {
                 if (caseObj.next_date === null || caseObj.next_date === "") {
                     $scope.nxtDatePopup = false;
-                    $scope.sdcase = caseObj;
+
                 }
                 $scope.scdetails = caseObj;
                 $scope.supremeCaseDetails = false;
@@ -298,7 +299,6 @@ angular.module('novusApp')
             else if (type === 'h') {
                 if (caseObj.next_date === null || caseObj.next_date === "") {
                     $scope.nxtDatePopup = false;
-                    $scope.sdcase = caseObj;
                 }
                 $scope.hcdetails = caseObj;
                 $scope.highCaseDetails = false;

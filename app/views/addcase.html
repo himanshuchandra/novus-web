@@ -149,11 +149,11 @@
     </select>
                 <br>
                 <label for="Cnumber">Case Number:</label>
-                <input class="form-control" type="text" name="Cnumber" ng-model="addCase.DCnumber" pattern="[0-9]{1,6}" required/>
+                <input class="form-control" type="text" name="Cnumber" ng-model="addCase.DCnumber" pattern="[0-9]{1,9}" required/>
                 <span ng-show="districtForm.Cnumber.$touched &&
      districtForm.Cnumber.$error.pattern &&
       !districtForm.Cnumber.$error.required">
-      Invalid case number(Only 0-9 and 1-6 chars allowed,without any spaces) </span>
+      Invalid case number(Only 0-9 and 1-9 chars allowed,without any spaces) </span>
                 <span ng-show="districtForm.Cnumber.$touched &&
      districtForm.Cnumber.$error.required">Cannot be left empty </span>
                 <span ng-show="districtSubmitted && !districtForm.Cnumber.$touched &&
@@ -161,7 +161,7 @@
         Cannot be left empty </span>
                 <span ng-show="districtSubmitted && !districtForm.Cnumber.$touched &&
      districtForm.Cnumber.$error.pattern">
-     Invalid case number(Only 0-9 and 4 chars allowed,without any spaces)  </span>
+     Invalid case number(Only 0-9 and 9 chars allowed,without any spaces)  </span>
 
                 <br>
                 <label for="year">Year:</label>
