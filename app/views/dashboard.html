@@ -447,7 +447,7 @@
         <td class="td_border down_list">
             <table class="down_table">
                 <tr class="down_row" ng-repeat="details in dcdetails.final_interim_order_file_list track by $index">
-                    <td class="down_td"><span class="case_title"></span><a ng-href="{{details}}" style="color:blue;">Order {{$index+1}}</a></td>
+                    <td class="down_td"><span class="case_title"></span><a ng-href="{{details}}" style="color:blue;" target="_blank">Order {{$index+1}}</a></td>
                 </tr>
             </table>
         </td>
@@ -521,7 +521,7 @@
         <td class="td_border down_list" colspan="4">
             <table class="down_table">
                 <tr class="down_row" ng-repeat="file in dcdetails.final_final_judgement_order_file_list track by $index">
-                    <td class="down_td"><span class="case_title"></span><a ng-href="{{file}}" style="color:blue">Judgement {{$index+1}}</a></td>
+                    <td class="down_td"><span class="case_title"></span><a ng-href="{{file}}" target="_blank" style="color:blue">Judgement {{$index+1}}</a></td>
                 </tr>
             </table>
         </td>
