@@ -97,19 +97,23 @@ angular.module('novusApp')
         ///////////notifications
         $scope.nlength = 0;
         $scope.updateNotif = function () {
-            $scope.notifications = webindex.notifications.reverse();
+            var mynotifications=[];
+            mynotifications=webindex.notifications;
+            $scope.notifications=mynotifications.reverse();
             $scope.totalCases = $scope.totalCases + 1;
             $scope.nlength++;
         }
 
         $scope.$watch(function () { return webindex.notifications }, function (newValue, oldValue) {
-            if (webindex.notifications.length > 0) {
+            if (webindex.notifications.length > 0 && !angular.equals(newValue,oldValue)) {
                 $scope.updateNotif();
             }
         }, true);
 
         $scope.$watch(function () { return webindex.userData }, function (newValue, oldValue) {
-            $scope.totalCases = webindex.userData.Scases + webindex.userData.Hcases + webindex.userData.Dcases;
+            if(!angular.equals(newValue,oldValue)){
+                $scope.totalCases = webindex.userData.Scases + webindex.userData.Hcases + webindex.userData.Dcases;
+            }
         }, true);
 
         ////////////////////////////

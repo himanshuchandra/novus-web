@@ -222,6 +222,7 @@ angular.module('novusApp')
                                 else if (data.data[i][key] != undefined) {
                                     data.data[i][key] = data.data[i][key].replace('~~','~-~');
                                     data.data[i][key] = data.data[i][key].split('~');
+                                    data.data[i][key] = data.data[i][key].filter(Boolean);
                                 }
                             }
                             if(data.data[i][key] === '""'){
