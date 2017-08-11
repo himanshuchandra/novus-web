@@ -97,9 +97,11 @@ angular.module('novusApp')
         ///////////notifications
         $scope.nlength = 0;
         $scope.updateNotif = function () {
-            var mynotifications=[];
-            mynotifications=webindex.notifications;
-            $scope.notifications=mynotifications.reverse();
+            // var mynotifications=[];
+            // mynotifications=webindex.notifications;
+            // $scope.notifications=mynotifications.reverse();
+            // DIGEST LOOP
+            $scope.notifications=webindex.notifications;
             $scope.totalCases = $scope.totalCases + 1;
             $scope.nlength++;
         }
