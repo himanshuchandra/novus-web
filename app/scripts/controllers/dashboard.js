@@ -82,14 +82,16 @@ angular.module('novusApp')
                             data.data[i].visMonth = " ";
                         }
                         else {
-                            var mdate = moment(data.data[i].next_date, 'YYYY/MM/DD');
-                            var event = {
-                                title: data.data[i].petitioners + " VS " + data.data[i].respondents,
-                                color: calendarConfig.colorTypes.ered,
-                                startsAt: mdate,
-                                endsAt: mdate,
+                            if (data.data[i].next_date) {
+                                var mdate = moment(data.data[i].next_date, 'YYYY/MM/DD');
+                                var event = {
+                                    title: data.data[i].petitioners + " VS " + data.data[i].respondents,
+                                    color: calendarConfig.colorTypes.ered,
+                                    startsAt: mdate,
+                                    endsAt: mdate,
+                                }
+                                webindex.events.push(event);
                             }
-                            webindex.events.push(event);
                         }
                         data.data[i].courtType = 's';
 
@@ -116,7 +118,7 @@ angular.module('novusApp')
                 if (data.data != undefined) {
 
                     for (var i = 0; i < data.data.length; i++) {
-                        if (data.data[i].file_path != undefined && data.data[i].file_path != "" && data.data[i].file_path.length>4 ) {
+                        if (data.data[i].file_path != undefined && data.data[i].file_path != "" && data.data[i].file_path.length > 4) {
                             data.data[i].file_path = data.data[i].file_path.replace(/['"]+/g, '');
                             data.data[i].file_path = $scope.splitString(data.data[i].file_path);
                         }
@@ -145,14 +147,16 @@ angular.module('novusApp')
                             data.data[i].visMonth = " ";
                         }
                         else {
-                            var mdate = moment(data.data[i].next_date, 'YYYY/MM/DD');
-                            var event = {
-                                title: data.data[i].petitioner + " VS " + data.data[i].respondent,
-                                color: calendarConfig.colorTypes.egreen,
-                                startsAt: mdate,
-                                endsAt: mdate,
+                            if (data.data[i].next_date) {
+                                var mdate = moment(data.data[i].next_date, 'YYYY/MM/DD');
+                                var event = {
+                                    title: data.data[i].petitioner + " VS " + data.data[i].respondent,
+                                    color: calendarConfig.colorTypes.egreen,
+                                    startsAt: mdate,
+                                    endsAt: mdate,
+                                }
+                                webindex.events.push(event);
                             }
-                            webindex.events.push(event);
                         }
                         data.data[i].courtType = 'h';
                     }
@@ -190,7 +194,7 @@ angular.module('novusApp')
                 case "08": return "August";
                 case "09": return "September";
                 case "10": return "October";
-                case "11": return "Novembor";
+                case "11": return "November";
                 case "12": return "December";
                 default: return "";
             }
@@ -211,7 +215,7 @@ angular.module('novusApp')
                             data.data[i].rs = data.data[i].respondent_and_advocate.slice(0, 20);
                         }
                         Object.keys(data.data[i]).forEach(function (key) {
-                            if (key.startsWith('final') && data.data[i][key] != undefined && data.data[i][key] != "" && data.data[i][key].length>4) {
+                            if (key.startsWith('final') && data.data[i][key] != undefined && data.data[i][key] != "" && data.data[i][key].length > 4) {
                                 data.data[i][key] = data.data[i][key].replace(/['"]+/g, '');
                                 if (key != "final_interim_order_file_list" && key != "final_final_judgement_order_file_list") {
                                     data.data[i][key] = data.data[i][key].replace(/,,/g, ',-,');
@@ -220,13 +224,13 @@ angular.module('novusApp')
                                     data.data[i][key] = data.data[i][key].filter(Boolean);
                                 }
                                 else if (data.data[i][key] != undefined) {
-                                    data.data[i][key] = data.data[i][key].replace('~~','~-~');
+                                    data.data[i][key] = data.data[i][key].replace('~~', '~-~');
                                     data.data[i][key] = data.data[i][key].split('~');
                                     data.data[i][key] = data.data[i][key].filter(Boolean);
                                 }
                             }
-                            if(data.data[i][key] === '""'){
-                                data.data[i][key]="";
+                            if (data.data[i][key] === '""') {
+                                data.data[i][key] = "";
                             }
                         });
                         if (data.data[i].status === "waiting") {
@@ -256,14 +260,16 @@ angular.module('novusApp')
                             data.data[i].visMonth = " ";
                         }
                         else {
-                            var mdate = moment(data.data[i].next_hearing_date, 'YYYY/MM/DD');
-                            var event = {
-                                title: data.data[i].petitioner_and_advocate + " VS " + data.data[i].respondent_and_advocate,
-                                color: calendarConfig.colorTypes.blue,
-                                startsAt: mdate,
-                                endsAt: mdate,
+                            if (data.data[i].next_hearing_date) {
+                                var mdate = moment(data.data[i].next_hearing_date, 'YYYY/MM/DD');
+                                var event = {
+                                    title: data.data[i].petitioner_and_advocate + " VS " + data.data[i].respondent_and_advocate,
+                                    color: calendarConfig.colorTypes.blue,
+                                    startsAt: mdate,
+                                    endsAt: mdate,
+                                }
+                                webindex.events.push(event);
                             }
-                            webindex.events.push(event);
                         }
 
                         data.data[i].courtType = 'd';
@@ -320,6 +326,9 @@ angular.module('novusApp')
                 else {
                     $scope.caseTransferHide = false;
                 }
+                if (caseObj.next_hearing_date === null || caseObj.next_hearing_date === "") {
+                    $scope.nxtDatePopup = false;
+                }
                 $scope.dcdetails = caseObj;
                 $scope.districtCaseDetails = false;
             }
@@ -361,15 +370,25 @@ angular.module('novusApp')
             else if ($scope.sdcase.courtType === 'h') {
                 dateObj = {
                     "date": $scope.dashboard.finaldate,
-                    "case_number": $scope.sdcase.case_number,
-                    "case_year": $scope.sdcase.case_year,
-                    "case_type": $scope.sdcase.case_type,
+                    "pno": $scope.sdcase.pno
                 }
                 if (dateObj.date === '0000-00-00') {
                     $scope.hcdetails.next_date = 'disposed';
                 }
                 else {
                     $scope.hcdetails.next_date = dateObj.date;
+                }
+            }
+            else if ($scope.sdcase.courtType === 'd') {
+                dateObj = {
+                    "date": $scope.dashboard.finaldate,
+                    "cnr_number": $scope.sdcase.cnr_number
+                }
+                if (dateObj.date === '0000-00-00') {
+                    $scope.dcdetails.next_hearing_date = 'disposed';
+                }
+                else {
+                    $scope.dcdetails.next_hearing_date = dateObj.date;
                 }
             }
             console.log(dateObj.date);
