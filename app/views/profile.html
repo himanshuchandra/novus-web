@@ -1,10 +1,10 @@
 <!--
     <div class="container">
       <div class="row">
-     
+
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-   
-   
+
+
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">Sheena Shrestha</h3>
@@ -12,9 +12,9 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
-                
-                
-                <div class=" col-md-9 col-lg-9 "> 
+
+
+                <div class=" col-md-9 col-lg-9 ">
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -44,22 +44,22 @@
                       <tr>
                         <td>Phone Number</td>
                         <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                       
-                           
+
+
                       </tr>
-                     
+
                     </tbody>
                   </table>
-                  
+
                   <a href="#" class="btn btn-primary">My Sales Performance</a>
                   <a href="#" class="btn btn-primary">Team Sales Performance</a>
                 </div>
               </div>
             </div>
                  <div class="panel-footer">
-                        
+
                     </div>
-            
+
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
 
 
 <div class="container">
-<h1>My Account</h1>
+    <!--<h1>My Account</h1>
 <h5>Email</h5> <p>{{Email}}</p>
 <h5>First name</h5><p>{{Fname}}</p>
 <h5>Last name</h5><p>{{Lname}}</p>
@@ -77,28 +77,104 @@
 <h5>Total cases</h5><p>{{TotalCases}}</p>
 <h5>Expires On</h5><p>{{ExpiresOn}}</p>
 <h5>Daily updates</h5><input type="checkbox" />
-<h5>Task Reminders</h5><input type="checkbox" />
+
 <h5>File Number in Workspace</h5><input type="checkbox" />
 <h5>Invoicing</h5><input type="checkbox" />
 
 <button>Edit automatic File numbers</button>
-<button>Pay Now</button>
+<button>Pay Now</button>-->
+
+    <div class="container" ng-hide="profileData">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" style="margin-left:0 !important;">
 
 
-<h3>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" align="center">PROFILE</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://openclipart.org/image/2400px/svg_to_png/211821/matt-icons_preferences-desktop-personal.png"
+                                    class="img-circle img-responsive"> </div>
 
-<div>
+
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>{{Email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>First name</td>
+                                            <td>{{Fname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Last name</td>
+                                            <td>{{Lname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobile</td>
+                                            <td>{{Mobile}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total cases</td>
+                                            <td>{{TotalCases}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Expires On</td>
+                                            <td>{{ExpiresOn}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Daily updates</td>
+                                            <td><toggle ng-model="toggleUpdates" size="btn-sm"></toggle></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Task Reminders</td>
+                                            <td><toggle ng-model="toggleReminders" size="btn-sm"></toggle></td>
+                                        </tr>
+                                        <tr>
+                                            <td>File Number in Workspace</td>
+                                            <td><toggle ng-model="toggleFiles" size="btn-sm"></toggle></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Invoicing</td>
+                                            <td><toggle ng-model="toggleInvoicing" size="btn-sm"></toggle></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <a href="#" class="btn btn-primary passBTN">Edit automatic File numbers</a>
+                                <a href="#" class="btn btn-primary passBTN">Pay Now</a>
+                                <a ng-hide="PasswordFormButton" class="btn btn-primary passBTN" ng-click="ShowPasswordForm()">Change Password<a/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--<h3>-->
+
+        <!--<div>
     <img ng-src={{profileUrl}} alt="Profile Pic"><br>
          <form name="uploadForm" ng-hide="uploadPicForm">
-        
-            <input 
-               type="file" 
-               ngf-select 
-               ng-model="profile.pic" 
-               name="file" 
+
+            <input
+               type="file"
+               ngf-select
+               ng-model="profile.pic"
+               name="file"
                ngf-pattern="'image/*'"
-               accept="image/*" 
-               ngf-max-size="1MB" 
+               accept="image/*"
+               ngf-max-size="1MB"
                />
             Image thumbnail: <img style="width:100px;" ngf-thumbnail="profile.pic || '/thumb.jpg'"/>
             <i ng-show="uploadForm.file.$error.maxSize">File too large : max 1MB</i>
@@ -106,11 +182,11 @@
         </form>
         {{picMessage}}
         <button ng-click="toggleImageForm()" ng-hide="toggleButton">{{uploadButton}}</button>
-</div>
+</div>-->
 
 
 
-<!--<div ng-hide="MobileForm">
+        <!--<div ng-hide="MobileForm">
     <div ng-hide="HideMobileForm" >
         <form name="mobileForm" ng-submit="submitMobileForm(mobileForm)" novalidate>
             <h5>Country Code</h5>
@@ -127,7 +203,7 @@
             <span  ng-show="MobileSubmitted && !mobileForm.validCode.$touched &&
             mobileForm.validCode.$error.pattern">
             Invalid Country code(Should be 1-3 digits only 0-9) </span>
-            
+
 
 
             <h5>Mobile Number</h5>
@@ -166,52 +242,103 @@
 
             <input type="submit" ng-click="CodeSubmitted=true;" value="Verify">
             <input type="button" ng-click="SendAgain()" value="Send Again">
-        </form>         
-        
+        </form>
+
     </div>
 </div>-->
 
-<div ng-hide="PasswordForm">
-<form name="passForm"  ng-submit="submitPasswordForm(passForm)" novalidate>
+    </div>
 
-<h5>Old Password</h5>
- <input type="password"  ng-model="profile.oldPassword" name="oldpass"  
- placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}" required/>  
-    <span  ng-show="passForm.oldpass.$touched && 
+
+    <!--<div ng-hide="PasswordForm">
+        <form name="passForm" ng-submit="submitPasswordForm(passForm)" novalidate>
+
+            <h5>Old Password</h5>
+            <input type="password" ng-model="profile.oldPassword" name="oldpass" placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}"
+                required/>
+            <span ng-show="passForm.oldpass.$touched &&
     passForm.oldpass.$error.pattern && !passForm.oldpass.$error.required">
     password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
-    <span  ng-show="passForm.oldpass.$touched && passForm.oldpass.$error.required">Cannot be left empty </span>
-    <span  ng-show="PasswordSubmitted && !passForm.oldpass.$touched &&
+            <span ng-show="passForm.oldpass.$touched && passForm.oldpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted && !passForm.oldpass.$touched &&
      passForm.oldpass.$error.required">Cannot be left empty </span>
-    <span  ng-show="PasswordSubmitted && !passForm.oldpass.$touched &&
+            <span ng-show="PasswordSubmitted && !passForm.oldpass.$touched &&
      passForm.oldpass.$error.pattern">
      password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
 
-<h5>New password</h5>
- <input type="password" ng-keyup="checkPassword()" ng-model="profile.newPassword" name="newpass"  
- placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}" required/>
-   <span  ng-show="passForm.newpass.$touched && passForm.newpass.$error.pattern &&
+            <h5>New password</h5>
+            <input type="password" ng-keyup="checkPassword()" ng-model="profile.newPassword" name="newpass" placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&*()_.]{8,25}"
+                required/>
+            <span ng-show="passForm.newpass.$touched && passForm.newpass.$error.pattern &&
     !passForm.newpass.$error.required">
     password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
-    <span  ng-show="passForm.newpass.$touched && passForm.newpass.$error.required">Cannot be left empty </span>
-    <span  ng-show="PasswordSubmitted && !passForm.newpass.$touched &&
+            <span ng-show="passForm.newpass.$touched && passForm.newpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted && !passForm.newpass.$touched &&
      passForm.newpass.$error.required">Cannot be left empty </span>
-    <span  ng-show="PasswordSubmitted && !passForm.newpass.$touched &&
+            <span ng-show="PasswordSubmitted && !passForm.newpass.$touched &&
      passForm.newpass.$error.pattern">
      password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&,*,(,),_,.) </span>
 
-<h5>New Password Again</h5>
-<input type="password" ng-keyup="checkPassword()" ng-model="profile.newPassword2" placeholder="Password Again" />
-{{PasswordMessage}}
+            <h5>New Password Again</h5>
+            <input type="password" ng-keyup="checkPassword()" ng-model="profile.newPassword2" placeholder="Password Again" />            {{PasswordMessage}}
 
 
 
-<input type="submit" ng-click="PasswordSubmitted=true;" value="Save Password">
+            <input type="submit" ng-click="PasswordSubmitted=true;" value="Save Password">
+        </form>
+        <button ng-click="PasswordForm=true;PasswordFormButton=false;profileData=false">Cancel</button> {{PasswordResult}}
+    </div>
+
+    <input type="button" ng-hide="MobileFormButton" ng-click="ShowMobileForm()" value="Edit Mobile" />
+    -->
+
+    <div id="login-page passchange" ng-hide="PasswordForm" style="margin-top: 30px;">
+<div class="container">
+ <form class="form-login" name="passForm" ng-submit="submitPasswordForm(passForm)" novalidate="">
+<h2 class="form-login-heading">Password Recovery</h2>
+<div class="login-wrap">
+<h5 id="login-result" style="margin-top: -3%;">{{PasswordResult}} </h5>
+    <label>Old Password:</label>
+<input type="password" class="form-control" ng-model="profile.oldPassword" name="oldpass" placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&amp;*()_.]{8,25}" required="">
+            <span ng-show="passForm.oldpass.$touched &amp;&amp;
+    passForm.oldpass.$error.pattern &amp;&amp; !passForm.oldpass.$error.required">
+    password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+            <span ng-show="passForm.oldpass.$touched &amp;&amp; passForm.oldpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.oldpass.$touched &amp;&amp;
+     passForm.oldpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.oldpass.$touched &amp;&amp;
+     passForm.oldpass.$error.pattern">
+     password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+<br>
+ <label>New Password:</label>
+<input type="password" class="form-control" ng-keyup="checkPassword()" ng-model="profile.newPassword" name="newpass" placeholder="Password" pattern="[a-z0-9A-Z!@#$%^&amp;*()_.]{8,25}" required="">
+            <span ng-show="passForm.newpass.$touched &amp;&amp; passForm.newpass.$error.pattern &amp;&amp;
+    !passForm.newpass.$error.required">
+    password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+            <span ng-show="passForm.newpass.$touched &amp;&amp; passForm.newpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.newpass.$touched &amp;&amp;
+     passForm.newpass.$error.required">Cannot be left empty </span>
+            <span ng-show="PasswordSubmitted &amp;&amp; !passForm.newpass.$touched &amp;&amp;
+     passForm.newpass.$error.pattern">
+     password too small or invalid character,use(8-25 char)(a-z,0-9,A-Z,!,@,#,$,%,^,&amp;,*,(,),_,.) </span>
+<br>
+    <label>New Password Again:</label>
+<input type="password" class="form-control" ng-keyup="checkPassword()" ng-model="profile.newPassword2" placeholder="Password Again">            {{PasswordMessage}}
+
+<br>
+<input type="submit" class="btn btn-theme btn-block" ng-click="PasswordSubmitted=true;" value="Save Password">
+
+ <div class="modal-footer" style="padding: 0;padding-top: 5px;">
+<button ng-click="PasswordForm=true;PasswordFormButton=false;profileData=false" class="btn btn-theme" style="display: block;margin-left: 40%;">Cancel</button>
+
+
+ </div>
+
+
+
+</div>
 </form>
-<button ng-click="PasswordForm=true;PasswordFormButton=false">Cancel</button>
-{{PasswordResult}}
+</div>
 </div>
 
-<input type="button" ng-hide="MobileFormButton" ng-click="ShowMobileForm()" value="Edit Mobile" />
-<input type="button" ng-hide="PasswordFormButton" ng-click="ShowPasswordForm()" value="Change Password" />
 </div>

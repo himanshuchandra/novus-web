@@ -15,18 +15,19 @@ angular
     'ngRoute',
     'angular-md5',
     'countrySelect',
-    'ngFileUpload'
+    'ngFileUpload',
+    'mwl.calendar',
+    'ui.toggle'
+
   ])
 
-  .constant("requrl","http://mynovus.xyz/app")
-  .constant("phpurl","http://mynovus.xyz")
-  
+  .constant("requrl","http://myemunshi.com/app")
+  .constant("phpurl","http://myemunshi.com")
+
   .config(function ($routeProvider,$locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
+        templateUrl: 'views/main.html',
       })
       .when('/calendar', {
         templateUrl: 'views/calendar.html',
@@ -72,6 +73,26 @@ angular
         templateUrl: 'views/addcase.html',
         controller: 'AddcaseCtrl',
         controllerAs: 'addcase'
+      })
+      .when('/causelist', {
+        templateUrl: 'views/causelist.html'
+      })
+      .when('/taskmanager', {
+        templateUrl: 'views/taskmanager.html',
+        controller: 'TaskmanagerCtrl',
+        controllerAs: 'taskmanager'
+      })
+      .when('/expensemanager', {
+        templateUrl: 'views/expensemanager.html'
+      })
+      .when('/appointments', {
+        templateUrl: 'views/appointments.html'
+      })
+      .when('/revenue', {
+        templateUrl: 'views/revenue.html'
+      })
+      .when('/chat', {
+        templateUrl: 'views/chat.html'
       })
       .otherwise({
         redirectTo: '/'

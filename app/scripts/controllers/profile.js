@@ -20,28 +20,23 @@ angular.module('novusApp')
 
         ///////////////////////////////
 
-
+        $scope.profileData=false;
         $scope.PasswordForm = true;
         $scope.uploadPicForm = true;
         $scope.toggleButton = false;
         $scope.uploadButton = "Upload image";
         $scope.profileUrl = "/User_data/" + webindex.userData.useremail + "profile.jpeg";
 
-        //////Loading data from index service 
+        //////Loading data from index service
 
         $scope.checkLogin= function () {
-            if (webindex.loggedIn != true) {
-                $window.location.reload();
-                $window.location.assign(requrl);
-            }
-            else{
                 console.log("Profile data",webindex.userData);
                 $scope.Email=webindex.userData.email;
                 $scope.Fname=webindex.userData.fname;
                 $scope.Lname=webindex.userData.lname;
                 $scope.Mobile=webindex.userData.mobile;
                 $scope.TotalCases=webindex.userData.Scases+webindex.userData.Hcases+webindex.userData.Dcases;
-            }
+
         };
 
         var unregister = $scope.$watch(function () { return webindex.loaded }, function (newValue, oldValue) {
@@ -51,35 +46,15 @@ angular.module('novusApp')
             }
         }, true);
 
-
-        // $scope.loadData=function(){
-        //     if(webindex.userData.useremail!=undefined){
-        //         var print=webindex.userData;
-        //         $scope.Email=print.useremail;
-        //         $scope.uName=print.username;
-
-        //     }
-        //     else{  
-        //         $window.location.reload(); 
-        //         $window.location.assign(requrl+"/#/login");
-        //     }
-        // };
-
-        // var unregister=$scope.$watch(webindex.loaded,function(newValue,oldValue){
-        //     if(!angular.equals(webindex.loaded, false)){
-        //         $scope.loadData(); 
-        //         unregister();
-        //     }
-        // },true);
-
-
-        $scope.$watch(function(){return webindex.userData},function(newValue,oldValue){
-            if(!angular.equals(webindex.userData, {})){
-                console.log("Profile data changed",webindex.userData);
-                $scope.loadData(); 
-            }
-        },true);
-
+        $scope.$watch(function () { return webindex.userData }, function (newValue, oldValue) {
+            console.log(webindex.userData.Scases,webindex.userData.Hcases,webindex.userData.Dcases);
+            $scope.TotalCases = webindex.userData.Scases + webindex.userData.Hcases + webindex.userData.Dcases;
+            //  if(!angular.equals(webindex.userData, {})){
+            //     console.log("Profile data changed",webindex.userData);
+            //     $scope.loadData();
+            // }
+            // $scope.TotalCases = isNaN(parseInt($scope.TotalCases))?0:parseInt($scope.TotalCases);
+        }, true);
 
 
         //////////// Show-Hide form button logic  ////////
@@ -99,6 +74,7 @@ angular.module('novusApp')
         // }
 
         $scope.ShowPasswordForm = function () {
+            $scope.profileData=true;
             $scope.PasswordForm = false;
             $scope.PasswordFormButton = true;
 
@@ -167,13 +143,13 @@ angular.module('novusApp')
         //       }
         //     },function(error) {
         //         $scope.MobileMessage="Error! Try again later";
-        //     });    
+        //     });
         // };
 
         // $scope.submitCode=function(codeForm){
         //   if(codeForm.$valid){
         //     $scope.CodeMessage="Checking Code..";
-        //     $scope.VerifyCode();          
+        //     $scope.VerifyCode();
         //   }
         //   else{
         //     $scope.CodeMessage="Enter valid code";
@@ -211,7 +187,7 @@ angular.module('novusApp')
         //       }
         //     },function(error) {
         //         $scope.CodeMessage="Error! Try again later";
-        //     });    
+        //     });
         // };
 
         // $scope.SendAgain=function(){

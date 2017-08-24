@@ -1,0 +1,68 @@
+<!--<div class="container dashboard">-->
+<div class="row" ng-hide="hideDashboard">
+    <br>
+    <h3 style="text-align:center"></h3>
+    <div class="container" style="display:flex">
+        <button ng-click="showAllCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">All</button>
+        <button ng-click="showSupremeCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">Supreme Court</button>
+        <button ng-click="showHighCases()" class="btn btn-primary respo" style="flex:1;margin-right: 10px;">High Court</button>
+        <button ng-click="showDistrictCases()" class="btn btn-primary respo" style="flex:1;">District Court</button>
+    </div>
+    <br>
+    <div ng-repeat="judge in vJudges track by $index" class="cases">
+
+        <div class="panel panel-default cursor">
+
+            <div class="panel-body">
+
+                <div class="contents" ng-click="showDetailsButton(judge)">
+                    <div style="font-size:15px"><span class="case_title">Name: &nbsp;&nbsp;</span>{{judge.name}}</div>
+                    <div style="font-size:15px"><span class="case_title">D.O.B.: &nbsp;&nbsp;</span>{{judge.dob}}</div>
+                    <div style="font-size:15px"><span class="case_title">D.O.A.: &nbsp;&nbsp;</span>{{judge.doa}}</div>
+                </div>
+
+                <div class="contents caseNo" ng-click="showDetailsButton(judge)">
+                    <div style="font-size:15px"><span class="case_title">Court Name: &nbsp;&nbsp;</span>{{judge.court}}</div>
+                    <div style="font-size:15px"><span class="case_title">D.O.R.: &nbsp;&nbsp;</span>{{judge.dor}}</div>
+                </div>
+                <div class="text-center date-body" ng-click="showDetailsButton(judge)">
+                    <div>
+                        <img ng-src="{{judge.image}}" style="height:105px;width:85px"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{dataMessage}}
+    </div>
+
+    <div ng-hide="comingSoon">
+       <div class="container ng-scope" style="margin-top: 5%;">
+       <img src="../app/images/comingsoon.png" style="z-index:-1;" alt="" class="comingSoon">
+        </div>
+    </div>
+
+</div>
+<div ng-hide="hideJudgeDetails" class="container">
+    <br><br>
+    <div style="display:flex; flex:3;">
+        <div id="btn_holder" style="flex:1;">
+            <button ng-click="showCasesButton()" class="btn btn-primary">Go Back</button></div>
+        <div style="flex:1;margin-top:-30px;">
+            <h1>Judge Details</h1>
+        </div>
+        <div ng-click="printDiv('jPrint')" style="flex:1;"><i style="color:black; font-size:40px;margin-left: 50%;" class="fa fa-print" aria-hidden="true"></i></div>
+    </div>
+    <br>
+    <div id='jPrint' class="table_width">
+        <h3 style="text-align:center"><span class="case_title">Judge Name : </span><i>{{judgeObject.name}}</i></h3>
+        <h3 style="text-align:center;"><span class="case_title">Court name : </span><i>{{judgeObject.court}}</i></h3>
+        <!--Judge Name : {{judgeObject.name}} <br>-->
+        <!--Court name : {{judgeObject.court}} -->
+        <div>
+        <img src="{{judgeObject.image}}" / style="height:150px;width:150px;float:right;margin-top:30px;"> <br>
+        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">About : </span> {{judgeObject.about}}</p> 
+        <p style="font-weight: 900;font-size: 14px;"><span class="case_title">Remarks :</span> {{judgeObject.remarks}}</p> 
+        </div>
+    </div>
+
+</div>

@@ -6,6 +6,36 @@
 
 }
 
+@media(max-width:360px){
+    .contents_respo >div {
+        font-size: 10px !important;
+    }
+    #del_img{
+        right: 0% !important;
+        bottom: 5% !important;
+    }
+    .panel-body{
+        padding-bottom: 0;
+    }
+    .contents_respo{
+        padding-top: 0;
+    }
+}
+
+@media( min-height: 800px ){
+     #printAll{
+    
+    right: 52px !important;
+    top: 12.5% !important;
+}
+}
+
+@media(min-width:1100px){
+    
+    #comp_logo{
+        margin-left: 47%;
+    }
+}
 @media(min-width:1200px){
     .table_width{
         width: 125%;
@@ -14,12 +44,18 @@
 }
 
 @media(min-width:1400px){
+   
     .table_width{
         width: 150%;
         margin-left: -20%;
   }
 }
-
+@media (min-width:600px) and (max-width:650px){
+    .dropdown-menu.extended {
+    width: 350px !important;
+    left: -320px;
+    }
+}
 @media (min-width: 768px) and (max-width: 979px) {
 
     /*-----*/
@@ -60,18 +96,39 @@
     }
 }
 
+@media(max-width:600px){
+    .menu_hidden{
+        display: none !important;
+    }
+}
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
+    .modal{
+        left:0% !important;
+    }
+    
     #login-page{
         margin-left: 0px !important;
     }
     .header {
-        position: absolute;
+        /*position: absolute;*/
+        position: fixed;
     }
+
+    .fa-bars{
+        display: inline-block !important;
+        margin-top: 14px;
+        color: white;
+        /*margin-left: -20px;*/
+    } 
 
     .nav-menu-hide{
         display: none !important;
     }
+
+    /*.menu_hidden{
+        display: none ;
+    }*/
 
     .resp_disp{
         display: block !important;
@@ -81,7 +138,7 @@
     #sidebar {
         height: auto;
         overflow: hidden;
-        position: absolute;
+        position: fixed;
         width: 100%;
         z-index: 1001;
     }
@@ -95,11 +152,13 @@
 
     #sidebar > ul > li > a > span {
         line-height: 35px;
+        margin-top: 0px;
     }
 
-    #sidebar > ul > li {
+    /*#sidebar > ul > li {
         margin: 0 10px 5px 10px;
-    }
+    } 
+    */
     #sidebar > ul > li > a {
         height:35px;
         line-height:35px;
@@ -108,6 +167,7 @@
     }
     #sidebar > ul > li > a i{
         /*display: none !important;*/
+        padding-left: 3%;
     }
 
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
@@ -121,7 +181,8 @@
     }
 
     #sidebar > ul > li > a, #sidebar > ul > li > ul.sub > li {
-        width: 100%;
+           width: 100%;
+           padding: 0px;
     }
     #sidebar > ul > li > ul.sub > li > a {
         background: transparent !important ;
@@ -283,7 +344,59 @@
 
 
 @media (max-width: 480px) {
+    .down_td{
+        font-size: 11px !important;
+    }
+    .search_btn{
+       width: 30% !important;
+       
+}
+    #supreme_table{
+         padding-left: 0px !important;
+    }
+    #dist_table{
+        width: 200% !important;
+        padding-left: 0px !important;
+    }
+    .SC_btn{
+        padding-left: 5px;
+    }
+   .passchange{
+    margin-left: 0 !important;
+}
+   #allPrint{
+       margin-top: 20px !important;
+   }
+    #printAll{
+    right: 0 !important;
+    top: 24% !important;
+}
+    .comingSoon{
+    position: fixed;
+    width: 50%;
+    top: 10%;
+    left: 25% !important;
+}
+    #comp_logo{
+    display:inline-block;
+    margin-left: 37%;
+    width:38%;
+    margin-top:2%;
+   }
+    #btn_holder > button{
+    width: 90% ;
+}
 
+.goBack{
+    width: 90% !important;
+}
+
+    .passBTN{
+        display: block !important;
+    }
+    .modal-body > input{
+        margin-left: 30% !important;
+    }
     .notify-row, .search, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
         display: none;
     }
@@ -306,10 +419,34 @@
         background-color: #ccc;
         border-color:#ccc ;
     }
+    header{
+        background: #13B1E0 !important;
+    }
+    .respo{
+        font-size: 12px !important;
+         margin-left: -5px;
+         font-weight: 900;
+    }
+    
+}
 
+@media (max-width:380px){
+   .respo{
+        font-size: 10px !important;
+         margin-left: -5px;
+         font-weight: 900;
+    } 
+    .respo:first-child{
+        margin-left: -10px;
+    }
 }
 
 @media (max-width:320px) {
+    .respo{
+        font-size: 8px !important;
+         margin-left: -5px;
+         font-weight: 900;
+    } 
     .login-social-link a {
         padding: 15px 17px !important;
     }

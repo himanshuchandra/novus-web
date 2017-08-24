@@ -28,9 +28,11 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-md5/angular-md5.js',
       'bower_components/ng-country-select/dist/ng-country-select.js',
-      'bower_components/please-wait/build/please-wait.js',
       'bower_components/ng-file-upload/ng-file-upload.js',
       'bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js',
+      'bower_components/moment/moment.js',
+      'bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js',
+      'bower_components/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

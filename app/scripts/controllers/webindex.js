@@ -14,24 +14,27 @@ angular.module('novusApp')
     .controller('WebindexCtrl', function ($scope, webindex, requrl, $window, $timeout, $rootScope, $location, $route, phpurl) {
 
 
-        // $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-        //     if (webindex.loaded === true) {
-        //         if ($location.path() === '/login' || $location.path() === '/signup') {
-        //             console.log("1");
-        //             if (webindex.loggedIn === true) {
-        //                 $window.location.reload();
-        //                 $window.location.assign(requrl + '/#/dashboard');
-        //             }
-        //         }
-        //         else if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
-        //             console.log("2");
-        //             if (webindex.loggedIn != true) {
-        //                 // $window.location.reload();
-        //                 $window.location.href=phpurl;
-        //             }
-        //         }
-        //     }
-        // });
+        $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+            if (webindex.loaded === true) {
+                if ($location.path() === '/login' || $location.path() === '/signup' || $location.path() === '/forgotpassword' || $location.path() === '/') {
+                    if (webindex.loggedIn === true) {
+                        // $window.location.reload();
+                        $window.location.assign(requrl + '/#/dashboard');
+                    }
+                }
+                else if ($location.path() === '/dashboard' ||
+                    $location.path() === '/addcase' ||
+                    $location.path() === '/profile' ||
+                    $location.path() === '/calendar' ||
+                    $location.path() === '/taskmanager' ||
+                    $location.path() === '/') {
+                    if (webindex.loggedIn != true) {
+                        // $window.location.reload();
+                        $window.location.assign(requrl + '/#/login');
+                    }
+                }
+            }
+        });
 
         $scope.loginStatus = "Login/SignUp";
         $scope.ActivationStatus = true;
@@ -52,10 +55,9 @@ angular.module('novusApp')
                     // $scope.loginStatus = "";
                     webindex.loggedIn = false;
                     $scope.headerHide = true;
-                    if ($location.path() === '/dashboard' || $location.path() === '/addcase') {
-                        console.log("3");
+                    if ($location.path() === '/dashboard' || $location.path() === '/addcase' || $location.path() === '/') {
                         // $window.location.reload();
-                        $window.location.href=phpurl;
+                        $window.location.assign(requrl + '/#/login');
                     }
                 }
                 else {
@@ -92,6 +94,30 @@ angular.module('novusApp')
             }
         }, true);
 
+        ///////////notifications
+        $scope.nlength = 0;
+        $scope.updateNotif = function () {
+            // var mynotifications=[];
+            // mynotifications=webindex.notifications;
+            // $scope.notifications=mynotifications.reverse();
+            // DIGEST LOOP
+            $scope.notifications=webindex.notifications;
+            $scope.totalCases = $scope.totalCases + 1;
+            $scope.nlength++;
+        }
+
+        $scope.$watch(function () { return webindex.notifications }, function (newValue, oldValue) {
+            if (webindex.notifications.length > 0 && !angular.equals(newValue,oldValue)) {
+                $scope.updateNotif();
+            }
+        }, true);
+
+        $scope.$watch(function () { return webindex.userData }, function (newValue, oldValue) {
+            if(!angular.equals(newValue,oldValue)){
+                $scope.totalCases = webindex.userData.Scases + webindex.userData.Hcases + webindex.userData.Dcases;
+            }
+        }, true);
+
         ////////////////////////////
         $scope.sendLinkButton = false;
 
@@ -122,14 +148,7 @@ angular.module('novusApp')
             var promise = webindex.logout();
             promise.then(function (data) {
                 console.log(data);
-                $window.location.href=phpurl;
-                // if (data.data === "logout") {
-                // $window.location.reload();
-                // $window.location.assign(requrl + "/#/login");
-                // }
-                // else {
-                //     $scope.LogoutMessage = "Error,Try again Later";
-                // }
+                $window.location.href = phpurl;
             }, function (error) {
                 $scope.LogoutMessage = "Error,Try again Later";
             });
@@ -139,5 +158,9 @@ angular.module('novusApp')
             $window.location.assign(requrl + '/#/dashboard');
             $route.reload();
         };
+
+        // $scope.nclicked=function(index){
+        //     $scope.notifications[index].clicked=true;
+        // };
 
     });

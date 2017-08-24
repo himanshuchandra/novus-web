@@ -27,6 +27,7 @@ angular.module('novusApp')
         $scope.supremeFormHide = true;
         $scope.highFormHide = true;
         $scope.districtFormHide = true;
+        $scope.tribunalFormHide = true;
 
         // $scope.loadFirst = function () {
         //   if (webindex.loggedIn != true) {
@@ -109,28 +110,37 @@ angular.module('novusApp')
         };
 
         $scope.showSCField = function () {
-
             $scope.supremeFormHide = false;
             $scope.highFormHide = true;
             $scope.districtFormHide = true;
+            $scope.tribunalFormHide = true;
         };
 
         $scope.showHCField = function () {
             $scope.supremeFormHide = true;
             $scope.highFormHide = false;
             $scope.districtFormHide = true;
+            $scope.tribunalFormHide = true;
         };
 
         $scope.showDCField = function () {
             $scope.supremeFormHide = true;
             $scope.highFormHide = true;
             $scope.districtFormHide = false;
+            $scope.tribunalFormHide = true;
+        };
+
+        $scope.showTCField = function () {
+            $scope.supremeFormHide = true;
+            $scope.highFormHide = true;
+            $scope.districtFormHide = true;
+            $scope.tribunalFormHide = false;
         };
 
 
         $scope.submitSupremeForm = function (supremeForm) {
 
-            if (supremeForm.$valid) {
+            if (supremeForm.$valid && $scope.addCase.year<=new Date().getFullYear()) {
                 $scope.supremeMessage = "Searching...";
 
                 obj = {
@@ -148,6 +158,14 @@ angular.module('novusApp')
             var promise = addcase.sendSupremeData(obj);
             promise.then(function (data) {
                 if (data.data === "success") {
+                    var notif={
+                        message:"New case added",
+                        number :obj.diarynumber,
+                        year:obj.year,
+                        type:"Supreme"
+                    }
+                    webindex.notifications.push(notif);
+                    webindex.userData.Scases = webindex.userData.Scases + 1;
                     $scope.supremeMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {
@@ -167,15 +185,17 @@ angular.module('novusApp')
         };
 
         $scope.submitDistrictForm = function (districtForm) {
-            if (districtForm.$valid && $scope.addCase.Dstate != undefined && $scope.addCase.dctype != undefined && $scope.addCase.court != undefined) {
+            if (districtForm.$valid && $scope.addCase.Dstate != undefined && $scope.addCase.dctype != undefined && $scope.addCase.court != undefined && $scope.addCase.DCcaseyear<=new Date().getFullYear()) {
                 $scope.districtMessage = "Searching...";
 
                 var cindex = $scope.courtNames.indexOf($scope.addCase.court);
                 var courtId = $scope.allCourts[cindex].Court_ID;
                 var district = $scope.allCourts[cindex].District_ID;
+                var cname = $scope.allCourts[cindex].Court_Name;
 
                 var dindex = $scope.caseTypes.indexOf($scope.addCase.dctype);
                 var caseTypeId = $scope.allCaseTypes[dindex].Case_ID;
+		        var casetype = $scope.allCaseTypes[dindex].Case_Type;
 
                 obj = {
                     state: $scope.addCase.Dstate,
@@ -183,7 +203,9 @@ angular.module('novusApp')
                     type: caseTypeId,
                     number: $scope.addCase.DCnumber,
                     year: $scope.addCase.DCcaseyear,
-                    district: district
+                    district: district,
+                    court_name:cname,
+                    case_type:casetype
                 };
                 $scope.sendDistrictData(obj);
             }
@@ -198,7 +220,15 @@ angular.module('novusApp')
                 console.log("sent data", obj);
                 console.log("received data", data.data);
                 if (data.data === "success") {
-                    $scope.districtMessage = "Added successfully to dashboard";
+                    var notif={
+                        message:"Case will be added shortly",
+                        number :obj.number,
+                        year:obj.year,
+                        type:"District"
+                    }
+                    webindex.notifications.push(notif);
+                    webindex.userData.Dcases = webindex.userData.Dcases + 1;
+                    $scope.districtMessage = "The case will be added shortly.";
                 }
                 else if (data.data === "aadded") {
                     $scope.districtMessage = "Already exists";
@@ -214,7 +244,8 @@ angular.module('novusApp')
 
 
         $scope.submitHighForm = function (highForm) {
-            if (highForm.$valid && highForm.state != undefined && highForm.ctype != undefined) {
+
+            if (highForm.$valid && highForm.state != undefined && highForm.ctype != undefined && $scope.addCase.HCcaseyear<=new Date().getFullYear()) {
                 $scope.highMessage = "Searching...";
 
                 obj = {
@@ -237,6 +268,14 @@ angular.module('novusApp')
                 console.log("sent data", obj);
                 console.log("received data", data.data);
                 if (data.data === "success") {
+                    var notif={
+                        message:"New case added",
+                        number :obj.number,
+                        year:obj.year,
+                        type:"High"
+                    }
+                    webindex.notifications.push(notif);
+                    webindex.userData.Hcases = webindex.userData.Hcases + 1;
                     $scope.highMessage = "Added successfully to dashboard";
                 }
                 else if (data.data === "aadded") {

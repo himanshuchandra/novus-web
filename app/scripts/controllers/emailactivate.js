@@ -21,7 +21,7 @@ angular.module('novusApp')
         else {
           $scope.result = "Not Found";
         }
-        $window.location.reload();
+        // $window.location.reload();
         $window.location.assign(requrl);
       }
         , function (error) {

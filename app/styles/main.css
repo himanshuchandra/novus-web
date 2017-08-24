@@ -87,8 +87,8 @@ body {
 .panel.disabled .panel-body {
     position: relative;
 /*    font-size: 12px;*/
-   
-    
+
+
 }
 
 .panel-body>div{
@@ -99,11 +99,16 @@ body {
 .panel-body{
     display: flex;
     flex: 5;
-    
+
 }
 .contents{
     flex: 2
 }
+.contents:first-child, .contents:nth-child(2){
+    padding-top: 10px;
+}
+
+
 .panel.disabled .panel-body :after,
 .panel.disabled .panel-disabled {
     display:block;
@@ -144,7 +149,7 @@ body {
   margin: 0; font-size: 25px; font-weight: bold;
 }
 .nomargin{
-       
+
   margin: -2px;
 }
 
@@ -163,18 +168,27 @@ body {
 
 #comp_logo{
     display:inline-block;
-    margin-left: 45%;
+    margin-left: 44%;
+    width:20%;
+    margin-top:2%;
 }
-
+.search_btn{
+   width: 25%;
+   font-weight: 900;
+   font-size: 18px;
+}
 #comp_logo img{
     max-width:60%;
+}
+.logo img:hover{
+  filter:brightness(200%);
 }
 .nav-menu{
 /*    margin-left: 15px;*/
 }
 
 #login-page {
-        
+
         /*height: 150vh;*/
         /*margin: 0 -14px;*/
         margin-left: -234px;
@@ -197,23 +211,24 @@ body {
 
 .img_hold{
     position: relative;
-    flex: 2;
+    /*flex: 2;*/
+    flex: 1;
 }
 
 #del_img{
-    
+
     font-size: 20px;
     position: absolute;
-    right: 30%;
-    bottom: 2%;
-   
-    
+    right: 60%;
+    bottom: 10%;
+
+
 }
 
 .case_title{
     font-weight: 700;
     color: black;
-    
+
 }
 
 .table_heading{
@@ -258,11 +273,14 @@ body {
     margin-left: 25%;
 }
 
+#btn_holder > button{
+    width: 70% ;
+}
+
 .dash,.sub-menu>a>span{
     font-size: 20px !important;
-/*    font-family: 'Open Sans', sans-serif !important;*/
-    font-weight: 200;
-    font-family: 'Prociono', serif !important;
+    font-weight: 400;
+    font-family: Roboto,sans-serif !important;
 }
 
 .sub-menu>a>span{
@@ -284,7 +302,14 @@ body {
 }
 .caseNo{
     width: 30%;
-    flex: 3 !important;
+    /*flex: 3 !important;*/
+    flex: 4 !important;
+}
+.caseNo > div{
+    padding-left: 10px;
+}
+.caseNo:first-child{
+        padding-top: 10px;
 }
 @media (max-width: 850px) {
 		.nav-menu {
@@ -297,12 +322,13 @@ body {
     padding-left: 24%;
 }
 .logout_button{
-    background: white;
-    border: solid white;
-    color: black;
+    background: #13B1E0;
+    border: solid #13B1E0;
+    color: white;
     font-size: 16px;
     margin-top: -3.5px;
-    margin-left: -5px;
+    font-weight: 900;
+    margin-left: -15px;
 }
 
 .td_border{
@@ -339,19 +365,18 @@ body {
 }
 
 .down_list{
-    padding: 0xp;
+    padding: 0px !important;
 }
 
 .down_table{
     width: 100%;
 }
 .down_td{
+    border-bottom: 1px solid black;
     text-align: center;
 }
 
-.down_row{
-    /*border-bottom: 1px solid black;*/
-}
+
 
 
 /*profile*/
@@ -387,13 +412,18 @@ body {
     border-top: 0;
 }
 .toppad
-{margin-top:20px;
+{
+    margin-top:60px;
+    padding: 0;
+    width: 100%;
+    margin-left: 0px !important;
 }
 
 #signup_horizontal{
     display: grid;
-    grid-template-columns: 150px 150px !important;
-    grid-gap: 4px !important;
+    grid-template-columns: 48% 48% !important;
+    grid-gap: 14px !important;
+    grid-row-gap:12 !important;
 }
 
 @media print {
@@ -406,3 +436,38 @@ body {
     border-bottom-width: 1px;
     border-left-width: 1px;
 }
+
+.modal{
+    left:20%;
+    top:30%;
+}
+
+.comingSoon{
+    position: fixed;
+    width: 50%;
+    top: 10%;
+    left: 35%;
+}
+
+#printAll{
+    color: black;
+    font-size: 40px;
+    position: fixed;
+    right: 52px;
+    top: 14%;
+}
+
+.nclicked{
+   background: white;
+}
+
+.goBack{
+    width: 70%;
+}
+
+.toggle-on.btn-sm {
+
+    padding-left: 0px !important;
+    padding-right: 20px;
+}
+
