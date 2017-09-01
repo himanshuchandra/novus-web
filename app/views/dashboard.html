@@ -11,8 +11,20 @@
         <div ng-click="printDiv('allPrint')" style="flex:1;"><i id="printAll" class="fa fa-print" aria-hidden="true"></i></div>
     </div>
     <br>
+    <div class="container" style="width: 100%;">
+	<div class="row">
+     <div class="span12">
+            <form id="custom-search-form" class="form-search form-horizontal" style="width: 100%;">
+                <div class="input-append span12" style="width: 100%;">
+                    <input type="text" class="search-query mac-style" placeholder="Search" style="width: 100%;" ng-model="searchCase">
+                </div>
+            </form>
+        </div>
+	</div>
+</div>
+    <br>
     <div id="allPrint">
-    <div ng-repeat="case in Scases track by $index" class="cases" ng-hide="supremeCasesHide">
+    <div ng-repeat="case in Scases track by $index|filter:searchCase" class="cases" ng-hide="supremeCasesHide">
 
         <div class="panel panel-default cursor">
 
@@ -47,7 +59,7 @@
         {{supremeMessage}}
     </div>
 
-    <div ng-repeat="case in Hcases track by $index" class="cases" ng-hide="highCasesHide">
+    <div ng-repeat="case in Hcases track by $index|filter:searchCase" class="cases" ng-hide="highCasesHide">
 
         <div class="panel panel-default cursor">
 
@@ -83,7 +95,7 @@
         {{highMessage}}
     </div>
 
-    <div ng-repeat="case in Dcases track by $index" class="cases" ng-hide="districtCasesHide">
+    <div ng-repeat="case in Dcases track by $index|filter:searchCase" class="cases" ng-hide="districtCasesHide">
 
         <div class="panel panel-default cursor">
 
